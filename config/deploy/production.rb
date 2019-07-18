@@ -1,5 +1,16 @@
-server '133.130.127.205', user: 'localadm', roles: %w{app db web}, port: 10022
-set :ssh_options, keys: '~/.ssh/conoha'
+#server '133.130.127.205', user: 'localadm', roles: %w{app db web}, port: 10022
+#set :ssh_options, keys: '~/.ssh/conoha'
+server '133.130.127.205',
+   user: "localadm",
+   roles: %w{web db app},
+   ssh_options: {
+       port: 10022,
+       user: "localadm", # overrides user setting above
+       keys: [File.expand_path('~/.ssh/id_rsa')],
+       forward_agent: true
+#     auth_methods: %w(publickey password)
+#     # password: "please use keys"
+   }
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

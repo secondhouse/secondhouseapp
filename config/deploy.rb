@@ -1,4 +1,8 @@
 # config valid for current version and patch releases of Capistrano
+#追記
+
+
+
 lock "~> 3.11.0"
 
 set :application, "secondhose"
@@ -27,6 +31,11 @@ set :rbenv_ruby, '2.5.0'
 
 #出力するログのレベル。
 set :log_level, :debug
+
+#追記
+set :bundle_gemfile,  "server/Gemfile"
+set :rails_root, 'server'
+
 
 namespace :deploy do
   desc 'Restart application'
