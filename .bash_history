@@ -87,3 +87,49 @@ cd github
 ssh-keygen -t rsa
 cat id_rsa.pub
 sudo vi ~/.ssh/config
+pbcopy < ~/.ssh/id_rsa.pub
+pbcopy < ~/.ssh/github/id_rsa.pub
+cat id_rsa.pub
+ls
+ssh -T git@github.com
+vi ~/.ssh/config
+ssh -T github
+git init
+git add . && git commit -m 'first commit'
+git init
+git init
+git add . && git commit -m 'first commit'
+git config --global user.name "secondhouse"
+git config --global user.email secondhouse111@gmail.com
+git add . && git commit -m 'first commit'
+git config --global core.editor "vim -f"
+git init
+/.bundle
+git remote add origin secondhouse
+git push -u origin master
+git push -u origin secondhouse
+git remote add origin git@github.com:secondhouse/secondhouse.git
+git push -u origin secondhouse
+git remote -v
+git remote rm origin
+git remote -v
+git remote origin git@github.com:secondhouse/secondhouse.git
+git remote -v
+git remote add origin git@github.com:secondhouse/secondhouseapp.git
+git remote -v
+git push -u origin master
+git push -u origin secondhouse
+git remote -v
+git remote rm origin
+git remote -v
+git remote add origin https://github.com/secondhouse/secondhouseapp.git@github.com:secondhouse/secondhouseapp.git
+git push origin master
+git remote -v
+git remote rm origin
+git remote add origin https://github.com/secondhouse/secondhouseapp.git@github.com:secondhouse/secondhouseapp.git
+git push origin master
+git remote rm origin
+git remote add origin git@github.com:secondhouse/secondhouseapp.git
+push -u origin master
+git push -u origin master
+vi Gemfile

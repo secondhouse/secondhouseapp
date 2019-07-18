@@ -1,3 +1,5 @@
 [user]
 	name = secondhouse
 	email = secondhouse111@gmail.com
+[core]
+	editor = vim -f
