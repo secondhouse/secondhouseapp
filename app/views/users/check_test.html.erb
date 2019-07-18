@@ -1,0 +1,15 @@
+<div class="space">
+
+</div>
+
+<h1>Ajax#index</h1>
+<table>
+    <%= form_tag({controller:'users', action:'check_user'}, remote:true) do %>
+    <tr><th>name</th>
+        <td><%= text_field_tag :name  %></td></tr>
+    <tr><th></th>
+        <td><%= submit_tag "使用できるか確かめる" %></td></tr>
+    <% end %>
+</table>
+<hr>
+<table id="result"></table>

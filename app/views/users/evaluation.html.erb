@@ -1,0 +1,279 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show">
+
+    <div class="users_header">
+        <div class="users_header1">
+            <ul>
+                <%= link_to("ホーム","/users/#{@user.id}") %>
+                <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+                <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
+                <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+                <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+            </ul>
+        </div>
+    </div>
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma" id="user_icon_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<!------------------ここまで左側メニュー------------------------>
+<!-----感想-------------------------------------->
+        <div class="evaluation_content1">
+            <div class="evaluation_content">
+                <h3>評価/感想</h3>
+                <div class="space1"></div>
+
+
+                <section class="work-section2" id="work">
+                    <div class="section-header clearfix">
+                        <div class="inner">
+                            <ul class="tabs-nav2" id="tab">
+                                <li><a href="#work11">預かり依頼</a></li>
+                                <li><a href="#work12">エントリー</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section-body">
+                        <section class="tabs-panel" id="work11"><!----預かり依頼---->
+                            <% if @number == 0 %>
+                                <p class="eva_stora">まだ評価はありません</p>
+                            <% else %>
+                                <% @evaluations.each do | evaluation | %>
+              <!-----アイコン画像有無-------------------------------------->
+                                    <div class="user_containar">
+                                        <% @rater = User.find_by(id: evaluation.rater_id) %>
+                                        <% if @rater.image_name %>
+              <!-----アイコン画像有-------------------------------------->
+
+              <!-----user_containar要素1-------------------------------------->
+                                            <div class="icon_wrapp">
+                                                <%= link_to("/users/seen/#{@rater.id}") do %>
+                                                    <div class="users_icon">
+                                                        <img class="icon_img" src="<%= "/user_images/#{@rater.image_name}" %>" alt="">
+                                                    </div>
+                                                <% end %>
+                                                <p class="rater_name"><%= @rater.name %></p>
+                                                <div class="evaluation1_containar0">
+                                                    <p class="st">評価</p>
+                                                    <div class="">
+                                                        <i class="fas fa-star move_star" id="star0"></i>
+                                                        <%= evaluation.overall %>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <% else %>
+
+                                            <div class="icon_wrapp">
+                                                <div class="users_icon">
+                                                    <%= link_to("/users/seen/#{@rater.id}") do %>
+                                                        <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                                        <div class="icon_add">
+                                                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                                            <i class="fas fa-plus icon_plus2"></i>
+                                                        </div>
+                                                    <% end %>
+                                                </div>
+                                                <p class="rater_name"><%= @rater.name %></p>
+                                                <div class="evaluation1_containar0">
+                                                    <p class="st">評価</p>
+                                                    <div class="">
+                                                        <i class="fas fa-star move_star" id="star0"></i>
+                                                        <%= evaluation.overall %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+              <!-----user_containar要素2-------------------------------------->
+
+              <!-----user_containar要素3-------------------------------------->
+                                        <div class="introduction1_wrap33">
+                                            <div class="introduction11">
+                                                <div class="box33">
+                                                    <p><%= evaluation.comment %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+              <!-----user_containar終了-------------------------------------->
+                                <% end %>
+                            <% end %>
+                        </section>
+                        <section class="tabs-panel" id="work12"><!----エントリーのタブ---->
+                            <% if @number2 == 0 %>
+                                <p class="eva_stora">まだ評価はありません</p>
+                            <% else %>
+                                <% @storages.each do | storage | %>
+              <!-----アイコン画像有無-------------------------------------->
+                                    <div class="user_containar">
+                                        <% @rater = User.find_by(id: storage.rater_id) %>
+                                        <% if @rater.image_name %>
+              <!-----アイコン画像有-------------------------------------->
+
+              <!-----user_containar要素1-------------------------------------->
+                                            <div class="icon_wrapp">
+                                                <%= link_to("/users/seen/#{@rater.id}") do %>
+                                                    <div class="users_icon">
+                                                        <img class="icon_img" src="<%= "/user_images/#{@rater.image_name}" %>" alt="">
+                                                    </div>
+                                                <% end %>
+                                                <p class="rater_name"><%= @rater.name %></p>
+                                                <div class="evaluation1_containar0">
+                                                    <p class="st">評価</p>
+                                                    <div class="">
+                                                        <i class="fas fa-star move_star" id="star0"></i>
+                                                        <%= storage.overall %>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <% else %>
+
+                                            <div class="icon_wrapp">
+                                                <div class="users_icon">
+                                                    <%= link_to("/users/seen/#{@rater.id}") do %>
+                                                        <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                                        <div class="icon_add">
+                                                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                                            <i class="fas fa-plus icon_plus2"></i>
+                                                        </div>
+                                                    <% end %>
+                                                </div>
+                                                <p class="rater_name"><%= @rater.name %></p>
+                                                <div class="evaluation1_containar0">
+                                                    <p class="st">評価</p>
+                                                    <div class="">
+                                                        <i class="fas fa-star move_star" id="star0"></i>
+                                                        <%= storage.overall %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+              <!-----user_containar要素2-------------------------------------->
+
+              <!-----user_containar要素3-------------------------------------->
+                                        <div class="introduction1_wrap33">
+                                            <div class="introduction11">
+                                                <div class="box33">
+                                                    <p><%= storage.comment %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+              <!-----user_containar終了-------------------------------------->
+                                <% end %>
+                            <% end %>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

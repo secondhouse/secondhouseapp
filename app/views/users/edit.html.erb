@@ -1,0 +1,169 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show_edit">
+
+    <div class="evaluation_wrapp_edit">
+        <div class="profile_edit">
+            <div class="icon_wrapp_evaluation">
+                <% if @user.image_name.present? %>
+                    <div class="icon_wrapp_edit2">
+                        <div class="users_icon_edit2">
+                            <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                        </div>
+                    </div>
+                <% else %>
+                    <div class="users_icon_edit2">
+                        <i class="fas fa-user-circle fa-7x icon_color"></i>
+                        <div class="icon_add">
+                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                            <i class="fas fa-plus icon_plus2"></i>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <div class="evaluation_button1 color_button">
+                    <%= link_to("自分のページを見る","/users/#{@user.id}") %>
+                </div>
+            </div>
+
+            <div class="evaluation_info_edit">
+                <%= link_to("/users/talk/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>トークルーム</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <div class="evaluation_containar_edit">
+                    <p>リクエスト</p>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+                <%= link_to("/support/revenue") do %>
+                <div class="evaluation_containar_edit">
+                    <p>報酬管理・振込申請</p>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+                <% end %>
+                <%= link_to("/users/show_follow/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>フォロー/フォロワー</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <%= link_to("/support/configuration/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>設定</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <div class="evaluation_containar_edit">
+                    <%= link_to("ログアウト", "/logout", {method: :post}) %>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="evaluation_content_edit">
+            <h2>ユーザー情報</h2>
+            <div class="edit_user">
+                <%= form_tag("/users/update/#{@user.id}", {multipart: true}) do %>
+                    <div class="edit_user_contents">
+                        <div class="edit_user_contents_item">
+                            <div class="edit_title_name">
+                                <p>プロフィール画像</p>
+                            </div>
+                            <% if @user.image_name.present? %>
+                                <div class="edit_image_name">
+                                    <div class="icon_wrapp_edit">
+                                        <div class="users_icon_edit">
+                                            <img class="icon_img_edit" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class=" user_name3">
+                                        <label>
+                                            <span>
+                                                <input id="icon_image" type="file" name="image">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <div class="edit_image_name">
+                                    <div class="users_icon_edit">
+                                        <i class="fas fa-user-circle fa-7x icon_color"></i>
+                                        <div class="icon_add">
+                                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                            <i class="fas fa-plus icon_plus2"></i>
+                                        </div>
+                                    </div>
+                                    <div class=" user_name3">
+                                        <label>
+                                            <span>
+                                                <input type="file" name="image">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                        <% if @user.image_header %>
+                            <div class="edit_user_contents_item5">
+                                <div class="edit_title_name">
+                                    <p>ヘッダー画像</p>
+                                </div>
+                                <div class="header_image_status2">
+                                    <div class="icon_wrapp_edit">
+                                        <div class="users_icon_edit">
+                                            <img class="icon_img_edit" src="<%= "/images_header/#{@user.image_header}" %>" alt="">
+                                        </div>
+                                    </div>
+                                    <label>
+                                        <input id="headerImage" class="header_image" type="file" name="image_header">
+                                    </label>
+                                </div>
+                            </div>
+                        <% else %>
+                            <div class="edit_user_contents_item2">
+                                <div class="edit_title_name">
+                                    <p>ヘッダー画像</p>
+                                </div>
+                                <div class="header_image_status">
+                                    <p>設定されていません</p>
+                                    <label>
+                                        <input id="header_image" class="header_image" type="file" name="image_header">
+                                    </label>
+                                </div>
+                            </div>
+                        <% end %>
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name">
+                                <p>ユーザー名</p>
+                            </div>
+                            <div class="edit_image_name2">
+                                <input id="user_name" class="example1_edit" name= "name" type="name" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item4">
+                            <div class="edit_title_name">
+                                <p>自己紹介</p>
+                            </div>
+                            <div class="introduction_input333">
+                                <textarea id="edit_introduction" class="introduction_text_edit" maxlength="250" name="introduction" rows="8" cols="80" placeholder="あなたの自己紹介を書きましょう（250文字以内）"></textarea>
+                            </div>
+                        </div>
+                        <div id="edit_notice"></div>
+                        <div class="input_edit_containar">
+                            <input id="edit_submit" class="input_edit" type="submit" name="update" value="更新する">
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

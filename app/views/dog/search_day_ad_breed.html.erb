@@ -1,0 +1,165 @@
+<div class="space">
+
+</div>
+
+<div class="search_cover"><!--全体のdiv-->
+    <div class="space">
+    </div>
+
+    <div class="conditions00"><!-------------検索条件----------------->
+        <p class="conditions_head">検索条件</p>
+        <div class="conditions_item">
+            <% if @day_search.present? %>
+                <p>日付:</p>
+                <p><%= "#{@day.year}年#{@day.month}月#{@day.day}日" %></p>
+            <% else %>
+                <p>日付:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+        <div class="conditions_item">
+            <% if @adress.present? %>
+                <p>住所:</p>
+                <p><%= "#{@adress}" %></p>
+            <% else %>
+                <p>住所:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+        <div class="conditions_item">
+            <% if @breed.present? %>
+                <p>犬種:</p>
+                <p><%= "#{@breed}" %></p>
+            <% else %>
+                <p>犬種:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+
+    </div>
+    <div class="btn_search00">
+      <p>検索条件を変更する</p>
+    </div>    <!-------------ここまで検索条件----------------->
+    <div class="search_addres"><!----------------検索窓--------------------->
+        <div class="modal">
+            <div class="close-modal">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="login-form">
+                <%= form_tag("/dog/search") do %>
+                    <p class="boder">日付けから検索</p>
+                    <label class="date_in">
+                        <%= date_field("date", "date_on", value: @day) %>
+                    </label>
+                    <p class="boder">地域から検索</p>
+                    <div class="adoress00">
+                        <div class="add_input00">
+                            <p class="moving">郵便番号（7桁）</p>
+                            <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+                            <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                            <div class="add_move">
+                                <p class="moving">都道府県+市区町村</p>
+                            <input class="postal_adress" type="text" name="addr11" size="60">
+                        </div>
+                    </div>
+                    </div>
+                    <p class="boder">犬種から検索</p>
+                    <div class="dog_item33 dog_name2">
+                        <div class="birt222">
+                            <%= select :dog_breed, :choice, [[@breed, @breed],["指定なし", "指定なし"],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+                        </div>
+                    </div>
+                    <div class="submit00">
+                        <input id="dog_submit" type="submit" value="検索する">
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div><!----------------検索窓--------------------->
+
+    <% if @breed_adress_days.present? %>
+<!--日付と犬種と住所で検索の場合--><!---あ---->
+        <% @count = 0 %><!--1行に4個までにする変数-->
+        <% @num = 0 %><!--1行を包むdiv-->
+    <!------------requestの配列each文----------------------------------------->
+        <% @breed_adress_days.each do | breed_adress_days |
+                @request = Request.find_by(id: breed_adress_days.request_id)
+                if @request.status < 1
+                    if @num == 0
+        %>
+                        <div class="num0">
+                    <% end  %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                    end
+
+                    if @request.dog_id2.present?
+                        @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                    end
+
+                    if @request.dog_id3.present?
+                        @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                    end
+
+                    if @dog_icon_if.dog_breed == @breed
+                        @dog_icon =  @dog_icon_if.image_name
+                    end
+                    if @dog_icon_if2.dog_breed == @breed
+                        @dog_icon =  @dog_icon_if2.image_name
+                    end
+                    if @dog_icon_if3.dog_breed == @breed
+                        @dog_icon =  @dog_icon_if3.image_name
+                    end
+
+                    @dog = Dog.find_by(image_name: @dog_icon)
+                %>
+
+
+                    <div class="search_icon"><!--1つのアイコンを包むdiv-->
+                        <% if @dog.image_name %><!--アイコン画像の有無判定-->
+            <!------------アイコンあり------------------>
+                            <div class="icon_wrapp00">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="users_icon55">
+                                        <img class="icon_img55" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% else %>
+            <!------------アイコンなし------------------>
+                            <div class="icon_wrapp">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="users_icon">
+                                        <i class="fas fa-user-circle fa-7x icon_color"></i>
+                                        <div class="icon_add">
+                                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                            <i class="fas fa-plus icon_plus2"></i>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+          <!------------ここまでアイコン---------------->
+                        <div class="info_dog">
+                            <p><%= @dog.name %></p><!--名前-->
+                        </div>
+                    </div><!--ここまで1つのアイテム-->
+                    <% @num += 1 %>
+                    <% if @num == 3 %>
+                        </div>
+                        <div class="num0">
+                        <% @num = 0 %>
+                    <% end %>
+
+                    <% @count += 1 %>
+                    <% if @count == 11 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+    <% end %>
+</div>
+</div>

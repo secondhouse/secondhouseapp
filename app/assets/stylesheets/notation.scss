@@ -1,0 +1,500 @@
+.space{
+  margin-top: 64px;
+}
+
+.title{
+  margin: 40px 0px 20px 150px;
+}
+
+.background_safe{
+  background-color: #f5f5f5;
+  height: 1820px;
+  padding-top: 10px;
+}
+
+.background{
+  background-color: #f5f5f5;
+  height: 2000px;
+  padding-top: 50px;
+}
+
+.text_safe{
+  width: 1000px;
+  height: 1729px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content:center;
+
+}
+
+
+.text{
+  width: 1000px;
+  height: 2800px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content:center;
+
+}
+
+.content_safe{
+  height:1800px;
+  width: 750px;
+}
+
+
+.content{
+  height:1800px;
+  width: 750px;
+}
+.side{
+  border: solid 1px black;
+  height:800px;
+  width: 250px;
+}
+
+/*--------左側文章-------*/
+
+.logo{
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+
+.item{
+  height: 200px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.item_title{
+  height: 50px;
+  border: solid 1px #dcdcdc;
+  padding-top: 10px;
+  width: 650px;
+  background-color: #f5f5f5;
+}
+.item_content{
+  font-size: 14px;
+  padding-top: 30px;
+  color: #393939
+}
+
+
+/*利用規約関係------------*/
+.terms_background{
+  background-color: #f5f5f5;
+  height: 22400px;
+  padding-top: 50px;
+}
+
+.terms_text{
+  width: 1000px;
+  height: 22250px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.terms_item{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.terms_item{
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.terms_item1{
+  margin-bottom: 50px;
+  font-size: 14px;
+}
+.terms_item2{
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.terms_content{
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
+  justify-content:center;
+}
+.terms_content_show{
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.terms_content2{
+  margin-top: 10px;
+}
+.numner{
+  width: 20p;
+}
+
+.content_show{
+  margin-left: 50px;
+  display: flex;
+  justify-content:left;
+  margin-top: 10px;
+}
+.content_main{
+  width: 800px;
+}
+.content_number{
+  width: 20px;
+}
+.registration{
+  margin-top: 30px;
+}
+
+.registration_add{
+
+}
+
+.adjustment{
+  padding-left: 13px;
+  padding-bottom: 5px;
+}
+.adjustment2{
+  padding-left: 32px;
+}
+
+.adjustment3{
+  padding-left: 13px;
+}
+
+.five{
+  margin-top: 30px;
+  font-size: 14px;
+  padding-left: 30px;
+}
+
+.terms_content3{
+  display: flex;
+  justify-content:center;
+}
+.width{
+  width: 1000px;
+}
+
+/*-----プライバシーポリシー*/
+.privacy_background{
+  background-color: #f5f5f5;
+  height: 3500px;
+  padding-top: 50px;
+}
+
+.privacy_text{
+  width: 1000px;
+  height: 3380px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.privacy_content{
+  margin-top: 30px;
+}
+
+/*-----特定商取引法に基づく表記ー*/
+
+.commerce_background{
+  background-color: #f5f5f5;
+  height: 893px;
+  padding-top: 50px;
+}
+
+.commerce_text{
+    width: 1000px;
+    height: 758px;
+    margin: 50px auto 50px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.commerce_wrapp{
+    display: flex;
+    justify-content: center;
+    height: 171px;
+}
+.commerce_item1{
+    width: 270px;
+    border-bottom: solid 0.5px #dcdcdc;
+    border-right: solid 0.5px #dcdcdc;
+    height: 171px;
+
+}
+
+.commerce_item2{
+  width: 730px;
+  border-bottom: solid 0.5px #dcdcdc;
+  padding-left: 20px;
+}
+
+.commerce_wrapp1{
+  display: flex;
+  justify-content:center;
+  height: 80px;
+}
+
+.commerce_item3{
+  width: 270px;
+  border-bottom: solid 0.5px #dcdcdc;
+  border-right: solid 0.5px #dcdcdc;
+  height: 80px;
+  padding-top: 20px;
+
+}
+
+.commerce_item4{
+  width: 730px;
+  border-bottom: solid 0.5px #dcdcdc;
+  height: 80px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.commerce_item5{
+  width: 270px;
+  border-right: solid 0.5px #dcdcdc;
+  height: 80px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.commerce_item6{
+  width: 730px;
+  height: 80px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.down{
+  padding-top: 30px;
+}
+
+/*資金決済法に基づく表記 */
+
+
+.settlement_background{
+  background-color: #f5f5f5;
+  height: 730px;
+  padding-top: 50px;
+}
+
+.settlement_text{
+  width: 1000px;
+  height: 600px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.settlement_wrapp{
+  display: flex;
+  justify-content:center;
+  height: 40px;
+}
+.settlement_item1{
+  width: 270px;
+  border-bottom: solid 0.5px #dcdcdc;
+  border-right: solid 0.5px #dcdcdc;
+  height: 40px;
+
+}
+
+.settlement_item2{
+  width: 730px;
+  border-bottom: solid 0.5px #dcdcdc;
+  padding-left: 20px;
+}
+
+
+.settlement_wrapp1{
+  display: flex;
+  justify-content:center;
+  height: 70px;
+}
+
+.settlement_item3{
+  width: 270px;
+  border-bottom: solid 0.5px #dcdcdc;
+  border-right: solid 0.5px #dcdcdc;
+  height: 70px;
+  padding-top: 20px;
+
+}
+
+.settlement_item4{
+  width: 730px;
+  border-bottom: solid 0.5px #dcdcdc;
+  height: 70px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.change{
+  height: 120px;
+}
+.non{
+  border-bottom: none;
+}
+
+
+/*加盟店契約---------*/
+
+.member_background{
+  background-color: #f5f5f5;
+  height: 9100px;
+  padding-top: 50px;
+}
+
+.member_text{
+  width: 1000px;
+  height: 8950px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.font{
+  font-size: 14px;
+}
+
+.font_add{
+  width: 600px;
+}
+
+.content_show_add{
+  margin-left: 50px;
+  display: flex;
+  justify-content:left;
+  margin-top: 10px;
+}
+.item_header_container{
+    width: 650px;
+    height: 97px;
+    margin: 30px auto 0;
+    padding: 20px;
+    border: dotted 1px;
+}
+.pay_header_item{
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+}
+.pay_header_item p:first-child{
+    margin-right: 33px;
+}
+.pay_image{
+    margin: 40px auto 0;
+    text-align: center;
+}
+#item_hei{
+    height: 326px;
+}
+#item_hei2{
+    height: 207px;
+}
+#item_hei3{
+    height: 240px;
+}
+.credit_kind{
+    width: 650px;
+    height: 100px;
+    border: solid 1px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.credit_title{
+    font-size: 15px;
+    border-left: solid 10px #e0e0e0;
+    padding-left: 10px;
+}
+.credit_img{
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+}
+.credit_img img{
+    margin-left: 5px;
+}
+#visa{
+    width: 165px;
+    height: 27px;
+}
+#Diners{
+    width: 36px;
+    height: 31px;
+    margin-top: -2px;
+}
+#Discover{
+    width: 36px;
+    height: 29px;
+    margin-top: -2px;
+}
+.dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #000;
+    display: block;
+    margin-left: 5px;
+    /* line-height: 10px; */
+    margin: 10px 7px 0 5px;
+}
+.fee{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+#background_safe_hei{
+    height: 1682px
+}
+#text_safe_hei{
+    height: 1589px;
+}
+#safe_hei{
+    height: 1846px;
+}
+#safe_hei2{
+    height: 1740px;
+}
+#terms_hei{
+    height: 22531px;
+}
+#terms_hei2{
+    height: 22406px;
+}
+#member_hei{
+    height: 9113px;
+}
+#member_hei2{
+    height: 8975px;
+}

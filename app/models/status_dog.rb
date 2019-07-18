@@ -1,0 +1,2 @@
+class StatusDog < ApplicationRecord
+end

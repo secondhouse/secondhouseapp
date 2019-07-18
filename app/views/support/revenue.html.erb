@@ -1,0 +1,231 @@
+<div class="space"></div>
+<div class="space"></div>
+
+<div class="evaluation_show">
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<!------------------ここまで左側メニュー------------------------>
+<!-----利用履歴-------------------------------------->
+        <%= form_tag("/support/user_edit_pass") do %>
+            <div class="email_content_wrapp">
+                <div class="head_back">
+                    <h1>報酬管理・振込申請</h1>
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <p><i class="fas fa-chevron-left no_pa"></i>編集ページに戻る</p>
+                    <% end %>
+                </div>
+                <div class="sele_wrapp">
+                    <div class="sales_item_wrapp">
+                        <div class="sales_item_conteinar" id="top_sales">
+                            <div class="sales_item_balance">
+                                <p>報酬残高</p>
+                                <p class="font_ch">￥<%= @total_balance %></p>
+                                <% if @bank.present? %>
+                                    <% if @total_balance >= 1000 %>
+                                        <%= link_to("/support/transfer") do %>
+                                            <div class="evaluation_button1 color_button" id="btn_sele">
+                                                <p>振込申請をする</p>
+                                            </div>
+                                        <% end %>
+                                    <% else %>
+                                        <div class="evaluation_button1 color_button" id="btn_sele00">
+                                            <p>振込申請をする</p>
+                                        </div>
+                                    <% end %>
+
+                                <% else %>
+                                    <%= link_to("/support/configuration/#{@user.id}") do %>
+                                        <div class="evaluation_button1 color_button" id="btn_sele2">
+                                            <p>振込口座を申請する</p>
+                                        </div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                            <div class="sales_item_balance" id="application_re">
+                                <p>申請中の報酬</p>
+                                <p class="font_ch">￥<%= @waiting %></p>
+                            </div>
+                        </div>
+
+                        <div class="sales_item_conteinar">
+                            <div class="sales_item_month">
+                                <p>今月の累積報酬</p>
+                                <p>￥<%= @total_month %></p>
+                            </div>
+                            <div class="sales_item_accumulation">
+                                <p>累積報酬</p>
+                                <p>￥<%= @total %></p>
+                            </div>
+                        </div>
+                        <p>ステータスが完了になると売上に計上されます</p>
+                    </div>
+                    <div class="reward">
+                        <h3>報酬を振込</h3>
+                        <p>・貯まっている売上が1000円以上から振込申請ができます。別途、振込手数料として324円かかります。</p>
+                        <p class="content_mar">※ 3,000円以上の振込申請は、手数料が無料になります。</p>
+                        <p>・振込申請を1〜15日に行った場合は同月の月末、16〜月末の場合は翌月の15日（休日の場合は翌営業日）</p><p class="content_mar">に振り込まれます。</p>
+                        <p>売上金の振込申請をするには、会員情報と振込口座の登録が必須です。<a href="/support/bank">詳しくはこちら</a></p>
+                    </div>
+                    <div class="now_infomation">
+                        <p>会員情報</p>
+                        <% if @user_detail %>
+                            <p>登録済</p>
+                        <% else %>
+                            <p>未登録</p>
+                        <% end %>
+                        <% if @user_detail %>
+                            <p><a href="/support/user_information">編集する</a></p>
+                        <% else %>
+                            <p><a href="/support/user_information">登録する</a></p>
+                        <% end %>
+                    </div>
+                    <div class="now_infomation" id="change_now">
+                        <p>振込口座</p>
+                        <% if @bank %>
+                            <p>登録済</p>
+                        <% else %>
+                            <p>未登録</p>
+                        <% end %>
+                        <% if @bank %>
+                            <p><a href="/support/bank">編集する</a></p>
+                        <% else %>
+                            <p><a href="/support/configuration/<%= @user.id %>">登録する</a></p>
+                        <% end %>
+                    </div>
+                    <% if @bank.present? %>
+                        <% if @total_balance >= 1000 %>
+                            <%= link_to("/support/transfer") do %>
+                                <div class="evaluation_button1 color_button" id="application">
+                                    <p>振込申請をする</p>
+                                </div>
+                            <% end %>
+                        <% else %>
+                            <div class="evaluation_button1 color_button" id="application00">
+                                <p>振込申請をする</p>
+                            </div>
+                        <% end %>
+                    <% else %>
+                        <%= link_to("/support/configuration/#{@user.id}") do %>
+                            <div class="evaluation_button1 color_button" id="application2">
+                                <p>振込口座を登録する</p>
+                            </div>
+                        <% end %>
+                    <% end %>
+                    <div class="sele_fot">
+                        <p>サービス利用について</p>
+                        <p>・サービスを出品するのに初期費用、月会費等はかかりません</p>
+                        <p>・通常サービスの<a href="/notation/guide_payment">手数料についてはこちら</a></p>
+                    </div>
+
+
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

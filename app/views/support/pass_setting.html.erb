@@ -1,0 +1,14 @@
+<div class="space"></div>
+<div class="passward_re">
+    <h1>パスワードを再設定する</h1>
+    <div class="passward_re_item">
+        <p>新しいパスワードを設定してください</p>
+        <form class="" action="/support/password_reset" method="post">
+            <input type="password" name="password" minlength="6" maxlength="20" pattern="^[0-9A-Za-z]+$" value="" id="pass_reset" required>
+            <input type="hidden" name="user" value="<%= @user.id %>">
+            <div class="submit">
+                <input name="email" id="pass_re" type="submit" value="再設定する">
+            </div>
+        </form>
+    </div>
+</div>

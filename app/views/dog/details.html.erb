@@ -1,0 +1,449 @@
+<div class="space">
+</div>
+
+<h1 class="details_h1">預かり依頼詳細</h1><!------タイトル------>
+<div class="evaluation_wrapp">
+    <div class="profile">
+<!------------------アイコンの有無---------------------->
+        <% if @user.image_name %>
+            <%= link_to("/users/seen/#{@user.id}") do %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon33">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <%= link_to("/users/seen/#{@user.id}") do %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon33" id="ico_user_de">
+                        <i class="fas fa-user-circle fa-8x icon_color user" id="icon_mo "></i>
+                        <div class="icon_add">
+                            <i class="fas fa-camera fa-2x icon_camera2"id="icon_mo2"></i>
+                            <i class="fas fa-plus icon_plus2"></i>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+        <div class="evaluation_name00">
+            <%= @user.name %>
+        </div>
+        <div class="evaluation_info">
+            <h4>実績</h4>
+            <div class="evaluation_containar move_m">
+                <p>利用回数</p>
+                <p class="elacement"><%= @num %></p>
+            </div>
+            <div class="evaluation_containar">
+                <p>評価</p>
+                <div class="">
+                    <% if @user_evaluation.nan? %>
+                        <p><i class="fas fa-star move_star"></i>ー</p>
+                    <% else %>
+                        <i class="fas fa-star move_star"></i>
+                        <%= @user_evaluation %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="evaluation_containar">
+                <p>フォロワー</p>
+                <p><%= @num_follow %></p>
+            </div>
+        </div>
+
+        <div class="detaile_pro">
+            <h4 class="">認証状況</h4>
+            <div class="detaile_pro_move">
+                <p class="id_detail">本人確認</p>
+                <% if @user_detail %>
+                    <% if @user_detail.approval == 1 %>
+                        <i class="fas fa-user-circle human no_pa no_ma"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                <% else %>
+                      <i class="fas fa-user-circle human no_pa no_ma"></i>
+                      <p class="">ー</p>
+                <% end %>
+            </div>
+            <div class="detaile_pro_move">
+                <p class="id_detail">受け取り口座</p>
+                <% if @bank %>
+                    <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                    <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                <% else %>
+                    <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                    <p class="">ー</p>
+                <% end %>
+            </div>
+            <div class="detaile_pro_move">
+                <p class="id_detail">お支払い方法</p>
+                <% if @user_detail %>
+                    <% if @user_detail.pay == 1 %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                <% else %>
+                    <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                    <p>ー</p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<!------------------ここまで左側メニュー------------------------>
+    <div class="details_content1"><!-------ここから右メニュー------------>
+        <div class="time">
+            <p>待ち合わせ時間</p>
+            <p><%= @day1.year.to_s + "年" + @day1.month.to_s + "月" + @day1.day.to_s + "日" + @day1.hour.to_s + "時" + @day1.min.to_s + "分"%></p>
+        </div>
+        <div class="space1">
+        </div>
+        <div class="time2">
+            <p>お迎え時間</p>
+            <p><%= @day2.year.to_s + "年" + @day2.month.to_s + "月" + @day2.day.to_s + "日" + @day2.hour.to_s + "時" + @day2.min.to_s + "分"%></p>
+        </div>
+        <div class="space1">
+        </div>
+        <p class="dog_info22">ワンちゃん情報</p>
+
+        <div class="request_dogs3">
+            <div class="request_dog">
+                <% if @request.dog_id %>
+                    <% @dog = Dog.find_by(id: @request.dog_id) %>
+                    <div class="show_wrapp00">
+                        <div class="info_wrapp">
+                            <% if @dog.image_name %><!------------アイコンあり------------------>
+                                <div class="icon_wrapp00">
+                                    <div class="users_icon33">
+                                        <img class="icon_img" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                    </div>
+                                </div>
+                            <% else %><!------------アイコンなし------------------>
+                                <div class="icon_wrapp" id="icon_center2">
+                                    <div class="dog_icon_mydog" id="search_icon2">
+                                        <i id="dog_icon_mydog2" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                </div>
+                            <% end %>
+<!------------ドッグ詳細------------------>
+                            <div class="user_info">
+                                <div class="show_user_name00">
+                                    <%= @dog.name %>
+                                </div>
+                                <div class="edit_wrapp00">
+                                    <div class="show_user_sex">
+                                        <%= "#{@dog.sex}/年齢" %>
+                                    </div>
+                                </div>
+                                <div class="user_details_wrapp">
+
+                                    <div class="show_user_details">
+                                        <p class="detail_performance00">実績</p>
+                                        <p class="detail_move1">評価</p>
+                                        <i class="fas fa-star"></i>
+                                        <p class="detail_move">0</p>
+                                        <p class="detail_move1">利用回数</p>
+                                        <p>0</p>
+                                    </div>
+
+                                    <div class="details_info">
+                                        <div class="show_user_details">
+                                            <p class="detail_performance">ワンちゃん基本情報</p>
+                                        </div>
+
+                                        <div class="show_user_details">
+                                            <p class="detail_move111">・犬種：</p>
+                                            <p class="detail_move"><%= @dog.dog_breed %></p>
+                                            <p class="detail_move1">・体重：</p>
+                                            <p class="detail_move1"><%= @dog.weight %></p>
+                                        </div>
+                                    </div>
+                                    <div class="show_user_details001">
+                                        <p class="">・去勢/避妊手術：</p>
+                                        <p class="detail_move"><%= @dog.castration %></p>
+                                        <p class="">・狂犬病ワクチン：</p>
+                                        <p><%= @dog.rabies %></p>
+                                    </div>
+
+                                    <div class="details_info">
+                                        <div class="show_user_details">
+                                            <p class="detail_performance">性格</p>
+                                        </div>
+                                        <div class="show_user_details111">
+                                            <p><%= @dog.character %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% @info = Information.find_by(dog_id: @dog.id) %>
+                        <% if @info %>
+                            <div id="introduction_mydog000">
+                                <%= @info.introduction %>
+                            </div>
+                        <% else %>
+
+                            <div id="introduction_mydog000">
+                                <p>紹介文はまだありません</p>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %><!---------ここまで頭数確認---------------------------->
+            </div><!-----------ここまで1頭の情報横並び-------------->
+            <% if @request.dog_id2 %><!---------頭数確認(2)---------------------------->
+                <% @dog = Dog.find_by(id: @request.dog_id2) %>
+                <div class="show_wrapp00">
+                    <div class="info_wrapp">
+                        <% if @dog.image_name %><!------------アイコンあり------------------>
+                            <div class="icon_wrapp00">
+                                <div class="users_icon33">
+                                    <img class="icon_img" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                </div>
+                            </div>
+                        <% else %><!------------アイコンなし------------------>
+                            <div class="icon_wrapp" id="icon_center2">
+                                <div class="dog_icon_mydog" id="search_icon2">
+                                    <i id="dog_icon_mydog2" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            </div>
+                        <% end %><!------------ドッグ詳細------------------>
+                        <div class="user_info">
+                            <div class="show_user_name00">
+                                <%= @dog.name %>
+                            </div>
+                            <div class="edit_wrapp00">
+                                <div class="show_user_sex">
+                                    <%= "#{@dog.sex}/年齢" %>
+                                </div>
+                            </div>
+                            <div class="user_details_wrapp">
+                                <div class="show_user_details">
+                                    <p class="detail_performance00">実績</p>
+                                    <p class="detail_move1">評価</p>
+                                    <i class="fas fa-star"></i>
+                                    <p class="detail_move">0</p>
+                                    <p class="detail_move1">利用回数</p>
+                                    <p>0</p>
+                                </div>
+                                <div class="details_info">
+                                    <div class="show_user_details">
+                                        <p class="detail_performance">ワンちゃん基本情報</p>
+                                    </div>
+                                    <div class="show_user_details">
+                                        <p class="detail_move111">・犬種：</p>
+                                        <p class="detail_move"><%= @dog.dog_breed %></p>
+                                        <p class="detail_move1">・体重：</p>
+                                        <p class="detail_move1"><%= @dog.weight %></p>
+                                    </div>
+                                </div>
+                                <div class="show_user_details001">
+                                    <p class="">・去勢/避妊手術：</p>
+                                    <p class="detail_move"><%= @dog.castration %></p>
+                                    <p class="">・狂犬病ワクチン：</p>
+                                    <p><%= @dog.rabies %></p>
+                                </div>
+                                <div class="details_info">
+                                    <div class="show_user_details">
+                                        <p class="detail_performance">性格</p>
+                                    </div>
+                                    <div class="show_user_details111">
+                                        <p><%= @dog.character %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% @info = Information.find_by(dog_id: @dog.id) %>
+                    <% if @info %>
+                        <div id="introduction_mydog000">
+                            <%= @info.introduction %>
+                        </div>
+                    <% else %>
+                        <div id="introduction_mydog000">
+                            <p>紹介文はまだありません</p>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+            <% if @request.dog_id3 %><!---------頭数確認(3)---------------------------->
+            <% @dog = Dog.find_by(id: @request.dog_id3) %>
+            <div class="show_wrapp00">
+                <div class="info_wrapp">
+                    <% if @dog.image_name %><!------------アイコンあり------------------>
+                        <div class="icon_wrapp00">
+                            <div class="users_icon33">
+                                <img class="icon_img" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                            </div>
+                        </div>
+                    <% else %>
+<!------------アイコンなし------------------>
+                        <div class="icon_wrapp" id="icon_center2">
+                            <div class="dog_icon_mydog" id="search_icon2">
+                                <i id="dog_icon_mydog2" class="fas fa-dog fa-5x fa-dog11"></i>
+                            </div>
+                        </div>
+                    <% end %>
+<!------------ドッグ詳細------------------>
+                    <div class="user_info">
+                        <div class="show_user_name00">
+                            <%= @dog.name %>
+                        </div>
+
+                        <div class="edit_wrapp00">
+                            <div class="show_user_sex">
+                                <%= "#{@dog.sex}/年齢" %>
+                            </div>
+                        </div>
+                        <div class="user_details_wrapp">
+                            <div class="show_user_details">
+                                <p class="detail_performance00">実績</p>
+                                <p class="detail_move1">評価</p>
+                                <i class="fas fa-star"></i>
+                                <p class="detail_move">0</p>
+                                <p class="detail_move1">利用回数</p>
+                                <p>0</p>
+                            </div>
+                            <div class="details_info">
+                                <div class="show_user_details">
+                                    <p class="detail_performance">ワンちゃん基本情報</p>
+                                </div>
+                                <div class="show_user_details">
+                                    <p class="detail_move111">・犬種：</p>
+                                    <p class="detail_move"><%= @dog.dog_breed %></p>
+                                    <p class="detail_move1">・体重：</p>
+                                    <p class="detail_move1"><%= @dog.weight %></p>
+                                </div>
+                            </div>
+                            <div class="show_user_details001">
+                                <p class="">・去勢/避妊手術：</p>
+                                <p class="detail_move"><%= @dog.castration %></p>
+                                <p class="">・狂犬病ワクチン：</p>
+                                <p><%= @dog.rabies %></p>
+                            </div>
+                            <div class="details_info">
+                                <div class="show_user_details">
+                                    <p class="detail_performance">性格</p>
+                                </div>
+                                <div class="show_user_details111">
+                                    <p><%= @dog.character %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% @info = Information.find_by(dog_id: @dog.id) %>
+                    <% if @info %>
+                        <div id="introduction_mydog000">
+                            <%= @info.introduction %>
+                        </div>
+                    <% else %>
+                        <div id="introduction_mydog000">
+                            <p>紹介文はまだありません</p>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    <!------------依頼内容------------------>
+        <div class="space1"></div>
+
+        <div class="time">
+            <p>待ち合わせ場所</p>
+            <p><%= @request.adress %></p>
+        </div>
+        <div class="space1"></div>
+
+        <div class="time">
+            <p>預かってもらう方にして欲しいこと</p>
+        </div>
+        <div class="request_ok">
+            <p>散歩/1日</p>
+            <p><%= @request.walk %></p>
+        </div>
+        <div class="request_ok">
+            <p>散歩時間/1回あたり</p>
+            <p><%= @request.walk_time %></p>
+        </div>
+        <div class="request_ok">
+            <p>エサ/1日あたり</p>
+            <p><%= @request.bait %></p>
+        </div>
+        <div class="request_ok">
+            <p>おやつ</p>
+            <p><%= @request.snack %></p>
+        </div>
+        <div class="request_ok">
+            <p>トイレシートの交換/1日</p>
+            <p><%= @request.toilet %></p>
+        </div>
+        <div class="remarks000">
+            <p>備考</p>
+        </div>
+        <div class="comment_ng000">
+            <div class="introduction110">
+                <div class="box110">
+                    <% if @request.comment_ok.empty? %>
+                        <p>備考は特にありません</p>
+                    <% else %>
+                        <p><%= @request.comment_ok %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="space1"></div>
+
+        <div class="time"><!-------預かってもらう方にして欲しくないこと------------>
+            <p>預かってもらう方にして欲しいこと</p>
+        </div>
+        <div class="request_ok">
+            <p>ワンちゃんの留守番時間</p>
+            <p><%= @request.caretaker %></p>
+        </div>
+        <div class="request_ok">
+            <p>小さいお子さんがいる家庭</p>
+            <p><%= @request.child %></p>
+        </div>
+        <div class="request_ok">
+            <p>先住犬がいる方</p>
+            <p><%= @request.native %></p>
+        </div>
+        <div class="request_ok">
+            <p>他の動物を飼っている方</p>
+            <p><%= @request.animal %></p>
+        </div>
+        <div class="remarks000">
+            <p>備考</p>
+        </div>
+        <div class="comment_ng000">
+            <div class="introduction110">
+                <div class="box110">
+                    <% if @request.comment_ng.empty? %>
+                        <p>備考は特にありません</p>
+                    <% else %>
+                        <p><%= @request.comment_ng %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% if !@entry.present? && @request.status < 1 && @request.user_id != @current_user.id %>
+            <div class="bottom_entry">
+                <%= link_to("/dog/entry/#{@request.id}") do %>
+                    <div class="entry_button">
+                        <p>エントリーする</p>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="space"></div>
+        <% end %>
+    </div><!-----------ここまで右メニュー囲う-------------->
+</div>

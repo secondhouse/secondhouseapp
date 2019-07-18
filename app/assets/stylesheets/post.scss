@@ -1,0 +1,273 @@
+/*ワンちゃんを預ける*/
+.background_post {
+  background-color: #F5F5F5;
+  margin-top: 20px;
+  height: 2550px;
+}
+
+
+
+
+.post_container{
+  width: 1100px;
+  margin: 10px auto 0;
+  height: 50px;
+  background-color: #fff;
+}
+
+.post_container h2{
+  padding-top: 10px;
+}
+
+.post_container11{
+  width: 1100px;
+  margin: 0px auto 0;
+  height: 20px;
+  background-color: #fff;
+}
+
+.post_container11 h2{
+  text-align: center;
+  color: #3ecdc6;
+}
+
+
+.post_item h3{
+  padding-top: 20px;
+  color: #3ecdc6;
+}
+
+.post_item_time{
+  width: 1000px;
+  margin: 10px auto 50px;
+  height: 230px;
+  background-color: #fff;
+}
+
+.dog{
+  color: #3ecdc6;
+  margin-left: -30px;
+}
+
+
+
+.post_item_time h3{
+  padding-top: 20px;
+  color: #3ecdc6;
+
+}
+
+.post_item{
+  width: 1000px;
+  margin: 10px auto 0px;
+  height: 280px;
+  background-color: #fff;
+}
+
+
+
+.item_head{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-bottom: dotted 0.5px gray;
+}
+
+.calendar{
+  color: #3ecdc6;
+  margin-top: 22px;
+  margin-right: 10px;
+  margin-left: -20px;
+}
+
+
+
+
+
+
+
+
+
+.dog_pro{
+  width: 250px;
+  height: 250px;
+  text-align: center;
+}
+
+.dog_choice{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.dog_img{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 0;
+}
+
+.move_item{
+  margin-top: 50px;
+}
+
+.move_item1{
+  margin-top: 70px;
+}
+
+
+
+.adoress{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.adoress1{
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+.adoress input.postal_code{
+  width: 500px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.adoress input.postal_adress{
+  width: 500px;
+  height: 50px;
+  font-size: 20px;
+}
+.adoress input.postal_code:focus{
+  outline: 0;
+  border: 2px solid #3ecdc6;
+}
+
+.adoress input.postal_adress:focus{
+  outline: 0;
+  border: 2px solid #3ecdc6;
+}
+.add_input{
+  width: 1000px;
+  margin: 20px auto 0;
+}
+
+.add_move{
+  margin-top: 20px;
+}
+
+.ok_item_containar{
+  width: 750px;
+  height: 400px;
+  margin: 0 auto 0;
+
+
+}
+ .ok_item{
+   margin-top: 20px;
+   display: flex;
+   justify-content:left;
+ }
+
+ .ok_name5{
+   padding-top: 10px;
+   color:  #808080;
+   width: 50px;
+ }
+
+ .ok_name{
+   padding-top: 15px;
+   color:  #808080;
+   width: 220px;
+   margin-left: 50px;
+ }
+
+ .ok_move{
+   margin-top: 15px;
+   border-left: solid 0.5px;
+   padding-left: 30px;
+ }
+ .ok_move55{
+   width: 500px;
+   margin-top: 15px;
+   border-left: solid 0.5px;
+   padding-left: 30px;
+ }
+ .ok_move001{
+   margin-top: 15px;
+   border-left: solid 0.5px;
+   padding-left: 30px;
+   margin-left: 0px;
+ }
+
+ .ok_move00{
+   margin-top: 15px;
+   border-left: solid 0.5px;
+   padding-left: 30px;
+ }
+
+
+
+ .post_item1{
+   width: 1000px;
+   margin: 10px auto 0;
+   height: 711px;
+   background-color: #fff;
+ }
+
+ .post_item1 h3{
+   padding-top: 20px;
+   color: #3ecdc6;
+   border-bottom: dotted 0.5px gray;
+ }
+
+.ch_item{
+  margin-left: 27px;
+}
+
+.ch_item1{
+  margin-left: 7px;
+}
+
+.ok_text{
+  margin-top: 70px;
+}
+
+
+
+.ok_remarks{
+  padding-top: 15px;
+  color:  #808080;
+  width: 120px;
+  margin-left: 100px;
+
+}
+
+.ok_move1{
+  margin-top: 15px;
+  border-left: solid 0.5px;
+  padding-left: 30px;
+  margin-left: 50px;
+}
+
+.ng_item_containar{
+  width: 770px;
+  height: 400px;
+  margin: 0 auto 0;
+}
+
+.post_item2{
+  width: 1000px;
+  margin: 10px auto 0;
+  height: 637px;
+  background-color: #fff;
+}
+
+.post_item2 h3{
+  padding-top: 20px;
+  color: #3ecdc6;
+}
+
+.space1{
+  height: 20px;
+}

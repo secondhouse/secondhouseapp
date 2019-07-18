@@ -1,0 +1,5 @@
+class AddDogChoiceToRequest < ActiveRecord::Migration[5.2]
+  def change
+    add_column :requests, :dog_choice, :string
+  end
+end

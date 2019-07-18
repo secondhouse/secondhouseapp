@@ -1,0 +1,377 @@
+<div class="space">
+</div>
+<div id="pay_modal_wrapp" class="pay_modal_wrapp">
+
+</div>
+
+
+<% if @user_detail %>
+    <% if @user_detail.pay == 1 %>
+        <!---支払いの処理-->
+        <div id="pay_modal" class="pay_modal ">
+            <p>評価が3.5以上のユーザーに依頼する場合は1頭あたり1日1980円料金が必要です</p>
+            <div class="pay_item_wrapp">
+                <div class="pay_item">
+                    <p>お預かり日数</p>
+                    <p><%= @use_day %>日間</p>
+                </div>
+                <div class="pay_item">
+                    <p>お預かり頭数</p>
+                    <p><%= @dog_num %>頭</p>
+                </div>
+                <div class="pay_item">
+                    <p>合計金額</p>
+                    <p><%= @price %>円</p>
+                </div>
+            </div>
+
+            <div class="footer_btn">
+                <form method="POST" action="/dog/choice_user/<%= @request.id %>" id="charge-form">
+                    <div class="pay_btn">
+                        <input id="pay_btn_val" type="hidden" name="choiceUser" value="">
+                        <input type="hidden" name="price" value="<%= @price %>">
+                        <input id="payment" type="submit" name="payment" value="支払いをする">
+                    </div>
+                </form>
+                <button id="footer_btn" type="button" name="button">戻る</button>
+            </div>
+        </div>
+    <% else %>
+        <div id="pay_modal" class="pay_modal  change_hei">
+            <p>評価が3.5以上のユーザーに依頼する場合は1頭あたり1日1980円料金が必要です</p>
+            <p class="pay_method"><a href="/support/cc">お支払い方法の登録はこちら</a></p>
+            <div class="footer_btn" id="footer_btn_ch">
+                <button id="footer_btn" type="button" name="button">戻る</button>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <div id="pay_modal" class="pay_modal  change_hei">
+        <p>評価が3.5以上のユーザーに依頼する場合は1頭あたり1日1980円料金が必要です</p>
+        <p class="pay_method"><a href="/support/user_information">お支払い方法の登録はこちら</a></p>
+        <div class="footer_btn" id="footer_btn_ch">
+            <button id="footer_btn" type="button" name="button">戻る</button>
+        </div>
+    </div>
+<% end %>
+
+
+
+<% @day = @request.waiting %>
+<% @day00 = @request.end %>
+<% if @request.status === 0 %>
+    <div id="management_containar" class="management_containar">
+        <h1><%= @day.year %>年<%= @day.month %>月<%= @day.day %>日の預かり依頼</h1>
+        <div class="management">
+            <p><i class="fas fa-map-marker-alt"></i>エントリーしているユーザー</p>
+            <!--
+            <%= form_tag("/dog/choice_user/#{@request.id}") do %>
+            -->
+            <form method="POST" action="/dog/choice_user/<%= @request.id %>" id="charge-form" onsubmit="return pre()">
+                <div class="entry_user">
+                    <% @entries.each do | entry |
+                        @entry_user = User.find_by(id: entry.entry_id)
+
+                        @date = Date.today
+                        @birthday = Date.parse(@entry_user.birthday1)
+
+                        @year = @date.year -  @birthday.year
+                        @month = @date.month - @birthday.month
+                        @day = @date.day - @birthday.day
+
+                        if @month >= 0
+                        else
+                            @month = @month + 12
+                            @year -= 1
+                        end
+
+                        if @day >= 0
+                        else
+                        	@month = @month - 1
+                        end
+                         %><!---年齢計算----->
+                         <%
+                         @evaluations = Evaluation.where(user_id: @entry_user.id)
+                         @number = @evaluations.count
+                         @storages = Storage.where(user_id: @entry_user.id)
+                         @number2 = @storages.count
+                         @user_evaluation = 0
+
+                         if @number == 0
+                         else
+                           @user_evaluation = 0
+                           @evaluations.each do | evaluation |
+                             @user_evaluation += evaluation.overall
+                           end
+                         end
+
+                         if @number2 == 0
+                         else
+                           @user_storage = 0
+                           @storages.each do | storage |
+                             @user_storage += storage.overall
+                           end
+                         end
+                         if @number != 0 || @number2 != 0
+                         @user_evaluation = ((@user_storage.to_f + @user_evaluation.to_f) / (@number + @number2)).round(1)
+                         end
+
+
+
+                          %><!---評価計算----->
+                        <div class="entry_user_item">
+                            <%= link_to("/users/seen/#{@entry_user.id}") do %>
+                                <% if @entry_user.image_name %>
+                                    <div class="entry_icon">
+                                        <div class="users_icon33">
+                                            <img class="icon_img" id="entry_pic2" src="<%= "/user_images/#{@entry_user.image_name}" %>" alt="">
+                                        </div>
+                                    </div>
+                                <% else %>
+                                    <div class="entry_icon">
+                                        <div class="users_icon33">
+                                            <i class="fas fa-user-circle fa-8x icon_color" id="entry_pic"></i>
+                                            <div class="icon_add">
+                                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                                <i class="fas fa-plus icon_plus2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                            <p class="entry_name"><%= @entry_user.name %></p>
+                            <p><%= @entry_user.sex %>/<%= @year %>歳</p>
+
+                            <% if @user_evaluation != 0 %>
+                                <p><i class="fas fa-star move_star"></i><%= @user_evaluation %></p>
+                            <% else %>
+                                <p><i class="fas fa-star move_star"></i>ー</p>
+                            <% end %>
+                            <label id="user_decide">
+                                <!---
+                                <%= radio_button('entry_choice', 'choice',  @entry_user.id, class: "option-input radio") %>
+                                --->
+                                <input data-option="<%= @user_evaluation %>" class="option-input radio" type="radio" value="<%= @entry_user.id %>" name="entry_choice" id="entry_choice_choice_#{@entry_user}"></input>
+                            </label>
+                        </div>
+                        <% @num += 1 %>
+                        <% @count += 1 %>
+                        <% if @num == 4 %><!-----1行に4個までのif------>
+                            </div>
+                            <div class="entry_user">
+                            <% @num = 0 %>
+                        <% end %><!-----ここまで1行に4個までのif------>
+                        <% if @count == 8  %>
+                            <% break %>
+                        <% end %>
+                    <% end %>
+                </div>
+                <div class="choice_entry">
+                    <p id="pay_note"></p>
+                    <input id="entry_submit" type="submit" value="依頼する">
+                </div>
+            </form>
+            <!---
+            <% end %>
+            --->
+        </div>
+    </div>
+<% else %>
+    <div class="status1">
+        <h1><i class="fas fa-map-marker-alt"></i><%= @day.year %>年<%= @day.month %>月<%= @day.day %>日の預かり依頼</h1>
+
+        <div class="container_cul">
+            <div class="left_cul">
+                <p><i class="fas fa-map-marker-alt"></i>依頼したユーザー</p>
+                <% if @choiced_user.image_name %>
+                      <div id="icon_choi" class="users_icon">
+                        <img id="icon_choice" class="icon_img" src="<%= "/user_images/#{@choiced_user.image_name}" %>" alt="">
+                      </div>
+                <% else %>
+                    <div id="icon_choi" class="users_icon">
+                        <%= link_to("/users/seen/#{@choiced_user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color" id="ch_user_icon"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+                  <div class="choiced_user1">
+                      <p><%= @choiced_user.name %></p>
+                      <p><%= @choiced_user.sex %>/<%= @year1 %>歳</p>
+                  </div>
+                  <%= link_to("/users/seen/direct_message/#{@choiced_user.id}") do %>
+                      <div class="support_button edit_button" id="choice_btn">
+                          <p>メッセージを送る</p>
+                      </div>
+                  <% end %>
+                  <div class="btn_manage">
+                    <% if  @request.status == 1  %>
+                        <%= link_to("/users/storage/#{@request.id}") do %>
+                            <div class="evaluation_button1">
+                                <p>完了する</p>
+                            </div>
+                        <% end %>
+                    <% elsif @request.status == 2 %>
+                        <%= link_to("/users/storage/#{@request.id}") do %>
+                            <div class="evaluation_button1">
+                                <p>評価する</p>
+                            </div>
+                        <% end %>
+                    <% else %>
+                        <div id="eva_fin">
+                            <p>評価済み</p>
+                        </div>
+                    <% end %>
+
+                  </div>
+
+
+            </div>
+            <div class="rightcul_container">
+                <div class="right_cul">
+                    <h2 class="item_re"><i class="fas fa-check-square dog"></i>リクエスト内容</h2>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>ステータス</p>
+                        <p>完了待ち</p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>待ち合わせ時間</p>
+                        <p><%= @day.year %>年<%= @day.month %>月<%= @day.day %>日<%= @day.hour %>時<%= @day.min %>分</p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>お迎え時間</p>
+                        <p><%= @day00.year %>年<%= @day00.month %>月<%= @day00.day %>日<%= @day00.hour %>時<%= @day00.min %>分</p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>預けるワンちゃん</p>
+                        <p>
+                            <% if @dog1 %>
+                                <% if @dog1.sex == "男の子" %>
+                                    <%=@dog1.name %>くん
+                                <% else %>
+                                    <%=@dog1.name %>ちゃん
+                                <% end %>
+                            <% end %>
+                            <% if @dog2 %>
+                                <% if @dog2.sex == "男の子" %>
+                                    ,<%=@dog2.name %>くん
+                                <% else %>
+                                    ,<%=@dog2.name %>ちゃん
+                                <% end %>
+                            <% end %>
+                            <% if @dog3 %>
+                                <% if @dog3.sex == "男の子" %>
+                                    ,<%=@dog3.name %>くん
+                                <% else %>
+                                    ,<%=@dog3.name %>ちゃん
+                                <% end %>
+                            <% end %>
+                        </p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>待ち合わせ場所</p>
+                        <p><%= @request.adress %></p>
+                    </div>
+                    <h2 class="item_re"><i class="fas fa-check-square dog"></i>預かってもらう方にして欲しいこと</h2>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>散歩/1日</p>
+                        <p><%= @request.walk %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>散歩時間/1回あたり</p>
+                        <p><%= @request.walk_time %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>エサ/1日あたり</p>
+                        <p><%= @request.bait %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>おやつ</p>
+                        <p><%= @request.snack %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>トイレシートの交換/1日</p>
+                        <p><%= @request.toilet %></p>
+                    </div>
+                    <% if  @request.comment_ok.present? %>
+                        <div class="request_content">
+                            <p id="manage_com"><i class="fas fa-check-circle"></i>備考</p>
+                            <div class="comment_item">
+                                <%= @request.comment_ok  %>
+                            </div>
+                        </div>
+                    <% end %>
+                    <h2 class="item_re"><i class="fas fa-exclamation-triangle dog"></i>預かってもらう方にして欲しくないこと</h2>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>ワンちゃんの留守番時間</p>
+                        <p><%= @request.caretaker %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>小さいお子さんがいる家庭</p>
+                        <p><%= @request.child %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>先住犬がいる方</p>
+                        <p><%= @request.native %></p>
+                    </div>
+                    <div class="request_content">
+                        <p><i class="fas fa-check-circle"></i>他の動物を飼っている方</p>
+                        <p><%= @request.animal %></p>
+                    </div>
+                    <% if  @request.comment_ng.present? %>
+                        <div class="request_content">
+                            <p id="manage_com"><i class="fas fa-check-circle"></i>備考</p>
+                            <div class="comment_item">
+                                <%= @request.comment_ng  %>
+                            </div>
+                        </div>
+                    <% end %>
+                    <div class="space"></div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<% end %>
+<script type="text/javascript">
+    var $choice = $('#management_containar').find('input[type="radio"]'),
+        evaluation = '',
+        user_ch = '';
+
+    $choice.on('click', function(){
+        evaluation = $(this).attr('data-option');
+        user_ch = $(this).val();
+        $('#pay_btn_val').val(user_ch);
+        if (evaluation >= 3.8){
+            $('#pay_modal_wrapp').fadeIn();
+            $('#pay_modal').fadeIn();
+        }else{
+            $('#pay_note').hide();
+        }
+    });
+
+    $('#pay_modal_wrapp,#footer_btn').on('click', function(){
+        $('#pay_modal_wrapp,#pay_modal').hide();
+    });
+
+    function pre() {
+        if (evaluation >= 3.8){
+            $('#pay_note').text('※お支払いの手続きをお願いします').css('color', 'red');
+            return false;
+        }else{
+            return true;
+        }
+    };
+
+
+
+
+
+
+
+</script>
