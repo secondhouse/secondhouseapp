@@ -1,12 +1,13 @@
 # config valid for current version and patch releases of Capistrano
 #追記
-
+server '133.130.127.205', port: 10022, roles: [:app, :web, :db], primary:true
 
 
 lock "~> 3.11.0"
 
 set :application, "secondhose"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :user, 'secondhouse'
+#set :repo_url, "git@example.com:me/my_repo.git"
 
 # cloneするgitのレポジトリ
 set :repo_url, 'git@github.com:secondhouse/secondhouseapp.git'
@@ -35,6 +36,11 @@ set :log_level, :debug
 #追記
 set :bundle_gemfile,  "server/Gemfile"
 set :rails_root, 'server'
+set :ssh_options, {
+  forward_agent: true,
+  user: fetch(:user),
+  keys: %w(~/.ssh/id_git_rsa)
+}
 
 
 namespace :deploy do
