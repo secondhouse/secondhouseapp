@@ -8,16 +8,24 @@
 #require 'capistrano/rails/migrations'
 #require "capistrano/scm/git"
 #ここまで
-require "capistrano/scm/git"
 require 'capistrano/setup'
 require 'capistrano/deploy'
-require 'capistrano/rails'
+require 'capistrano/rbenv'
+set :rbenv_type, :secondhouse
+set :rbenv_ruby, '2.5.0'
+require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }
+require 'capistrano3/ridgepole'
+require 'capistrano3/unicorn'
+require "capistrano/scm/git"
+require 'capistrano/rails'
+
+
+
 install_plugin Capistrano::SCM::Git
+Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }
+
 
 # Load DSL and set up stages
 #require "capistrano/setup"

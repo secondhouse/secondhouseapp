@@ -2,23 +2,29 @@
 #追記
 #require "bundler/capistrano"
 #require "bundler/capistrano"
-set :format_options, truncate: false
+
 #set :bundle_flags, "--quiet --binstubs --shebang ruby-local-exec"
 #set :bundle_gemfile, "secondhouse/Gemfile"
 #set :ssh_options, :port =&amp;gt; "10022"
 lock "~> 3.11.0"
 
+
 set :application, "secondhose"
-set :repo_url, "git@example.com:me/my_repo.git"
+#set :repo_url, "git@example.com:me/my_repo.git"
 
 # cloneするgitのレポジトリ
 set :repo_url, 'git@github.com:secondhouse/secondhouseapp.git'
 
-# deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, 'master'
-
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/secondhouse'
+set :format, :pretty
+set :log_level, :debug
+set :pty, true
+
+# deployするブランチ。デフォルトはmasterなのでなくても可。
+set :branch, 'master'
+set :format_options, truncate: false
+
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
