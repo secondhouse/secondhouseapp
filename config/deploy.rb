@@ -3,7 +3,7 @@
 #require "bundler/capistrano"
 #require "bundler/capistrano"
 set :format_options, truncate: false
-
+set :bundle_flags, "--quiet --binstubs --shebang ruby-local-exec"
 #set :bundle_gemfile, "secondhouse/Gemfile"
 #set :ssh_options, :port =&amp;gt; "10022"
 lock "~> 3.11.0"
