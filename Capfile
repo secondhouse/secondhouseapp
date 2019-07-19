@@ -28,7 +28,7 @@ set :rbenv_ruby, '2.5.0'
 
 
 install_plugin Capistrano::SCM::Git
-Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 
 # Load DSL and set up stages
