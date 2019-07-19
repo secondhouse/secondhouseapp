@@ -58,7 +58,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   # 追加
-  #gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :development do
