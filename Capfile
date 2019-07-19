@@ -1,25 +1,29 @@
 #require "bundler/capistrano"
+
+require 'capistrano/setup'
+require 'capistrano/deploy'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+require "capistrano/scm/git"
+set :rbenv_type, :secondhouse
+set :rbenv_ruby, '2.5.0'
+
 #使ってたやつ
 #require 'capistrano/setup'
 #require 'capistrano/deploy'
 #require 'capistrano/rbenv'
+#set :rbenv_type, :secondhouse
+#set :rbenv_ruby, '2.5.0'
 #require 'capistrano/bundler'
 #require 'capistrano/rails/assets'
 #require 'capistrano/rails/migrations'
+#require 'capistrano3/ridgepole'
+#require 'capistrano3/unicorn'
 #require "capistrano/scm/git"
+#require 'capistrano/rails'
 #ここまで
-require 'capistrano/setup'
-require 'capistrano/deploy'
-require 'capistrano/rbenv'
-set :rbenv_type, :secondhouse
-set :rbenv_ruby, '2.5.0'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano3/ridgepole'
-require 'capistrano3/unicorn'
-require "capistrano/scm/git"
-require 'capistrano/rails'
 
 
 
