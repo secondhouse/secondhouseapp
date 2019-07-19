@@ -17,9 +17,9 @@ set :repo_url, 'git@github.com:secondhouse/secondhouseapp.git'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/secondhouse'
-set :format, :pretty
-set :log_level, :debug
-set :pty, true
+#set :format, :pretty
+#set :log_level, :debug
+#set :pty, true
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, 'master'
