@@ -4,7 +4,7 @@
 #require "bundler/capistrano"
 set :format_options, truncate: false
 #set :bundle_gemfile, "secondhouse/Gemfile"
-
+set :ssh_options, :port =&amp;gt; "10022"
 lock "~> 3.11.0"
 
 set :application, "secondhose"
