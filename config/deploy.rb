@@ -1,7 +1,9 @@
 # config valid for current version and patch releases of Capistrano
 #追記
 #require "bundler/capistrano"
+#require "bundler/capistrano"
 set :format_options, truncate: false
+#set :bundle_gemfile, "secondhouse/Gemfile"
 
 lock "~> 3.11.0"
 
