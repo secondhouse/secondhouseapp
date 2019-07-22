@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/var/www/secondhouse/repo'
+let g:netrw_dirhist_2='/var/www/secondhouse/releases/20190719011155'
+let g:netrw_dirhist_3='/var/www/secondhouse/shared/config'

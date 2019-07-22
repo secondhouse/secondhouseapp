@@ -1,0 +1,6 @@
+---
+0.0.2 json:~> 1.8.1,rest-client:~> 1.4|checksum:15f96b88bd2ae0cb4b18ee7c90032214b553d2a4c9d95d2736e83bc436fa45e3
+0.0.3 json:~> 1.8.1,rest-client:~> 1.4|checksum:cd341070d23ee391c77f4df51fabaecfd62d1aa5897444b501d340677b273007
+0.0.4 json:~> 1.8.1,rest-client:~> 1.4|checksum:8dc327c58689ca265e5eb73b1d34dbcdc86d13edabb68c47889d1d44410995f1
+0.0.5 rest-client:~> 2.0|checksum:b38d80d2b40d1a015c408e9f88203516cc99876c20bef26d91221cf1b54cbfad
+0.0.6 rest-client:~> 2.0|checksum:9f157ec3ddb2867cdf54d70f418f518c443a89fbb78a1c50dce306737a748fb8
