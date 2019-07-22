@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  year: 1
+  mouth: 1
+  name: MyString
+  code: 1
+
+two:
+  number: 1
+  year: 1
+  mouth: 1
+  name: MyString
+  code: 1

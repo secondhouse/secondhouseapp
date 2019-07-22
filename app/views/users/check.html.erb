@@ -1,0 +1,179 @@
+<div class="space">
+</div>
+
+<div class="post_container">
+      <h2>預かり依頼作成完了</h2>
+</div>
+
+
+
+<div class="background_post11">
+  <div class="space">
+  </div>
+  <div class="post_item_time11">
+<!-----------預かり依頼----------------------->
+    <div class="item_head11">
+      <i class="far fa-file-alt calendar11"></i>
+      <h3>預かり依頼</h3>
+    </div>
+<!-----------待ち合わせ時間----------------------------->
+    <div class="ok_item11">
+      <p class="ok_name11">待ち合わせ時間</p>
+      <div class="ok_move11">
+        <% if @min %>
+          <p>
+              <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @min + "分" %>
+          </p>
+        <% else %>
+          <p>
+            <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @day.min.to_s + "分" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+<!-----------お迎え時間----------------------------->
+    <div class="ok_item11">
+      <p class="ok_name11">お迎え時間</p>
+      <div class="ok_move11">
+        <% if @min11 %>
+          <p>
+              <%= @day11.year.to_s + "年" + @day11.month.to_s + "月" + @day11.day.to_s + "日" + @day11.hour.to_s + "時" + @min11 + "分" %>
+          </p>
+        <% else %>
+          <p>
+            <%= @day11.year.to_s + "年" + @day11.month.to_s + "月" + @day11.day.to_s + "日" + @day11.hour.to_s + "時" + @day11.min.to_s + "分" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+<!-----------預けるワンちゃん----------------------------->
+    <div class="ok_item11">
+      <p class="ok_name11">預けるワンちゃん</p>
+      <div class="ok_move11">
+        <%= @dog_name %>
+      </div>
+    </div>
+<!-----------待ち合わせ場所----------------------------->
+    <div class="ok_item11">
+      <p class="ok_name11">待ち合わせ場所</p>
+      <div class="ok_move11">
+        <%= @request.adress %>
+      </div>
+    </div>
+<!-----------預かってもらう方にして欲しいこと-------------->
+    <div class="ok_item_head">
+      <p>預かってもらう方にして欲しいこと</p>
+    </div>
+<!-----------散歩/1日-------------->
+    <div class="ok_item11">
+      <p class="ok_name11">散歩/1日</p>
+      <div class="ok_move11">
+        <%= @request.walk %>
+      </div>
+    </div>
+<!-----------散歩時間/1回あたり----->
+    <div class="ok_item11">
+      <p class="ok_name11">散歩時間/1回あたり</p>
+      <div class="ok_move11">
+        <%= @request.walk_time %>
+      </div>
+    </div>
+<!-----------エサ/1日あたり--------->
+        <div class="ok_item11">
+          <p class="ok_name11">エサ/1日あたり</p>
+          <div class="ok_move11">
+            <%= @request.bait %>
+          </div>
+        </div>
+<!-----------おやつ------------------>
+        <div class="ok_item11">
+          <p class="ok_name11">おやつ</p>
+          <div class="ok_move11">
+            <%= @request.snack %>
+          </div>
+        </div>
+<!-----トイレシートの交換/1日-------->
+        <div class="ok_item11">
+          <p class="ok_name11">トイレシートの交換/1日</p>
+          <div class="ok_move11">
+            <%= @request.toilet %>
+          </div>
+        </div>
+<!-----備考-------------------------->
+        <div class="ok_item11">
+          <div class="ok_11">
+            <p class="ok_name11">備考</p>
+          </div>
+          <div class="comment_wrap">
+            <div id="comment_wrap11">
+                <div class="box00">
+                  <p><%= @request.comment_ok %></p>
+                </div>
+            </div>
+          </div>
+        </div>
+<!-----------預かってもらう方にして欲しくないこと---------->
+        <div class="ok_item_head">
+          <p>預かってもらう方にして欲しくないこと</p>
+        </div>
+<!-----ワンちゃんの留守番時間-------->
+        <div class="ok_item11">
+          <p class="ok_name11">ワンちゃんの留守番時間</p>
+          <div class="ok_move11">
+            <%= @request.caretaker %>
+          </div>
+        </div>
+<!-----小さいお子さんがいる家庭-------->
+        <div class="ok_item11">
+          <p class="ok_name11">小さいお子さんがいる家庭</p>
+          <div class="ok_move11">
+            <%= @request.child %>
+          </div>
+        </div>
+<!-----先住犬がいる方------------------->
+        <div class="ok_item11">
+          <p class="ok_name11">先住犬がいる方</p>
+          <div class="ok_move11">
+            <%= @request.native %>
+          </div>
+        </div>
+<!-----他の動物を飼っている方-------->
+        <div class="ok_item11">
+          <p class="ok_name11">他の動物を飼っている方</p>
+          <div class="ok_move11">
+            <%= @request.animal %>
+          </div>
+        </div>
+<!-----備考-------------------------->
+        <div class="ok_item11">
+          <div class="ok_11">
+            <p class="ok_name11">備考</p>
+          </div>
+
+          <div class="comment_wrap">
+            <div id="comment_wrap11">
+                <div class="box00">
+                  <p><%= @request.comment_ng %></p>
+                </div>
+            </div>
+          </div>
+        </div>
+<!-----ここまで備考------------------->
+        <div class="space">
+        </div>
+<!-----ボタン------------------->
+        <div class="bottom">
+          <%= link_to("/users/update_re/#{@request.id}") do %>
+          <div class="edit_button55">
+            <p>編集する</p>
+          </div>
+          <% end %>
+          <%= link_to("/users/#{@user.id}") do %>
+            <div class="edit_button66">
+              <p>自分のページに戻る</p>
+            </div>
+          <% end %>
+        </div>
+<!-----------ここまで預かり依頼---------------->
+  </div>
+</div>

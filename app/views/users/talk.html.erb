@@ -1,0 +1,202 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show">
+
+    <div class="users_header">
+        <div class="users_header1">
+            <ul>
+                <%= link_to("ホーム","/users/#{@user.id}") %>
+                <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+                <%= link_to("預かり依頼","/users/rely/#{@user.id}") %>
+                <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+                <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+            </ul>
+        </div>
+    </div>
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                    <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma" id="user_icon_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div><!------------------ここまで左側メニュー------------------------>
+        <div class="evaluation_content1"><!-----お知らせ-------------------->
+            <div class="evaluation_content">
+            <h3 class="talk_line5">トークルーム</h3>
+            <% if @messeages.present?%><!------送信済みメッセージ------->
+                <% @messeages.each do | messeage | %>
+                    <% @sender = User.find_by(id: messeage.send_id) %>
+                    <% @time = messeage.created_at %>
+                    <% @progress = (@now - @time) %>
+                    <div class="read2" id="read22">
+                        <%= link_to("/users/seen/#{@sender.id}")  do %>
+                            <% if @sender.image_name %>
+                                <div class="post_image" id="chage">
+                                    <img class="icon_img00" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                                </div>
+                            <% else %>
+                                <div class="post_icon2" id="chage">
+                                    <i class="fas fa-user-circle fa-7x icon_color"  %></i>
+                                    <i class="fas fa-camera fa-2x icon_camera2" id="post_camera2"></i>
+                                    <i class="fas fa-plus icon_plus2" id="post_plus2"></i>
+                                </div>
+                            <% end %>
+                        <% end %>
+                        <%= link_to("/users/seen/direct_message/#{@sender.id}")  do %>
+                            <div class="">
+                                <div class="sender">
+                                    <p><%= @sender.name %></p>
+                                    <p>
+                                        <%=
+                                        if @progress < 3600
+                                            @progress /= 3600.0
+                                            @progress *= 60
+                                            "#{@progress.floor}分前"
+                                        elsif @progress < 86401
+                                            @progress /= 3600.0
+                                            "#{@progress.floor}時間前"
+                                        elsif 86401 < @progress
+                                            @progress = 1
+                                            "#{@progress}日前"
+                                        elsif 172801 < @progress
+                                            @progress = 2
+                                            "#{@progress}日前"
+                                        elsif 259201 < @progress
+                                            @progress = 3
+                                            "#{@progress}日前"
+                                        elsif 345600 < @progress
+                                            @progress = 4
+                                            "#{@progress}日前"
+                                        elsif 432000 < @progress
+                                            @progress = 5
+                                            "#{@progress}日前"
+                                        elsif 518400 < @progress
+                                            @progress = 6
+                                            "#{@progress}日前"
+                                        elsif 604800 < @progress
+                                            @progress = 1
+                                            "#{@progress}週間前"
+                                        elsif 1209600 < @progress
+                                            @progress = 2
+                                            "#{@progress}週間以上"
+                                        else
+                                        end
+                                         %><!--------経過時間-------->
+                                     </p>
+
+                                </div>
+                                <p class="messe"><%= messeage.messe %></p>
+                            </div>
+                        <% end %>
+                    </div><!------ここまで送信済みメッセージ------->
+                <% end %>
+
+            <% end %>
+
+
+        </div>
+        </div>
+
+    </div>
+</div>

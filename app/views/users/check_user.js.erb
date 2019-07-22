@@ -1,0 +1,20 @@
+var existence = <%=@existence %>;
+if (existence == "使用できます"){
+    $('#result').html('<p>' + '<i class="fas fa-check-circle no_ma no_pa"></i>' + existence + '</p>');
+    $('#result').css('color', '#3ecdc6');
+}else{
+    $('#result').html('<p>' + '<i class="fas fa-exclamation-triangle no_ma no_pa"></i>' + existence + '</p>');
+    $('#result').css('color', 'red');
+}
+
+
+//参考書
+//var data = <%=@data %>;
+//var result = '';
+//data.forEach(function(e){
+//    result += '<tr><td><table>';
+//    result += '<tr><th>NAME</th><td>' + e.name + '(' + e.id + ')' + '</td></tr>';
+//    result += '<tr><th>MAIL</th><td>' + e.email + '</td></tr>';
+//    result += '</table></td></tr>';
+//});
+//$('#result').html(result);

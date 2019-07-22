@@ -1,0 +1,486 @@
+
+
+<div class="space">
+
+</div>
+
+<!-----------検索---------------->
+
+<div class="search_container">
+
+    <img id="top_image" src="/top4.jpg" alt="">
+    <div class="search">
+        <div class="seach_line">
+            <h1>ワンちゃんを預かりたい</h1>
+            <%= form_tag("/dog/search") do %>
+                <p class="boder control">日付けから検索</p>
+                <label class="date_in">
+                    <%= date_field("date", "date_on", value: @day) %>
+                </label>
+
+        <!---
+        <input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+       ---->
+
+        <p class="boder">地域から検索</p>
+        <div class="adoress00">
+          <div class="add_input00">
+              <p class="moving">郵便番号（7桁）</p>
+              <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+              <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+              <div class="add_move">
+                <p class="moving">都道府県+市区町村</p>
+                <input class="postal_adress" type="text" name="addr11" size="60">
+              </div>
+          </div>
+        </div>
+        <p class="boder">犬種から検索</p>
+        <div class="dog_item33 dog_name2">
+            <div class="birt222">
+              <%= select :dog_breed, :choice, [[@breed, @breed],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+              </div>
+          </div>
+          <div class="submit00">
+            <input id="dog_submit" type="submit" value="検索する">
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+<div class="recent_wrapp">
+    <% if @requests.present? %>
+        <div class="container_locate_now">
+            <div class="locate_now00">
+                <h2><span>今から預かれるワンちゃん</span></h2>
+            </div>
+            <div class="dog_type111">
+                <% @requests.each do | request | %><!-----繰り返し------>
+                    <% if request.status < 2 && request.waiting > @daytime %><!-----時間がすぎてないかのif------>
+                        <% @dog = Dog.find_by(id: request.dog_id) %>
+                        <%= link_to("/dog/details/#{request.id}") do %>
+                            <div class="dog_type1">
+                                <% if request.waiting.min.to_i == 0 %>
+                                    <% @min = "00" %>
+                                <% else %>
+                                    <% @min = request.waiting.min %>
+                                <% end %>
+                                <p class="time_dog"><%= "#{request.waiting.month}/#{request.waiting.day}　#{request.waiting.hour}:#{@min}〜" %></p>
+                                <div class="image_cover00">
+                                    <% if @dog.image_name %>
+                        <!------------アイコンあり------------------>
+                                        <%= image_submit_tag "/dog_images/#{@dog.image_name}", :class => "dog_photo00" %>
+                                    <% else %>
+                        <!------------アイコンなし------------------>
+                                        <div class="dog_icon">
+                                            <i class="fas fa-dog fa-9x fa-dog11"></i>
+                                        </div>
+                                    <% end %>
+
+                                </div>
+
+                                <!---
+                                <input class="dog_photo" type="image" src="/other.jpg" alt="その他" align="middle">
+                                -->
+
+
+                                <% if @dog.sex == "男の子" %>
+                                    <% @sex = "くん" %>
+                                <% else %>
+                                    <% @sex = "ちゃん" %>
+                                <% end %>
+                                <p><%= @dog.dog_breed %></p>
+                                <p><%= request.adress %></p>
+                                <p><%= @dog.name + @sex %></p>
+                            </div>
+                        <% end %>
+                        <% @num += 1 %>
+                        <% @count += 1 %>
+                        <% if @num == 4 %><!-----1行に4個までのif------>
+                            </div>
+                            <div class="space">
+                            </div>
+                            <div class="dog_type">
+                            <% @num = 0 %>
+                        <% end %><!-----ここまで1行に4個までのif------>
+                        <% if @count == 12  %>
+                            <% break %>
+                        <% end %>
+
+                    <% end %><!-----ここまで時間がすぎてないかのif------>
+
+                <% end %><!-----ここまで繰り返し------>
+            </div>
+        </div>
+    <% else %>
+        <div class="recent">
+            <div class="locate_now00">
+                <h2><span>近い日にちで預かれるワンちゃん</span></h2>
+            </div>
+
+            <div class="dog_type111">
+                <% @requests2.each do | request | %><!-----繰り返し------>
+                    <% if request.status < 1 && request.waiting > @daytime %><!-----時間がすぎてないかのif------>
+                        <% @dog = Dog.find_by(id: request.dog_id) %>
+                        <%= link_to("/dog/details/#{request.id}") do %>
+                            <div class="dog_type1">
+                                <% if request.waiting.min.to_i == 0 %>
+                                    <% @min = "00" %>
+                                <% else %>
+                                    <% @min = request.waiting.min %>
+                                <% end %>
+                                <p class="time_dog">
+                                    <%= "#{request.waiting.month}/#{request.waiting.day}　#{request.waiting.hour}:#{@min}〜" %>
+                                </p>
+
+                                    <% if @dog.image_name %>
+                        <!------------アイコンあり------------------>
+                                        <div class="image_cover00">
+                                            <%= image_submit_tag "/dog_images/#{@dog.image_name}", :class => "dog_photo00" %>
+                                        </div>
+                                    <% else %>
+                        <!------------アイコンなし------------------>
+                                        <div class="dog_icon">
+                                            <i class="fas fa-dog fa-9x fa-dog11"></i>
+                                        </div>
+                                    <% end %>
+
+
+                                <% if @dog.sex == "男の子" %>
+                                    <% @sex = "くん" %>
+                                <% else %>
+                                    <% @sex = "ちゃん" %>
+                                <% end %>
+                                <p><%= @dog.dog_breed %></p>
+                                <p><%= request.adress %></p>
+                                <p><%= @dog.name + @sex %></p>
+                            </div>
+                        <% end %>
+                        <% @num += 1 %>
+                        <% @count += 1 %>
+                        <% if @num == 4 %><!-----1行に4個までのif------>
+                            </div>
+                            <div class="space">
+                            </div>
+                            <div class="dog_type">
+                            <% @num = 0 %>
+                        <% end %><!-----ここまで1行に4個までのif------>
+                        <% if @count == 12  %>
+                            <% break %>
+                        <% end %>
+
+                    <% end %><!-----ここまで時間がすぎてないかのif------>
+
+                <% end %><!-----ここまで繰り返し------>
+            </div>
+    </div>
+    <% end %>
+
+    <div class="locate_now">
+        <h2><span>犬種からワンちゃんを見つける</span></h2>
+    </div>
+    <!-----------犬種---------------->
+    <div class="dog_type">
+      <!-----ポメラニアン------->
+        <%= form_tag("/dog/search") do %>
+          <div class="dog_type1">
+            <label for="dog_breed">
+                <div class="image_cover11">
+                    <%= hidden_field :dog_breed, :choice, :value => "ポメラニアン" %>
+                    <%= image_submit_tag "/pomeranian.jpg", :class => "dog_photo" %>
+                </div>
+                <p>ポメラニアン</p>
+            </label>
+          </div>
+        <% end %>
+
+
+      <!-----トイプードル------->
+        <%= form_tag("/dog/search") do %>
+          <div class="dog_type1">
+            <label for="dog_breed">
+                <div class="image_cover11">
+                    <%= hidden_field :dog_breed, :choice, :value => "トイプードル" %>
+                    <%= image_submit_tag "/toy.jpg", :class => "dog_photo" %>
+
+                    <!--- <img class="dog_photo" src="/pomeranian.jpg" alt="">
+                    <input class="dog_photo" type="image" src="/toy.jpg" alt="トイプードル" align="middle">-->
+                </div>
+                <p>トイプードル</p>
+            </label>
+          </div>
+        <% end %>
+
+      <!-----チワワ------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "チワワ" %>
+                        <%= image_submit_tag "/Chihuahua.jpg", :class => "dog_photo" %>
+
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt="">
+                        <input class="dog_photo" type="image" src="/Chihuahua.jpg" alt="チワワ" align="middle">-->
+                    </div>
+                    <p>チワワ</p>
+                </label>
+            </div>
+        <% end %>
+
+
+          <!-----フレンチブルドッグ------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+              <label for="dog_breed">
+                  <div class="image_cover11">
+                      <%= hidden_field :dog_breed, :choice, :value => "フレンチブルドッグ" %>
+                      <%= image_submit_tag "/French_bulldog.jpg", :class => "dog_photo" %>
+
+                      <!--- <img class="dog_photo" src="/pomeranian.jpg" alt="">
+                      <input class="dog_photo" type="image" src="/French_bulldog.jpg" alt="フレンチブルドッグ" align="middle">-->
+                  </div>
+                  <p>フレンチブルドッグ</p>
+              </label>
+            </div>
+        <% end %>
+    </div>
+
+
+
+    <!-----------犬種2行目---------------->
+    <div class="dog_type">
+        <%= form_tag("/dog/search") do %>
+              <!-----ヨークシャテリア------->
+            <div class="dog_type1">
+                  <label for="dog_breed">
+                       <div class="image_cover11">
+                            <%= hidden_field :dog_breed, :choice, :value => "ヨークシャテリア" %>
+                            <input class="dog_photo" type="image" src="/yokey.jpg" alt="ヨークシャテリア" align="middle">
+                            <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                        </div>
+                        <p>ヨークシャテリア</p>
+                    </label>
+            </div>
+        <% end %>
+          <!----シーズー------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "シーズー" %>
+                        <input class="dog_photo" type="image" src="/ Shih_Tzu.jpg" alt="シーズー" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>シーズー</p>
+                </label>
+            </div>
+        <% end %>
+          <!-----ミニチュアダックス------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ミニチュアダックス" %>
+                        <input class="dog_photo" type="image" src="/Miniature_dax.jpg" alt="ミニチュアダックス" align="middle">
+                    </div>
+                    <p>ミニチュアダックス</p>
+                </label>
+            </div>
+        <% end %>
+          <!-----パグ------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "パグ" %>
+                        <input class="dog_photo" type="image" src="/pag.jpg" alt="パグ" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>パグ</p>
+                </label>
+            </div>
+        <% end %>
+    </div>
+
+    <!-----------犬種3行目---------------->
+    <div class="dog_type">
+        <%= form_tag("/dog/search") do %>
+        <!-----ミックス------->
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ミックス" %>
+                        <input class="dog_photo" type="image" src="mix.jpg" alt="ミックス" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ミックス</p>
+                </label>
+            </div>
+        <% end %>
+          <!----ミニチュアシュナウザー------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ミニチュアシュナウザー" %>
+                        <input class="dog_photo" type="image" src="/Schnauzer.jpg" alt="ミニチュアシュナウザー" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ミニチュアシュナウザー</p>
+                </label>
+            </div>
+        <% end %>
+          <!-----パピヨン------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "パピヨン" %>
+                        <input class="dog_photo" type="image" src="/Papillon.jpg" alt="パピヨン" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>パピヨン</p>
+                </label>
+            </div>
+        <% end %>
+
+
+          <!-----豆しば------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+              <label for="dog_breed">
+                  <div class="image_cover11">
+                      <%= hidden_field :dog_breed, :choice, :value => "豆しば" %>
+                      <input class="dog_photo" type="image" src="/mame_shiba.jpg" alt="豆しば" align="middle">
+                      <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                 </div>
+                 <p>豆しば</p>
+              </label>
+            </div>
+        <% end %>
+    </div>
+
+    <!-----------犬種4行目---------------->
+
+    <div class="dog_type">
+        <!-----ペキニーズ------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ペキニーズ" %>
+                        <input class="dog_photo" type="image" src="/Pekingese.jpg" alt="ペキニーズ" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ペキニーズ</p>
+                </label>
+            </div>
+        <% end %>
+          <!----マルチーズ------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "マルチーズ" %>
+                        <input class="dog_photo" type="image" src="/Maltese.jpg" alt="マルチーズ" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>マルチーズ</p>
+                </label>
+          </div>
+
+        <% end %>
+
+          <!-----コーギー------->
+          <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "コーギー" %>
+                        <input class="dog_photo" type="image" src="/corgi.jpg" alt="コーギー" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>コーギー</p>
+                </label>
+            </div>
+        <% end %>
+          <!-----ミニチュアピンシャー------>
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ミニチュアピンシャー" %>
+                        <input class="dog_photo" type="image" src="/Miniature_Pinscher.jpg" alt="ミニチュアピンシャー" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ミニチュアピンシャー</p>
+                </label>
+            </div>
+        <% end %>
+    </div>
+
+
+    <!-----------犬種5行目---------------->
+
+        <div class="dog_type ch_dog">
+              <!-----キャバリア------->
+            <%= form_tag("/dog/search") do %>
+                <div class="dog_type1">
+                    <label for="dog_breed">
+                        <div class="image_cover11">
+                            <%= hidden_field :dog_breed, :choice, :value => "キャバリア" %>
+                            <input class="dog_photo" type="image" src="/Cavalier.jpg" alt="キャバリア" align="middle">
+                            <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                        </div>
+                        <p>キャバリア</p>
+                    </label>
+                </div>
+            <% end %>
+
+          <!----ジャックラッセルテリア------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ジャックラッセルテリア" %>
+                        <input class="dog_photo" type="image" src="/ Jack_Russell_Terrier.jpg" alt="ジャックラッセルテリア" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ジャックラッセルテリア</p>
+                </label>
+            </div>
+        <% end %>
+          <!-----ビーグル------->
+        <%= form_tag("/dog/search") do %>
+            <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "ビーグル" %>
+                        <input class="dog_photo" type="image" src="/beagle.jpg" alt="ビーグル" align="middle">
+                        <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    </div>
+                    <p>ビーグル</p>
+                </label>
+            </div>
+        <% end %>
+
+          <!-----ほかの種類のワンチャン------->
+        <%= form_tag("/dog/search") do %>
+              <div class="dog_type1">
+                <label for="dog_breed">
+                    <div class="image_cover11">
+                        <%= hidden_field :dog_breed, :choice, :value => "その他" %>
+                        <input class="dog_photo" type="image" src="/other.jpg" alt="その他" align="middle">
+                    </div>
+                    <!--- <img class="dog_photo" src="/pomeranian.jpg" alt=""> -->
+                    <p>その他</p>
+
+                </label>
+              </div>
+        <% end %>
+    </div>
+</div>

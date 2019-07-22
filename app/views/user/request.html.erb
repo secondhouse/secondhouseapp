@@ -1,0 +1,393 @@
+
+<div class="space">
+</div>
+
+<div class="post_container">
+      <h2>ワンちゃんを預ける</h2>
+</div>
+
+  <div class="background_post">
+    <div class="space">
+    </div>
+      <%= form_tag("/post/create/#{@user.id}") do %>
+      <div class="post_item_time">
+        <div class="item_head">
+          <i class="far fa-calendar-alt calendar"></i>
+          <h3>預ける日程</h3>
+        </div>
+<!---------------待ち合わせ時間------------------------------>
+        <div class="ok_item_containar">
+          <div class="ok_item">
+            <p class="ok_name">待ち合わせ時間</p>
+            <div class="ok_move">
+              <select name="month">
+                  <option value="">-</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>　月
+
+                <select name="day">
+                  <option value="">-</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>　日
+
+                <select name="hour">
+                  <option value="">-</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>　時
+
+                <select name="min">
+                  <option value="">-</option>
+                  <option value="00">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>　分
+
+            </div>
+          </div>
+<!---------------お迎え時間------------------------------>
+          <div class="ok_item">
+            <p class="ok_name">お迎え時間</p>
+            <div class="ok_move">
+              <select name="month11">
+                  <option value="">-</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>　月
+
+                <select name="day11">
+                  <option value="">-</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>　日
+
+                <select name="hour11">
+                  <option value="">-</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>　時
+
+                <select name="min11">
+                  <option value="">-</option>
+                  <option value="00">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>　分
+            </div>
+          </div>
+        </div>
+      </div>
+<!---------------預ける犬選択------------------------------>
+      <div class="post_item">
+        <div class="item_head">
+          <i class="fas fa-dog dog"></i>
+          <h3>預けるワンちゃん</h3>
+        </div>
+        <div class="dog_choice">
+          <% @dogs.each do | dog | %>
+            <% if dog.image_name %>
+              <div class="dog_pro">
+                <div class="users_icon11 dog_img">
+                  <img class="icon_img" src="<%= "/dog_images/#{dog.image_name}" %>" alt="">
+                </div>
+                <p><%= dog.name %></p>
+                <p><%= check_box "dog_choice", "#{dog.name}" %></p>
+              </div>
+            <% else %>
+                <div class="dog_pro">
+                    <div class="users_icon11 dog_img">
+                      <i class="fas fa-user-circle fa-7x icon_color"></i>
+                      <div class="icon_add11">
+                        <i class="fas fa-camera fa-2x icon_camera2"></i>
+                        <i class="fas fa-plus icon_plus2"></i>
+                      </div>
+                    </div>
+                    <p><%= dog.name %></p>
+                    <p><%= check_box "dog_choice", "#{dog.name}" %></p>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+<!---------------待ち合わせ場所------------------------------>
+      <div class="post_item move_item">
+        <div class="adoress">
+          <div class="item_head">
+            <i class="fas fa-map-marker-alt dog"></i>
+            <h3>待ち合わせ場所</h3>
+          </div>
+            <!-- ▼郵便番号入力フィールド(7桁) -->
+          <div class="add_input">
+              <p>郵便番号（7桁）</p>
+              <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+              <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+              <div class="add_move">
+                <p>都道府県+以降の住所</p>
+                <input class="postal_adress" type="text" name="addr11" size="60">
+              </div>
+          </div>
+        </div>
+      </div>
+
+<!---------------預かってもらう方にして欲しいこと---------------------->
+      <div class="post_item1 move_item1">
+        <div class="adoress1">
+          <div class="item_head">
+            <i class="fas fa-check-square dog"></i>
+            <h3>預かってもらう方にして欲しいこと</h3>
+          </div>
+          <div class="ok_item_containar">
+<!---------------散歩----------------------->
+            <div class="ok_item">
+              <p class="ok_name">散歩/1日</p>
+              <div class="ok_move">
+                  <input type="radio" name="walk" value="なし">なし
+                  <input type="radio" name="walk" value="1回" class="choice1">1回
+                  <input type="radio" name="walk" value="2回" class="choice1">2回
+                  <input type="radio" name="walk" value="3回" class="choice1">3回
+              </div>
+            </div>
+<!---------------散歩時間/1回あたり----------->
+            <div class="ok_item">
+              <p class="ok_name">散歩時間/1回あたり</p>
+              <div class="ok_move">
+                <input type="radio" name="walk_time" value="15分程">15分程
+                <input type="radio" name="walk_time" value="30分程" class="ch_item1">30分程
+                <input type="radio" name="walk_time" value="1時間程" class="ch_item1">1時間程
+                <input type="radio" name="walk_time" value="1時間以上" class="ch_item1">1時間以上
+            </div>
+          </div>
+<!---------------エサ/1日あたり-------------->
+          <div class="ok_item">
+            <p class="ok_name">エサ/1日あたり</p>
+            <div class="ok_move">
+              <input type="radio" name="bait" value="2回">2回
+              <input type="radio" name="bait" value="3回" class="ch_item">3回
+            </div>
+          </div>
+<!---------------おやつ--------------------->
+          <div class="ok_item">
+            <p class="ok_name">おやつ</p>
+            <div class="ok_move">
+              <input type="radio" name="snack" value="あり">あり
+              <input type="radio" name="snack" value="なし" class="choice1">なし
+            </div>
+          </div>
+<!---------------トイレシートの交換/1日------>
+          <div class="ok_item">
+            <p class="ok_name">トイレシートの交換/1日</p>
+            <div class="ok_move">
+              <input type="radio" name="toilet" value="1回" class="">1回
+              <input type="radio" name="toilet" value="2回" class="ch_item">2回
+              <input type="radio" name="toilet" value="3回" class="ch_item">3回
+            </div>
+          </div>
+<!---------------OKコメント----------------->
+          <div class="ok_item">
+            <div class="remarks">
+              <p class="ok_remarks">備考</p>
+            </div>
+            <div class="ok_move1">
+              <textarea class="introduction_text" maxlength="200" name="comment_ok" rows="8" cols="80" placeholder="その他のお願いしたいことがあればこちらにどうぞ！"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-----------ここまで預かってもらう方にして欲しいこと----------------->
+
+
+<!-----------預かってもらう方にして欲しくないこと--------------------->
+      <div class="post_item2 move_item1">
+        <div class="adoress1">
+          <div class="item_head">
+            <i class="fas fa-exclamation-triangle dog"></i>
+            <h3>預かってもらう方にして欲しくないこと</h3>
+          </div>
+          <div class="ng_item_containar">
+<!---------------ワンちゃんの留守番時間----------------->
+            <div class="ok_item">
+              <p class="ok_name">ワンちゃんの留守番時間</p>
+              <div class="ok_move">
+                  <input type="radio" name="caretaker" value="2時間以上">2時間以上
+                  <input type="radio" name="caretaker" value="3時間以上" class="">3時間以上
+                  <input type="radio" name="caretaker" value="4時間以上" class="">4時間以上
+                  <input type="radio" name="caretaker" value="5時間以上" class="">5時間以上
+              </div>
+            </div>
+<!---------------小さいお子さんがいる家庭----------------->
+            <div class="ok_item">
+              <p class="ok_name">小さいお子さんがいる家庭</p>
+              <div class="ok_move">
+                <input type="radio" name="child" value="OK">OK
+                <input type="radio" name="child" value="NG" class="">NG
+            </div>
+          </div>
+<!---------------先住犬がいる方-------------------------->
+          <div class="ok_item">
+            <p class="ok_name">先住犬がいる方</p>
+            <div class="ok_move">
+              <input type="radio" name="native" value="OK">OK
+              <input type="radio" name="native" value="NG" class="">NG
+              <input type="radio" name="native" value="性別・犬種次第でOK" class="">性別・犬種次第でOK（備考欄に記載）
+            </div>
+          </div>
+<!---------------他の動物を飼っている方------------------->
+          <div class="ok_item">
+            <p class="ok_name">他の動物を飼っている方</p>
+            <div class="ok_move">
+
+              <input type="radio" name="animal" value="OK">OK
+              <input type="radio" name="animal" value="NG" class="">NG
+              <input type="radio" name="animal" value="NG" class="">種類によってはNG。トークルームで確認希望
+            </div>
+          </div>
+<!---------------NGコメント------------------------------->
+          <div class="ok_item">
+            <div class="remarks">
+              <p class="ok_remarks">備考</p>
+            </div>
+            <div class="ok_move1">
+              <textarea class="introduction_text" maxlength="200" name="comment_ng" rows="8" cols="80" placeholder="その他のお願いしたいことがあればこちらにどうぞ！"></textarea>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+<!-----------預かってもらう方にして欲しくないこと------------------------>
+      <div class="space1">
+      </div>
+      <div class="submit">
+        <input id="dog_submit" type="submit" value="預かり依頼作成">
+      </div>
+  <% end %>
+
+
+</div>

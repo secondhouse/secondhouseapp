@@ -1,0 +1,2 @@
+class DogEvaluation < ApplicationRecord
+end

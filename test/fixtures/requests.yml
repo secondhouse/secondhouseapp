@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  waiting: 2019-06-01 15:56:00
+  end: 2019-06-01 15:56:00
+  dog_choice: 1
+  adress: MyString
+  walk: MyString
+  walk_time: MyString
+  bait: MyString
+  snack: MyString
+  toilet: MyString
+  comment_ok: MyString
+  caretaker: MyString
+  child: MyString
+  native: MyString
+  animal: MyString
+  comment_ng: MyString
+
+two:
+  waiting: 2019-06-01 15:56:00
+  end: 2019-06-01 15:56:00
+  dog_choice: 1
+  adress: MyString
+  walk: MyString
+  walk_time: MyString
+  bait: MyString
+  snack: MyString
+  toilet: MyString
+  comment_ok: MyString
+  caretaker: MyString
+  child: MyString
+  native: MyString
+  animal: MyString
+  comment_ng: MyString
