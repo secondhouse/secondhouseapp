@@ -3,7 +3,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
     create_table :requests do |t|
       t.datetime :waiting
       t.datetime :end
-      t.integer :dog_choice
+      #t.integer :dog_choice
       t.string :adress
       t.string :walk
       t.string :walk_time
