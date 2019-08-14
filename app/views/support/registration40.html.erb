@@ -1,0 +1,16 @@
+<div class="space">
+
+</div>
+
+<div class="sentence" id="sentence">
+    <div id="evaluation_head">
+        <h1>「トークルーム」の一覧はどこから確認できますか？</h1>
+    </div>
+    <div class="sentence1" id="sentence1">
+        <p>トークルームは、マイページメニュー内の「トークルーム」から確認いただけます。</p>
+        <% if @current_user %>
+            <p><a href="/users/talk/<%= @current_user.id %>">『トークルーム』はこちら</a></p>
+        <% end %>
+      <p>解決しない場合は<a href="/support/inquiry">こちらからお問い合わせ</a>ください。</p>
+    </div>
+</div>

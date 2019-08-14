@@ -1,0 +1,1104 @@
+<div class="space">
+
+</div>
+
+<div class="search_cover"><!--全体のdiv-->
+    <div class="space">
+    </div>
+
+    <div class="conditions00"><!-------------検索条件----------------->
+        <p class="conditions_head">検索条件</p>
+        <div class="conditions_item">
+            <% if @day_search.present? %>
+                <p>日付:</p>
+                <p><%= "#{@day.year}年#{@day.month}月#{@day.day}日" %></p>
+            <% else %>
+                <p>日付:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+        <div class="conditions_item">
+            <% if @adress.present? %>
+                <p>住所:</p>
+                <p><%= "#{@adress}" %></p>
+            <% else %>
+                <p>住所:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+        <div class="conditions_item">
+            <% if @breed.present? %>
+                <p>犬種:</p>
+                <p><%= "#{@breed}" %></p>
+            <% else %>
+                <p>犬種:</p>
+                <p>指定なし</p>
+            <% end %>
+        </div>
+
+    </div>
+    <div class="btn_search00">
+      <p>検索条件を変更する</p>
+    </div>    <!-------------ここまで検索条件----------------->
+    <div class="search_addres"><!----------------検索窓--------------------->
+        <div class="modal">
+            <div class="close-modal">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="login-form">
+                <%= form_tag("/dog/search") do %>
+                    <p class="boder">日付けから検索</p>
+                    <label class="date_in">
+                        <%= date_field("date", "date_on", value: @day) %>
+                    </label>
+                    <p class="boder">地域から検索</p>
+                    <div class="adoress00">
+                        <div class="add_input00">
+                            <p class="moving">郵便番号（7桁）</p>
+                            <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+                            <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                            <div class="add_move">
+                                <p class="moving">都道府県+市区町村</p>
+                            <input class="postal_adress" type="text" name="addr11" size="60">
+                        </div>
+                    </div>
+                    </div>
+                    <p class="boder">犬種から検索</p>
+                    <div class="dog_item33 dog_name2">
+                        <div class="birt222">
+                            <%= select :dog_breed, :choice, [[@breed, @breed],["指定なし", "指定なし"],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+                        </div>
+                    </div>
+                    <div class="submit00">
+                        <input id="dog_submit" type="submit" value="検索する">
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div><!----------------検索窓--------------------->
+
+
+
+    <% if @breed_adress_days.present? %><!--日付と犬種と住所で検索の場合--><!---あ---->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+        <% @breed_adress_days.find_each do | breed_adress_days |
+            @request = Request.find_by(id: breed_adress_days.request_id)
+            if @request.status < 1
+                if @num == 0
+        %>
+                    <div class="num0" id="num0">
+                <% end  %>
+                <% if @num == 4 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                        if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                    if @request.dog_id2.present?
+                        @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                        if @dog_icon_if2.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if2.image_name
+                        end
+                    end
+
+                    if @request.dog_id3.present?
+                        @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                        if @dog_icon_if3.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if3.image_name
+                        end
+                    end
+
+                    @dog = Dog.find_by(image_name: @dog_icon)
+                %>
+                <div class="search_icon" id="search_dog_icon">
+                    <% if @dog_icon %>
+        <!------------アイコンあり------------------>
+                        <div class="icon_wrapp00" id="change_ic">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="users_icon55" id="users_search">
+                                    <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                </div>
+                            <% end %>
+                        </div>
+                    <% else %>
+        <!------------アイコンなし------------------>
+                        <div class="icon_wrapp" id="icon_center">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="dog_icon_mydog" id="search_icon">
+                                    <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+      <!------------ここまでアイコン---------------->
+                    <% @day = @request.waiting %>
+                    <div class="info_dog">
+                        <p><%= @dog.name %></p>
+                        <p><%= @request.adress %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 4 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% elsif @adress_breeds.present? %><!--住所と犬種で検索の場合-->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @adress_breeds.each do | adress_breed | %>
+            <% @request = Request.find_by(id: adress_breed.request_id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0">
+                <% end %>
+                <% if @num == 4 %>
+                    <div class="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                         if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                     if @request.dog_id2.present?
+                         @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                         if @dog_icon_if2.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if2.image_name
+                         end
+                     end
+
+                     if @request.dog_id3.present?
+                         @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                         if @dog_icon_if3.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if3.image_name
+                         end
+                     end
+
+                     @dog = Dog.find_by(image_name: @dog_icon)
+                     @dog = Dog.find_by(id: @request.dog_id)
+                %>
+
+                    <div class="search_icon" id="search_dog_icon">
+                        <% if @dog_icon %>
+            <!------------アイコンあり------------------>
+                            <div class="icon_wrapp00" id="change_ic">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="users_icon55" id="users_search">
+                                        <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% else %>
+            <!------------アイコンなし------------------>
+                            <div class="icon_wrapp" id="icon_center">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="dog_icon_mydog" id="search_icon">
+                                        <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+          <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %>
+                        <div class="info_dog">
+                            <p><%= @dog.name %></p>
+                            <p><%= @request.adress %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 4 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        </div>
+
+
+    <!-------ここまで追加------->
+    <% elsif @breed_days.present? %><!--日付と犬種で検索の場合-->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @breed_days.each do | breed_days | %>
+            <% @request = Request.find_by(id: breed_days.request_id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0">
+                <% end %>
+                <% if @num == 4 %>
+                    <div class="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                        if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                    if @request.dog_id2.present?
+                        @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                        if @dog_icon_if2.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if2.image_name
+                        end
+                    end
+
+                    if @request.dog_id3.present?
+                        @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                        if @dog_icon_if3.dog_breed == @breed
+                             @dog_icon =  @dog_icon_if3.image_name
+                        end
+                    end
+                    @dog = Dog.find_by(image_name: @dog_icon)
+                    @dog = Dog.find_by(id: @request.dog_id)
+                %>
+
+                    <div class="search_icon" id="search_dog_icon">
+                        <% if @dog_icon %>
+            <!------------アイコンあり------------------>
+                            <div class="icon_wrapp00" id="change_ic">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="users_icon55" id="users_search">
+                                        <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% else %>
+            <!------------アイコンなし------------------>
+                            <div class="icon_wrapp" id="icon_center">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="dog_icon_mydog" id="search_icon">
+                                        <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+          <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %>
+                        <div class="info_dog">
+                            <p><%= @dog.name %></p>
+                            <p><%= @request.adress %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 4 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        </div>
+    <% elsif @adress_days.present? %><!--日付と住所検索の場合--><!---あ---->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+            <% @adress_days.each do | adress_day | %>
+                <% @request = Request.find_by(id: adress_day.id) %>
+                <% if @request.status < 1 %>
+                    <% if @num == 0 && @count == 0 %>
+                        <div class="num0">
+                    <% end %>
+                    <% if @num == 4 %>
+                        <div class="num0">
+                            <% @num = 0 %>
+                    <% end %>
+                    <% @dog = Dog.find_by(id: adress_day.dog_id) %>
+                        <div class="search_icon" id="search_dog_icon">
+                            <% if @dog.image_name %><!--アイコン画像の有無判定-->
+                <!------------アイコンあり------------------>
+                                <div class="icon_wrapp00" id="change_ic">
+                                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                        <div class="users_icon55" id="users_search">
+                                            <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                        </div>
+                                    <% end %>
+                                </div>
+                            <% else %>
+            <!------------アイコンなし------------------>
+                                <div class="icon_wrapp" id="icon_center">
+                                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                        <div class="dog_icon_mydog" id="search_icon">
+                                            <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            <% end %>
+          <!------------ここまでアイコン---------------->
+                            <% @day = adress_day.waiting %>
+                            <div class="info_dog">
+                                <p><%= @dog.name %></p>
+                                <p><%= @dog.dog_breed %></p>
+                            </div>
+                        </div>
+                        <% @num += 1 %>
+                        <% if @num == 4 %>
+                            </div>
+                        <% end %>
+                        <% @count += 1 %>
+                        <% if @count == 12 %>
+                            <% break %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    <% elsif @adresses.present? %><!--アドレスのみ検索の場合------------------------------------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @adresses.each do | adress | %>
+            <% if adress.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0">
+                <% end %>
+                <% if @num == 4 %>
+                    <div class="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <%
+                    @dog = Dog.find_by(id: adress.dog_id)
+                    @request = Request.find_by(id: adress.id)
+                    @dog_icon = @dog.image_name
+                %>
+                <div class="search_icon" id="search_dog_icon">
+                    <% if @dog_icon %>
+                    <!------------アイコンあり------------------>
+                        <div class="icon_wrapp00" id="change_ic">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="users_icon55" id="users_search">
+                                        <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                </div>
+                            <% end %>
+                        </div>
+                    <% else %>
+                    <!------------アイコンなし------------------>
+                        <div class="icon_wrapp" id="icon_center">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="dog_icon_mydog" id="search_icon">
+                                    <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                  <!------------ここまでアイコン---------------->
+                    <% @day = adress.waiting %>
+                    <div class="info_dog">
+                        <p><%= @day.month.to_s + "月" + @day.day.to_s + "日" %></p>
+                        <p><%= @dog.dog_breed %></p>
+                        <p><%= @dog.name %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 4 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% elsif @breeds.present? %><!-----犬種のみ検索---------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+            <% @breeds.each do | breed | %><!--②-->
+                <% @request = Request.find_by(id: breed.request_id) %>
+                <% if @request.status < 1 %>
+                    <% if @num == 0 && @count == 0 %>
+                        <div class="num0">
+                    <% end %>
+                    <% if @num == 4 %>
+                        <div class="num0">
+                        <% @num = 0 %>
+                    <% end %>
+
+                    <%
+                        if @request.dog_id.present?
+                            @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                             if @dog_icon_if.dog_breed == @breed
+                                @dog_icon =  @dog_icon_if.image_name
+                            end
+                        end
+
+                         if @request.dog_id2.present?
+                             @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                             if @dog_icon_if2.dog_breed == @breed
+                                  @dog_icon =  @dog_icon_if2.image_name
+                             end
+                         end
+
+                         if @request.dog_id3.present?
+                             @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                             if @dog_icon_if3.dog_breed == @breed
+                                  @dog_icon =  @dog_icon_if3.image_name
+                             end
+                         end
+
+                         @dog = Dog.find_by(image_name: @dog_icon)
+                    %>
+
+
+                    <div class="search_icon" id="search_dog_icon">
+                        <% if @dog_icon %>
+          <!------------アイコンあり------------------>
+                            <div class="icon_wrapp00" id="change_ic">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="users_icon55" id="users_search">
+                                        <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% else %>
+          <!------------アイコンなし------------------>
+                            <div class="icon_wrapp" id="icon_center">
+                                <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                    <div class="dog_icon_mydog" id="search_icon">
+                                        <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %><!--④-->
+        <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %><!--日付取得-->
+                        <div class="info_dog">
+                            <p><%= @day.month.to_s + "月" + @day.day.to_s + "日" %></p>
+                            <p><%= @request.adress %></p>
+                            <p><%= @dog.name %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 4 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <% elsif @days.present? %><!---日付検索------------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+        <% @days.each do | day | %>
+            <% @request = Request.find_by(id: day.id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0">
+                <% end %>
+                <% if @num == 4 %>
+                    <div class="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <% @dog = Dog.find_by(id: day.dog_id) %>
+
+                <div class="search_icon" id="search_dog_icon">
+                    <% if @dog.image_name %>
+      <!------------アイコンあり------------------>
+                        <div class="icon_wrapp00" id="change_ic">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="users_icon55" id="users_search">
+                                    <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                </div>
+                            <% end %>
+                        </div>
+                    <% else %>
+      <!------------アイコンなし------------------>
+                        <div class="icon_wrapp" id="icon_center">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="dog_icon_mydog" id="search_icon">
+                                    <i id="dog_icon_mydog" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+    <!------------ここまでアイコン---------------->
+                    <div class="info_dog">
+                        <p><%= day.adress %></p>
+                        <p><%= @dog.dog_breed %></p>
+                        <p><%= @dog.name %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 4 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+        </div>
+    </div>
+    <% end %>
+    <% if @breed_adress_days.blank? &&  @adress_days.blank? && @breed_days.blank? && @adress_breeds.blank? && @days.blank? && @adresses.blank? && @breeds.blank?  ||  @num == 0 %>
+        <div class="no_search">
+            <p class="no_search_head">申し訳ありません。現在該当する依頼はありません。</p>
+        </div>
+    <% end %>
+</div>
+<!-------スマホ------->
+
+<div class="search_cover" id="search_cover"><!--全体のdiv-->
+    <div class="evaluation_head">
+        <h1>検索結果</h1>
+    </div>
+    <div class="conditions00" id="conditions00"><!-------------検索条件----------------->
+        <div class="conditions_item" id="conditions_item">
+            <p>日付:
+                <% if @day_search.present? %>
+                    <%= "#{@day.year}年#{@day.month}月#{@day.day}日" %>
+                <% else %>
+                    指定なし
+                <% end %>
+            </p>
+        </div>
+        <div class="conditions_item" id="conditions_item">
+            <p>住所:
+                <% if @adress.present? %>
+                    <%= "#{@adress}" %>
+                <% else %>
+                    指定なし
+                <% end %>
+            </p>
+        </div>
+        <div class="conditions_item" id="conditions_item">
+            <p>犬種:
+                <% if @breed.present? %>
+                    <%= "#{@breed}" %>
+                <% else %>
+                    指定なし
+                <% end %>
+            </p>
+        </div>
+
+    </div>
+    <div class="btn_search00" id="btn_search00">
+      <p>検索条件を変更する</p>
+    </div>    <!-------------ここまで検索条件----------------->
+    <div class="search_addres"><!----------------検索窓--------------------->
+        <div class="modal">
+            <div class="close-modal">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="login-form">
+                <%= form_tag("/dog/search") do %>
+                    <p class="boder">日付けから検索</p>
+                    <label class="date_in">
+                        <%= date_field("date", "date_on", value: @day) %>
+                    </label>
+                    <p class="boder">地域から検索</p>
+                    <div class="adoress00">
+                        <div class="add_input00">
+                            <p class="moving">郵便番号（7桁）</p>
+                            <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+                            <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                            <div class="add_move">
+                                <p class="moving">都道府県+市区町村</p>
+                            <input class="postal_adress" type="text" name="addr11" size="60">
+                        </div>
+                    </div>
+                    </div>
+                    <p class="boder">犬種から検索</p>
+                    <div class="dog_item33 dog_name2">
+                        <div class="birt222">
+                            <%= select :dog_breed, :choice, [[@breed, @breed],["指定なし", "指定なし"],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+                        </div>
+                    </div>
+                    <div class="submit00">
+                        <input id="dog_submit" type="submit" value="検索する">
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div><!----------------検索窓--------------------->
+
+
+
+    <% if @breed_adress_days.present? %><!--日付と犬種と住所で検索の場合--><!---あ---->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+        <% @breed_adress_days.find_each do | breed_adress_days |
+            @request = Request.find_by(id: breed_adress_days.request_id)
+            if @request.status < 1
+                if @num == 0
+        %>
+                    <div class="num0" id="num0">
+                <% end  %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                        if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                    if @request.dog_id2.present?
+                        @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                        if @dog_icon_if2.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if2.image_name
+                        end
+                    end
+
+                    if @request.dog_id3.present?
+                        @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                        if @dog_icon_if3.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if3.image_name
+                        end
+                    end
+
+                    @dog = Dog.find_by(image_name: @dog_icon)
+                %>
+                <div class="search_icon" id="search_dog_icon_ss">
+                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                        <div class="users_icon55" id="users_search_ss">
+                            <% if @dog_icon %>
+                                <img id="search_dog_image" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                            <% else %>
+                                <div class="dog_icon_mydog" id="search_icon_ss">
+                                    <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+      <!------------ここまでアイコン---------------->
+                    <% @day = @request.waiting %>
+                    <div class="info_dog" id="info_dog">
+                        <p><%= @dog.name %></p>
+                        <p><%= @request.adress %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 2 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% elsif @adress_breeds.present? %><!--住所と犬種で検索の場合-->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @adress_breeds.each do | adress_breed | %>
+            <% @request = Request.find_by(id: adress_breed.request_id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0" id="num0">
+                <% end %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                         if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                     if @request.dog_id2.present?
+                         @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                         if @dog_icon_if2.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if2.image_name
+                         end
+                     end
+
+                     if @request.dog_id3.present?
+                         @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                         if @dog_icon_if3.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if3.image_name
+                         end
+                     end
+
+                     @dog = Dog.find_by(image_name: @dog_icon)
+                     @dog = Dog.find_by(id: @request.dog_id)
+                %>
+
+                    <div class="search_icon" id="search_dog_icon_ss">
+                        <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                            <div class="users_icon55" id="users_search_ss">
+                                <% if @dog_icon %>
+                                        <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                <% else %>
+            <!------------アイコンなし------------------>
+                                    <div class="dog_icon_mydog" id="search_icon_ss">
+                                        <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+          <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %>
+                        <div class="info_dog" id="info_dog">
+                            <p><%= @dog.name %></p>
+                            <p><%= @request.adress %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 2 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        </div>
+
+
+    <!-------ここまで追加------->
+    <% elsif @breed_days.present? %><!--日付と犬種で検索の場合-->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @breed_days.each do | breed_days | %>
+            <% @request = Request.find_by(id: breed_days.request_id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0" id="num0">
+                <% end %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                        if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                    if @request.dog_id2.present?
+                        @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                        if @dog_icon_if2.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if2.image_name
+                        end
+                    end
+
+                    if @request.dog_id3.present?
+                        @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                        if @dog_icon_if3.dog_breed == @breed
+                             @dog_icon =  @dog_icon_if3.image_name
+                        end
+                    end
+                    @dog = Dog.find_by(image_name: @dog_icon)
+                    @dog = Dog.find_by(id: @request.dog_id)
+                %>
+
+                    <div class="search_icon" id="search_dog_icon_ss">
+                        <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                            <div class="users_icon55" id="users_search_ss">
+                                <% if @dog_icon %>
+                                    <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                <% else %>
+                    <!------------アイコンなし------------------>
+                                    <div class="dog_icon_mydog" id="search_icon_ss">
+                                        <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                    </div>
+                                <% end %><!--④-->
+                            </div>
+                        <% end %>
+          <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %>
+                        <div class="info_dog" id="info_dog">
+                            <p><%= @dog.name %></p>
+                            <p><%= @request.adress %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 2 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        </div>
+    <% elsif @adress_days.present? %><!--日付と住所検索の場合--><!---あ---->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+            <% @adress_days.each do | adress_day | %>
+                <% @request = Request.find_by(id: adress_day.id) %>
+                <% if @request.status < 1 %>
+                    <% if @num == 0 && @count == 0 %>
+                        <div class="num0" id="num0">
+                    <% end %>
+                    <% if @num == 2 %>
+                        <div class="num0" id="num0">
+                            <% @num = 0 %>
+                    <% end %>
+                    <% @dog = Dog.find_by(id: adress_day.dog_id) %>
+                        <div class="search_icon" id="search_dog_icon_ss">
+                            <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                                <div class="users_icon55" id="users_search_ss">
+                                    <% if @dog_icon %>
+                                        <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                                    <% else %>
+                        <!------------アイコンなし------------------>
+                                        <div class="dog_icon_mydog" id="search_icon_ss">
+                                            <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                        </div>
+                                    <% end %><!--④-->
+                                </div>
+                            <% end %>
+          <!------------ここまでアイコン---------------->
+                            <% @day = adress_day.waiting %>
+                            <div class="info_dog" id="info_dog">
+                                <p><%= @dog.name %></p>
+                                <p><%= @dog.dog_breed %></p>
+                            </div>
+                        </div>
+                        <% @num += 1 %>
+                        <% if @num == 2 %>
+                            </div>
+                        <% end %>
+                        <% @count += 1 %>
+                        <% if @count == 12 %>
+                            <% break %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    <% elsif @adresses.present? %><!--アドレスのみ検索の場合------------------------------------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+    <!------------requestの配列each文----------------------------------------->
+        <% @adresses.each do | adress | %>
+            <% if adress.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0" id="num0">
+                <% end %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <%
+                    @dog = Dog.find_by(id: adress.dog_id)
+                    @request = Request.find_by(id: adress.id)
+                    @dog_icon = @dog.image_name
+                %>
+                <div class="search_icon" id="search_dog_icon_ss">
+                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                        <div class="users_icon55" id="users_search_ss">
+                            <% if @dog_icon %>
+                                <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                            <% else %>
+                <!------------アイコンなし------------------>
+                                <div class="dog_icon_mydog" id="search_icon_ss">
+                                    <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %><!--④-->
+                        </div>
+                    <% end %>
+                  <!------------ここまでアイコン---------------->
+                    <% @day = adress.waiting %>
+                    <div class="info_dog" id="info_dog">
+                        <p><%= @day.month.to_s + "月" + @day.day.to_s + "日" %></p>
+                        <p><%= @dog.dog_breed %></p>
+                        <p><%= @dog.name %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 2 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% elsif @breeds.present? %><!-----犬種のみ検索---------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+            <% @breeds.each do | breed | %><!--②-->
+                <% @request = Request.find_by(id: breed.request_id) %>
+                <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0" id="num0">
+                <% end %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                         if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                     if @request.dog_id2.present?
+                         @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                         if @dog_icon_if2.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if2.image_name
+                         end
+                     end
+
+                     if @request.dog_id3.present?
+                         @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                         if @dog_icon_if3.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if3.image_name
+                         end
+                     end
+
+                     @dog = Dog.find_by(image_name: @dog_icon)
+                %>
+
+
+                <div class="search_icon" id="search_dog_icon_ss">
+                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                        <div class="users_icon55" id="users_search_ss">
+                            <% if @dog_icon %>
+                                <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+
+                            <% else %>
+          <!------------アイコンなし------------------>
+                                <div class="dog_icon_mydog" id="search_icon_ss">
+                                    <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %><!--④-->
+                        </div>
+                    <% end %>
+        <!------------ここまでアイコン---------------->
+                        <% @day = @request.waiting %><!--日付取得-->
+                        <div class="info_dog" id="info_dog">
+                            <p><%= @day.month.to_s + "月" + @day.day.to_s + "日" %></p>
+                            <p><%= @request.adress %></p>
+                            <p><%= @dog.name %></p>
+                        </div>
+                    </div>
+                    <% @num += 1 %>
+                    <% if @num == 2 %>
+                        </div>
+                    <% end %>
+                    <% @count += 1 %>
+                    <% if @count == 12 %>
+                        <% break %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <% elsif @days.present? %><!---日付検索------------->
+        <% @count = 0 %>
+        <% @num = 0 %>
+        <!------------requestの配列each文----------------------------------------->
+        <% @days.each do | day | %>
+            <% @request = Request.find_by(id: day.id) %>
+            <% if @request.status < 1 %>
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0" id="num0">
+                <% end %>
+                <% if @num == 2 %>
+                    <div class="num0" id="num0">
+                    <% @num = 0 %>
+                <% end %>
+                <% @dog = Dog.find_by(id: day.dog_id) %>
+
+                <div class="search_icon" id="search_dog_icon_ss">
+                    <%= link_to("/dog/details/#{@request.id}", :target => "_new") do %>
+                        <div class="users_icon55" id="users_search_ss">
+                            <% if @dog_icon %>
+                                <img id="search_dog_image_ss" class="icon_img55" src="<%= "/dog_images/#{@dog_icon}" %>" alt="">
+                            <% else %>
+                <!------------アイコンなし------------------>
+                                <div class="dog_icon_mydog" id="search_icon_ss">
+                                    <i id="dog_icon_mydog_ss" class="fas fa-dog fa-5x fa-dog11"></i>
+                                </div>
+                            <% end %><!--④-->
+                        </div>
+                    <% end %>
+    <!------------ここまでアイコン---------------->
+                    <div class="info_dog" id="info_dog">
+                        <p><%= day.adress %></p>
+                        <p><%= @dog.dog_breed %></p>
+                        <p><%= @dog.name %></p>
+                    </div>
+                </div>
+                <% @num += 1 %>
+                <% if @num == 2 %>
+                    </div>
+                <% end %>
+                <% @count += 1 %>
+                <% if @count == 12 %>
+                    <% break %>
+                <% end %>
+            <% end %>
+        <% end %>
+        </div>
+    </div>
+    <% end %>
+    <% if @breed_adress_days.blank? &&  @adress_days.blank? && @breed_days.blank? && @adress_breeds.blank? && @days.blank? && @adresses.blank? && @breeds.blank?  ||  @num == 0 %>
+        <div class="no_search" id="no_search">
+            <p class="no_search_head">申し訳ありません。現在該当する依頼はありません。</p>
+        </div>
+    <% end %>
+</div>

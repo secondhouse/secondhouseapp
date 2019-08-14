@@ -1,0 +1,283 @@
+<div class="space">
+</div>
+<div class="users_show" id="users_show_s">
+    <div class="users_header" id="users_header">
+        <div class="users_header1" id="users_header1">
+            <ul>
+                <%= link_to("ホーム","/users/#{@user.id}") %>
+                <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+                <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
+                <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+                <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+            </ul>
+        </div>
+    </div>
+<!------------カバー画像------------------->
+    <% if @user.image_header %>
+        <div class="show_wrapp_cover" id="show_wrapp_cover_s">
+            <img class="image_header" id="image_header_s" src="<%= "/images_header/#{@user.image_header}" %>" alt="">
+        </div>
+    <% else %>
+        <div class="show_wrapp_cover2" id="show_wrapp_cover_s2">
+            <div class="users_cover" id="users_cover2">
+                <div class="cover_add" id="cover_add">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <div class="cover_add1" id="cover_add1">
+                            <div class="cover_add2">
+                                <i class="fas fa-camera fa-2x icon_camera00" id="icon_camera00"></i>
+                                <i class="fas fa-plus icon_plus00" id="icon_plus00"></i>
+                            </div>
+                            <div class="cover_content" id="cover_content">
+                                <p>カバー画像を変更</p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<!------------ここまでカバー画像------------------->
+<!------------アイコン画像------------------->
+<div class="show_item" id="show_item_s">
+    <div class="info_wrapp_show">
+        <% if @user.image_name %>
+            <div class="icon_wrapp" id="icon_wrapp">
+                <div class="users_icon" id="users_icon">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <img class="icon_img" id="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    <% end %>
+                </div>
+            </div>
+        <% else %>
+            <div class="icon_wrapp" id="icon_wrapp">
+                <div class="users_icon">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <i class="fas fa-user-circle fa-8x icon_color"></i>
+                        <div class="icon_add">
+                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                            <i class="fas fa-plus icon_plus2"></i>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+<!------------ここまでアイコン画像------------------->
+<!------------ユーザー情報------------------->
+        <div class="user_info">
+            <div class="show_user_name">
+                <%= @user.name %>
+            </div>
+
+            <div class="edit_wrapp">
+                <div class="show_user_sex">
+                    <%= "#{@user.sex}/#{@year}歳"%>
+                </div>
+                <div class="edit">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <div class="support_button edit_button">
+                            <p>基本情報を編集する</p>
+                        </div>
+                    <% end %>
+                    <%= link_to("/users/seen/#{@user.id}") do %>
+                        <div class="support_button edit_button1">
+                            <p>自分のページを見る</p>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="user_details_wrapp">
+                <div class="show_user_details">
+                    <p class="detail_performance">実績</p>
+                    <p class="detail_move1">評価</p>
+                    <% if @user_evaluation.nan? %>
+                        <i class="fas fa-star"></i>
+                        <p class="detail_move">0</p>
+                    <% else %>
+                        <i class="fas fa-star"></i>
+                        <p class="detail_move"><%= @user_evaluation %></p>
+                    <% end %>
+                    <p class="detail_move1">フォロワー</p>
+                    <p class="detail_move"><%= @num_follow %></p>
+                    <p class="detail_move1">利用回数</p>
+                    <p><%= @num %></p>
+                </div>
+                <div class="show_user_details">
+                    <p class="detail_performance">認証状況</p>
+                    <p class="detail_move1">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                    <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+
+                    <p class="detail_move1" id="details_pay">お支払い方法</p>
+                        <% if @user_detail %>
+                            <% if @user_detail.pay == 1 %>
+                                <i class="far fa-credit-card"></i>
+                                <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma" id="show_check"></i></p>
+                            <% else %>
+                                <i class="far fa-credit-card"></i>
+                                <p class="detail_move">ー</p>
+                            <% end %>
+                        <% else %>
+                            <i class="far fa-credit-card"></i>
+                            <p class="detail_move">ー</p>
+                        <% end %>
+                        <p class="detail_move1">受け取り口座</p>
+                        <% if @bank %>
+                            <i class="fas fa-money-check-alt"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma" id="show_check"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt"></i>
+                            <p>ー</p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!------------ここまでユーザー情報------------------->
+        <div class="add_intro">
+            <% if @status %>
+                <div class="introduction1_wrap" id="introduction1_wrap_s">
+                    <div id="introduction10">
+                        <div class="box">
+                            <p><%= @status.introduction %></p>
+                        </div>
+                    </div>
+                </div>
+            <% else %>
+                <%= form_tag("/users/introduction/#{@user.id}") do %>
+                    <div id="introduction00">
+                        <div class="introduction_input">
+                            <textarea class="introduction_text" maxlength="250" name="introduction" rows="8" cols="80" placeholder="あなたの自己紹介を書きましょう（250文字以内）" required></textarea>
+                        </div>
+                        <input id="input_submit" type="submit" name="update" value="更新する">
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <!---スマホ用-->
+    <div class="show_item" id="show_item_s2">
+        <div class="info_wrapp_show_s">
+            <% if @user.image_name %>
+                <div class="icon_wrapp" id="icon_wrapp">
+                    <div class="users_icon" id="users_icon_show">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <img class="icon_img" id="icon_img_show" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                        <% end %>
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp" id="icon_wrapp">
+                    <div class="users_icon" id="users_icon_s">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-4x icon_color" id="user_s_icon"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2" id="icon_camera2_s"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+    <!------------ここまでアイコン画像------------------->
+    <!------------ユーザー情報------------------->
+            <div class="user_info_s">
+                <p><%= @user.name %></p>
+                <p><%= "#{@user.sex}/#{@year}歳"%></p>
+            </div>
+            <div class="user_de_s">
+                <div class="user_de_item">
+                    <p>利用回数</p>
+                    <p><%= @num %></p>
+                </div>
+                <div class="user_de_item">
+                    <p>評価</p>
+                    <% if @user_evaluation.nan? %>
+                        <i class="fas fa-star" id="fa-star"></i>
+                        <p>0</p>
+                    <% else %>
+                        <i class="fas fa-star" id="fa-star"></i>
+                        <p><%= @user_evaluation %></p>
+                    <% end %>
+                </div>
+                <div class="user_de_item">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+            <div class="user_de_s">
+                <p class="check_user_s">認証状況：</p>
+                <div class="user_de_item">
+                    <p>本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma" id="human_s"></i>
+                            <p><i class="fas fa-check-square no_pa no_ma2 ma" id="check_s"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                    <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+            </div>
+            <div class="user_de_s">
+                <div class="user_de_item" id="pay_s">
+                    <p>お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="far fa-credit-card" id="cre_s"></i>
+                            <p><i class="fas fa-check-square no_pa no_ma2 ma" id="show_check_ss"></i></p>
+                        <% else %>
+                            <i class="far fa-credit-card" id="cre_s"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="far fa-credit-card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+                <div class="user_de_item">
+                    <p>受け取り口座</p>
+                    <% if @bank %>
+                        <i class="fas fa-money-check-alt" id="ch_fa_mo"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma" id="show_check"></i></p>
+                    <% else %>
+                        <i class="fas fa-money-check-alt" id="ch_fa_mo"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+    <!------------ここまでユーザー情報------------------->
+            <div class="add_intro" id="add_intro">
+                <% if @status %>
+                    <div class="introduction1_wrap" id="introduction1_wrap_s">
+                        <div id="introduction_s">
+                            <div class="box" id="box_ss">
+                                <p><%= @status.introduction %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% else %>
+                    <%= form_tag("/users/introduction/#{@user.id}") do %>
+                        <div id="introduction00">
+                            <div class="introduction_input" id="introduction_input">
+                                <textarea class="introduction_text" id="introduction_text" maxlength="250" name="introduction" rows="8" cols="80" placeholder="あなたの自己紹介を書きましょう（250文字以内）" required></textarea>
+                            </div>
+                            <input id="input_submit11" type="submit" name="update" value="更新する">
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+</div>

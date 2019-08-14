@@ -1,0 +1,297 @@
+<div class="space"></div>
+
+<div class="evaluation_show">
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<!------------------ここまで左側メニュー------------------------>
+<!-----利用履歴-------------------------------------->
+        <div class="email_content_wrapp">
+            <div class="head_back" id="head_bank">
+                <h1>銀行口座</h1>
+                <%= link_to("/support/configuration/#{@user.id}") do %>
+                    <p><i class="fas fa-chevron-left no_pa"></i>設定に戻る</p>
+                <% end %>
+            </div>
+            <div class="bank_wrapp">
+                <h3>振込口座の登録と変更ができます</h3>
+                <p>全て必須項目です</p>
+                <div class="bank_item_wrapp">
+                    <form class="" action="/support/bank_create" method="post">
+                        <div class="bank_item">
+                            <p>銀行名</p>
+                            <% if @bank %>
+                                <input id="bank_name" class="bank_num" type="text" name="bank_name" value="<%= @bank.bank_name %>" placeholder="（例）三菱UFJ銀行" required>
+                            <% else %>
+                                <input class="bank_num" type="text" name="bank_name" value="<%= @bank_name  %>" placeholder="（例）三菱UFJ銀行" required>
+                            <% end %>
+                        </div>
+                        <div class="bank_item">
+                            <p>支店名</p>
+                            <% if @bank %>
+                                <input id="bank_branch" class="bank_num" type="text" name="branch" value="<%= @bank.branch %>" placeholder="（例）六本木支店" required>
+                            <% else %>
+                                <input class="bank_num" type="text" name="branch" value="<%= @branch  %>" placeholder="（例）六本木支店" required>
+                            <% end %>
+
+                        </div>
+                        <div class="bank_item">
+                            <p>種類</p>
+                            <div class="bank_kind">
+                                <input id="kind1" type="radio" name="bank_kind" value="普通" checked><label for="kind1">普通</label>
+                                <input id="kind2" type="radio" name="bank_kind" value="当座"><label for="kind2">当座</label>
+                                <input id="kind3" type="radio" name="bank_kind" value="貯蓄" required><label for="kind3">貯蓄</label>
+                            </div>
+                        </div>
+                        <div class="bank_item">
+                            <p>口座番号</p>
+                            <% if @bank %>
+                                <p><input id="bank_num" class="bank_num" type="text" name="number" value="<%= @bank.number%>" placeholder="（例）1234567" required></p>
+                            <% else %>
+                                <p><input class="bank_num" type="number" name="number" value="<%= @number11  %>" placeholder="（例）1234567" required></p>
+                            <% end %>
+                        </div>
+                        <div class="bank_item">
+                            <p>口座名義</p>
+                            <% if @bank %>
+                                <p><input id="name" class="bank_num" type="text" name="name" value="<%= @bank.name %>" placeholder="（例）ヤマダタロウ" required></p>
+                            <% else %>
+                                <p><input class="bank_num" type="text" name="name" value="<%= @name %>" placeholder="（例）ヤマダタロウ" required></p>
+                            <% end %>
+                        </div>
+                        <p class="space_none">※スペース不要</p>
+                        <div class="space11"></div>
+                        <div class="input_edit_containar" id="cc_inp">
+                            <button type="submit">保存する</button>
+                        </div>
+                    </form>
+                    <% if @bank %>
+                        <div class="bank_dele">
+                            <input id="bank_dele" type="submit" name="" value="口座情報を削除する">
+                        </div>
+                        <%= form_tag({controller:'support', action:'bank_delete'}, remote:true) do %>
+                            <input id="delete_do" type="submit" name="delete_do" value="">
+                        <% end %>
+
+                    <% end %>
+                </div>
+
+                <p class="bank_note">※ 入力可能な文字・記号であることを確認ください。詳細なFAQはこちら</p>
+                <p class="bank_note" id="bank_note22">※ 会員情報の氏名と銀行口座の名義が一致していない場合、登録することができません。詳細なFAQはこちら</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----スマホ------>
+<div class="evaluation_show" id="bank_container_ss">
+    <div class="evaluation_head">
+        <h1>銀行口座</h1>
+    </div>
+    <div class="email_content_wrapp">
+        <div class="head_back" id="head_back">
+            <%= link_to("/support/configuration/#{@user.id}") do %>
+                <p><i class="fas fa-chevron-left no_pa"></i>設定に戻る</p>
+            <% end %>
+        </div>
+        <div class="bank_wrapp" id="bank_wrapp">
+            <h3>振込口座の登録と変更ができます</h3>
+            <p>全て必須項目です</p>
+            <div class="bank_item_wrapp" id="bank_item_wrapp">
+                <form class="" action="/support/bank_create" method="post">
+                    <div class="bank_item" id="bank_item">
+                        <p>銀行名</p>
+                        <% if @bank %>
+                            <input id="bank_name2" class="bank_num" type="text" name="bank_name" value="<%= @bank.bank_name %>" placeholder="（例）三菱UFJ銀行" required>
+                        <% else %>
+                            <input id="bank_num2" class="bank_num" type="text" name="bank_name" value="<%= @bank_name  %>" placeholder="（例）三菱UFJ銀行" required>
+                        <% end %>
+                    </div>
+                    <div class="bank_item" id="bank_item">
+                        <p>支店名</p>
+                        <% if @bank %>
+                            <input id="bank_branch2" class="bank_num" type="text" name="branch" value="<%= @bank.branch %>" placeholder="（例）六本木支店" required>
+                        <% else %>
+                            <input id="bank_num2" class="bank_num" type="text" name="branch" value="<%= @branch  %>" placeholder="（例）六本木支店" required>
+                        <% end %>
+
+                    </div>
+                    <div class="bank_item" id="bank_item">
+                        <p>種類</p>
+                        <div class="bank_kind" id="bank_kind">
+                            <input id="kind1" type="radio" name="bank_kind" value="普通" checked><label for="kind1">普通</label>
+                            <input id="kind2" type="radio" name="bank_kind" value="当座"><label for="kind2">当座</label>
+                            <input id="kind3" type="radio" name="bank_kind" value="貯蓄" required><label for="kind3">貯蓄</label>
+                        </div>
+                    </div>
+                    <div class="bank_item" id="bank_item">
+                        <p>口座番号</p>
+                        <% if @bank %>
+                            <p><input id="bank_num2" class="bank_num" type="text" name="number" value="<%= @bank.number%>" placeholder="（例）1234567" required></p>
+                        <% else %>
+                            <p><input id="bank_num2" class="bank_num" type="number" name="number" value="<%= @number11  %>" placeholder="（例）1234567" required></p>
+                        <% end %>
+                    </div>
+                    <div class="bank_item" id="bank_item">
+                        <p>口座名義</p>
+                        <% if @bank %>
+                            <p><input id="name2" class="bank_num" type="text" name="name" value="<%= @bank.name %>" placeholder="（例）ヤマダタロウ" required></p>
+                        <% else %>
+                            <p><input id="bank_num2" class="bank_num" type="text" name="name" value="<%= @name %>" placeholder="（例）ヤマダタロウ" required></p>
+                        <% end %>
+                    </div>
+                    <p class="space_none" id="space_none">※スペース不要</p>
+                    <div class="input_edit_containar" id="cc_inp_ss">
+                        <button type="submit">保存する</button>
+                    </div>
+                </form>
+                <% if @bank %>
+                    <div class="bank_dele">
+                        <input id="bank_dele2" type="submit" name="" value="口座情報を削除する">
+                    </div>
+                    <%= form_tag({controller:'support', action:'bank_delete'}, remote:true) do %>
+                        <input id="delete_do2" type="submit" name="delete_do" value="">
+                    <% end %>
+
+                <% end %>
+            </div>
+            <p class="bank_note">※ 入力可能な文字・記号であることを確認ください。詳細なFAQはこちら</p>
+            <p class="bank_note" id="bank_note22">※ 会員情報の氏名と銀行口座の名義が一致していない場合、登録することができません。詳細なFAQはこちら</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+        $('#bank_dele').on('click', function(){
+            if(!confirm('本当に削除しますか？')){
+                /* キャンセルの時の処理 */
+                return false;
+            }else{
+                $('#bank_name').val('');
+                $('#bank_branch').val('');
+                $('#bank_num').val('');
+                $('#name').val('');
+                $('#delete_do').trigger('click');
+            }
+        });
+        $('#bank_dele2').on('click', function(){
+            if(!confirm('本当に削除しますか？')){
+                /* キャンセルの時の処理 */
+                return false;
+            }else{
+                $('#bank_name2').val('');
+                $('#bank_branch2').val('');
+                $('#bank_num2').val('');
+                $('#name2').val('');
+                $('#delete_do2').trigger('click');
+            }
+        });
+
+
+
+</script>

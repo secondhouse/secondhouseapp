@@ -1,0 +1,904 @@
+bundler: failed to load command: unicorn_rails (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails)
+ArgumentError: Already running on PID:31142 (or pid=/var/www/secondhouse/releases/20190722233009/tmp/pids/unicorn.pid is stale)
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:207:in `pid='
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:139:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `<top (required)>'
+I, [2019-07-23T08:38:41.872343 #31508]  INFO -- : Refreshing Gem list
+bundler: failed to load command: unicorn_rails (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails)
+LoadError: Could not load the 'listen' gem. Add `gem 'listen'` to the development group of your Gemfile
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `block in require_with_bootsnap_lfi'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require_with_bootsnap_lfi'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:40:in `rescue in require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:26:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `block in require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:257:in `load_dependency'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:61:in `block in initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `block in silence_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:28:in `with_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `silence_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:59:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `initialize_i18n'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:19:in `block in <class:Railtie>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:62:in `with_execution_control'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:67:in `execute_hook'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:52:in `block in run_load_hooks'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `run_load_hooks'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application/finisher.rb:75:in `block in <module:Finisher>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `instance_exec'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `run'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:61:in `block in run_initializers'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `call'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:60:in `run_initializers'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application.rb:361:in `initialize!'
+  /var/www/secondhouse/releases/20190722233009/config/environment.rb:5:in `<top (required)>'
+  config.ru:4:in `require_relative'
+  config.ru:4:in `block in <main>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `instance_eval'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `initialize'
+  config.ru:1:in `new'
+  config.ru:1:in `<main>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `eval'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `block in builder'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:139:in `block in rails_builder'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:794:in `build_app!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:141:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `<top (required)>'
+I, [2019-07-23T08:49:47.868387 #31703]  INFO -- : Refreshing Gem list
+bundler: failed to load command: unicorn_rails (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails)
+LoadError: Could not load the 'listen' gem. Add `gem 'listen'` to the development group of your Gemfile
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `block in require_with_bootsnap_lfi'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require_with_bootsnap_lfi'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:40:in `rescue in require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:26:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `block in require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:257:in `load_dependency'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `require'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:61:in `block in initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `block in silence_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:28:in `with_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `silence_warnings'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:59:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `initialize_i18n'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:19:in `block in <class:Railtie>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:62:in `with_execution_control'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:67:in `execute_hook'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:52:in `block in run_load_hooks'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `run_load_hooks'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application/finisher.rb:75:in `block in <module:Finisher>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `instance_exec'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `run'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:61:in `block in run_initializers'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `call'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+  /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:60:in `run_initializers'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application.rb:361:in `initialize!'
+  /var/www/secondhouse/releases/20190722233009/config/environment.rb:5:in `<top (required)>'
+  config.ru:4:in `require_relative'
+  config.ru:4:in `block in <main>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `instance_eval'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `initialize'
+  config.ru:1:in `new'
+  config.ru:1:in `<main>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `eval'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `block in builder'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:139:in `block in rails_builder'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:794:in `build_app!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:141:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `<top (required)>'
+I, [2019-07-23T10:07:29.760245 #32368]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:14: warning: already initialized constant Rack::VERSION
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:14: warning: previous definition of VERSION was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:21: warning: already initialized constant Rack::RELEASE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:21: warning: previous definition of RELEASE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:28: warning: already initialized constant Rack::HTTP_HOST
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:28: warning: previous definition of HTTP_HOST was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:29: warning: already initialized constant Rack::HTTP_VERSION
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:29: warning: previous definition of HTTP_VERSION was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:30: warning: already initialized constant Rack::HTTPS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:30: warning: previous definition of HTTPS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:31: warning: already initialized constant Rack::PATH_INFO
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:31: warning: previous definition of PATH_INFO was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:32: warning: already initialized constant Rack::REQUEST_METHOD
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:32: warning: previous definition of REQUEST_METHOD was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:33: warning: already initialized constant Rack::REQUEST_PATH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:33: warning: previous definition of REQUEST_PATH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:34: warning: already initialized constant Rack::SCRIPT_NAME
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:34: warning: previous definition of SCRIPT_NAME was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:35: warning: already initialized constant Rack::QUERY_STRING
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:35: warning: previous definition of QUERY_STRING was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:36: warning: already initialized constant Rack::SERVER_PROTOCOL
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:36: warning: previous definition of SERVER_PROTOCOL was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:37: warning: already initialized constant Rack::SERVER_NAME
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:37: warning: previous definition of SERVER_NAME was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:38: warning: already initialized constant Rack::SERVER_ADDR
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:38: warning: previous definition of SERVER_ADDR was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:39: warning: already initialized constant Rack::SERVER_PORT
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:39: warning: previous definition of SERVER_PORT was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:40: warning: already initialized constant Rack::CACHE_CONTROL
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:40: warning: previous definition of CACHE_CONTROL was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:41: warning: already initialized constant Rack::CONTENT_LENGTH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:41: warning: previous definition of CONTENT_LENGTH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:42: warning: already initialized constant Rack::CONTENT_TYPE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:42: warning: previous definition of CONTENT_TYPE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:43: warning: already initialized constant Rack::SET_COOKIE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:43: warning: previous definition of SET_COOKIE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:44: warning: already initialized constant Rack::TRANSFER_ENCODING
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:44: warning: previous definition of TRANSFER_ENCODING was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:45: warning: already initialized constant Rack::HTTP_COOKIE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:45: warning: previous definition of HTTP_COOKIE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:46: warning: already initialized constant Rack::ETAG
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:46: warning: previous definition of ETAG was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:49: warning: already initialized constant Rack::GET
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:49: warning: previous definition of GET was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:50: warning: already initialized constant Rack::POST
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:50: warning: previous definition of POST was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:51: warning: already initialized constant Rack::PUT
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:51: warning: previous definition of PUT was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:52: warning: already initialized constant Rack::PATCH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:52: warning: previous definition of PATCH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:53: warning: already initialized constant Rack::DELETE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:53: warning: previous definition of DELETE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:54: warning: already initialized constant Rack::HEAD
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:54: warning: previous definition of HEAD was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:55: warning: already initialized constant Rack::OPTIONS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:55: warning: previous definition of OPTIONS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:56: warning: already initialized constant Rack::LINK
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:56: warning: previous definition of LINK was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:57: warning: already initialized constant Rack::UNLINK
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:57: warning: previous definition of UNLINK was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:58: warning: already initialized constant Rack::TRACE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:58: warning: previous definition of TRACE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:61: warning: already initialized constant Rack::RACK_VERSION
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:61: warning: previous definition of RACK_VERSION was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:62: warning: already initialized constant Rack::RACK_TEMPFILES
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:62: warning: previous definition of RACK_TEMPFILES was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:63: warning: already initialized constant Rack::RACK_ERRORS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:63: warning: previous definition of RACK_ERRORS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:64: warning: already initialized constant Rack::RACK_LOGGER
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:64: warning: previous definition of RACK_LOGGER was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:65: warning: already initialized constant Rack::RACK_INPUT
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:65: warning: previous definition of RACK_INPUT was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:66: warning: already initialized constant Rack::RACK_SESSION
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:66: warning: previous definition of RACK_SESSION was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:67: warning: already initialized constant Rack::RACK_SESSION_OPTIONS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:67: warning: previous definition of RACK_SESSION_OPTIONS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:68: warning: already initialized constant Rack::RACK_SHOWSTATUS_DETAIL
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:68: warning: previous definition of RACK_SHOWSTATUS_DETAIL was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:69: warning: already initialized constant Rack::RACK_MULTITHREAD
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:69: warning: previous definition of RACK_MULTITHREAD was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:70: warning: already initialized constant Rack::RACK_MULTIPROCESS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:70: warning: previous definition of RACK_MULTIPROCESS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:71: warning: already initialized constant Rack::RACK_RUNONCE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:71: warning: previous definition of RACK_RUNONCE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:72: warning: already initialized constant Rack::RACK_URL_SCHEME
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:72: warning: previous definition of RACK_URL_SCHEME was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:73: warning: already initialized constant Rack::RACK_HIJACK
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:73: warning: previous definition of RACK_HIJACK was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:74: warning: already initialized constant Rack::RACK_IS_HIJACK
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:74: warning: previous definition of RACK_IS_HIJACK was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:75: warning: already initialized constant Rack::RACK_HIJACK_IO
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:75: warning: previous definition of RACK_HIJACK_IO was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:76: warning: already initialized constant Rack::RACK_RECURSIVE_INCLUDE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:76: warning: previous definition of RACK_RECURSIVE_INCLUDE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:77: warning: already initialized constant Rack::RACK_MULTIPART_BUFFER_SIZE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:77: warning: previous definition of RACK_MULTIPART_BUFFER_SIZE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:78: warning: already initialized constant Rack::RACK_MULTIPART_TEMPFILE_FACTORY
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:78: warning: previous definition of RACK_MULTIPART_TEMPFILE_FACTORY was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:79: warning: already initialized constant Rack::RACK_REQUEST_FORM_INPUT
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:79: warning: previous definition of RACK_REQUEST_FORM_INPUT was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:80: warning: already initialized constant Rack::RACK_REQUEST_FORM_HASH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:80: warning: previous definition of RACK_REQUEST_FORM_HASH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:81: warning: already initialized constant Rack::RACK_REQUEST_FORM_VARS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:81: warning: previous definition of RACK_REQUEST_FORM_VARS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:82: warning: already initialized constant Rack::RACK_REQUEST_COOKIE_HASH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:82: warning: previous definition of RACK_REQUEST_COOKIE_HASH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:83: warning: already initialized constant Rack::RACK_REQUEST_COOKIE_STRING
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:83: warning: previous definition of RACK_REQUEST_COOKIE_STRING was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:84: warning: already initialized constant Rack::RACK_REQUEST_QUERY_HASH
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:84: warning: previous definition of RACK_REQUEST_QUERY_HASH was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:85: warning: already initialized constant Rack::RACK_REQUEST_QUERY_STRING
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:85: warning: previous definition of RACK_REQUEST_QUERY_STRING was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:86: warning: already initialized constant Rack::RACK_METHODOVERRIDE_ORIGINAL_METHOD
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:86: warning: previous definition of RACK_METHODOVERRIDE_ORIGINAL_METHOD was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack.rb:87: warning: already initialized constant Rack::RACK_SESSION_UNPACKED_COOKIE_DATA
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack.rb:87: warning: previous definition of RACK_SESSION_UNPACKED_COOKIE_DATA was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/query_parser.rb:3: warning: already initialized constant Rack::QueryParser::DEFAULT_SEP
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/query_parser.rb:3: warning: previous definition of DEFAULT_SEP was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/query_parser.rb:4: warning: already initialized constant Rack::QueryParser::COMMON_SEP
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/query_parser.rb:4: warning: previous definition of COMMON_SEP was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:14: warning: already initialized constant Rack::Utils::ParameterTypeError
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:14: warning: previous definition of ParameterTypeError was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:15: warning: already initialized constant Rack::Utils::InvalidParameterError
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:15: warning: previous definition of InvalidParameterError was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:16: warning: already initialized constant Rack::Utils::DEFAULT_SEP
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:16: warning: previous definition of DEFAULT_SEP was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:17: warning: already initialized constant Rack::Utils::COMMON_SEP
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:17: warning: previous definition of COMMON_SEP was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:18: warning: already initialized constant Rack::Utils::KeySpaceConstrainedParams
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:18: warning: previous definition of KeySpaceConstrainedParams was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:157: warning: already initialized constant Rack::Utils::ESCAPE_HTML
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:157: warning: previous definition of ESCAPE_HTML was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:166: warning: already initialized constant Rack::Utils::ESCAPE_HTML_PATTERN
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:166: warning: previous definition of ESCAPE_HTML_PATTERN was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:516: warning: already initialized constant Rack::Utils::HTTP_STATUS_CODES
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:516: warning: previous definition of HTTP_STATUS_CODES was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:579: warning: already initialized constant Rack::Utils::STATUS_WITH_NO_ENTITY_BODY
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:579: warning: previous definition of STATUS_WITH_NO_ENTITY_BODY was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:581: warning: already initialized constant Rack::Utils::SYMBOL_TO_STATUS_CODE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:581: warning: previous definition of SYMBOL_TO_STATUS_CODE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:594: warning: already initialized constant Rack::Utils::PATH_SEPS
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:594: warning: previous definition of PATH_SEPS was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:612: warning: already initialized constant Rack::Utils::NULL_BYTE
+/home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/utils.rb:612: warning: previous definition of NULL_BYTE was here
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require': Could not load the 'listen' gem. Add `gem 'listen'` to the development group of your Gemfile (LoadError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `block in require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:40:in `rescue in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:26:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `block in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:257:in `load_dependency'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:61:in `block in initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `block in silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:28:in `with_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:59:in `initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `new'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `initialize_i18n'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:19:in `block in <class:Railtie>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:62:in `with_execution_control'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:67:in `execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:52:in `block in run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application/finisher.rb:75:in `block in <module:Finisher>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `instance_exec'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `run'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:61:in `block in run_initializers'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `call'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:60:in `run_initializers'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application.rb:361:in `initialize!'
+	from /var/www/secondhouse/releases/20190722233009/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require_relative'
+	from config.ru:4:in `block in <main>'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `eval'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `block in builder'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:139:in `block in rails_builder'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:794:in `build_app!'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:141:in `start'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/localadm/.rbenv/versions/2.5.0/bin/unicorn_rails:23:in `load'
+	from /home/localadm/.rbenv/versions/2.5.0/bin/unicorn_rails:23:in `<main>'
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:207:in `pid=': Already running on PID:1244 (or pid=/var/www/secondhouse/releases/20190722233009/tmp/pids/unicorn.pid is stale) (ArgumentError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:139:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T13:46:05.453041 #1442]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+F, [2019-07-23T13:46:07.036234 #1442] FATAL -- : error adding listener addr=/var/run/unicorn/unicorn.sock
+bundler: failed to load command: unicorn_rails (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails)
+Errno::EACCES: Permission denied - connect(2) for /var/run/unicorn/unicorn.sock
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `bind_listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn_rails:209:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn_rails:23:in `<top (required)>'
+I, [2019-07-23T15:23:11.225137 #13837]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require': Could not load the 'listen' gem. Add `gem 'listen'` to the development group of your Gemfile (LoadError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `block in require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:40:in `rescue in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:26:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `block in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:257:in `load_dependency'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:61:in `block in initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `block in silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:28:in `with_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:59:in `initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `new'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `initialize_i18n'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:19:in `block in <class:Railtie>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:62:in `with_execution_control'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:67:in `execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:52:in `block in run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application/finisher.rb:75:in `block in <module:Finisher>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `instance_exec'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `run'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:61:in `block in run_initializers'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `call'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:60:in `run_initializers'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application.rb:361:in `initialize!'
+	from /var/www/secondhouse/releases/20190722233009/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require_relative'
+	from config.ru:4:in `block in <main>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `instance_eval'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `eval'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `block in builder'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:794:in `build_app!'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:141:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T15:44:09.340450 #17856]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require': Could not load the 'listen' gem. Add `gem 'listen'` to the development group of your Gemfile (LoadError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `block in require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require_with_bootsnap_lfi'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:40:in `rescue in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/bootsnap-1.4.4/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:26:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `block in require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:257:in `load_dependency'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/dependencies.rb:291:in `require'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:61:in `block in initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `block in silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:28:in `with_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/kernel/reporting.rb:15:in `silence_warnings'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/evented_file_update_checker.rb:59:in `initialize'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `new'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:61:in `initialize_i18n'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/i18n_railtie.rb:19:in `block in <class:Railtie>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:62:in `with_execution_control'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:67:in `execute_hook'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:52:in `block in run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:51:in `run_load_hooks'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application/finisher.rb:75:in `block in <module:Finisher>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `instance_exec'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:32:in `run'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:61:in `block in run_initializers'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `call'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+	from /home/localadm/.rbenv/versions/2.5.0/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/initializable.rb:60:in `run_initializers'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/railties-5.2.3/lib/rails/application.rb:361:in `initialize!'
+	from /var/www/secondhouse/releases/20190722233009/config/environment.rb:5:in `<top (required)>'
+	from config.ru:4:in `require_relative'
+	from config.ru:4:in `block in <main>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `instance_eval'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/builder.rb:55:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1:in `<main>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `eval'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn.rb:54:in `block in builder'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:794:in `build_app!'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:141:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T15:59:07.164234 #20687]  INFO -- : Refreshing Gem list
+F, [2019-07-23T15:59:11.865541 #20687] FATAL -- : error adding listener addr=/var/www/secondhouse/tmp/development_unicorn.sock
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `initialize': No such file or directory - connect(2) for /var/www/secondhouse/tmp/development_unicorn.sock (Errno::ENOENT)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `new'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `bind_listen'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T16:20:38.003540 #24728]  INFO -- : Refreshing Gem list
+I, [2019-07-23T16:20:41.718831 #24728]  INFO -- : listening on addr=/home/localadm/tmp/sockets/unicorn.sock fd=17
+I, [2019-07-23T16:20:41.718973 #24728]  INFO -- : worker=0 spawning...
+I, [2019-07-23T16:20:41.730762 #24728]  INFO -- : worker=1 spawning...
+I, [2019-07-23T16:20:41.744139 #24743]  INFO -- : worker=0 spawned pid=24743
+I, [2019-07-23T16:20:41.744380 #24743]  INFO -- : worker=0 ready
+I, [2019-07-23T16:20:41.745983 #24728]  INFO -- : master process ready
+I, [2019-07-23T16:20:41.782104 #24746]  INFO -- : worker=1 spawned pid=24746
+I, [2019-07-23T16:20:41.782341 #24746]  INFO -- : worker=1 ready
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:207:in `pid=': Already running on PID:24728 (or pid=/home/localadm/tmp/pids/unicorn.pid is stale) (ArgumentError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:139:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T18:09:25.358378 #24728]  INFO -- : reaped #<Process::Status: pid 24743 exit 0> worker=0
+I, [2019-07-23T18:09:25.369599 #24728]  INFO -- : reaped #<Process::Status: pid 24746 exit 0> worker=1
+I, [2019-07-23T18:09:25.380392 #24728]  INFO -- : master complete
+I, [2019-07-23T18:13:50.949880 #11624]  INFO -- : Refreshing Gem list
+I, [2019-07-23T18:13:52.188790 #11624]  INFO -- : unlinking existing socket=/home/localadm/tmp/sockets/unicorn.sock
+I, [2019-07-23T18:13:52.189443 #11624]  INFO -- : listening on addr=/home/localadm/tmp/sockets/unicorn.sock fd=17
+I, [2019-07-23T18:13:52.189633 #11624]  INFO -- : worker=0 spawning...
+I, [2019-07-23T18:13:52.191242 #11624]  INFO -- : worker=1 spawning...
+I, [2019-07-23T18:13:52.192410 #11624]  INFO -- : master process ready
+I, [2019-07-23T18:13:52.198343 #11633]  INFO -- : worker=0 spawned pid=11633
+I, [2019-07-23T18:13:52.198637 #11633]  INFO -- : worker=0 ready
+I, [2019-07-23T18:13:52.213138 #11635]  INFO -- : worker=1 spawned pid=11635
+I, [2019-07-23T18:13:52.213433 #11635]  INFO -- : worker=1 ready
+/var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:207:in `pid=': Already running on PID:11624 (or pid=/home/localadm/tmp/pids/unicorn.pid is stale) (ArgumentError)
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:139:in `start'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+	from /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<main>'
+I, [2019-07-23T18:41:35.603387 #11624]  INFO -- : reaped #<Process::Status: pid 11633 exit 0> worker=0
+I, [2019-07-23T18:41:35.603511 #11624]  INFO -- : reaped #<Process::Status: pid 11635 exit 0> worker=1
+I, [2019-07-23T18:41:35.603583 #11624]  INFO -- : master complete
+I, [2019-07-23T18:41:54.505455 #11845]  INFO -- : Refreshing Gem list
+I, [2019-07-23T18:41:55.702746 #11845]  INFO -- : unlinking existing socket=/home/localadm/tmp/sockets/unicorn.sock
+I, [2019-07-23T18:41:55.702901 #11845]  INFO -- : listening on addr=/home/localadm/tmp/sockets/unicorn.sock fd=17
+I, [2019-07-23T18:41:55.702991 #11845]  INFO -- : worker=0 spawning...
+I, [2019-07-23T18:41:55.704260 #11845]  INFO -- : worker=1 spawning...
+I, [2019-07-23T18:41:55.705082 #11845]  INFO -- : master process ready
+I, [2019-07-23T18:41:55.719100 #11854]  INFO -- : worker=0 spawned pid=11854
+I, [2019-07-23T18:41:55.719346 #11854]  INFO -- : worker=0 ready
+I, [2019-07-23T18:41:55.725565 #11856]  INFO -- : worker=1 spawned pid=11856
+I, [2019-07-23T18:41:55.725741 #11856]  INFO -- : worker=1 ready
+I, [2019-07-24T16:36:49.427637 #24154]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-24T16:36:51.375843 #24154]  INFO -- : unlinking existing socket=/home/localadm/tmp/sockets/unicorn.sock
+I, [2019-07-24T16:36:51.376578 #24154]  INFO -- : listening on addr=/home/localadm/tmp/sockets/unicorn.sock fd=8
+I, [2019-07-24T16:36:51.376684 #24154]  INFO -- : worker=0 spawning...
+I, [2019-07-24T16:36:51.378238 #24154]  INFO -- : worker=1 spawning...
+I, [2019-07-24T16:36:51.379143 #24154]  INFO -- : master process ready
+I, [2019-07-24T16:36:51.384941 #24158]  INFO -- : worker=0 spawned pid=24158
+I, [2019-07-24T16:36:51.385130 #24158]  INFO -- : worker=0 ready
+I, [2019-07-24T16:36:51.385939 #24160]  INFO -- : worker=1 spawned pid=24160
+I, [2019-07-24T16:36:51.386111 #24160]  INFO -- : worker=1 ready
+I, [2019-07-24T18:08:12.391560 #24154]  INFO -- : reaped #<Process::Status: pid 24158 exit 0> worker=0
+I, [2019-07-24T18:08:12.391743 #24154]  INFO -- : reaped #<Process::Status: pid 24160 exit 0> worker=1
+I, [2019-07-24T18:08:12.391824 #24154]  INFO -- : master complete
+I, [2019-07-24T18:13:49.244867 #24881]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-24T18:13:51.770775 #24881]  INFO -- : listening on addr=/var/www/secondhouse/shared/tmp/unicorn.sock fd=8
+I, [2019-07-24T18:13:51.781569 #24885]  INFO -- : worker=0 ready
+I, [2019-07-24T18:13:51.782900 #24881]  INFO -- : master process ready
+I, [2019-07-24T18:13:51.790596 #24887]  INFO -- : worker=1 ready
+I, [2019-07-24T18:13:51.793561 #24891]  INFO -- : worker=2 ready
+I, [2019-07-24T18:24:46.263897 #24881]  INFO -- : reaped #<Process::Status: pid 24891 exit 0> worker=2
+I, [2019-07-24T18:24:46.264074 #24881]  INFO -- : reaped #<Process::Status: pid 24885 exit 0> worker=0
+I, [2019-07-24T18:24:46.264147 #24881]  INFO -- : reaped #<Process::Status: pid 24887 exit 0> worker=1
+I, [2019-07-24T18:24:46.264229 #24881]  INFO -- : master complete
+I, [2019-07-24T20:35:11.114075 #26453]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-24T20:35:13.402888 #26453]  INFO -- : unlinking existing socket=/var/www/secondhouse/shared/tmp/unicorn.sock
+I, [2019-07-24T20:35:13.403060 #26453]  INFO -- : listening on addr=/var/www/secondhouse/shared/tmp/unicorn.sock fd=8
+I, [2019-07-24T20:35:13.412868 #26457]  INFO -- : worker=0 ready
+I, [2019-07-24T20:35:13.414406 #26453]  INFO -- : master process ready
+I, [2019-07-24T20:35:13.421497 #26459]  INFO -- : worker=1 ready
+I, [2019-07-24T20:35:13.423492 #26463]  INFO -- : worker=2 ready
+I, [2019-07-24T20:42:41.077717 #26453]  INFO -- : reaped #<Process::Status: pid 26457 exit 0> worker=0
+I, [2019-07-24T20:42:41.077854 #26453]  INFO -- : reaped #<Process::Status: pid 26459 exit 0> worker=1
+I, [2019-07-24T20:42:41.077910 #26453]  INFO -- : reaped #<Process::Status: pid 26463 exit 0> worker=2
+I, [2019-07-24T20:42:41.077986 #26453]  INFO -- : master complete
+I, [2019-07-24T20:42:54.164480 #26738]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+F, [2019-07-24T20:42:55.816027 #26738] FATAL -- : error adding listener addr=/var/www/secondhouse/shared/tmp/sokets/unicorn.sock
+bundler: failed to load command: unicorn (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn)
+Errno::ENOENT: No such file or directory - connect(2) for /var/www/secondhouse/shared/tmp/sokets/unicorn.sock
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `bind_listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<top (required)>'
+I, [2019-07-24T20:43:19.651915 #26775]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+F, [2019-07-24T20:43:21.279675 #26775] FATAL -- : error adding listener addr=/var/www/secondhouse/shared/tmp/sokets/unicorn.sock
+bundler: failed to load command: unicorn (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn)
+Errno::ENOENT: No such file or directory - connect(2) for /var/www/secondhouse/shared/tmp/sokets/unicorn.sock
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `bind_listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<top (required)>'
+I, [2019-07-24T20:48:14.093932 #26917]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+F, [2019-07-24T20:48:15.676810 #26917] FATAL -- : error adding listener addr=/var/www/secondhouse/tmp/sokets/unicorn.sock
+bundler: failed to load command: unicorn (/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn)
+Errno::ENOENT: No such file or directory - connect(2) for /var/www/secondhouse/tmp/sokets/unicorn.sock
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `initialize'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `new'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/socket_helper.rb:138:in `bind_listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:243:in `listen'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `block in bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `each'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:850:in `bind_new_listeners!'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:142:in `start'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+  /var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<top (required)>'
+I, [2019-07-24T20:52:18.293570 #26965]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-24T20:52:19.879573 #26965]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-24T20:52:19.888282 #26969]  INFO -- : worker=0 ready
+I, [2019-07-24T20:52:19.891333 #26965]  INFO -- : master process ready
+I, [2019-07-24T20:52:19.899669 #26971]  INFO -- : worker=1 ready
+I, [2019-07-24T20:52:19.902210 #26975]  INFO -- : worker=2 ready
+I, [2019-07-24T21:11:11.708703 #26965]  INFO -- : reaped #<Process::Status: pid 26969 exit 0> worker=0
+I, [2019-07-24T21:11:11.708876 #26965]  INFO -- : reaped #<Process::Status: pid 26971 exit 0> worker=1
+I, [2019-07-24T21:11:11.708932 #26965]  INFO -- : reaped #<Process::Status: pid 26975 exit 0> worker=2
+I, [2019-07-24T21:11:11.709016 #26965]  INFO -- : master complete
+I, [2019-07-24T21:11:36.255739 #27247]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-24T21:11:37.894968 #27247]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-24T21:11:37.895159 #27247]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-24T21:11:37.899643 #27251]  INFO -- : worker=0 ready
+I, [2019-07-24T21:11:37.901488 #27247]  INFO -- : master process ready
+I, [2019-07-24T21:11:37.908532 #27253]  INFO -- : worker=1 ready
+I, [2019-07-24T21:11:37.910438 #27257]  INFO -- : worker=2 ready
+I, [2019-07-25T10:37:10.673165 #27247]  INFO -- : reaped #<Process::Status: pid 27251 exit 0> worker=0
+I, [2019-07-25T10:37:10.674005 #27247]  INFO -- : reaped #<Process::Status: pid 27253 exit 0> worker=1
+I, [2019-07-25T10:37:10.674055 #27247]  INFO -- : reaped #<Process::Status: pid 27257 exit 0> worker=2
+I, [2019-07-25T10:37:10.674131 #27247]  INFO -- : master complete
+I, [2019-07-25T10:37:27.266941 #28828]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T10:37:29.633569 #28828]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T10:37:29.634132 #28828]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T10:37:29.638508 #28832]  INFO -- : worker=0 ready
+I, [2019-07-25T10:37:29.639650 #28828]  INFO -- : master process ready
+I, [2019-07-25T10:37:29.646353 #28834]  INFO -- : worker=1 ready
+I, [2019-07-25T10:37:29.648048 #28838]  INFO -- : worker=2 ready
+I, [2019-07-25T14:45:32.310956 #28828]  INFO -- : reaped #<Process::Status: pid 28832 exit 0> worker=0
+I, [2019-07-25T14:45:32.335222 #28828]  INFO -- : reaped #<Process::Status: pid 28834 exit 0> worker=1
+I, [2019-07-25T14:45:32.335355 #28828]  INFO -- : reaped #<Process::Status: pid 28838 exit 0> worker=2
+I, [2019-07-25T14:45:32.336940 #28828]  INFO -- : master complete
+I, [2019-07-25T14:47:37.704990 #30869]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T14:47:39.472336 #30869]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T14:47:39.472970 #30869]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T14:47:39.477484 #30873]  INFO -- : worker=0 ready
+I, [2019-07-25T14:47:39.478635 #30869]  INFO -- : master process ready
+I, [2019-07-25T14:47:39.485347 #30875]  INFO -- : worker=1 ready
+I, [2019-07-25T14:47:39.487045 #30879]  INFO -- : worker=2 ready
+I, [2019-07-25T14:53:04.001725 #30869]  INFO -- : reaped #<Process::Status: pid 30873 exit 0> worker=0
+I, [2019-07-25T14:53:04.001860 #30869]  INFO -- : reaped #<Process::Status: pid 30875 exit 0> worker=1
+I, [2019-07-25T14:53:04.001907 #30869]  INFO -- : reaped #<Process::Status: pid 30879 exit 0> worker=2
+I, [2019-07-25T14:53:04.001968 #30869]  INFO -- : master complete
+I, [2019-07-25T14:53:48.293759 #31056]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T14:53:49.882850 #31056]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T14:53:49.883015 #31056]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T14:53:49.887778 #31060]  INFO -- : worker=0 ready
+I, [2019-07-25T14:53:49.888919 #31056]  INFO -- : master process ready
+I, [2019-07-25T14:53:49.895516 #31062]  INFO -- : worker=1 ready
+I, [2019-07-25T14:53:49.897167 #31066]  INFO -- : worker=2 ready
+I, [2019-07-25T14:56:04.255445 #31056]  INFO -- : reaped #<Process::Status: pid 31066 exit 0> worker=2
+I, [2019-07-25T14:56:04.355932 #31056]  INFO -- : reaped #<Process::Status: pid 31060 exit 0> worker=0
+I, [2019-07-25T14:56:04.356039 #31056]  INFO -- : reaped #<Process::Status: pid 31062 exit 0> worker=1
+I, [2019-07-25T14:56:04.356106 #31056]  INFO -- : master complete
+I, [2019-07-25T15:06:02.065268 #31557]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T15:06:03.662737 #31557]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T15:06:03.662911 #31557]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T15:06:03.667330 #31561]  INFO -- : worker=0 ready
+I, [2019-07-25T15:06:03.668637 #31557]  INFO -- : master process ready
+I, [2019-07-25T15:06:03.673668 #31563]  INFO -- : worker=1 ready
+I, [2019-07-25T15:06:03.677840 #31567]  INFO -- : worker=2 ready
+I, [2019-07-25T15:43:08.488656 #31557]  INFO -- : reaped #<Process::Status: pid 31561 exit 0> worker=0
+I, [2019-07-25T15:43:08.492144 #31557]  INFO -- : reaped #<Process::Status: pid 31563 exit 0> worker=1
+I, [2019-07-25T15:43:08.492216 #31557]  INFO -- : reaped #<Process::Status: pid 31567 exit 0> worker=2
+I, [2019-07-25T15:43:08.492331 #31557]  INFO -- : master complete
+I, [2019-07-25T15:43:19.586858 #32661]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T15:43:22.026081 #32661]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T15:43:22.026688 #32661]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T15:43:22.031242 #32667]  INFO -- : worker=0 ready
+I, [2019-07-25T15:43:22.032411 #32661]  INFO -- : master process ready
+I, [2019-07-25T15:43:22.037111 #32669]  INFO -- : worker=1 ready
+I, [2019-07-25T15:43:22.040990 #32673]  INFO -- : worker=2 ready
+I, [2019-07-25T15:55:26.834531 #32661]  INFO -- : reaped #<Process::Status: pid 32667 exit 0> worker=0
+I, [2019-07-25T15:55:26.834687 #32661]  INFO -- : reaped #<Process::Status: pid 32669 exit 0> worker=1
+I, [2019-07-25T15:55:26.834743 #32661]  INFO -- : reaped #<Process::Status: pid 32673 exit 0> worker=2
+I, [2019-07-25T15:55:26.834831 #32661]  INFO -- : master complete
+I, [2019-07-25T15:55:37.472588 #975]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T15:55:39.147680 #975]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T15:55:39.147863 #975]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T15:55:39.152158 #980]  INFO -- : worker=0 ready
+I, [2019-07-25T15:55:39.153305 #975]  INFO -- : master process ready
+I, [2019-07-25T15:55:39.159860 #982]  INFO -- : worker=1 ready
+I, [2019-07-25T15:55:39.161561 #986]  INFO -- : worker=2 ready
+I, [2019-07-25T15:57:35.984945 #975]  INFO -- : reaped #<Process::Status: pid 980 exit 0> worker=0
+I, [2019-07-25T15:57:35.985050 #975]  INFO -- : reaped #<Process::Status: pid 982 exit 0> worker=1
+I, [2019-07-25T15:57:35.985094 #975]  INFO -- : reaped #<Process::Status: pid 986 exit 0> worker=2
+I, [2019-07-25T15:57:35.985228 #975]  INFO -- : master complete
+I, [2019-07-25T15:57:40.234708 #1201]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T15:57:41.857620 #1201]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T15:57:41.857785 #1201]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T15:57:41.862067 #1206]  INFO -- : worker=0 ready
+I, [2019-07-25T15:57:41.863197 #1201]  INFO -- : master process ready
+I, [2019-07-25T15:57:41.869816 #1208]  INFO -- : worker=1 ready
+I, [2019-07-25T15:57:41.871549 #1212]  INFO -- : worker=2 ready
+I, [2019-07-25T16:16:43.380485 #1201]  INFO -- : reaped #<Process::Status: pid 1208 exit 0> worker=1
+I, [2019-07-25T16:16:43.380651 #1201]  INFO -- : reaped #<Process::Status: pid 1212 exit 0> worker=2
+I, [2019-07-25T16:16:43.481070 #1201]  INFO -- : reaped #<Process::Status: pid 1206 exit 0> worker=0
+I, [2019-07-25T16:16:43.481256 #1201]  INFO -- : master complete
+I, [2019-07-25T16:16:52.320916 #2418]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T16:16:53.966574 #2418]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T16:16:53.966739 #2418]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T16:16:53.971018 #2423]  INFO -- : worker=0 ready
+I, [2019-07-25T16:16:53.972154 #2418]  INFO -- : master process ready
+I, [2019-07-25T16:16:53.978807 #2425]  INFO -- : worker=1 ready
+I, [2019-07-25T16:16:53.980543 #2429]  INFO -- : worker=2 ready
+I, [2019-07-25T20:46:07.195307 #2418]  INFO -- : reaped #<Process::Status: pid 2423 exit 0> worker=0
+I, [2019-07-25T20:46:07.195476 #2418]  INFO -- : reaped #<Process::Status: pid 2425 exit 0> worker=1
+I, [2019-07-25T20:46:07.195526 #2418]  INFO -- : reaped #<Process::Status: pid 2429 exit 0> worker=2
+I, [2019-07-25T20:46:07.195610 #2418]  INFO -- : master complete
+I, [2019-07-25T20:46:16.240513 #17378]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T20:46:18.680777 #17378]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T20:46:18.681363 #17378]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T20:46:18.686096 #17384]  INFO -- : worker=0 ready
+I, [2019-07-25T20:46:18.687651 #17378]  INFO -- : master process ready
+I, [2019-07-25T20:46:18.692801 #17386]  INFO -- : worker=1 ready
+I, [2019-07-25T20:46:18.696818 #17390]  INFO -- : worker=2 ready
+I, [2019-07-25T20:48:51.109272 #17378]  INFO -- : reaped #<Process::Status: pid 17384 exit 0> worker=0
+I, [2019-07-25T20:48:51.109399 #17378]  INFO -- : reaped #<Process::Status: pid 17386 exit 0> worker=1
+I, [2019-07-25T20:48:51.109442 #17378]  INFO -- : reaped #<Process::Status: pid 17390 exit 0> worker=2
+I, [2019-07-25T20:48:51.109496 #17378]  INFO -- : master complete
+I, [2019-07-25T20:48:55.151525 #17573]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T20:48:56.752259 #17573]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T20:48:56.752458 #17573]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T20:48:56.756799 #17578]  INFO -- : worker=0 ready
+I, [2019-07-25T20:48:56.757993 #17573]  INFO -- : master process ready
+I, [2019-07-25T20:48:56.764744 #17580]  INFO -- : worker=1 ready
+I, [2019-07-25T20:48:56.766455 #17584]  INFO -- : worker=2 ready
+I, [2019-07-25T20:49:57.489596 #17573]  INFO -- : reaped #<Process::Status: pid 17578 exit 0> worker=0
+I, [2019-07-25T20:49:57.489709 #17573]  INFO -- : reaped #<Process::Status: pid 17580 exit 0> worker=1
+I, [2019-07-25T20:49:57.489824 #17573]  INFO -- : reaped #<Process::Status: pid 17584 exit 0> worker=2
+I, [2019-07-25T20:49:57.489883 #17573]  INFO -- : master complete
+I, [2019-07-25T20:49:59.963897 #17690]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T20:50:01.580040 #17690]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T20:50:01.580213 #17690]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T20:50:01.584769 #17700]  INFO -- : worker=0 ready
+I, [2019-07-25T20:50:01.586272 #17690]  INFO -- : master process ready
+I, [2019-07-25T20:50:01.593407 #17702]  INFO -- : worker=1 ready
+I, [2019-07-25T20:50:01.595374 #17706]  INFO -- : worker=2 ready
+I, [2019-07-25T20:52:52.440955 #17690]  INFO -- : reaped #<Process::Status: pid 17700 exit 0> worker=0
+I, [2019-07-25T20:52:52.441062 #17690]  INFO -- : reaped #<Process::Status: pid 17702 exit 0> worker=1
+I, [2019-07-25T20:52:52.441109 #17690]  INFO -- : reaped #<Process::Status: pid 17706 exit 0> worker=2
+I, [2019-07-25T20:52:52.441165 #17690]  INFO -- : master complete
+I, [2019-07-25T20:52:58.744883 #17920]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T20:53:00.325533 #17920]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T20:53:00.325705 #17920]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T20:53:00.330076 #17925]  INFO -- : worker=0 ready
+I, [2019-07-25T20:53:00.331237 #17920]  INFO -- : master process ready
+I, [2019-07-25T20:53:00.337892 #17927]  INFO -- : worker=1 ready
+I, [2019-07-25T20:53:00.339613 #17931]  INFO -- : worker=2 ready
+I, [2019-07-25T21:09:32.972365 #17920]  INFO -- : reaped #<Process::Status: pid 17925 exit 0> worker=0
+I, [2019-07-25T21:09:32.972537 #17920]  INFO -- : reaped #<Process::Status: pid 17927 exit 0> worker=1
+I, [2019-07-25T21:09:32.972600 #17920]  INFO -- : reaped #<Process::Status: pid 17931 exit 0> worker=2
+I, [2019-07-25T21:09:32.972679 #17920]  INFO -- : master complete
+I, [2019-07-25T21:09:41.652087 #19113]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:09:43.298904 #19113]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:09:43.299070 #19113]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:09:43.303605 #19118]  INFO -- : worker=0 ready
+I, [2019-07-25T21:09:43.304755 #19113]  INFO -- : master process ready
+I, [2019-07-25T21:09:43.311526 #19120]  INFO -- : worker=1 ready
+I, [2019-07-25T21:09:43.313380 #19124]  INFO -- : worker=2 ready
+I, [2019-07-25T21:13:01.751104 #19113]  INFO -- : reaped #<Process::Status: pid 19120 exit 0> worker=1
+I, [2019-07-25T21:13:01.751237 #19113]  INFO -- : reaped #<Process::Status: pid 19124 exit 0> worker=2
+I, [2019-07-25T21:13:01.851581 #19113]  INFO -- : reaped #<Process::Status: pid 19118 exit 0> worker=0
+I, [2019-07-25T21:13:01.851719 #19113]  INFO -- : master complete
+I, [2019-07-25T21:13:04.795975 #19351]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:13:06.428815 #19351]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:13:06.428988 #19351]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:13:06.433359 #19357]  INFO -- : worker=0 ready
+I, [2019-07-25T21:13:06.434546 #19351]  INFO -- : master process ready
+I, [2019-07-25T21:13:06.441231 #19359]  INFO -- : worker=1 ready
+I, [2019-07-25T21:13:06.442975 #19363]  INFO -- : worker=2 ready
+I, [2019-07-25T21:14:51.895194 #19351]  INFO -- : reaped #<Process::Status: pid 19359 exit 0> worker=1
+I, [2019-07-25T21:14:51.995664 #19351]  INFO -- : reaped #<Process::Status: pid 19357 exit 0> worker=0
+I, [2019-07-25T21:14:51.995780 #19351]  INFO -- : reaped #<Process::Status: pid 19363 exit 0> worker=2
+I, [2019-07-25T21:14:51.995850 #19351]  INFO -- : master complete
+I, [2019-07-25T21:14:54.281450 #19505]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:14:55.881076 #19505]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:14:55.881250 #19505]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:14:55.886018 #19510]  INFO -- : worker=0 ready
+I, [2019-07-25T21:14:55.887170 #19505]  INFO -- : master process ready
+I, [2019-07-25T21:14:55.893655 #19512]  INFO -- : worker=1 ready
+I, [2019-07-25T21:14:55.895329 #19516]  INFO -- : worker=2 ready
+I, [2019-07-25T21:16:35.822340 #19505]  INFO -- : reaped #<Process::Status: pid 19510 exit 0> worker=0
+I, [2019-07-25T21:16:35.822449 #19505]  INFO -- : reaped #<Process::Status: pid 19512 exit 0> worker=1
+I, [2019-07-25T21:16:35.822495 #19505]  INFO -- : reaped #<Process::Status: pid 19516 exit 0> worker=2
+I, [2019-07-25T21:16:35.822549 #19505]  INFO -- : master complete
+I, [2019-07-25T21:16:38.335159 #19660]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:16:39.931192 #19660]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:16:39.931389 #19660]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:16:39.935753 #19665]  INFO -- : worker=0 ready
+I, [2019-07-25T21:16:39.936922 #19660]  INFO -- : master process ready
+I, [2019-07-25T21:16:39.943685 #19667]  INFO -- : worker=1 ready
+I, [2019-07-25T21:16:39.945461 #19671]  INFO -- : worker=2 ready
+I, [2019-07-25T21:18:49.158670 #19660]  INFO -- : reaped #<Process::Status: pid 19665 exit 0> worker=0
+I, [2019-07-25T21:18:49.158776 #19660]  INFO -- : reaped #<Process::Status: pid 19667 exit 0> worker=1
+I, [2019-07-25T21:18:49.158821 #19660]  INFO -- : reaped #<Process::Status: pid 19671 exit 0> worker=2
+I, [2019-07-25T21:18:49.158876 #19660]  INFO -- : master complete
+I, [2019-07-25T21:18:52.320809 #19833]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:18:53.933650 #19833]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:18:53.933819 #19833]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:18:53.938120 #19838]  INFO -- : worker=0 ready
+I, [2019-07-25T21:18:53.939262 #19833]  INFO -- : master process ready
+I, [2019-07-25T21:18:53.945877 #19840]  INFO -- : worker=1 ready
+I, [2019-07-25T21:18:53.947548 #19844]  INFO -- : worker=2 ready
+I, [2019-07-25T21:33:19.771321 #19833]  INFO -- : reaped #<Process::Status: pid 19838 exit 0> worker=0
+I, [2019-07-25T21:33:19.771472 #19833]  INFO -- : reaped #<Process::Status: pid 19840 exit 0> worker=1
+I, [2019-07-25T21:33:19.771523 #19833]  INFO -- : reaped #<Process::Status: pid 19844 exit 0> worker=2
+I, [2019-07-25T21:33:19.771617 #19833]  INFO -- : master complete
+I, [2019-07-25T21:33:42.227145 #20727]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-25T21:33:43.871735 #20727]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-25T21:33:43.871904 #20727]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-25T21:33:43.876297 #20732]  INFO -- : worker=0 ready
+I, [2019-07-25T21:33:43.877469 #20727]  INFO -- : master process ready
+I, [2019-07-25T21:33:43.884191 #20734]  INFO -- : worker=1 ready
+I, [2019-07-25T21:33:43.886392 #20738]  INFO -- : worker=2 ready
+I, [2019-07-25T21:33:59.452331 #20727]  INFO -- : reaped #<Process::Status: pid 20732 exit 0> worker=0
+I, [2019-07-25T21:33:59.452443 #20727]  INFO -- : reaped #<Process::Status: pid 20734 exit 0> worker=1
+I, [2019-07-25T21:33:59.552759 #20727]  INFO -- : reaped #<Process::Status: pid 20738 exit 0> worker=2
+I, [2019-07-25T21:33:59.552902 #20727]  INFO -- : master complete
+I, [2019-07-26T08:10:28.500284 #20966]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-26T08:10:30.070672 #20966]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-26T08:10:30.070843 #20966]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-26T08:10:30.075115 #20971]  INFO -- : worker=0 ready
+I, [2019-07-26T08:10:30.076277 #20966]  INFO -- : master process ready
+I, [2019-07-26T08:10:30.082861 #20973]  INFO -- : worker=1 ready
+I, [2019-07-26T08:10:30.084661 #20977]  INFO -- : worker=2 ready
+I, [2019-07-26T13:47:39.621766 #20966]  INFO -- : reaped #<Process::Status: pid 20971 exit 0> worker=0
+I, [2019-07-26T13:47:39.625979 #20966]  INFO -- : reaped #<Process::Status: pid 20973 exit 0> worker=1
+I, [2019-07-26T13:47:39.626052 #20966]  INFO -- : reaped #<Process::Status: pid 20977 exit 0> worker=2
+I, [2019-07-26T13:47:39.626157 #20966]  INFO -- : master complete
+I, [2019-07-26T13:48:15.438501 #7568]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-26T13:48:17.309845 #7568]  INFO -- : unlinking existing socket=/var/www/secondhouse/tmp/sokets/unicorn.sock
+I, [2019-07-26T13:48:17.310500 #7568]  INFO -- : listening on addr=/var/www/secondhouse/tmp/sokets/unicorn.sock fd=8
+I, [2019-07-26T13:48:17.315382 #7573]  INFO -- : worker=0 ready
+I, [2019-07-26T13:48:17.316671 #7568]  INFO -- : master process ready
+I, [2019-07-26T13:48:17.322182 #7575]  INFO -- : worker=1 ready
+I, [2019-07-26T13:48:17.326451 #7579]  INFO -- : worker=2 ready

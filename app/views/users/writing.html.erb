@@ -1,0 +1,817 @@
+
+<div class="space">
+</div>
+<div class="writteing_pc">
+
+    <div class="post_container">
+          <h2>預かり依頼作成</h2>
+    </div>
+    <% if @dogs.present? %>
+        <div class="background_post">
+            <div class="space">
+            </div>
+            <%= form_tag("/users/create_re") do %>
+                <div class="post_item_time">
+                    <div class="item_head">
+                        <i class="far fa-calendar-alt calendar"></i>
+                        <h3>預ける日程</h3>
+                    </div>
+    <!---------------待ち合わせ時間------------------------------>
+                    <div class="ok_item_containar">
+                        <div class="ok_item">
+                            <p class="ok_name">待ち合わせ時間</p>
+                            <div class="ok_move55">
+                                 <%= select :year, :choice, [[@year00, @year00],["2019", "2019"],["2020", "2020"]] %>年
+
+                                 <%= select :month, :choice, [[@month00, @month00],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]]  %>月
+
+                                <%= select :day1, :choice, [[@day00, @day00],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>日
+
+                                <%= select :hour, :choice, [[@hour00, @hour00],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["0", "0"]] %>時
+
+                                <%= select :min, :choice, [[@min00, @min00],["00", "00"],["15", "15"],["30", "30"],["45", "45"]] %>分
+
+                            </div>
+                        </div>
+    <!---------------お迎え時間------------------------------>
+                        <div class="ok_item">
+                            <p class="ok_name">お迎え時間</p>
+                            <div class="ok_move55">
+                                <%= select :year11, :choice, [[@year22, @year22],["2019", "2019"],["2020", "2020"]] %>年
+
+                                <%= select :month11, :choice, [[@month22, @month22],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]] %>月
+
+                               <%= select :day11, :choice, [[@day22, @day22],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>日
+
+                               <%= select :hour11, :choice, [[@hour22, @hour22],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["0", "0"]] %>時
+
+                               <%= select :min11, :choice, [[@min22, @min22],["00", "00"],["15", "15"],["30", "30"],["45", "45"]] %>分
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!---------------預ける犬選択------------------------------>
+                <div class="post_item">
+                    <div class="item_head">
+                        <i class="fas fa-dog dog"></i>
+                        <h3>預けるワンちゃん</h3>
+                    </div>
+                    <div class="dog_choice">
+                        <% @dogs.each do | dog | %>
+                            <% if dog.image_name %>
+                                <div class="dog_pro">
+                                    <label for="dog_choice_<%= dog.id %>">
+                                        <div class="users_icon11 dog_img" id="wr_dog_ic">
+                                            <img class="icon_img" src="<%= "/dog_images/#{dog.image_name}" %>" alt="">
+                                        </div>
+                                        <p><%= dog.name %></p>
+                                        <%= check_box "dog_choice", "#{dog.id}", {:checked => "checked"} %>
+                                    </label>
+                                </div>
+                            <% else %>
+                                <div class="dog_pro">
+                                    <label for="dog_choice_<%= dog.id %>">
+                                        <div class="dog_icon_mydog" id="dog_writing">
+                                            <i id="dog_writing_icon" class="fas fa-dog fa-5x fa-dog11"></i>
+                                        </div>
+                                        <p><%= dog.name %></p>
+                                        <%= check_box "dog_choice", "#{dog.id}", {:checked => "checked"} %>
+                                    </label>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+    <!---------------待ち合わせ場所------------------------------>
+                <div class="post_item move_item">
+                    <div class="adoress">
+                        <div class="item_head">
+                            <i class="fas fa-map-marker-alt dog"></i>
+                            <h3>待ち合わせ場所</h3>
+                        </div>
+                        <!-- ▼郵便番号入力フィールド(7桁) -->
+                        <div class="add_input">
+                            <p>郵便番号（7桁）</p>
+                            <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+                            <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                            <div class="add_move">
+                                <p>都道府県+以降の住所</p>
+                                <input class="postal_adress" type="text" name="addr11" size="60" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <!---------------預かってもらう方にして欲しいこと---------------------->
+                <div class="post_item1 move_item1">
+                    <div class="adoress1">
+                        <div class="item_head">
+                            <i class="fas fa-check-square dog"></i>
+                            <h3>預かってもらう方にして欲しいこと</h3>
+                        </div>
+                        <div class="ok_item_containar">
+    <!---------------散歩----------------------->
+                            <div class="ok_item">
+                                <p class="ok_name">散歩/1日</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'walk', 'category', 'なし', {:checked => @check1} %><label for="walk_category_なし">なし</label>
+                                    <%= radio_button 'walk', 'category', '1回', {:checked => @check2} %><label for="walk_category_1回">1回</label>
+                                    <%= radio_button 'walk', 'category', '2回', {:checked => @check3} %><label for="walk_category_2回">2回</label>
+                                    <%= radio_button 'walk', 'category', '3回', {:checked => @check4} %><label for="walk_category_3回">3回</label>
+
+                                </div>
+                            </div>
+    <!---------------散歩時間/1回あたり----------->
+                            <div class="ok_item">
+                                <p class="ok_name">散歩時間/1回あたり</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'walk_time', 'category', '15分程', {:checked => @check5} %><label for="walk_time_category_15分程">15分程</label>
+                                    <%= radio_button 'walk_time', 'category', '30分程', {:checked => @check6} %><label for="walk_time_category_30分程">30分程回</label>
+                                    <%= radio_button 'walk_time', 'category', '1時間程', {:checked => @check7} %><label for="walk_time_category_1時間程">1時間程</label>
+                                    <%= radio_button 'walk_time', 'category', '1時間以上', {:checked => @check8} %><label for="walk_time_category_1時間以上">1時間以上</label>
+                                </div>
+                            </div>
+    <!---------------エサ/1日あたり-------------->
+                            <div class="ok_item">
+                                <p class="ok_name">エサ/1日あたり</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'bait', 'category', '2回', {:checked => @check9} %><label for="bait_category_2回">2回</label>
+                                    <%= radio_button 'bait', 'category', '3回', {:checked => @check10} %><label for="bait_category_3回">3回</label>
+                                </div>
+                            </div>
+    <!---------------おやつ--------------------->
+                            <div class="ok_item">
+                                <p class="ok_name">おやつ</p>
+                                <div class="ok_move" id="change_radi">
+                                    <%= radio_button 'snack', 'category', 'あり', {:checked => @check11} %><label for="snack_category_あり">あり</label>
+                                    <%= radio_button 'snack', 'category', 'なし', {:checked => @check12} %><label for="snack_category_なし">なし</label>
+                                </div>
+                            </div>
+    <!---------------トイレシートの交換/1日------>
+                            <div class="ok_item">
+                                <p class="ok_name">トイレシートの交換/1日</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'toilet', 'category', '1回', {:checked => @check13} %><label for="toilet_category_1回">1回</label>
+                                    <%= radio_button 'toilet', 'category', '2回', {:checked => @check14} %><label for="toilet_category_2回">2回</label>
+                                    <%= radio_button 'toilet', 'category', '3回', {:checked => @check15} %><label for="toilet_category_3回">3回</label>
+                                </div>
+                            </div>
+    <!---------------OKコメント----------------->
+                            <div class="ok_item">
+                                <div class="remarks">
+                                    <p class="ok_remarks">備考</p>
+                                </div>
+                                <div class="ok_move1">
+                                    <%= text_area :ok_comment, :comtent, :class => "introduction_text", :maxlength => "500", :value => "#{@coment}" , :size => "80x8" ,:placeholder => "その他のお願いしたいことがあればこちらにどうぞ！（500文字以内）" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!-----------ここまで預かってもらう方にして欲しいこと----------------->
+
+
+    <!-----------預かってもらう方にして欲しくないこと--------------------->
+                <div class="post_item2 move_item1">
+                    <div class="adoress1">
+                        <div class="item_head">
+                            <i class="fas fa-exclamation-triangle dog"></i>
+                            <h3>預かってもらう方にして欲しくないこと</h3>
+                        </div>
+                        <div class="ng_item_containar">
+    <!---------------ワンちゃんの留守番時間----------------->
+                            <div class="ok_item">
+                                <p class="ok_name">ワンちゃんの留守番時間</p>
+                                <div class="ok_move" id="fire_move">
+                                    <%= radio_button 'caretaker', 'category', '2時間以上', {:checked => @check16} %><label for="caretaker_category_2時間以上">2時間以上</label>
+                                    <%= radio_button 'caretaker', 'category', '3時間以上', {:checked => @check17} %><label for="caretaker_category_3時間以上">3時間以上</label>
+                                    <%= radio_button 'caretaker', 'category', '4時間以上', {:checked => @check18} %><label for="caretaker_category_4時間以上">4時間以上</label>
+                                    <%= radio_button 'caretaker', 'category', '5時間以上', {:checked => @check19} %><label for="caretaker_category_5時間以上">5時間以上</label>
+                                </div>
+                            </div>
+    <!---------------小さいお子さんがいる家庭----------------->
+                            <div class="ok_item">
+                                <p class="ok_name">小さいお子さんがいる家庭</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'child', 'category', '大丈夫', {:checked => @check20} %><label for="child_category_大丈夫">大丈夫</label>
+                                    <%= radio_button 'child', 'category', 'ダメ', {:checked => @check21} %><label for="child_category_ダメ">ダメ</label>
+                                </div>
+                            </div>
+    <!---------------先住犬がいる方-------------------------->
+                            <div class="ok_item">
+                                <p class="ok_name">先住犬がいる方</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'native', 'category', '大丈夫', {:checked => @check22} %><label for="native_category_大丈夫">大丈夫</label>
+                                    <%= radio_button 'native', 'category', 'ダメ', {:checked => @check23} %><label for="native_category_ダメ">ダメ</label>
+                                    <%= radio_button 'native', 'category', '性別・犬種次第で大丈夫', {:checked => @check24} %><label for="native_category_性別犬種次第で大丈夫">性別・犬種次第で大丈夫</label>
+                                </div>
+                            </div>
+    <!---------------他の動物を飼っている方------------------->
+                            <div class="ok_item">
+                                <p class="ok_name">他の動物を飼っている方</p>
+                                <div class="ok_move">
+                                    <%= radio_button 'animal', 'category', '大丈夫', {:checked => @check25} %><label for="animal_category_大丈夫">大丈夫</label>
+                                    <%= radio_button 'animal', 'category', 'ダメ', {:checked => @check26} %><label for="animal_category_ダメ">ダメ</label>
+                                    <%= radio_button 'animal', 'category', 'トークルームで確認希望', {:checked => @check27} %><label for="animal_category_トークルームで確認希望">トークルームで確認希望</label>
+
+                                </div>
+                            </div>
+    <!---------------NGコメント------------------------------->
+                            <div class="ok_item">
+                                <div class="remarks">
+                                    <p class="ok_remarks">備考</p>
+                                </div>
+                                <div class="ok_move1">
+                                    <%= text_area :ng_comment, :comtent, :class => "introduction_text", :maxlength => "500", :value => "#{@coment2}" , :size => "80x8" ,:placeholder => "その他のお願いしたいことがあればこちらにどうぞ！（500文字以内）" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!-----------預かってもらう方にして欲しくないこと------------------------>
+                <div class="space1">
+                </div>
+                <div class="submit">
+                    <input id="dog_submit" type="submit" value="預かり依頼作成">
+                </div>
+            <% end %>
+        </div>
+    <% else %><!-----犬登録ない場合------>
+        <div class="dog_container_my">
+            <div class="dog_head">
+                <h2>ワンちゃんプロフィール作成</h2>
+            </div>
+            <!---
+            %= form_tag("/dog/create",{multipart: true}) do %>
+        -->
+            <form action="/dog/create" id="checkDog" method="post" enctype="multipart/form-data">
+
+                <div class="dog_item dog_name1">
+                    <p class="dog_name">お名前<span>*</span></p>
+                    <%= text_field :page, :name, :class => 'em', :maxlength => '10', :value => "#{@name_val}", :required => true %>
+                </div>
+
+                <div class="dog_item dog_name3">
+                    <label for="sample1">プロフィール画像
+                        <input type="file" name="image_name" class="file" value="<%= @image_val %>"/>
+                    </label>
+                </div>
+
+                <div class="notation">
+                    <p class="notation1">
+                      ※最大10MBまで(GIF,JPG,PNG)
+                    </p>
+                </div>
+
+                <div class="dog_item">
+                    <p class="dog_name">性別<span>*</span></p>
+                    <div class="ch">
+                        <%= radio_button 'sex_kind', 'category', '男の子', {:checked => @check1} %><label for="sex_kind_category_男の子">男の子</label>
+                        <%= radio_button 'sex_kind', 'category', '女の子', {:checked => @check2} %><label for="sex_kind_category_女の子">女の子</label>
+                    </div>
+                </div>
+                <div id="sex_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">年齢<span>*</span></p>
+                    <div class="birt">
+                        <%= select :year, :choice, [[@year2, @year2],["2019", "2019"],["2018", "2018"],["2017", "2017"],["2016", "2016"],["2015", "2015"],["2014", "2014"],["2013", "2013"],["2012", "2012"],["2011", "2011"],["2010", "2010"],["2009", "2009"],["2008", "2008"],["2007", "2007"],["2006", "2006"],["2005", "2005"],["2004", "2004"],["2003", "2003"],["2002", "2002"],["2001", "2001"],["2000", "2000"]] %>　年
+
+
+                        <%= select :month, :choice, [[@month2, @month2],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]], required: true %>　月
+
+                        <%= select :day1, :choice, [[@day2, @day2],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>　日
+                    </div>
+                </div>
+                <div id="age_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">犬種<span>*</span></p>
+                    <div class="birt2">
+                        <%= select :dog_breed, :choice, [[@breed, @breed],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+                    </div>
+                </div>
+                <div id="breed_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">体重<span>*</span></p>
+                    <div class="birt2">
+                        <%= select :weight, :choice, [[@weight2, @weight2],["〜1kg", "〜1kg"], ["1kg〜1.5kg", "1kg〜1.5kg"], ["1.5kg〜2kg", "1.5kg〜2kg"], ["2kg〜2.5kg", "2kg〜2.5kg"], ["2.5kg〜3kg", "2.5kg〜3kg"], ["3kg〜3.5kg", "3kg〜3.5kg"], ["3.5kg〜4kg", "3.5kg〜4kg"], ["4kg〜4.5kg", "4kg〜4.5kg"],["4.5kg〜5kg", "4.5kg〜5kg"], ["5kg〜5.5kg", "5kg〜5.5kg"], ["5.5kg〜6kg", "5.5kg〜6kg"], ["6kg〜6.5kg", "6kg〜6.5kg"], ["6.5kg〜7kg", "6.5kg〜7kg"], ["7kg〜7.5kg", "7kg〜7.5kg"], ["7.5kg〜8kg", "7.5kg〜8kg"], ["8kg〜8.5kg", "8kg〜8.5kg"], ["8.5kg〜9kg", "8.5kg〜9kg"], ["9kg〜9.5kg", "9kg〜9.5kg"], ["9.5kg〜10kg", "9.5kg〜10kg"], ["10kg〜", "10kg〜"]] %>
+                    </div>
+                </div>
+                <div id="weight_notice" class="dog_notice"></div>
+
+                <div class="dog_item" id="fire_dog_item">
+                    <p class="dog_name5">性格・特徴</p>
+                    <div class="birt3">
+                        <p>
+                            <%= check_box "character", "人懐っこい", id: "character_ch1" %><label for="character_ch1">人懐っこい</label>
+                            <%= check_box  "character", "人見知り", id: "character_ch2", class: "remove0" %><label for="character_ch2">人見知り</label>
+                            <%= check_box "character", "ベタベタ", id: "character_ch3", class: "remove4" %><label for="character_ch3">ベタベタ</label>
+                            <%= check_box "character", "サバサバ", id: "character_ch4", class: "remove4" %><label for="character_ch4">サバサバ</label>
+                        </p>
+                        <p>
+                            <%= check_box "character", "のんびり", id: "character_ch5" %><label for="character_ch5">のんびり</label>
+                            <%= check_box  "character", "バタバタ", id: "character_ch6", class: "remove2" %><label for="character_ch6">バタバタ</label>
+                            <%= check_box "character", "吠える", id: "character_ch7", class: "remove4" %><label for="character_ch7">吠える</label>
+                            <%= check_box "character", "吠えない", id: "character_ch8", class: "remove7" %><label for="character_ch8">吠えない</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "臆病", id: "character_ch9", class: "remove1" %><label for="character_ch9">臆病</label>
+                            <%= check_box  "character", "大胆", id: "character_ch10", class: "remove3" %><label for="character_ch10">大胆</label>
+                            <%= check_box "character", "犬好き", id: "character_ch11", class: "remove5" %><label for="character_ch11">犬好き</label>
+                            <%= check_box "character", "犬嫌い", id: "character_ch12", class: "remove7" %><label for="character_ch12">犬嫌い</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "気が強い", id: "character_ch13", class: "remove1" %><label for="character_ch13">気が強い</label>
+                            <%= check_box  "character", "気が弱い", id: "character_ch14", class: "remove2" %><label for="character_ch14">気が弱い</label>
+                            <%= check_box "character", "気性が激しい", id: "character_ch15", class: "remove4" %><label for="character_ch15">気性が激しい</label>
+                            <%= check_box "character", "穏やか", id: "character_ch16", class: "remove1" %><label for="character_ch16">穏やか</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "散歩好き", id: "character_ch17", class: "remove1" %><label for="character_ch17">散歩好き</label>
+                            <%= check_box  "character", "よく寝る", id: "character_ch18", class: "remove2" %><label for="character_ch18">よく寝る</label>
+                            <%= check_box "character", "好奇心旺盛", id: "character_ch19", class: "remove4" %><label for="character_ch19">好奇心旺盛</label>
+                            <%= check_box "character", "自由奔放", id: "character_ch20", class: "remove8" %><label for="character_ch20">自由奔放</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "従順", id: "character_ch21", class: "remove" %><label for="character_ch21">従順</label>
+                            <%= check_box  "character", "噛み癖がある", id: "character_ch22", class: "remove3" %><label for="character_ch22">噛み癖がある</label>
+                            <%= check_box "character", "男性が好き", id: "character_ch23", class: "remove6" %><label for="character_ch23">男性が好き</label>
+                            <%= check_box "character", "女性が好き", id: "character_ch24", class: "remove8" %><label for="character_ch24">女性が好き</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="notation2">
+                    <p class="notation3">
+                        ※複数選択可
+                    </p>
+                </div>
+
+                <div class="dog_item">
+                    <p class="dog_name">去勢・避妊手術<span>*</span></p>
+                    <div class="ch2" id="castration_check">
+                        <%= radio_button 'castration', 'category', 'している', {:checked => @check3} %><label for="castration_category_している">している</label>
+                        <%= radio_button 'castration', 'category', 'してない', {:checked => @check4} %><label for="castration_category_してない">してない</label>
+                    </div>
+                </div>
+                <div id="castration_notice" class="dog_notice"></div>
+
+                <div class="dog_item">
+                    <p class="dog_name">狂犬病ワクチン<span>*</span></p>
+                        <div class="ch2" id="rabies_check">
+                            <input class="rabies_check" id="Radio1" type="radio" name="rabies" value="している" checked><label for="Radio1">している</label>
+                            <input class="rabies_check" id="Radio2" type="radio" name="rabies" value="してない" required><label for="Radio2">してない</label>
+                        </div>
+                </div>
+                <div id="rabies_notice" class="dog_notice"></div>
+                 <div id="output"></div>
+                 <div class="notice">
+                    <p>利用規約に同意の上ご登録ください</p>
+                 </div>
+
+                 <div class="submit">
+                     <input id="dog_submit" type="submit" value="プロフィール作成">
+                 </div>
+            </form>
+            <!--
+            % end %>-->
+        </div>
+    <% end %>
+</div>
+<!---スマホ---->
+<div class="evaluation_show_s">
+    <div class="evaluation_head">
+        <h1>預かり依頼作成</h1>
+    </div>
+    <% if @dogs.present? %>
+        <%= form_tag("/users/create_re") do %>
+            <div class="ok_item_containar" id="ok_item_containar">
+                <div class="ok_item" id="ok_item">
+                    <p class="ok_name" id="ok_name">待ち合わせ時間</p>
+                    <div class="ok_move55" id="ok_move55">
+                         <%= select :year, :choice, [[@year00, @year00],["2019", "2019"],["2020", "2020"]] %>年
+
+                         <%= select :month, :choice, [[@month00, @month00],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]]  %>月
+
+                        <%= select :day1, :choice, [[@day00, @day00],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>日
+                        <%= select :hour, :choice, [[@hour00, @hour00],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["0", "0"]] %>時
+
+                        <%= select :min, :choice, [[@min00, @min00],["00", "00"],["15", "15"],["30", "30"],["45", "45"]] %>分
+                    </div>
+                </div>
+                <div class="ok_item" id="ok_item">
+                    <p class="ok_name" id="ok_name">お迎え時間</p>
+                    <div class="ok_move55" id="ok_move55">
+                        <%= select :year11, :choice, [[@year22, @year22],["2019", "2019"],["2020", "2020"]] %>年
+
+                        <%= select :month11, :choice, [[@month22, @month22],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]] %>月
+
+                       <%= select :day11, :choice, [[@day22, @day22],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>日
+
+                       <%= select :hour11, :choice, [[@hour22, @hour22],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["0", "0"]] %>時
+
+                       <%= select :min11, :choice, [[@min22, @min22],["00", "00"],["15", "15"],["30", "30"],["45", "45"]] %>分
+                    </div>
+                </div>
+            </div>
+    <!---------------預ける犬選択------------------------------>
+            <div class="ok_item" id="ok_item">
+                <p class="ok_name" id="ok_name">預けるワンちゃん</p>
+                <div class="dog_choice" id="dog_choice">
+                    <% @dogs.each do | dog | %>
+                        <div class="dog_pro" id="dog_pro">
+                            <% if dog.image_name %>
+                                <img class="icon_img" id="icon_img_dog_s" src="<%= "/dog_images/#{dog.image_name}" %>" alt="">
+                            <% else %>
+                                <i id="dog_writing_icon2" class="fas fa-dog fa-3x fa-dog11"></i>
+                            <% end %>
+                            <p><%= dog.name %></p>
+                            <%= check_box "dog_choice", "#{dog.id}", {:checked => "checked"} %>
+                        </div>
+
+                    <% end %>
+                </div>
+
+    <!---------------待ち合わせ場所------------------------------>
+                    <div class="ok_item" id="ok_item">
+                        <p class="ok_name" id="ok_name">待ち合わせ場所</p>
+                        <!-- ▼郵便番号入力フィールド(7桁) -->
+                        <div class="add_input" id="add_input">
+                            <p>郵便番号（7桁）</p>
+                            <input id="postal_code" class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+                            <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+                            <div class="add_move">
+                                <p>都道府県+以降の住所</p>
+                                <input id="postal_adress" class="postal_adress" type="text" name="addr11" size="60" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <!---------------預かってもらう方にして欲しいこと---------------------->
+                <div class="ok_item" id="ok_item">
+                    <p class="ok_name" id="ok_name2">預かってもらう方にして欲しいこと</p>
+                    <div class="ok_item_containar" id="ok_item_containar2">
+    <!---------------散歩----------------------->
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>散歩/1日</p>
+                            <div class="dog_reqest_content">
+                                <%= radio_button 'walk', 'category', 'なし', {:checked => @check1} %><label for="walk_category_なし">なし</label>
+                                <%= radio_button 'walk', 'category', '1回', {:checked => @check2} %><label for="walk_category_1回">1回</label>
+                                <%= radio_button 'walk', 'category', '2回', {:checked => @check3} %><label for="walk_category_2回">2回</label>
+                                <%= radio_button 'walk', 'category', '3回', {:checked => @check4} %><label for="walk_category_3回">3回</label>
+
+                            </div>
+                        </div>
+    <!---------------散歩時間/1回あたり----------->
+                            <div class="dog_reqest">
+                                <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>散歩時間/1回あたり</p>
+                                <div class="dog_reqest_content">
+                                    <%= radio_button 'walk_time', 'category', '15分程', {:checked => @check5} %><label for="walk_time_category_15分程">15分程</label>
+                                    <%= radio_button 'walk_time', 'category', '30分程', {:checked => @check6} %><label for="walk_time_category_30分程">30分程回</label>
+                                    <%= radio_button 'walk_time', 'category', '1時間程', {:checked => @check7} %><label for="walk_time_category_1時間程">1時間程</label>
+                                    <%= radio_button 'walk_time', 'category', '1時間以上', {:checked => @check8} %><label for="walk_time_category_1時間以上">1時間以上</label>
+                                </div>
+                            </div>
+    <!---------------エサ/1日あたり-------------->
+                            <div class="dog_reqest">
+                                <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>エサ/1日あたり</p>
+                                <div class="dog_reqest_content">
+                                    <%= radio_button 'bait', 'category', '2回', {:checked => @check9} %><label for="bait_category_2回">2回</label>
+                                    <%= radio_button 'bait', 'category', '3回', {:checked => @check10} %><label for="bait_category_3回">3回</label>
+                                </div>
+                            </div>
+    <!---------------おやつ--------------------->
+                            <div class="dog_reqest">
+                                <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>おやつ</p>
+                                <div class="dog_reqest_content">
+                                    <%= radio_button 'snack', 'category', 'あり', {:checked => @check11} %><label for="snack_category_あり">あり</label>
+                                    <%= radio_button 'snack', 'category', 'なし', {:checked => @check12} %><label for="snack_category_なし">なし</label>
+                                </div>
+                            </div>
+    <!---------------トイレシートの交換/1日------>
+                            <div class="dog_reqest">
+                                <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>トイレシートの交換/1日</p>
+                                <div class="dog_reqest_content">
+                                    <%= radio_button 'toilet', 'category', '1回', {:checked => @check13} %><label for="toilet_category_1回">1回</label>
+                                    <%= radio_button 'toilet', 'category', '2回', {:checked => @check14} %><label for="toilet_category_2回">2回</label>
+                                    <%= radio_button 'toilet', 'category', '3回', {:checked => @check15} %><label for="toilet_category_3回">3回</label>
+                                </div>
+                            </div>
+    <!---------------OKコメント----------------->
+                            <div class="dog_reqest">
+                                <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>備考</p>
+                                <div class="dog_reqest_content2" id="dog_reqest_content2">
+                                    <%= text_area :ok_comment, :comtent, :class => "introduction_text", :maxlength => "500", :value => "#{@coment}" , :size => "80x8" ,:placeholder => "その他のお願いしたいことがあればこちらにどうぞ！（500文字以内）" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    <!-----------預かってもらう方にして欲しくないこと--------------------->
+                <div class="ok_item" id="ok_item">
+                    <p class="ok_name" id="ok_name2">預かってもらう方にして欲しくないこと</p>
+                    <div class="ok_item_containar" id="ok_item_containar3">
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>ワンちゃんの留守番時間</p>
+                            <div class="dog_reqest_content">
+                                <%= radio_button 'caretaker', 'category', '2時間以上', {:checked => @check16} %><label for="caretaker_category_2時間以上">2h以上</label>
+                                <%= radio_button 'caretaker', 'category', '3時間以上', {:checked => @check17} %><label for="caretaker_category_3時間以上">3h以上</label>
+                                <%= radio_button 'caretaker', 'category', '4時間以上', {:checked => @check18} %><label for="caretaker_category_4時間以上">4h以上</label>
+                                <%= radio_button 'caretaker', 'category', '5時間以上', {:checked => @check19} %><label for="caretaker_category_5時間以上">5h以上</label>
+                            </div>
+                        </div>
+    <!---------------小さいお子さんがいる家庭----------------->
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>小さいお子さんがいる家庭</p>
+                            <div class="dog_reqest_content">
+                                <%= radio_button 'child', 'category', '大丈夫', {:checked => @check20} %><label for="child_category_大丈夫">大丈夫</label>
+                                <%= radio_button 'child', 'category', 'ダメ', {:checked => @check21} %><label for="child_category_ダメ">ダメ</label>
+                            </div>
+                        </div>
+    <!---------------先住犬がいる方-------------------------->
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>先住犬がいる方</p>
+                            <div class="dog_reqest_content">
+                                <%= radio_button 'native', 'category', '大丈夫', {:checked => @check22} %><label for="native_category_大丈夫">大丈夫</label>
+                                <%= radio_button 'native', 'category', 'ダメ', {:checked => @check23} %><label for="native_category_ダメ">ダメ</label>
+                                <%= radio_button 'native', 'category', '性別・犬種次第で大丈夫', {:checked => @check24} %><label for="native_category_性別犬種次第で大丈夫">性別・犬種次第で大丈夫</label>
+                            </div>
+                        </div>
+    <!---------------他の動物を飼っている方------------------->
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>他の動物を飼っている方</p>
+                            <div class="dog_reqest_content">
+                                <%= radio_button 'animal', 'category', '大丈夫', {:checked => @check25} %><label for="animal_category_大丈夫">大丈夫</label>
+                                <%= radio_button 'animal', 'category', 'ダメ', {:checked => @check26} %><label for="animal_category_ダメ">ダメ</label>
+                                <%= radio_button 'animal', 'category', 'トークルームで確認希望', {:checked => @check27} %><label for="animal_category_トークルームで確認希望">トークルームで確認希望</label>
+                            </div>
+                        </div>
+    <!---------------NGコメント------------------------------->
+                        <div class="dog_reqest">
+                            <p class="dog_reqest_item"><i class="fas fa-check" id="check_s"></i>備考</p>
+                            <div class="dog_reqest_content2" id="dog_reqest_content2"> 
+                                <%= text_area :ng_comment, :comtent, :class => "introduction_text", :maxlength => "500", :value => "#{@coment2}" , :size => "80x8" ,:placeholder => "その他のお願いしたいことがあればこちらにどうぞ！（500文字以内）" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!-----------預かってもらう方にして欲しくないこと------------------------>
+                <div class="space1">
+                </div>
+                <div class="submit" id="submit_s">
+                    <input id="dog_submit" type="submit" value="預かり依頼作成">
+                </div>
+            <% end %>
+        </div>
+    <% else %><!-----犬登録ない場合------>
+        <div class="dog_container_my">
+            <div class="dog_head">
+                <h2>ワンちゃんプロフィール作成</h2>
+            </div>
+            <!---
+            %= form_tag("/dog/create",{multipart: true}) do %>
+        -->
+            <form action="/dog/create" id="checkDog" method="post" enctype="multipart/form-data">
+
+                <div class="dog_item dog_name1">
+                    <p class="dog_name">お名前<span>*</span></p>
+                    <%= text_field :page, :name, :class => 'em', :maxlength => '10', :value => "#{@name_val}", :required => true %>
+                </div>
+
+                <div class="dog_item dog_name3">
+                    <label for="sample1">プロフィール画像
+                        <input type="file" name="image_name" class="file" value="<%= @image_val %>"/>
+                    </label>
+                </div>
+
+                <div class="notation">
+                    <p class="notation1">
+                      ※最大10MBまで(GIF,JPG,PNG)
+                    </p>
+                </div>
+
+                <div class="dog_item">
+                    <p class="dog_name">性別<span>*</span></p>
+                    <div class="ch">
+                        <%= radio_button 'sex_kind', 'category', '男の子', {:checked => @check1} %><label for="sex_kind_category_男の子">男の子</label>
+                        <%= radio_button 'sex_kind', 'category', '女の子', {:checked => @check2} %><label for="sex_kind_category_女の子">女の子</label>
+                    </div>
+                </div>
+                <div id="sex_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">年齢<span>*</span></p>
+                    <div class="birt">
+                        <%= select :year, :choice, [[@year2, @year2],["2019", "2019"],["2018", "2018"],["2017", "2017"],["2016", "2016"],["2015", "2015"],["2014", "2014"],["2013", "2013"],["2012", "2012"],["2011", "2011"],["2010", "2010"],["2009", "2009"],["2008", "2008"],["2007", "2007"],["2006", "2006"],["2005", "2005"],["2004", "2004"],["2003", "2003"],["2002", "2002"],["2001", "2001"],["2000", "2000"]] %>　年
+
+
+                        <%= select :month, :choice, [[@month2, @month2],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"]], required: true %>　月
+
+                        <%= select :day1, :choice, [[@day2, @day2],["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"],["31", "31"]] %>　日
+                    </div>
+                </div>
+                <div id="age_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">犬種<span>*</span></p>
+                    <div class="birt2">
+                        <%= select :dog_breed, :choice, [[@breed, @breed],["ポメラニアン", "ポメラニアン"], ["トイプードル", "トイプードル"], ["チワワ", "チワワ"], ["フレンチブルドック", "フレンチブルドック"], ["ヨークシャテリア", "ヨークシャテリア"], ["シーズー", "シーズー"], ["ミニチュアダックス", "ミニチュアダックス"], ["パグ", "パグ"], ["ミックス", "ミックス"], ["ミニチュアシュナウザー", "ミニチュアシュナウザー"], ["パピヨン", "パピヨン"], ["豆しば", "豆しば"], ["ペキニーズ", "ペキニーズ"], ["マルチーズ", "マルチーズ"], ["コーギー", "コーギー"], ["ミニチュアピンシャー", "ミニチュアピンシャー"], ["キャバリア", "キャバリア"], ["ジャックラッセルテリア", "ジャックラッセルテリア"], ["ビーグル", "ビーグル"], ["その他", "その他"]] %>
+                    </div>
+                </div>
+                <div id="breed_notice" class="dog_notice"></div>
+
+                <div class="dog_item dog_name2">
+                    <p class="dog_name">体重<span>*</span></p>
+                    <div class="birt2">
+                        <%= select :weight, :choice, [[@weight2, @weight2],["〜1kg", "〜1kg"], ["1kg〜1.5kg", "1kg〜1.5kg"], ["1.5kg〜2kg", "1.5kg〜2kg"], ["2kg〜2.5kg", "2kg〜2.5kg"], ["2.5kg〜3kg", "2.5kg〜3kg"], ["3kg〜3.5kg", "3kg〜3.5kg"], ["3.5kg〜4kg", "3.5kg〜4kg"], ["4kg〜4.5kg", "4kg〜4.5kg"],["4.5kg〜5kg", "4.5kg〜5kg"], ["5kg〜5.5kg", "5kg〜5.5kg"], ["5.5kg〜6kg", "5.5kg〜6kg"], ["6kg〜6.5kg", "6kg〜6.5kg"], ["6.5kg〜7kg", "6.5kg〜7kg"], ["7kg〜7.5kg", "7kg〜7.5kg"], ["7.5kg〜8kg", "7.5kg〜8kg"], ["8kg〜8.5kg", "8kg〜8.5kg"], ["8.5kg〜9kg", "8.5kg〜9kg"], ["9kg〜9.5kg", "9kg〜9.5kg"], ["9.5kg〜10kg", "9.5kg〜10kg"], ["10kg〜", "10kg〜"]] %>
+                    </div>
+                </div>
+                <div id="weight_notice" class="dog_notice"></div>
+
+                <div class="dog_item" id="fire_dog_item">
+                    <p class="dog_name5">性格・特徴</p>
+                    <div class="birt3">
+                        <p>
+                            <%= check_box "character", "人懐っこい", id: "character_ch1" %><label for="character_ch1">人懐っこい</label>
+                            <%= check_box  "character", "人見知り", id: "character_ch2", class: "remove0" %><label for="character_ch2">人見知り</label>
+                            <%= check_box "character", "ベタベタ", id: "character_ch3", class: "remove4" %><label for="character_ch3">ベタベタ</label>
+                            <%= check_box "character", "サバサバ", id: "character_ch4", class: "remove4" %><label for="character_ch4">サバサバ</label>
+                        </p>
+                        <p>
+                            <%= check_box "character", "のんびり", id: "character_ch5" %><label for="character_ch5">のんびり</label>
+                            <%= check_box  "character", "バタバタ", id: "character_ch6", class: "remove2" %><label for="character_ch6">バタバタ</label>
+                            <%= check_box "character", "吠える", id: "character_ch7", class: "remove4" %><label for="character_ch7">吠える</label>
+                            <%= check_box "character", "吠えない", id: "character_ch8", class: "remove7" %><label for="character_ch8">吠えない</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "臆病", id: "character_ch9", class: "remove1" %><label for="character_ch9">臆病</label>
+                            <%= check_box  "character", "大胆", id: "character_ch10", class: "remove3" %><label for="character_ch10">大胆</label>
+                            <%= check_box "character", "犬好き", id: "character_ch11", class: "remove5" %><label for="character_ch11">犬好き</label>
+                            <%= check_box "character", "犬嫌い", id: "character_ch12", class: "remove7" %><label for="character_ch12">犬嫌い</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "気が強い", id: "character_ch13", class: "remove1" %><label for="character_ch13">気が強い</label>
+                            <%= check_box  "character", "気が弱い", id: "character_ch14", class: "remove2" %><label for="character_ch14">気が弱い</label>
+                            <%= check_box "character", "気性が激しい", id: "character_ch15", class: "remove4" %><label for="character_ch15">気性が激しい</label>
+                            <%= check_box "character", "穏やか", id: "character_ch16", class: "remove1" %><label for="character_ch16">穏やか</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "散歩好き", id: "character_ch17", class: "remove1" %><label for="character_ch17">散歩好き</label>
+                            <%= check_box  "character", "よく寝る", id: "character_ch18", class: "remove2" %><label for="character_ch18">よく寝る</label>
+                            <%= check_box "character", "好奇心旺盛", id: "character_ch19", class: "remove4" %><label for="character_ch19">好奇心旺盛</label>
+                            <%= check_box "character", "自由奔放", id: "character_ch20", class: "remove8" %><label for="character_ch20">自由奔放</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "従順", id: "character_ch21", class: "remove" %><label for="character_ch21">従順</label>
+                            <%= check_box  "character", "噛み癖がある", id: "character_ch22", class: "remove3" %><label for="character_ch22">噛み癖がある</label>
+                            <%= check_box "character", "男性が好き", id: "character_ch23", class: "remove6" %><label for="character_ch23">男性が好き</label>
+                            <%= check_box "character", "女性が好き", id: "character_ch24", class: "remove8" %><label for="character_ch24">女性が好き</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="notation2">
+                    <p class="notation3">
+                        ※複数選択可
+                    </p>
+                </div>
+
+                <div class="dog_item">
+                    <p class="dog_name">去勢・避妊手術<span>*</span></p>
+                    <div class="ch2" id="castration_check">
+                        <%= radio_button 'castration', 'category', 'している', {:checked => @check3} %><label for="castration_category_している">している</label>
+                        <%= radio_button 'castration', 'category', 'してない', {:checked => @check4} %><label for="castration_category_してない">してない</label>
+                    </div>
+                </div>
+                <div id="castration_notice" class="dog_notice"></div>
+
+                <div class="dog_item">
+                    <p class="dog_name">狂犬病ワクチン<span>*</span></p>
+                        <div class="ch2" id="rabies_check">
+                            <input class="rabies_check" id="Radio1" type="radio" name="rabies" value="している" checked><label for="Radio1">している</label>
+                            <input class="rabies_check" id="Radio2" type="radio" name="rabies" value="してない" required><label for="Radio2">してない</label>
+                        </div>
+                </div>
+                <div id="rabies_notice" class="dog_notice"></div>
+                 <div id="output"></div>
+                 <div class="notice">
+                    <p>利用規約に同意の上ご登録ください</p>
+                 </div>
+
+                 <div class="submit">
+                     <input id="dog_submit" type="submit" value="プロフィール作成">
+                 </div>
+            </form>
+    <% end %>
+</div>
+</div>
+
+
+
+
+<!---スクリプト-->
+<script type="text/javascript">
+    var sex = '',
+        year = '',
+        month = '',
+        day = '',
+        breed = '',
+        weight = '',
+        category = '',
+        rabies = 'している',
+        $sex = $('.ch').find('input[type="radio"]'),
+        $year = $('.birt').find('#year_choice'),
+        $month = $('.birt').find('#month_choice'),
+        $day = $('.birt').find('#day1_choice'),
+        $breed = $('.birt2').find('#dog_breed_choice'),
+        $weight = $('.birt2').find('#weight_choice'),
+        $category = $('#castration_check').find('input[type="radio"]'),
+        $rabies = $('#rabies_check').find('.rabies_check');
+
+
+
+    $sex.on('click', function(){
+        sex = $(this).val();
+        $('#sex_notice').css('display', 'none');
+    });
+
+    $year.on('input', function(){
+        year = $year.val();
+        if(year != '' &&  month != '' && day != ''){
+            $('#age_notice').css('display', 'none');
+        }
+    });
+    $month.on('input', function(){
+        month = $month.val();
+        if(year != '' &&  month != '' && day != ''){
+            $('#age_notice').css('display', 'none');
+        }
+    });
+    $day.on('input', function(){
+        day = $day.val();
+        if(year != '' &&  month != '' && day != ''){
+            $('#age_notice').css('display', 'none');
+        }
+    });
+    $breed.on('input', function(){
+        breed = $breed.val();
+        $('#breed_notice').css('display', 'none');
+    });
+    $weight.on('input', function(){
+        weight = $weight.val();
+        $('#weight_notice').css('display', 'none');
+    });
+    $category.on('click', function(){
+        category = $(this).val();
+        $('#castration_notice').css('display', 'none');
+    });
+    $rabies.on('click', function(){
+        rabies = $(this).val();
+        if(rabies == 'してない'){
+            $('#output').text('※狂犬病ワクチンをしていないワンちゃんはサービスをご利用できません。');
+            $('#output').show();
+        }else{
+            $('#output').hide();
+            $('#rabies_notice').css('display', 'none');
+        }
+    });
+
+
+    $('#checkDog').on('submit', function(){
+        if(sex == '' || (year == '' ||  month == '' || day == '') || breed == '' || weight == '' || category == '' || rabies == 'してない'){
+            if(sex == ''){
+                $('#sex_notice').css('display', 'block').text('選択してください');
+            }
+            if(year == '' ||  month == '' || day == ''){
+                $('#age_notice').css('display', 'block').text('選択してください');
+            }
+            if(breed == ''){
+                $('#breed_notice').css('display', 'block').text('選択してください');
+            }
+            if(weight == ''){
+                $('#weight_notice').css('display', 'block').text('選択してください');
+            }
+            if(category == ''){
+                $('#castration_notice').css('display', 'block').text('選択してください');
+            }
+            if(rabies == 'してない'){
+                $('#rabies_notice').css('display', 'block').text('狂犬病ワクチンをしていないワンちゃんはご利用できません');
+                $('#output').hide();
+            }
+
+            return false;
+        }
+
+    });
+</script>

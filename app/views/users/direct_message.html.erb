@@ -1,0 +1,407 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show">
+    <div class="users_header">
+        <div class="users_header1">
+            <ul>
+              <%= link_to("ホーム","/users/#{@user.id}") %>
+              <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+              <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
+              <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+              <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+          </ul>
+        </div>
+    </div>
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                <div class="icon_add">
+                                    <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                    <i class="fas fa-plus icon_plus2"></i>
+                                </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma" id="user_icon_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<!------------------ここまで左側メニュー------------------------>
+<!-----メッセージ表示-------------------------------------->
+        <div class="evaluation_content1">
+            <div class="evaluation_content direct">
+                <h3>ダイレクトメッセージ作成</h3>
+                <div class="destination"><!-----送信先情報-------->
+                    <% if @post.image_name %>
+                        <%= link_to("/users/seen/#{@post.id}") do %>
+                            <div class="post_info">
+                                <div class="post_image">
+                                <img class="icon_img00" src="<%= "/user_images/#{@post.image_name}" %>" alt="">
+                            </div>
+                            <div class="post_name">
+                                <p><%= @post.name %></p>
+                                <% if @login < 3600 %>
+                                    <% @login /= 60 %>
+                                    <p>最終ログイン：<%= @login.floor %>分前</p>
+                                <% elsif @login > 3600 && @login < 86400 %>
+                                    <% @login /= 3600 %>
+                                    <p>最終ログイン：<%= @login.floor %>時間前</p>
+                                <% elsif @login > 86400 && @login < 604800 %>
+                                    <% @login /= 86400 %>
+                                    <p>最終ログイン：<%= @login.floor %>日前</p>
+                                <% elsif @login > 604800 && @login < 2419200 %>
+                                    <% @login /= 604800 %>
+                                    <p>最終ログイン：<%= @login.floor %>週間前</p>
+                                    <% elsif @login < 2419200 %>
+                                        <p>最終ログイン：1ヶ月以上前</p>
+                                <% else %>
+                                <% end %>
+                            </div>
+                        </div>
+
+                        <% end %>
+                    <% else %>
+                        <%= link_to("/users/seen/#{@post.id}") do %>
+                            <div class="post_info">
+                                <div class="post_icon">
+                                    <i class="fas fa-user-circle fa-7x icon_color"  %></i>
+                                    <i class="fas fa-camera fa-2x icon_camera2" id="post_camera"></i>
+                                    <i class="fas fa-plus icon_plus2" id="post_plus"></i>
+                                </div>
+                                <div class="post_name">
+                                    <p><%= @post.name %></p>
+                                    <% if @login < 3600 %>
+                                        <% @login /= 60 %>
+                                        <p>最終ログイン：<%= @login.floor %>分前</p>
+                                    <% elsif @login > 3600 && @login < 86400 %>
+                                        <% @login /= 3600 %>
+                                        <p>最終ログイン：<%= @login.floor %>時間前</p>
+                                    <% elsif @login > 86400 && @login < 604800 %>
+                                        <% @login /= 86400 %>
+                                        <p>最終ログイン：<%= @login.floor %>日前</p>
+                                    <% elsif @login > 604800 && @login < 2419200 %>
+                                        <% @login /= 604800 %>
+                                        <p>最終ログイン：<%= @login.floor %>週間前</p>
+                                        <% elsif @login < 2419200 %>
+                                            <p>最終ログイン：1ヶ月以上前</p>
+                                    <% else %>
+                                    <% end %>
+
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div><!-----ここまで送信先情報-------->
+
+                <% if @messeages.present?%><!------送信済みメッセージ------->
+                	<% @messeages.each do | messeage | %>
+                		<% @sender = User.find_by(id: messeage.send_id) %>
+                		<% @time = messeage.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                        <% if @sender.id == @user.id %>
+                            <%= link_to("/users/#{@user.id}")  do %>
+                                <div class="read2" id="read22">
+                                    <% if @sender.image_name %>
+                                        <div class="post_image" id="chage">
+                                            <img class="icon_img00" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                                        </div>
+                                    <% else %>
+                                        <div class="post_icon2" id="chage">
+                                            <i class="fas fa-user-circle fa-7x icon_color"  %></i>
+                                            <i class="fas fa-camera fa-2x icon_camera2" id="post_camera2"></i>
+                                            <i class="fas fa-plus icon_plus2" id="post_plus2"></i>
+                                        </div>
+                                    <% end %>
+                                    <div class="">
+                                        <div class="sender">
+                                            <p><%= @sender.name %></p>
+                                            <p><%= @time %></p>
+                                        </div>
+                                        <p class="messe"><%= messeage.messe %></p>
+                                    </div>
+                                </div><!------ここまで送信済みメッセージ------->
+                            <% end %>
+                        <% else %>
+                    	    <%= link_to("/users/seen/#{@sender.id}")  do %>
+                    			<div class="read2" id="read22">
+                    				<% if @sender.image_name %>
+                    					<div class="post_image" id="chage">
+                    						<img class="icon_img00" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                    					</div>
+                    				<% else %>
+                    					<div class="post_icon2" id="chage">
+                    						<i class="fas fa-user-circle fa-7x icon_color"  %></i>
+                    						<i class="fas fa-camera fa-2x icon_camera2" id="post_camera2"></i>
+                    						<i class="fas fa-plus icon_plus2" id="post_plus2"></i>
+                    					</div>
+                    				<% end %>
+                    				<div class="">
+                    					<div class="sender">
+                    						<p><%= @sender.name %></p>
+                    						<p><%= @time %></p>
+                    					</div>
+                    					<p class="messe"><%= messeage.messe %></p>
+                    				</div>
+                    			</div><!------ここまで送信済みメッセージ------->
+                            <% end %>
+                        <% end %>
+                	<% end %>
+
+                <% end %>
+
+                <div class="post_mese"><!-----送信画面-------->
+                    <% if @user.image_name %>
+                        <div class="post_image">
+                            <img class="icon_img00" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                        </div>
+                    <% else %>
+                    <div class="post_icon2" id="chage">
+                        <i class="fas fa-user-circle fa-7x icon_color"  %></i>
+                        <i class="fas fa-camera fa-2x icon_camera2" id="post_camera2"></i>
+                        <i class="fas fa-plus icon_plus2" id="post_plus2"></i>
+                    </div>
+                    <% end %>
+                        <%= form_tag("/users/messeage_create/#{@post.id}") do %>
+                            <div id="messeage_send11">
+                                <div class="messeage_send22">
+                                    <textarea class="messeage_send22" maxlength="1000" name="messe" rows="8" cols="80" required></textarea>
+                                </div>
+                                <input id="input_submit" type="submit" name="update" value="ダイレクトメッセージを送信する">
+                            </div>
+                        <% end %>
+                </div><!-----ここまで送信画面-------->
+                <div class="notice_messe">
+                    <h3><i class="fas fa-exclamation-circle"></i>ダイレクトメッセージ上での注意点</h3>
+                    <p>SecondHouse外部での金銭トラブルや悪質な勧誘等のトラブルが報告されているため、外部誘導やSecondHouseを介さない連絡を禁止しております。</p>
+                    <p>・メールアドレス、電話番号、LINEなど、外部連絡先や外部サービスを記載して誘導する行為</p>
+                    <p>・SecondHouseを介さずに、外部において直接取引を促す行為</p>
+                    <p>これらの行為が確認された場合、アカウント制限等の対応をさせていただきますのでご注意ください。</p>
+                </div>
+                <div class="space">
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!---スマホ-->
+
+<div class="evaluation_show" id="evaluation_show">
+    <div class="evaluation_head">
+        <h1>ダイレクトメッセージ</h1>
+    </div>
+        <div class="evaluation_content1" id="evaluation_content1">
+            <div class="evaluation_content direct" id="evaluation_content">
+                <h3>送信先</h3>
+                <div class="destination" id="destination"><!-----送信先情報-------->
+                    <%= link_to("/users/seen/#{@post.id}") do %>
+                        <div class="post_info" id="post_info">
+                            <div class="post_image" id="post_image111">
+                                <% if @post.image_name %>
+                                    <img id="icon_img00" class="icon_img00" src="<%= "/user_images/#{@post.image_name}" %>" alt="">
+                                <% else %>
+                                    <i class="fas fa-user-circle fa-4x icon_color" id="direct_mess"></i>
+
+                                <% end %>
+                            </div>
+                            <div class="post_name" id="post_name">
+                                <p><%= @post.name %></p>
+                                <% if @login < 3600 %>
+                                    <% @login /= 60 %>
+                                    <p>最終ログイン：<%= @login.floor %>分前</p>
+                                <% elsif @login > 3600 && @login < 86400 %>
+                                    <% @login /= 3600 %>
+                                    <p>最終ログイン：<%= @login.floor %>時間前</p>
+                                <% elsif @login > 86400 && @login < 604800 %>
+                                    <% @login /= 86400 %>
+                                    <p>最終ログイン：<%= @login.floor %>日前</p>
+                                <% elsif @login > 604800 && @login < 2419200 %>
+                                    <% @login /= 604800 %>
+                                    <p>最終ログイン：<%= @login.floor %>週間前</p>
+                                    <% elsif @login < 2419200 %>
+                                        <p>最終ログイン：1ヶ月以上前</p>
+                                <% else %>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div><!-----ここまで送信先情報-------->
+                <% if @messeages.present?%><!------送信済みメッセージ------->
+                	<% @messeages.each do | messeage | %>
+                		<% @sender = User.find_by(id: messeage.send_id) %>
+                		<% @time = messeage.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+                        <% if @sender.id == @user.id %>
+                            <%= link_to("/users/#{@user.id}")  do %>
+                                <div class="read2" id="read22ss">
+                                    <div class="post_image" id="post_image">
+                                        <% if @sender.image_name %>
+                                            <img id="icon_img00ss" class="icon_img00" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                                        <% else %>
+                                            <i id="user_1111" class="fas fa-user-circle fa-4x icon_color"  %></i>
+                                        <% end %>
+                                    </div>
+                                    <div class="sender_cover" id="sender_cover">
+                                        <div class="sender" id="sender">
+                                            <p><%= @sender.name %></p>
+                                        </div>
+                                        <p id="mess_ss" class="messe"><%= messeage.messe %></p>
+                                        <p><%= @time %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% else %>
+                    	    <%= link_to("/users/seen/#{@sender.id}")  do %>
+                    			<div class="read2" id="read22ss">
+                                    <div class="post_image" id="post_image">
+                    				    <% if @sender.image_name %>
+                    						<img id="icon_img00ss" class="icon_img00" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                    				    <% else %>
+                    						<i class="fas fa-user-circle fa-4x icon_color"  %></i>
+                    				    <% end %>
+                                     </div>
+                                    <div class="sender_cover" id="sender_cover">
+                                        <div class="sender" id="sender">
+                                            <p><%= @sender.name %></p>
+                                        </div>
+                                        <p id="mess_ss" class="messe"><%= messeage.messe %></p>
+                                        <p><%= @time %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        <% end %>
+                	<% end %>
+                <% end %>
+                <div class="post_mese" id="post_mese">
+                    <div class="post_image">
+                        <% if @user.image_name %>
+                            <img id="icon_img00ss" class="icon_img00" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                        <% else %>
+                            <i id="user111" class="fas fa-user-circle fa-4x icon_color"  %></i>
+                        <% end %>
+                    </div>
+                    <%= form_tag("/users/messeage_create/#{@post.id}") do %>
+                        <div id="messeage_send11ss">
+                            <div class="messeage_send22" id="messeage_send22ss">
+                                <textarea id="messeage_send22" class="messeage_send22" maxlength="1000" name="messe" rows="8" cols="80" required></textarea>
+                            </div>
+                            <div class="input_submit_cover">
+                                <input id="input_submit" type="submit" name="update" value="ダイレクトメッセージを送信する">
+                            </div>
+                        </div>
+                    <% end %>
+                </div><!-----ここまで送信画面-------->
+                <div class="notice_messe" id="notice_messe">
+                    <h3><i class="fas fa-exclamation-circle"></i>ダイレクトメッセージ上での注意点</h3>
+                    <p>SecondHouse外部での金銭トラブルや悪質な勧誘等のトラブルが報告されているため、外部誘導やSecondHouseを介さない連絡を禁止しております。</p>
+                    <p>・メールアドレス、電話番号、LINEなど、外部連絡先や外部サービスを記載して誘導する行為</p>
+                    <p>・SecondHouseを介さずに、外部において直接取引を促す行為</p>
+                    <p>これらの行為が確認された場合、アカウント制限等の対応をさせていただきますのでご注意ください。</p>
+                </div>
+                <div class="space">
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

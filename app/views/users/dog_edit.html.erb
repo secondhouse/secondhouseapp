@@ -1,0 +1,635 @@
+<div class="space"></div>
+<div class="evaluation_show_dog">
+    <div class="evaluation_wrapp_edit">
+        <div class="profile_edit">
+            <div class="icon_wrapp_evaluation">
+                <% if @dog.image_name %>
+<!----画像有----------------------------------------->
+                    <div class="icon_wrapp_edit2">
+                        <div class="users_icon_edit2">
+                            <img class="icon_img" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                        </div>
+                    </div>
+<!----画像無----------------------------------------->
+                <% else %>
+                <div class="dog_icon_mydog" id="dog_writing_pc">
+                    <i id="icon_pc_dog" class="fas fa-dog fa-5x fa-dog11"></i>
+                </div>
+                <% end %>
+            </div>
+<!----ここまで画像の有無----------------------------------------->
+            <div class="evaluation_name">
+                <%= @dog.name %>
+            </div>
+            <div class="evaluation_edit">
+                <div class="evaluation_button_dog color_button">
+                    <%= link_to("ワンちゃんのページを見る","/users/mydog/#{@user.id}") %>
+                </div>
+            </div>
+            <div class="evaluation_info_edit">
+                <%= link_to("/users/talk/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>トークルーム</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <div class="evaluation_containar_edit">
+                    <p>リクエスト</p>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+                <div class="evaluation_containar_edit">
+                    <p>報酬管理・振込申請</p>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+                <%= link_to("/users/show_follow/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>フォロー/フォロワー</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <%= link_to("/support/configuration/#{@user.id}") do %>
+                    <div class="evaluation_containar_edit">
+                        <p>設定</p>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </div>
+                <% end %>
+                <div class="evaluation_containar_edit">
+                    <%= link_to("ログアウト", "/logout", {method: :post}) %>
+                </div>
+            </div>
+        </div>
+        <div class="evaluation_content_edit">
+            <h2>ワンちゃん情報</h2>
+            <div class="edit_dog0">
+                <%= form_tag("/users/dogUpdate/#{@dog.id}",{multipart: true}) do %>
+                    <div class="edit_user_contents">
+                        <div class="edit_user_contents_item">
+                            <div class="edit_title_name">
+                                <p>プロフィール画像</p>
+                            </div>
+<!----画像の有無----------------------------------------->
+                            <% if @dog.image_name %>
+<!----画像有----------------------------------------->
+                                <div class="edit_image_name">
+                                    <div class="icon_wrapp_edit">
+                                        <div class="users_icon_edit">
+                                            <img class="icon_img_edit" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class=" user_name3">
+                                        <label>
+                                            <span>
+                                                <input type="file" name="image">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+<!----画像無----------------------------------------->
+                            <% else %>
+                                <div class="edit_image_name">
+                                    <div class="dog_icon_mydog" id="dog_writing_pc22">
+                                        <i id="icon_pc_dog22" class="fas fa-dog fa-4x fa-dog11"></i>
+                                    </div>
+                                    <div class=" user_name3">
+                                        <label>
+                                            <span>
+                                                <input type="file" name="image">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+<!----ここまで画像の有無----------------------------------------->
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name">
+                                <p>ワンちゃんのお名前</p>
+                            </div>
+                            <div class="edit_dog">
+                                <input class="example1_edit" name= "name" type="name" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item4">
+                            <div class="edit_title_name">
+                                <p>紹介文</p>
+                            </div>
+                            <div class="introduction_input00">
+                                <textarea class="introduction_text_edit" maxlength="250" name="introduction" rows="8" cols="80" placeholder="ワンちゃんの自己紹介を書きましょう（250文字以内）"></textarea>
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name1">
+                                <p>性別</p>
+                            </div>
+
+                            <div class="edit_dog1">
+                                <input id="sex_dog1" type="radio" name="sex" value="男の子"><label for="sex_dog1">男の子</label>
+                                <input id="sex_dog2" type="radio" name="sex" value="女の子" class="choice1"><label for="sex_dog2">女の子</label>
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name1">
+                                <p>年齢</p>
+                            </div>
+                            <div class="edit_dog1">
+                                <select name="year" id="year00">
+                                     <option value="">-</option>
+                                     <option value="2019">2019</option>
+                                     <option value="2018">2018</option>
+                                     <option value="2017">2017</option>
+                                     <option value="2016">2016</option>
+                                     <option value="2015">2015</option>
+                                     <option value="2014">2014</option>
+                                     <option value="2013">2013</option>
+                                     <option value="2012">2012</option>
+                                     <option value="2011">2011</option>
+                                     <option value="2010">2010</option>
+                                     <option value="2009">2009</option>
+                                     <option value="2008">2008</option>
+                                     <option value="2007">2007</option>
+                                     <option value="2006">2006</option>
+                                     <option value="2005">2005</option>
+                                     <option value="2004">2004</option>
+                                     <option value="2003">2003</option>
+                                     <option value="2002">2002</option>
+                                     <option value="2001">2001</option>
+                                     <option value="2000">2000</option>
+                                     <option value="1999">1999</option>
+                                </select>　年
+                                <select name="month">
+                                    <option value="">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>　月
+                                <select name="day">
+                                    <option value="">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>　日
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name1">
+                                <p>犬種</p>
+                            </div>
+                            <div class="edit_dog1" id="biret">
+                                <select name="dog_breed" id="year11">
+                                    <option value="">-</option>
+                                    <option value="ポメラニアン">ポメラニアン</option>
+                                    <option value="トイプードル">トイプードル</option>
+                                    <option value="チワワ">チワワ</option>
+                                    <option value="フレンチブルドック">フレンチブルドック</option>
+                                    <option value="ヨークシャテリア">ヨークシャテリア</option>
+                                    <option value="シーズー">シーズー</option>
+                                    <option value="ミニチュアダックス">ミニチュアダックス</option>
+                                    <option value="パグ">パグ</option>
+                                    <option value="ミックス">ミックス</option>
+                                    <option value="ミニチュアシュナウザー">ニチュアシュナウザー</option>
+                                    <option value="パピヨン">パピヨン</option>
+                                    <option value="豆しば">豆しば</option>
+                                    <option value="ペキニーズ">ペキニーズ</option>
+                                    <option value="マルチーズ">マルチーズ</option>
+                                    <option value="コーギー">コーギー</option>
+                                    <option value="ミニチュアピンシャー">ミニチュアピンシャー</option>
+                                    <option value="キャバリア">キャバリア</option>
+                                    <option value="ジャックラッセルテリア">ジャックラッセルテリア</option>
+                                    <option value="ビーグル">ビーグル</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name1">
+                                <p>体重</p>
+                            </div>
+                            <div class="edit_dog1" id="biret">
+                                <select name="weight" id="year11">
+                                    <option value="">-</option>
+                                    <option value="〜1kg">〜1kg</option>
+                                    <option value="1kg〜1.5kg">1kg〜1.5kg</option>
+                                    <option value="1.5kg〜2kg">1.5kg〜2kg</option>
+                                    <option value="2kg〜2.5kg">2kg〜2.5kg</option>
+                                    <option value="2.5kg〜3kg">2.5kg〜3kg</option>
+                                    <option value="3kg〜3.5kg">3kg〜3.5kg</option>
+                                    <option value="3.5kg〜4kg">3.5kg〜4kg</option>
+                                    <option value="4kg〜4.5kg">4kg〜4.5kg</option>
+                                    <option value="4.5kg〜5kg">4.5kg〜5kg</option>
+                                    <option value="5kg〜5.5kg">5kg〜5.5kg</option>
+                                    <option value="5.5kg〜6kg">5.5kg〜6kg</option>
+                                    <option value="6kg〜6.5kg">6kg〜6.5kg</option>
+                                    <option value="6.5kg〜7kg">6.5kg〜7kg</option>
+                                    <option value="7kg〜7.5kg">7kg〜7.5kg</option>
+                                    <option value="7.5kg〜8kg">7.5kg〜8kg</option>
+                                    <option value="8kg〜8.5kg">8kg〜8.5kg</option>
+                                    <option value="8.5kg〜9kg">8.5kg〜9kg</option>
+                                    <option value="9kg〜9.5kg">9kg〜9.5kg</option>
+                                    <option value="9.5kg〜10kg">9.5kg〜10kg</option>
+                                    <option value="10kg〜10.5kg">10kg〜10.5kg</option>
+                                    <option value="10.5kg〜11kg">10.5kg〜11kg</option>
+                                    <option value="11kg〜11.5kg">11kg〜11.5kg</option>
+                                    <option value="11.5kg〜12kg">11.5kg〜12kg</option>
+                                    <option value="12kg〜12.5kg">12kg〜12.5kg</option>
+                                    <option value="12.5kg〜13kg">12.5kg〜13kg</option>
+                                    <option value="13kg〜13.5kg">13kg〜13.5kg</option>
+                                    <option value="13.5kg〜14kg">13.5kg〜14kg</option>
+                                    <option value="14kg〜14.5kg">14kg〜14.5kg</option>
+                                    <option value="14.5kg〜15kg">14.5kg〜15kg</option>
+                                    <option value="15kg〜">15kg〜</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="edit_user_contents_item6">
+                            <div class="edit_title_name1">
+                                <p>性格・特徴</p>
+                            </div>
+                            <div class="edit_dog2">
+                                <p>
+                                    <%= check_box "character", "人懐っこい", id: "character_ch1" %><label for="character_ch1">人懐っこい</label>
+                                    <%= check_box  "character", "人見知り", id: "character_ch2", class: "remove0" %><label for="character_ch2">人見知り</label>
+                                    <%= check_box "character", "ベタベタ", id: "character_ch3", class: "remove4" %><label for="character_ch3">ベタベタ</label>
+                                    <%= check_box "character", "サバサバ", id: "character_ch4", class: "remove4" %><label for="character_ch4">サバサバ</label>
+                                </p>
+                                <p>
+                                    <%= check_box "character", "のんびり", id: "character_ch5" %><label for="character_ch5">のんびり</label>
+                                    <%= check_box  "character", "バタバタ", id: "character_ch6", class: "remove2" %><label for="character_ch6">バタバタ</label>
+                                    <%= check_box "character", "吠える", id: "character_ch7", class: "remove4" %><label for="character_ch7">吠える</label>
+                                    <%= check_box "character", "吠えない", id: "character_ch8", class: "remove7" %><label for="character_ch8">吠えない</label>
+                                </p>
+
+                                <p>
+                                    <%= check_box "character", "臆病", id: "character_ch9", class: "remove1" %><label for="character_ch9">臆病</label>
+                                    <%= check_box  "character", "大胆", id: "character_ch10", class: "remove3" %><label for="character_ch10">大胆</label>
+                                    <%= check_box "character", "犬好き", id: "character_ch11", class: "remove5" %><label for="character_ch11">犬好き</label>
+                                    <%= check_box "character", "犬嫌い", id: "character_ch12", class: "remove7" %><label for="character_ch12">犬嫌い</label>
+                                </p>
+
+                                <p>
+                                    <%= check_box "character", "気が強い", id: "character_ch13", class: "remove1" %><label for="character_ch13">気が強い</label>
+                                    <%= check_box  "character", "気が弱い", id: "character_ch14", class: "remove2" %><label for="character_ch14">気が弱い</label>
+                                    <%= check_box "character", "気性が激しい", id: "character_ch15", class: "remove4" %><label for="character_ch15">気性が激しい</label>
+                                    <%= check_box "character", "穏やか", id: "character_ch16", class: "remove1" %><label for="character_ch16">穏やか</label>
+                                </p>
+
+                                <p>
+                                    <%= check_box "character", "散歩好き", id: "character_ch17", class: "remove1" %><label for="character_ch17">散歩好き</label>
+                                    <%= check_box  "character", "よく寝る", id: "character_ch18", class: "remove2" %><label for="character_ch18">よく寝る</label>
+                                    <%= check_box "character", "好奇心旺盛", id: "character_ch19", class: "remove4" %><label for="character_ch19">好奇心旺盛</label>
+                                    <%= check_box "character", "自由奔放", id: "character_ch20", class: "remove8" %><label for="character_ch20">自由奔放</label>
+                                </p>
+
+                                <p>
+                                    <%= check_box "character", "従順", id: "character_ch21", class: "remove" %><label for="character_ch21">従順</label>
+                                    <%= check_box  "character", "噛み癖がある", id: "character_ch22", class: "remove3" %><label for="character_ch22">噛み癖がある</label>
+                                    <%= check_box "character", "男性が好き", id: "character_ch23", class: "remove6" %><label for="character_ch23">男性が好き</label>
+                                    <%= check_box "character", "女性が好き", id: "character_ch24", class: "remove8" %><label for="character_ch24">女性が好き</label>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="notation2">
+                            <p class="notation33">
+                                ※複数選択可
+                            </p>
+                        </div>
+
+                        <div class="edit_user_contents_item3">
+                            <div class="edit_title_name1">
+                                <p>去勢・避妊手術</p>
+                            </div>
+                            <div class="edit_dog1">
+                                <input id="castration_dog1" type="radio" name="castration" value="している"><label for="castration_dog1">している</label>
+                                <input id="castration_dog2" type="radio" name="castration" value="していない" class="choice1"><label for="castration_dog2">していない</label>
+                            </div>
+                        </div>
+                        <div class="input_edit_containar">
+                            <input id="input_edit" type="submit" name="dog_update" value="更新する">
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!---スマホ--->
+<div class="evaluation_show_dog" id="evaluation_show_dog">
+    <div class="evaluation_head">
+        <h1>ワンちゃん情報</h1>
+    </div>
+    <div class="edit_user" id="edit_user">
+        <%= form_tag("/users/dogUpdate/#{@dog.id}",{multipart: true}) do %>
+            <div class="edit_user_contents" id="edit_user_contents_ss11">
+                <p>プロフィール画像</p>
+                <div class="phote_user_edit" id="phote_user_edit">
+                    <% if @dog.image_name %>
+                        <img id="icon_img_edit11" class="icon_img_edit" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                        <div class="user_name3" id="user_name3">
+                            <label>
+                                <span>
+                                    <input type="file" name="image">
+                                </span>
+                            </label>
+                        </div>
+                    <% else %>
+                        <div class="dog_icon_mydog" id="dog_writing">
+                            <i id="dog_writing_icon_s11s" class="fas fa-dog fa-3x fa-dog11"></i>
+                        </div>
+                        <div class="user_name3" id="user_name3">
+                            <label>
+                                <span>
+                                    <input type="file" name="image">
+                                </span>
+                            </label>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+<!----ここまで画像の有無----------------------------------------->
+            <div class="edit_user_contents" id="edit_user_contents_ss1">
+                <div class="edit_title_name">
+                    <p>ワンちゃんのお名前</p>
+                </div>
+                <div class="edit_dog" id="edit_dog">
+                    <input id="example1_edit" class="example1_edit" name= "name" type="name" maxlength="10">
+                </div>
+            </div>
+            <div class="edit_user_contents" id="edit_user_contents_ss2">
+                <div class="edit_title_name">
+                    <p>紹介文</p>
+                </div>
+                <div class="introduction_input00" id="introduction_input00">
+                    <textarea id="introduction_text_edit" class="introduction_text_edit" maxlength="250" name="introduction" rows="8" cols="80" placeholder="ワンちゃんの自己紹介を書きましょう（250文字以内）"></textarea>
+                </div>
+            </div>
+            <div class="edit_user_contents" id="edit_user_contents_ss3">
+                <div class="edit_title_name">
+                    <p>性別</p>
+                </div>
+
+                <div class="edit_dog1" id="edit_dog1">
+                    <input id="sex_dog1" type="radio" name="sex" value="男の子"><label for="sex_dog1">男の子</label>
+                    <input id="sex_dog2" type="radio" name="sex" value="女の子" class="choice1"><label for="sex_dog2">女の子</label>
+                </div>
+            </div>
+            <div class="edit_user_contents" id="edit_user_contents_ss3">
+                <div class="edit_title_name">
+                    <p>年齢</p>
+                </div>
+                <div class="edit_dog1" id="edit_dog1">
+                    <select name="year" id="year_ss">
+                         <option value="">-</option>
+                         <option value="2019">2019</option>
+                         <option value="2018">2018</option>
+                         <option value="2017">2017</option>
+                         <option value="2016">2016</option>
+                         <option value="2015">2015</option>
+                         <option value="2014">2014</option>
+                         <option value="2013">2013</option>
+                         <option value="2012">2012</option>
+                         <option value="2011">2011</option>
+                         <option value="2010">2010</option>
+                         <option value="2009">2009</option>
+                         <option value="2008">2008</option>
+                         <option value="2007">2007</option>
+                         <option value="2006">2006</option>
+                         <option value="2005">2005</option>
+                         <option value="2004">2004</option>
+                         <option value="2003">2003</option>
+                         <option value="2002">2002</option>
+                         <option value="2001">2001</option>
+                         <option value="2000">2000</option>
+                         <option value="1999">1999</option>
+                    </select>　年
+                    <select name="month" id="month">
+                        <option value="">-</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>　月
+                    <select name="day" id="day">
+                        <option value="">-</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>　日
+                </div>
+            </div>
+                <div class="edit_user_contents" id="edit_user_contents_ss3">
+                    <div class="edit_title_name">
+                        <p>犬種</p>
+                    </div>
+                    <div class="edit_dog1" id="biret_ss">
+                        <select name="dog_breed" id="year11">
+                            <option value="">-</option>
+                            <option value="ポメラニアン">ポメラニアン</option>
+                            <option value="トイプードル">トイプードル</option>
+                            <option value="チワワ">チワワ</option>
+                            <option value="フレンチブルドック">フレンチブルドック</option>
+                            <option value="ヨークシャテリア">ヨークシャテリア</option>
+                            <option value="シーズー">シーズー</option>
+                            <option value="ミニチュアダックス">ミニチュアダックス</option>
+                            <option value="パグ">パグ</option>
+                            <option value="ミックス">ミックス</option>
+                            <option value="ミニチュアシュナウザー">ニチュアシュナウザー</option>
+                            <option value="パピヨン">パピヨン</option>
+                            <option value="豆しば">豆しば</option>
+                            <option value="ペキニーズ">ペキニーズ</option>
+                            <option value="マルチーズ">マルチーズ</option>
+                            <option value="コーギー">コーギー</option>
+                            <option value="ミニチュアピンシャー">ミニチュアピンシャー</option>
+                            <option value="キャバリア">キャバリア</option>
+                            <option value="ジャックラッセルテリア">ジャックラッセルテリア</option>
+                            <option value="ビーグル">ビーグル</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="edit_user_contents" id="edit_user_contents_ss3">
+                    <div class="edit_title_name">
+                        <p>体重</p>
+                    </div>
+                    <div class="edit_dog1" id="biret_ss">
+                        <select name="weight" id="year11">
+                            <option value="">-</option>
+                            <option value="〜1kg">〜1kg</option>
+                            <option value="1kg〜1.5kg">1kg〜1.5kg</option>
+                            <option value="1.5kg〜2kg">1.5kg〜2kg</option>
+                            <option value="2kg〜2.5kg">2kg〜2.5kg</option>
+                            <option value="2.5kg〜3kg">2.5kg〜3kg</option>
+                            <option value="3kg〜3.5kg">3kg〜3.5kg</option>
+                            <option value="3.5kg〜4kg">3.5kg〜4kg</option>
+                            <option value="4kg〜4.5kg">4kg〜4.5kg</option>
+                            <option value="4.5kg〜5kg">4.5kg〜5kg</option>
+                            <option value="5kg〜5.5kg">5kg〜5.5kg</option>
+                            <option value="5.5kg〜6kg">5.5kg〜6kg</option>
+                            <option value="6kg〜6.5kg">6kg〜6.5kg</option>
+                            <option value="6.5kg〜7kg">6.5kg〜7kg</option>
+                            <option value="7kg〜7.5kg">7kg〜7.5kg</option>
+                            <option value="7.5kg〜8kg">7.5kg〜8kg</option>
+                            <option value="8kg〜8.5kg">8kg〜8.5kg</option>
+                            <option value="8.5kg〜9kg">8.5kg〜9kg</option>
+                            <option value="9kg〜9.5kg">9kg〜9.5kg</option>
+                            <option value="9.5kg〜10kg">9.5kg〜10kg</option>
+                            <option value="10kg〜10.5kg">10kg〜10.5kg</option>
+                            <option value="10.5kg〜11kg">10.5kg〜11kg</option>
+                            <option value="11kg〜11.5kg">11kg〜11.5kg</option>
+                            <option value="11.5kg〜12kg">11.5kg〜12kg</option>
+                            <option value="12kg〜12.5kg">12kg〜12.5kg</option>
+                            <option value="12.5kg〜13kg">12.5kg〜13kg</option>
+                            <option value="13kg〜13.5kg">13kg〜13.5kg</option>
+                            <option value="13.5kg〜14kg">13.5kg〜14kg</option>
+                            <option value="14kg〜14.5kg">14kg〜14.5kg</option>
+                            <option value="14.5kg〜15kg">14.5kg〜15kg</option>
+                            <option value="15kg〜">15kg〜</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="edit_user_contents" id="edit_user_contents_ss4">
+                    <div class="edit_title_name">
+                        <p>性格・特徴</p>
+                    </div>
+                    <div class="edit_dog2" id="edit_dog2">
+                        <p>
+                            <%= check_box "character", "人懐っこい", id: "character_ch1" %><label for="character_ch1">人懐っこい</label>
+                            <%= check_box  "character", "人見知り", id: "character_ch2", class: "remove0" %><label for="character_ch2">人見知り</label>
+                            <%= check_box "character", "ベタベタ", id: "character_ch3", class: "remove4" %><label for="character_ch3">ベタベタ</label>
+                        </p>
+                        <p>
+                            <%= check_box "character", "サバサバ", id: "character_ch4", class: "remove4" %><label for="character_ch4">サバサバ</label>
+                            <%= check_box "character", "のんびり", id: "character_ch5" %><label for="character_ch5">のんびり</label>
+                            <%= check_box  "character", "バタバタ", id: "character_ch6", class: "remove2" %><label for="character_ch6">バタバタ</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "吠える", id: "character_ch7", class: "remove4" %><label for="character_ch7">吠える</label>
+                            <%= check_box "character", "吠えない", id: "character_ch8", class: "remove7" %><label for="character_ch8">吠えない</label>
+                            <%= check_box "character", "臆病", id: "character_ch9", class: "remove1" %><label for="character_ch9">臆病</label>
+                        </p>
+                        <p>
+                            <%= check_box  "character", "大胆", id: "character_ch10", class: "remove3" %><label for="character_ch10">大胆</label>
+                            <%= check_box "character", "犬好き", id: "character_ch11", class: "remove5" %><label for="character_ch11">犬好き</label>
+                            <%= check_box "character", "犬嫌い", id: "character_ch12", class: "remove7" %><label for="character_ch12">犬嫌い</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "気が強い", id: "character_ch13", class: "remove1" %><label for="character_ch13">気が強い</label>
+                            <%= check_box  "character", "気が弱い", id: "character_ch14", class: "remove2" %><label for="character_ch14">気が弱い</label>
+                            <%= check_box "character", "気性が激しい", id: "character_ch15", class: "remove4" %><label for="character_ch15">気性が激しい</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "穏やか", id: "character_ch16", class: "remove1" %><label for="character_ch16">穏やか</label>
+                            <%= check_box "character", "散歩好き", id: "character_ch17", class: "remove1" %><label for="character_ch17">散歩好き</label>
+                            <%= check_box  "character", "よく寝る", id: "character_ch18", class: "remove2" %><label for="character_ch18">よく寝る</label>
+                        </p>
+
+                        <p>
+                            <%= check_box "character", "好奇心旺盛", id: "character_ch19", class: "remove4" %><label for="character_ch19">好奇心旺盛</label>
+                            <%= check_box "character", "自由奔放", id: "character_ch20", class: "remove8" %><label for="character_ch20">自由奔放</label>
+                            <%= check_box "character", "従順", id: "character_ch21", class: "remove" %><label for="character_ch21">従順</label>
+                        </p>
+                        <p>
+                            <%= check_box  "character", "噛み癖がある", id: "character_ch22", class: "remove3" %><label for="character_ch22">噛み癖がある</label>
+                            <%= check_box "character", "男性が好き", id: "character_ch23", class: "remove6" %><label for="character_ch23">男性が好き</label>
+                            <%= check_box "character", "女性が好き", id: "character_ch24", class: "remove8" %><label for="character_ch24">女性が好き</label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="notation2">
+                    <p class="notation33" id="notation33">
+                        ※複数選択可
+                    </p>
+                </div>
+
+                <div class="edit_user_contents" id="edit_user_contents_ss1">
+                    <div class="edit_title_name">
+                        <p>去勢・避妊手術</p>
+                    </div>
+                    <div class="edit_dog1">
+                        <input id="castration_dog1" type="radio" name="castration" value="している"><label for="castration_dog1">している</label>
+                        <input id="castration_dog2" type="radio" name="castration" value="していない" class="choice1"><label for="castration_dog2">していない</label>
+                    </div>
+                </div>
+                <div class="input_edit_containar">
+                    <input id="input_edit" type="submit" name="dog_update" value="更新する">
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

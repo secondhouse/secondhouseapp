@@ -1,0 +1,558 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show">
+
+    <div class="users_header">
+        <div class="users_header1">
+            <ul>
+                <%= link_to("ホーム","/users/#{@user.id}") %>
+                <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+                <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
+                <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+                <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+            </ul>
+        </div>
+    </div>
+    <div class="evaluation_wrapp">
+        <div class="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                  <% else %>
+                          <i class="fas fa-user-circle human no_pa no_ma"></i>
+                          <p class="">ー</p>
+                  <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<!------------------ここまで左側メニュー------------------------>
+<!-----感想-------------------------------------->
+        <div class="evaluation_content1">
+            <div class="evaluation_content">
+
+                <section class="work-section2" id="work">
+                    <div class="section-header clearfix">
+                        <div class="inner">
+                            <ul class="tabs-nav2 follow_nav" id="tab">
+                                <li><a href="#work11">フォロー</a></li>
+                                <li><a href="#work12">フォロワー</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section-body">
+                        <section class="tabs-panel" id="work11"><!----フォローのタブ---->
+                            <% if @follows.present? %>
+                                <div class="follow_user">
+
+                                    <% @follows.each do | follow | %>
+                                        <% @follow_user = User.find_by(id: follow.receive) %>
+                                        <!----評価と年齢計算----->
+                                        <%
+                                        @evaluations_show = Evaluation.where(user_id: @follow_user.id)
+                                        @storages_show = Storage.where(user_id: @follow_user.id)
+
+                                        @num_show = @evaluations_show.count
+                                        @num_show2 = @storages_show.count
+
+
+                                        if @num_show == 0
+                                        else
+                                          @evaluation_show = 0
+                                          @evaluations_show.each do | evaluation_show |
+                                            @evaluation_show = @evaluation_show + evaluation_show.overall
+                                          end
+                                        end
+
+                                        if @num_show2 == 0
+                                        else
+                                          @storage_show = 0
+                                          @storages_show.each do | storage_show |
+                                            @storage_show = @storage_show + storage_show.overall
+                                          end
+                                        end
+
+                                        @evaluation_show = ((@storage_show.to_f + @evaluation_show.to_f) / (@num_show + @num_show2)).round(1)
+
+                                        @date00 = Date.today
+                                        @birthday00 = Date.parse(@follow_user.birthday1)
+
+                                        @year00 = @date00.year -  @birthday00.year
+                                        @month00 = @date00.month - @birthday00.month
+                                        @day00 = @date00.day - @birthday00.day
+
+
+                                        if @month00 >= 0
+                                        else
+                                            @month00 = @month00 + 12
+                                            @year00 -= 1
+                                        end
+
+                                        if @day00 >= 0
+                                        else
+                                        	@month00 = @month00 - 1
+                                        end %>
+
+                                        <!-------ここまで評価と年齢計算---------->
+                                        <div class="follow_type1">
+                                            <% if @follow_user.image_name %>
+                                                <div class="follow_icon">
+                                                    <div class="follow_users_icon">
+                                                        <%= link_to("/users/seen/#{@follow_user.id}") do %>
+                                                            <img class="follow_icon_img" src="<%= "/user_images/#{@follow_user.image_name}" %>"    alt="">
+                                                        <% end %>
+                                                    </div>
+                                                </div>
+                                            <% else %>
+                                                <div class="follow_icon">
+                                                    <div class="follow_users_icon22">
+                                                        <%= link_to("/users/seen/#{@follow_user.id}") do %>
+                                                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                                            <div class="icon_add">
+                                                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                                                <i class="fas fa-plus icon_plus2"></i>
+                                                            </div>
+                                                        <% end %>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                            <p class="entry_name"><%= @follow_user.name %></p>
+                                            <p><%= @follow_user.sex %>/<%= @year00 %>歳</p>
+
+                                            <% if @user_evaluation %>
+                                              <p><i class="fas fa-star move_star"></i><%= @evaluation_show %></p>
+                                            <% else %>
+                                                <p><i class="fas fa-star move_star"></i>ー</p>
+                                            <% end %>
+                                        </div>
+                                        <% @num += 1 %>
+                                        <% @count += 1 %>
+                                        <% if @num == 4 %><!-----1行に4個までのif------>
+                                            </div>
+                                            <div class="follow_user">
+                                            <% @num = 0 %>
+                                        <% end %><!-----ここまで1行に4個までのif------>
+                                        <% if @count == 12  %>
+                                            <% break %>
+                                        <% end %>
+                                    <% end %><!-----ここまで繰り返し------>
+                                </div>
+                             <% else %>
+                                <p class="no_follow">まだフォローしているユーザーはいません。</p>
+                             <% end %>
+                        </section>
+                        <section class="tabs-panel" id="work12"><!----フォロワーのタブ---->
+                            <% if @followers.present? %>
+                                <div class="follow_user">
+                                    <% @followers.each do | follower | %>
+                                        <% @follower_user = User.find_by(id: follower.user_id) %>
+                                        <!----評価と年齢計算----->
+                                        <%
+                                        @evaluations_show2 = Evaluation.where(user_id: @follower_user.id)
+                                        @storages_show2 = Storage.where(user_id: @follower_user.id)
+
+                                        @num_show02 = @evaluations_show2.count
+                                        @num_show22 = @storages_show2.count
+
+
+                                        if @num_show02 == 0
+                                        else
+                                          @evaluation_show2 = 0
+                                          @evaluations_show2.each do | evaluation_show2 |
+                                            @evaluation_show2 = @evaluation_show2 + evaluation_show2.overall
+                                          end
+                                        end
+
+                                        if @num_show22 == 0
+                                        else
+                                          @storage_show2 = 0
+                                          @storages_show2.each do | storage_show2 |
+                                            @storage_show2 = @storage_show2 + storage_show2.overall
+                                          end
+                                        end
+
+                                        @evaluation_show2 = ((@storage_show2.to_f + @evaluation_show2.to_f) / (@num_show02 + @num_show22)).round(1)
+
+                                        @date00 = Date.today
+                                        @birthday00 = Date.parse(@follower_user.birthday1)
+
+                                        @year00 = @date00.year -  @birthday00.year
+                                        @month00 = @date00.month - @birthday00.month
+                                        @day00 = @date00.day - @birthday00.day
+
+
+                                        if @month00 >= 0
+                                        else
+                                            @month00 = @month00 + 12
+                                            @year00 -= 1
+                                        end
+
+                                        if @day00 >= 0
+                                        else
+                                        	@month00 = @month00 - 1
+                                        end %>
+
+                                        <!-------ここまで評価と年齢計算---------->
+                                        <div class="follow_type1">
+                                            <% if @follower_user.image_name %>
+                                                <div class="follow_icon">
+                                                    <div class="follow_users_icon">
+                                                        <%= link_to("/users/seen/#{@follower_user.id}") do %>
+                                                            <img class="follow_icon_img" src="<%= "/user_images/#{@follower_user.image_name}" %>"    alt="">
+                                                        <% end %>
+                                                    </div>
+                                                </div>
+                                            <% else %>
+                                                <div class="follow_icon">
+                                                    <div class="follow_users_icon22">
+                                                        <%= link_to("/users/seen/#{@follower_user.id}") do %>
+                                                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                                            <div class="icon_add">
+                                                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                                                <i class="fas fa-plus icon_plus2"></i>
+                                                            </div>
+                                                        <% end %>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                            <p class="entry_name"><%= @follower_user.name %></p>
+                                            <p><%= @follower_user.sex %>/<%= @year00 %>歳</p>
+
+                                            <% if @user_evaluation %>
+                                              <p><i class="fas fa-star move_star"></i><%= @evaluation_show2 %></p>
+                                            <% else %>
+                                                <p><i class="fas fa-star move_star"></i>ー</p>
+                                            <% end %>
+                                        </div>
+                                        <% @num += 1 %>
+                                        <% @count += 1 %>
+                                        <% if @num == 4 %><!-----1行に4個までのif------>
+                                            </div>
+                                            <div class="follow_user">
+                                            <% @num = 0 %>
+                                        <% end %><!-----ここまで1行に4個までのif------>
+                                        <% if @count == 12  %>
+                                            <% break %>
+                                        <% end %>
+                                    <% end %><!-----ここまで繰り返し------>
+                                </div>
+                             <% else %>
+                                <p class="no_follow">フォロワーはいません。</p>
+                             <% end %>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<!---スマホ---->
+<div class="evaluation_show_s">
+    <div class="evaluation_content1" id="evaluation_content1">
+        <div class="evaluation_content" id="evaluation_content">
+
+            <section class="work-section2" id="work">
+                <div class="section-header clearfix" id="section-header">
+                    <div class="inner" id="inner">
+                        <ul class="tabs-nav2 follow_nav" id="tab">
+                            <li><a href="#work11">フォロー</a></li>
+                            <li><a href="#work12">フォロワー</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-body" id="section-body">
+                    <section class="tabs-panel" id="work11"><!----フォローのタブ---->
+                        <% if @follows.present? %>
+                            <% @follows.each do | follow | %>
+                                <% @follow_user = User.find_by(id: follow.receive) %>
+                                <!----評価と年齢計算----->
+                                <%
+                                @evaluations_show = Evaluation.where(user_id: @follow_user.id)
+                                @storages_show = Storage.where(user_id: @follow_user.id)
+
+                                @num_show = @evaluations_show.count
+                                @num_show2 = @storages_show.count
+
+
+                                if @num_show == 0
+                                else
+                                  @evaluation_show = 0
+                                  @evaluations_show.each do | evaluation_show |
+                                    @evaluation_show = @evaluation_show + evaluation_show.overall
+                                  end
+                                end
+
+                                if @num_show2 == 0
+                                else
+                                  @storage_show = 0
+                                  @storages_show.each do | storage_show |
+                                    @storage_show = @storage_show + storage_show.overall
+                                  end
+                                end
+
+                                @evaluation_show = ((@storage_show.to_f + @evaluation_show.to_f) / (@num_show + @num_show2)).round(1)
+
+                                @date00 = Date.today
+                                @birthday00 = Date.parse(@follow_user.birthday1)
+
+                                @year00 = @date00.year -  @birthday00.year
+                                @month00 = @date00.month - @birthday00.month
+                                @day00 = @date00.day - @birthday00.day
+
+
+                                if @month00 >= 0
+                                else
+                                    @month00 = @month00 + 12
+                                    @year00 -= 1
+                                end
+
+                                if @day00 >= 0
+                                else
+                                    @month00 = @month00 - 1
+                                end %>
+                                <div class="follow_user" id="follow_user">
+                                    <div class="follow_type1" id="follow_type1">
+                                        <% if @follow_user.image_name %>
+                                            <div class="follow_icon" id="follow_icon">
+                                                <div class="follow_users_icon">
+                                                    <%= link_to("/users/seen/#{@follow_user.id}") do %>
+                                                        <img class="follow_icon_img" id="follow_icon_img" src="<%= "/user_images/#{@follow_user.image_name}" %>"    alt="">
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        <% else %>
+                                            <div class="">
+                                                <div class="">
+                                                    <%= link_to("/users/seen/#{@follow_user.id}") do %>
+                                                        <i class="fas fa-user-circle fa-4x icon_color" id="icon_s2"></i>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                        <div class="star_s2">
+                                            <% if @user_evaluation %>
+                                                <p ><i class="fas fa-star move_star" id="move_star"></i><%= @evaluation_show %></p>
+                                            <% else %>
+                                                <p><i class="fas fa-star move_star" id="move_star"></i>ー</p>
+                                            <% end %>
+                                        </div>
+                                        <div class="follow_s">
+                                            <p class="entry_name"><%= @follow_user.name %></p>
+                                            <p><%= @follow_user.sex %>/<%= @year00 %>歳</p>
+                                        </div>
+                                    </div>
+                                    <% @num += 1 %>
+                                    <% @count += 1 %>
+                                    <% if @num == 4 %><!-----1行に4個までのif------>
+                                        </div>
+                                        <div class="follow_user">
+                                        <% @num = 0 %>
+                                    <% end %><!-----ここまで1行に4個までのif------>
+                                    <% if @count == 12  %>
+                                        <% break %>
+                                    <% end %>
+                                <% end %><!-----ここまで繰り返し------>
+                            </div>
+                         <% else %>
+                            <p class="no_follow" id="no_follow">まだフォローしているユーザーはいません。</p>
+                         <% end %>
+                    </section>
+                    <section class="tabs-panel" id="work12"><!----フォロワーのタブ---->
+                        <% if @followers.present? %>
+                            <div class="follow_user" id="follow_user">
+                                <% @followers.each do | follower | %>
+                                    <% @follower_user = User.find_by(id: follower.user_id) %>
+                                    <!----評価と年齢計算----->
+                                    <%
+                                    @evaluations_show2 = Evaluation.where(user_id: @follower_user.id)
+                                    @storages_show2 = Storage.where(user_id: @follower_user.id)
+
+                                    @num_show02 = @evaluations_show2.count
+                                    @num_show22 = @storages_show2.count
+
+
+                                    if @num_show02 == 0
+                                    else
+                                      @evaluation_show2 = 0
+                                      @evaluations_show2.each do | evaluation_show2 |
+                                        @evaluation_show2 = @evaluation_show2 + evaluation_show2.overall
+                                      end
+                                    end
+
+                                    if @num_show22 == 0
+                                    else
+                                      @storage_show2 = 0
+                                      @storages_show2.each do | storage_show2 |
+                                        @storage_show2 = @storage_show2 + storage_show2.overall
+                                      end
+                                    end
+
+                                    @evaluation_show2 = ((@storage_show2.to_f + @evaluation_show2.to_f) / (@num_show02 + @num_show22)).round(1)
+
+                                    @date00 = Date.today
+                                    @birthday00 = Date.parse(@follower_user.birthday1)
+
+                                    @year00 = @date00.year -  @birthday00.year
+                                    @month00 = @date00.month - @birthday00.month
+                                    @day00 = @date00.day - @birthday00.day
+
+
+                                    if @month00 >= 0
+                                    else
+                                        @month00 = @month00 + 12
+                                        @year00 -= 1
+                                    end
+
+                                    if @day00 >= 0
+                                    else
+                                        @month00 = @month00 - 1
+                                    end %>
+
+                                    <!-------ここまで評価と年齢計算---------->
+                                    <div class="follow_type1" id="follow_type1">
+                                        <% if @follower_user.image_name %>
+                                            <div class="follow_icon" id="follow_icon">
+                                                <div class="follow_users_icon">
+                                                    <%= link_to("/users/seen/#{@follower_user.id}") do %>
+                                                        <img class="follow_icon_img" id="follow_icon_img" src="<%= "/user_images/#{@follower_user.image_name}" %>"    alt="">
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        <% else %>
+                                            <div class="">
+                                                <div class="">
+                                                    <%= link_to("/users/seen/#{@follower_user.id}") do %>
+                                                        <i class="fas fa-user-circle fa-4x icon_color" id="icon_s2"></i>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                        <div class="star_s2">
+                                            <% if @user_evaluation %>
+                                                <p ><i class="fas fa-star move_star" id="move_star"></i><%= @evaluation_show2 %></p>
+                                            <% else %>
+                                                <p><i class="fas fa-star move_star" id="move_star"></i>ー</p>
+                                            <% end %>
+                                        </div>
+                                        <div class="follow_s">
+                                            <p class="entry_name"><%= @follower_user.name %></p>
+                                            <p><%= @follower_user.sex %>/<%= @year00 %>歳</p>
+                                        </div>
+                                    </div>
+                                    <% @num += 1 %>
+                                    <% @count += 1 %>
+                                    <% if @num == 4 %><!-----1行に4個までのif------>
+                                        </div>
+                                        <div class="follow_user">
+                                        <% @num = 0 %>
+                                    <% end %><!-----ここまで1行に4個までのif------>
+                                    <% if @count == 12  %>
+                                        <% break %>
+                                    <% end %>
+                                <% end %><!-----ここまで繰り返し------>
+                            </div>
+                         <% else %>
+                            <p class="no_follow" id="no_follow">フォロワーはいません。</p>
+                         <% end %>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

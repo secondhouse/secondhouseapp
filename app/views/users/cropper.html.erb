@@ -1,0 +1,59 @@
+<div class="space"></div>
+<% if @user.image_header %>
+    <div class="show_wrapp_cover">
+        <img class="image_header" src="<%= "/images_header/#{@user.image_header}" %>" alt="">
+    </div>
+<% else %>
+    <div class="wrapp_cover">
+        <div class="show_wrapp_cover5">
+            <div class="users_cover5">
+                <div class="cover_add00">
+                    <div class="cover_add5">
+                        <div class="cover_add6">
+                            <i class="fas fa-camera fa-2x icon_camera00"></i>
+                            <i class="fas fa-plus icon_plus00"></i>
+                        </div>
+                        <div class="cover_content">
+                            <p>カバー画像を変更</p>
+                        </div>
+                    </div>
+                </div>
+                <%= form_tag("/users/update/#{@user.id}",{multipart: true}) do %>
+                    <div class="cover_modal_cover">
+                        <div class="cover_modal">
+                            <label for="header_image">
+                                <p>画像をアップロード</p>
+                                <input id="header_image" type="file" name="image_header" style="display:none;">
+                            </label>
+                            <p>削除</p>
+                            <p id="modalCancel">キャンセル</p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div id="preview" class="preview"></div>
+    <div class="trimming" id="trimming"><!---プレビューの背景--->
+        <div class="trimming_header"><!---プレビューの全体--->
+            <p>画像を編集する</p>
+            <div class="trimming_close">
+                <i class="fas fa-times" id="times_trimming"></i>
+            </div>
+        </div>
+
+        <div class="trimming_main" id="trimming_main" style="height: 221px;width: 500px;">
+
+        </div><!---プレビュー--->
+        <div class="trimming_bottom">
+            <p id="trimming_cancel">キャンセル</p>
+            <p>決定</p>
+        </div>
+
+    </div>
+    <div style="height: 300px;width: 500px;">
+        <img id="clopImg" src="/Chihuahua.jpg">
+    </div>
+
+
+<% end %>

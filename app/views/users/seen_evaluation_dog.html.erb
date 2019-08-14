@@ -1,0 +1,103 @@
+<div class="space">
+</div>
+
+<div class="evaluation_show">
+    <div class="evaluation_wrapp">
+        <div class="profile1">
+        <!---------アイコンの有無---------------->
+            <% if @dog.image_name == "" %>
+                <div class="icon_wrapp_evaluation">
+                  <div class="users_icon">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                      <i class="fas fa-user-circle fa-8x icon_color"></i>
+                      <div class="icon_add">
+                      <i class="fas fa-camera fa-2x icon_camera2"></i>
+                      <i class="fas fa-plus icon_plus2"></i>
+                      </div>
+                    <% end %>
+                  </div>
+              </div>
+            <% else %>
+              <div class="icon_wrapp_evaluation">
+                <div class="users_icon">
+                  <img class="icon_img" src="<%= "/dog_images/#{@dog.image_name}" %>" alt="">
+                </div>
+              </div>
+            <% end %>
+            <div class="evaluation_name">
+                <%= @dog.name %>
+            </div>
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement">0</p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @dog_evaluation %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @dog_evaluation %>
+                        <% else %>
+                            <p><i class="fas fa-star move_star"></i>0</p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-----感想-------------------------------------->
+        <div class="evaluation_content1">
+            <div class="evaluation_content3">
+                <h3>評価/感想</h3>
+                <% if @number != 0 %>
+                    <% @dog_evaluations.each do | dog_evaluation | %>
+<!-----アイコン画像有無-------------------------------------->
+                        <div class="user_containar">
+                            <% @rater = User.find_by(id: dog_evaluation.rater_id) %>
+<!-----アイコン画像有-------------------------------------->
+                            <% if @rater.image_name %>
+<!-----user_containar要素1-------------------------------------->
+                                <div class="icon_wrapp">
+                                    <div class="users_icon">
+                                        <%= link_to("/users/seen/#{@rater.id}") do %>
+                                            <img class="icon_img" src="<%= "/user_images/#{@rater.image_name}" %>" alt="">
+                                        <% end %>
+                                    </div>
+                                </div>
+<!-----アイコン画像なし-------------------------------------->
+                            <% else %>
+                                <div class="icon_wrapp_evaluation">
+                                    <div class="users_icon">
+                                        <i class="fas fa-user-circle fa-8x icon_color"></i>
+                                        <div class="icon_add">
+                                            <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                            <i class="fas fa-plus icon_plus2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% end %>
+<!-----user_containar要素2-------------------------------------->
+                            <div class="evaluation1_containar">
+                                <p>評価</p>
+                                <div class="">
+                                    <i class="fas fa-star move_star"></i>
+                                    <%= dog_evaluation.overall %>
+                                </div>
+                            </div>
+<!-----user_containar要素3-------------------------------------->
+                            <div class="introduction1_wrap11">
+                                <div class="introduction11">
+                                    <div class="box11">
+                                        <p><%= dog_evaluation.comment %></p>
+                                    </div>
+                                </div>
+                            </div>
+<!-----user_containar終了-------------------------------------->
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

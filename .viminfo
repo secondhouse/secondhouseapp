@@ -1,0 +1,228 @@
+# この viminfo ファイルは Vim 7.4 によって生成されました.
+# 変更する際には十分注意してください!
+
+# このファイルが書かれた時の 'encoding' の値
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~H
+# 最後に置換された文字列:
+$
+
+# コマンドライン 項目の履歴 (新しいものから古いものへ):
+:q!
+:q
+:wq
+:q1
+:wq!
+:w
+:qlogout
+
+# 検索文字列 項目の履歴 (新しいものから古いものへ):
+
+# 式 項目の履歴 (新しいものから古いものへ):
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+
+# レジスタ:
+"q	CHAR	0
+	:q�kb�kb
+
+# ファイルマーク:
+'0  1  31  /var/www/secondhouse/releases/20190722065333/config/unicorn.rb
+'1  1  0  /var/www/secondhouse/current/confi/unicorn.rbg
+'2  1  0  /var/www/secondhouse/releases/20190722065333/tmp
+'3  1  0  ~/selinux/nginx.te
+'4  1  0  ~/selinux/nginx.pp
+'5  1  0  /var/log/nginx/error.log
+'6  7  15  /etc/nginx/nginx.conf
+'7  1  0  /var/log/nginx/access.log
+'8  1  0  /var/www/secondhouse/revisions.log
+'9  1  0  lib/capistrano/tasks/unicorn.rb
+
+# ジャンプリスト (新しいものが先):
+-'  1  31  /var/www/secondhouse/releases/20190722065333/config/unicorn.rb
+-'  1  0  /var/www/secondhouse/current/confi/unicorn.rbg
+-'  1  0  /var/www/secondhouse/releases/20190722065333/tmp
+-'  1  0  ~/selinux/nginx.te
+-'  1  0  ~/selinux/nginx.pp
+-'  1  0  /var/log/nginx/error.log
+-'  7  15  /etc/nginx/nginx.conf
+-'  31  16  /etc/nginx/nginx.conf
+-'  1  0  /var/log/nginx/access.log
+-'  1  0  /var/www/secondhouse/revisions.log
+-'  1  0  lib/capistrano/tasks/unicorn.rb
+-'  1  0  config/unicorn/production.rb
+-'  1  0  /var/www/secondhouse/releases/20190722011536/tmp/sockets
+-'  67  0  /etc/nginx/nginx.conf
+-'  63  0  /etc/nginx/nginx.conf
+-'  49  0  /etc/nginx/nginx.conf
+-'  1  0  /etc/nginx/conf.d/secondhouse.config
+-'  1  0  /etc/nginx/conf.d/secondhouse.con
+-'  1  0  /var/log/nginx/error.long
+-'  1  0  /var/log/nginx/error.longn;n
+-'  2  145  /var/www/secondhouse/shared/config/secrets.yml
+-'  1  0  /var/www/secondhouse/shared/config/secrets.yml
+-'  2  2  /var/www/secondhouse/shared/config/settings.yml
+-'  1  0  /var/www/secondhouse/shared/config/settisgs.yml
+-'  1  0  /var/www/secondhouse/shared/config/settinsg.yml
+-'  1  0  /var/www/secondhouse/shared/config/setting.yml
+-'  1  0  /var/www/secondhouse/shared/config/settting.yml
+-'  1  0  /var/www/secondhouse/shared/log/nginx.error.log
+-'  43  0  /var/www/secondhouse/shared/log/nginx.access.log
+-'  44  0  /var/www/secondhouse/shared/log/nginx.access.log
+-'  1  0  /var/www/secondhouse/shared/log/nginx.access.log
+-'  1  0  /var/www/secondhouse/shared/config/setttings.yml
+-'  1  0  /var/www/secondhouse/shared/config/settting.aml
+-'  1  0  /var/www/secondhouse/shared/config/settting.yaml
+-'  267  0  /var/www/secondhouse/releases/20190719043437/Gemfile.lock
+-'  1  0  /var/www/secondhouse/releases/20190719043437/Gemfile.lock
+-'  88  0  /var/www/secondhouse/releases/20190719043437/Gemfile
+-'  1  0  /var/www/secondhouse/releases/20190719043437/Gemfile
+-'  90  0  /var/www/secondhouse/releases/20190719034720/Gemfile
+-'  1  0  /var/www/secondhouse/releases/20190719034720/Gemfile
+-'  202  0  /var/www/secondhouse/releases/20190719034720/Gemfile.lock
+-'  1  0  /var/www/secondhouse/releases/20190719034720/Gemfile.lock
+-'  292  0  /var/www/secondhouse/releases/20190719022318/Gemfile.lock
+-'  1  0  /var/www/secondhouse/releases/20190719022318/Gemfile.lock
+-'  1  0  /var/www/secondhouse/shared/config/settings.yml
+-'  2  2  /var/www/secondhouse/shared/secrets.yml
+-'  1  0  /var/www/secondhouse/shared/config
+-'  1  0  /var/www/secondhouse/releases/20190719011155/config/settings.yml
+-'  1  0  /var/www/secondhouse/releases/20190719011155
+-'  1  0  /var/www/secondhouse/repo
+-'  4  409  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/github/id_rsa.pub
+-'  1  0  ~/.ssh/github/id_rsa
+-'  4  34  ~/.ssh/config
+-'  5  60  ~/.ssh/id_git_rsa
+-'  26  68  ~/.ssh/id_git_rsa
+-'  1  0  ~/.ssh/id_git_rsa
+-'  1  0  ~/.ssh/id_rsa
+-'  22  0  ~/.ssh/id_rsa
+-'  3  2  ~/.ssh/ssh_config
+-'  1  0  ~/.ssh/config
+-'  1  0  /etc/ssh/sshd_config
+-'  1  0  ~/.ssh/id_rsa.pub
+-'  1  0  ~/.ssh/authorize_keys
+-'  1  0  /etc/nginx/conf.d/secondhouse.conf
+-'  1  0  /var/www/secondhouse/shared/secrets.yml
+-'  1  0  ~/Gemfile
+-'  1  0  ~/.ssh/ssh_config
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  0  ~/Gemfile
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  0  ~/Gemfile
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+-'  1  0  ~/Gemfile
+-'  1  13  /test.txt
+-'  1  13  /test.txt
+
+# ファイル内マークの履歴 (新しいものから古いもの):
+
+> /var/www/secondhouse/releases/20190722065333/config/unicorn.rb
+	"	1	31
+	.	1	30
+	+	14	0
+	+	5	38
+	+	1	30
+
+> /var/www/secondhouse/current/confi/unicorn.rbg
+	"	1	0
+
+> ~/selinux/nginx.te
+	"	1	0
+
+> ~/selinux/nginx.pp
+	"	1	0
+
+> /etc/nginx/nginx.conf
+	"	7	15
+	^	7	16
+	.	31	0
+	+	45	0
+	+	31	0
+
+> /var/www/secondhouse/revisions.log
+	"	1	0
+
+> lib/capistrano/tasks/unicorn.rb
+	"	1	0
+
+> config/unicorn/production.rb
+	"	1	0
+
+> /etc/nginx/conf.d/secondhouse.config
+	"	1	0
+
+> /etc/nginx/conf.d/secondhouse.con
+	"	1	0
+
+> /var/www/secondhouse/shared/config/secrets.yml
+	"	2	145
+	^	2	146
+	.	2	143
+	+	2	143
+
+> /var/www/secondhouse/shared/config/settings.yml
+	"	2	2
+	^	2	147
+	.	2	142
+	+	1	2
+	+	2	142
+
+> /var/www/secondhouse/shared/config/settisgs.yml
+	"	1	0
+
+> /var/www/secondhouse/shared/config/settinsg.yml
+	"	1	0
+
+> /var/www/secondhouse/shared/config/setting.yml
+	"	1	0
+
+> /var/www/secondhouse/shared/config/settting.yml
+	"	1	0
+
+> /var/www/secondhouse/shared/log/nginx.error.log
+	"	1	0
+
+> /var/www/secondhouse/shared/log/nginx.access.log
+	"	43	0
+
+> /etc/nginx/conf.d/secondhouse.conf
+	"	31	2
+	^	24	28
+	.	24	28
+	+	24	28
+
+> /var/www/secondhouse/shared/config/master.key
+	"	1	31
+	^	1	32
+	.	1	16
+	+	1	4304
+	+	1	16

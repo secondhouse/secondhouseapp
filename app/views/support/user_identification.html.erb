@@ -1,0 +1,801 @@
+<div class="space"></div>
+<div class="user_identification">
+
+    <div class="title">
+      <h1>本人確認</h1>
+    </div>
+    <div class="background_safe8"  id="scroll1">
+
+        <% if @user_detail.present? %>
+        <div class="identification_ari">
+            <div class="inde_nav">
+                <ul>
+                    <li><a href="#scroll1"><i class="fas fa-angle-down no_pa"></i>本人確認とは </a></li>
+                    <li><a href="#scroll2"><i class="fas fa-angle-down no_pa"></i>本人確認に利用できる書類</a></li>
+                    <li><a href="#scroll3"><i class="fas fa-angle-down no_pa"></i>提出方法</a></li>
+                </ul>
+            </div>
+            <div class="inde_nav">
+                <ul>
+                    <li><a href="#scroll4"><i class="fas fa-angle-down no_pa"></i>申請が承認されないよくあるケース</a></li>
+                    <li><a href="#scroll5"><i class="fas fa-angle-down no_pa"></i>本人確認書類を提出する（提出フォーム）</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <% else %>
+            <div class="identification">
+                <p><i class="fas fa-info-circle "></i>本人確認書類を提出する前に、会員情報の入力が必要です。<a href="/support/user_information">入力はこちら</a></p>
+            </div>
+        <% end %>
+
+        <div class="text_safe8">
+
+        <!--------左部分（文章）------------------------->
+            <div class="">
+                <% if @user_detail.present? %>
+                <% else %>
+                    <div class="identification_nav">
+                        <ul>
+                            <li><a href="#scroll1"><i class="fas fa-chevron-down"></i>本人確認とは</a></li>
+                            <li><a href="#scroll2"><i class="fas fa-chevron-down"></i>本人確認に利用できる書類</a></li>
+                            <li><a href="#scroll3"><i class="fas fa-chevron-down"></i>提出方法</a></li>
+                        </ul>
+                    </div>
+                <% end %>
+                <div class="identification_ana">
+                    <h2>本人確認とは</h2>
+                    <p>本人確認とは、ユーザーの信頼向上を目的として、公的証明書類をもとに運営側がご本人であることを確認する手続きです。本人確認を行うと、他ユーザーの信頼性が向上し、サービスをより円滑に利用できます。</p>
+                </div>
+                <div class="phote">
+                    <img src="/assets/user.png" alt="">
+                    <div class="balloon_user">
+                        <div class="balloon2-top">
+                            <p>本人確認のメリット</p>
+                            <div class="layout">
+                                <div class="lay_con">
+                                    <p class="cont_se">他のユーザからの信頼性が向上し、</p>
+                                    <p class="cont_se">サービスがより利用しやすくなります。</p>
+                                </div>
+                                <div class="layout_icon" id="scroll2">
+                                    <i class="fas fa-user-circle circle fa-3x"></i>
+                                    <i id="che_icon2" class="fas fa-check-square fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="self_id">
+                    <h3>本人確認に利用できる書類</h3>
+                    <p>ご本人であることを確認するため、以下のいずれか1点のご提出をお願いしております。お名前、現住所、生年月日の3点が確認できる面をご提出ください。</p>
+                </div>
+                <div class="self_id_text">
+                    <p><i class="fas fa-map-marker com_icon"></i>個人の場合</p>
+                    <div class="text_item_con">
+                        <div class="text_item">
+                            <p>運転免許証／運転経歴証明書</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-id-card fa-3x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※住所変更を行った際は、裏面が必要になります。</p>
+                                <p>運転経歴証明書は、交付年月日が平成24年4月1日以降のものに限ります。</p>
+                            </div>
+
+                        </div>
+                        <div class="text_item">
+                            <p>健康保険証</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.生年月日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>住所変更を行った際は、変更後の住所が記載されている面をご提出ください。</p>
+                            </div>
+                        </div>
+                        <div class="text_item">
+                            <p>パスポート</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-passport fa-3x id_user"></i></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.写真印刷ページ</p>
+                                    <p>2.住所記載ページ</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>パスポートで申請いただく場合は、住所記載欄（記入済）ページの画像も併せて添付いただく必要がございます。</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text_item_con">
+                        <div class="text_item">
+                            <p>住民票</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-file-invoice fa-3x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.交付日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>交付から6ヶ月以内のものをご提出ください。</p>
+                                <p>住民票で申請される場合は、マイナンバーの記載がない住民票でご申請ください。</p>
+                            </div>
+
+                        </div>
+                        <div class="text_item">
+                            <p>住民基本台帳</p>
+                            <div class="text_item_img">
+                                <p><i class="far fa-address-card fa-3x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※ 住所変更を行った際は、裏面が必要になります。</p>
+                            </div>
+                        </div>
+                        <div class="text_item">
+                            <p>在留カード<span>(外国人登録証明書)</span></p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku2">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※住所変更を行った際は、裏面が必要になります。</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text_item_con">
+                        <div class="text_item nen_money">
+                            <p>国民年金手帳</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku3">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.生年月日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>氏名、生年月日、住所が記載されているページをご提出ください。</p>
+                            </div>
+
+                        </div>
+                        <div class="text_item nen_money">
+                            <p>共済組合員証</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku4">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※裏面の住所欄に現住所を自筆記入してください。</p>
+                            </div>
+                        </div>
+                        <div class="text_item nen_money">
+                            <p>身体障がい者手帳</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku5">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.生年月日記載面</p>
+                                    <p>3.住所記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>氏名、生年月日、住所が記載されているページをご提出ください。</p>
+                                <p>有効期限の記載があるものについては有効期限内であることをご確認ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p><i class="fas fa-map-marker com_icon"></i>法人の場合</p>
+                    <div class="text_item nen_money" id="company_item">
+                        <p>登記簿藤本</p>
+                        <div class="text_item_img">
+                            <div class="insurance">
+                                <div class="waku6">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="controll">
+                                <p>必要な面／ページ</p>
+                                <p>1.法人名、法人住所記載面</p>
+                                <p>2.代表者名記載面</p>
+                                <p>3.設立日記載面</p>
+                                <p>2.交付日記載面</p>
+                            </div>
+                        </div>
+                        <div class="id_note" id="scroll3">
+                            <p>注意事項</p>
+                            <p>※３ヶ月以内に取得した履歴事項全部証明書をご提出ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method">
+                    <h3>提出方法</h3>
+                    <% if @user_detail.present? %>
+                        <p>・スキャンまたは撮影したものをデータ化して下記フォームよりご提出ください。</p>
+                        <p>・まずは、以下の現在ご登録いただいている会員情報と、提出予定の本人確認資料の</p><p class="indi_mov">氏名・住所・生年月日が一致しているか、必ずお確かめください。</p>
+                        <p class="indi_mov" id="indi_col">※情報が一点でも一致しない場合、申請をお受けすることができません。</p>
+                        <div class="support_button edit_button" id="method_btn">
+                            <p id="scroll4">登録中の会員情報を確認・修正する</p>
+                        </div>
+
+                    <% else %>
+                        <div class="method_notice">
+                            <p>本人確認書類を提出する前に、会員情報の入力が必要です。</p>
+                        </div>
+                        <p>・会員情報を入力後、本人確認資料をスキャンまたは撮影したものをご提出ください</p>
+                        <p>・入力する会員情報と、提出予定の本人確認資料の氏名・住所・生年月日が一致しているか、必ずお確かめください。</p>
+                        <p class="me_notice">※情報が一点でも一致しない場合、申請をお受けすることができません。</p>
+                        <%= link_to("/support/user_information") do %>
+                            <div class="support_button edit_button" id="method_btn">
+                                <p>会員情報を入力する</p>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <% if @user_detail.present? %>
+                    <div class="indi_notice">
+                        <h3><i class="fas fa-exclamation-circle no_pa" id="indi_col"></i>ご注意：申請が承認されないよくあるケース</h3>
+                        <p>・画像が加工されていたり、一部隠されている場合</p>
+                        <p>・マイナンバーカードや通知カードなど、当社で認めていない本人確認書類の場合</p>
+                        <p>・裏面に変更の記載がある書類で、裏面の画像がない場合</p>
+                        <p>・画像の文字が識別できなかったり、データ形式がJPG、PNG、GIF以外の場合</p>
+                        <div class="ex_id_img">
+                            <div class="ex_id_item">
+                                <p>加工画像・情報が見えない</p>
+                                <img class="ex_img" src="/assets/lisence.jpg" alt="">
+                            </div>
+                            <div class="ex_id_item">
+                                <p>マイナンバーカード等</p>
+                                <img class="ex_img" src="/assets/numberCard.jpg" alt="">
+                            </div>
+                            <div class="ex_id_item">
+                                <p>裏面なし・判別できない</p>
+                                <img class="ex_img" src="/assets/lisence2.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <%= form_tag("/support/uproad",{multipart: true}) do %>
+                        <div class="indi_notice"  id="scroll5">
+                            <h3>本人確認書類を提出する</h3>
+                            <div class="uproad">
+                                <p>添付書類</p>
+                                <p>・個人事業主として会員登録されている方は、登記簿謄本のご提出は不要です。</p>
+                                <p>・書類のご申請から当社での確認・承認まで、５営業日ほどお時間をいただく場合があ</p><p class="indi_mov">ります。</p>
+                                <div class="upfile">
+                                    <div class="upfile_item">
+                                        <p>ファイル1:</p>
+                                        <input id="file1" type="file" name="file1" value="" required>
+                                    </div>
+                                    <div class="upfile_item">
+                                        <p>ファイル2:</p>
+                                        <input type="file" name="file2" value="">
+                                    </div>
+                                    <div class="input_edit_containar" id="upfile_btn">
+                                        <input id="fileUp" class="upfile_btn2" type="submit" name="update" value="本人確認書類を提出する">
+                                    </div>
+                                    <p>ご提出いただいた個人情報は、プライバシーポリシーに定めるとおり、ご提出いただいた個人情報の滅失、 棄損、漏洩及び不正利用等を防止し、その安全管理を行うために必要な措置を講じ、個人情報を安全に管理します。</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----スマホ---->
+<% if @user_detail.present? %>
+<div class="user_identification" id="user_identification_s">
+<% else %>
+<div class="user_identification" id="user_identification">
+<% end %>
+
+    <div class="evaluation_head">
+        <h1>本人確認</h1>
+    </div>
+    <div id="scroll1">
+
+        <% if @user_detail.present? %>
+        <div class="identification_ari" id="identification_ari">
+            <div class="inde_nav" id="inde_nav">
+                <ul>
+                    <li><a href="#scroll1"><i class="fas fa-angle-down no_pa"></i>本人確認とは </a></li>
+                    <li><a href="#scroll2"><i class="fas fa-angle-down no_pa"></i>本人確認に利用できる書類</a></li>
+                    <li><a href="#scroll3"><i class="fas fa-angle-down no_pa"></i>提出方法</a></li>
+                    <li><a href="#scroll4"><i class="fas fa-angle-down no_pa"></i>申請が承認されないよくあるケース</a></li>
+                    <li><a href="#scroll5"><i class="fas fa-angle-down no_pa"></i>本人確認書類を提出する（提出フォーム）</a></li>
+                </ul>
+            </div>
+        </div>
+        <% else %>
+            <div class="identification" id="identification">
+                <p><i class="fas fa-info-circle "></i>本人確認書類を提出する前に</p>
+                <p>会員情報の入力が必要です。<a href="/support/user_information">入力はこちら</a></p>
+            </div>
+        <% end %>
+
+        <div class="text_safe8" id="text_safe8_s">
+
+        <!--------左部分（文章）------------------------->
+
+                <% if @user_detail.present? %>
+                <% else %>
+                    <div class="identification_nav" id="identification_nav">
+                        <ul>
+                            <li><a href="#scroll1"><i class="fas fa-chevron-down"></i>本人確認とは</a></li>
+                            <li><a href="#scroll2"><i class="fas fa-chevron-down"></i>本人確認に利用できる書類</a></li>
+                            <li><a href="#scroll3"><i class="fas fa-chevron-down"></i>提出方法</a></li>
+                        </ul>
+                    </div>
+                <% end %>
+                <div class="identification_ana" id="identification_ana">
+                    <h2>本人確認とは</h2>
+                    <p>本人確認とは、ユーザーの信頼向上を目的として、公的証明書類をもとに運営側がご本人であることを確認する手続きです。本人確認を行うと、他ユーザーの信頼性が向上し、サービスをより円滑に利用できます。</p>
+                </div>
+                <div class="phote" id="phote">
+                    <img id="phote_dog_s" src="/assets/user.png" alt="">
+                    <div class="balloon_user" id="balloon_user">
+                        <div class="balloon2-top" id="balloon2-top">
+                            <p>本人確認のメリット</p>
+                            <div class="layout" id="layout">
+                                <div class="lay_con" id="lay_con">
+                                    <p class="cont_se">他のユーザからの信頼性が向上し、サービスがより利用しやすくなります。</p>
+                                </div>
+                                <div class="layout_icon" id="scroll2">
+                                    <i id="user_id_s" class="fas fa-user-circle circle fa-3x"></i>
+                                    <i id="che_icon2_s" class="fas fa-check-square fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="self_id" id="self_id">
+                    <h3>本人確認に利用できる書類</h3>
+                    <p>ご本人であることを確認するため、以下のいずれか1点のご提出をお願いしております。お名前、現住所、生年月日の3点が確認できる面をご提出ください。</p>
+                </div>
+                <div class="self_id_text" id="self_id_text">
+                    <p><i class="fas fa-map-marker com_icon"></i>個人の場合</p>
+                    <div class="text_item_con" id="text_item_con">
+                        <div class="text_item" id="text_item">
+                            <p>運転免許証／運転経歴証明書</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-id-card fa-4x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※住所変更を行った際は、裏面が必要になります。</p>
+                                <p>運転経歴証明書は、交付年月日が平成24年4月1日以降のものに限ります。</p>
+                            </div>
+                        </div>
+                        <div class="text_item_center"></div>
+                        <div class="text_item" id="text_item">
+                            <p>健康保険証</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.生年月日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>住所変更を行った際は、変更後の住所が記載されている面をご提出ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text_item_con" id="text_item_con">
+                        <div class="text_item" id="text_item">
+                            <p>パスポート</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-passport fa-4x id_user"></i></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.写真印刷ページ</p>
+                                    <p>2.住所記載ページ</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>パスポートで申請いただく場合は、住所記載欄（記入済）ページの画像も併せて添付いただく必要がございます。</p>
+                            </div>
+                        </div>
+                        <div class="text_item_center"></div>
+                        <div class="text_item" id="text_item">
+                            <p>住民票</p>
+                            <div class="text_item_img">
+                                <p><i class="fas fa-file-invoice fa-4x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.交付日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>交付から6ヶ月以内のものをご提出ください。</p>
+                                <p>住民票で申請される場合は、マイナンバーの記載がない住民票でご申請ください。</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="text_item_con" id="text_item_con">
+                        <div class="text_item" id="text_item">
+                            <p>住民基本台帳</p>
+                            <div class="text_item_img">
+                                <p><i class="far fa-address-card fa-4x id_user"></i></p>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※ 住所変更を行った際は、裏面が必要になります。</p>
+                            </div>
+                        </div>
+                        <div class="text_item_center"></div>
+                        <div class="text_item" id="text_item">
+                            <p>在留カード<span>(外国人登録証明書)</span></p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku2">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※住所変更を行った際は、裏面が必要になります。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text_item_con" id="text_item_con">
+                        <div class="text_item nen_money" id="text_item">
+                            <p>国民年金手帳</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku3">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.住所記載面</p>
+                                    <p>3.生年月日記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>氏名、生年月日、住所が記載されているページをご提出ください。</p>
+                            </div>
+                        </div>
+                        <div class="text_item_center"></div>
+                        <div class="text_item nen_money" id="text_item">
+                            <p>共済組合員証</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku4">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.表面</p>
+                                    <p>2.裏面（※）</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>※裏面の住所欄に現住所を自筆記入してください。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text_item_con" id="text_item_con">
+                        <div class="text_item nen_money" id="text_item_s">
+                            <p>身体障がい者手帳</p>
+                            <div class="text_item_img">
+                                <div class="insurance">
+                                    <div class="waku5">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+
+                                    </div>
+                                </div>
+                                <div class="controll">
+                                    <p>必要な面／ページ</p>
+                                    <p>1.氏名記載面</p>
+                                    <p>2.生年月日記載面</p>
+                                    <p>3.住所記載面</p>
+                                </div>
+                            </div>
+                            <div class="id_note">
+                                <p>注意事項</p>
+                                <p>氏名、生年月日、住所が記載されているページをご提出ください。</p>
+                                <p>有効期限の記載があるものについては有効期限内であることをご確認ください。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p><i class="fas fa-map-marker com_icon"></i>法人の場合</p>
+                    <div class="text_item nen_money" id="company_item_s">
+                        <p id="ch_he">登記簿藤本</p>
+                        <div class="text_item_img">
+                            <div class="insurance">
+                                <div class="waku6">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="controll">
+                                <p>必要な面／ページ</p>
+                                <p>1.法人名、法人住所記載面</p>
+                                <p>2.代表者名記載面</p>
+                                <p>3.設立日記載面</p>
+                                <p>2.交付日記載面</p>
+                            </div>
+                        </div>
+                        <div class="id_note" id="scroll3">
+                            <p>注意事項</p>
+                            <p>※３ヶ月以内に取得した履歴事項全部証明書をご提出ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method" id="method">
+                    <h3>提出方法</h3>
+                    <% if @user_detail.present? %>
+                        <div class="method_content">
+                            <p>・</p>
+                            <p>スキャンまたは撮影したものをデータ化して下記フォームよりご提出ください。</p>
+                        </div>
+                        <div class="method_content">
+                            <p>・</p>
+                            <p>まずは、以下の現在ご登録いただいている会員情報と、提出予定の本人確認資料の氏名・住所・生年月日が一致しているか、必ずお確かめください。</p>
+                        </div>
+                        <div class="button_s">
+                            <div class="support_button edit_button" id="method_btn_s">
+                                <p id="scroll4_s">登録中の会員情報を確認・修正する</p>
+                            </div>
+                        </div>
+
+
+                    <% else %>
+                        <div class="method_notice">
+                            <p>本人確認書類を提出する前に、会員情報の入力が必要です。</p>
+                        </div>
+                        <p>・会員情報を入力後、本人確認資料をスキャンまたは撮影したものをご提出ください</p>
+                        <p>・入力する会員情報と、提出予定の本人確認資料の氏名・住所・生年月日が一致しているか、必ずお確かめください。</p>
+                        <p class="me_notice">※情報が一点でも一致しない場合、申請をお受けすることができません。</p>
+                        <%= link_to("/support/user_information") do %>
+                            <div class="button_s">
+                                <div class="support_button edit_button" id="method_btn_s">
+                                    <p id="scroll4_s">会員情報を入力する</p>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <% if @user_detail.present? %>
+                    <div class="indi_notice" id="method2">
+                        <h3><i class="fas fa-exclamation-circle no_pa" id="indi_col"></i>ご注意：申請が承認されないよくあるケース</h3>
+                        <p>・画像が加工されていたり、一部隠されている場合</p>
+                        <p>・マイナンバーカードや通知カードなど、当社で認めていない本人確認書類の場合</p>
+                        <p>・裏面に変更の記載がある書類で、裏面の画像がない場合</p>
+                        <p>・画像の文字が識別できなかったり、データ形式がJPG、PNG、GIF以外の場合</p>
+                        <div class="ex_id_img" id="ex_id_img">
+                            <div class="ex_id_item" id="ex_id_item">
+                                <p>加工画像・情報が見えない</p>
+                                <img id="ex_img" class="ex_img" src="/assets/lisence.jpg" alt="">
+                            </div>
+                            <div class="ex_id_item" id="ex_id_item">
+                                <p>マイナンバーカード等</p>
+                                <img id="ex_img" class="ex_img" src="/assets/numberCard.jpg" alt="">
+                            </div>
+                            <div class="ex_id_item" id="ex_id_item">
+                                <p>裏面なし・判別できない</p>
+                                <img id="ex_img" class="ex_img" src="/assets/lisence2.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <%= form_tag("/support/uproad",{multipart: true}) do %>
+                        <div class="indi_notice"  id="method2">
+                            <h3>本人確認書類を提出する</h3>
+                            <div class="uproad" id="uproad">
+                                <p>添付書類</p>
+                                <p>・個人事業主として会員登録されている方は、登記簿謄本のご提出は不要です。</p>
+                                <p>・書類のご申請から当社での確認・承認まで、５営業日ほどお時間をいただく場合があります。</p>
+                                <div class="upfile" id="upfile">
+                                    <div class="upfile_item" id="upfile_item">
+                                        <p>ファイル1:</p>
+                                        <input id="file1" type="file" name="file1" value="" required>
+                                    </div>
+                                    <div class="upfile_item" id="upfile_item">
+                                        <p>ファイル2:</p>
+                                        <input type="file" name="file2" value="">
+                                    </div>
+                                    <div class="input_edit_containar" id="upfile_btn_s">
+                                        <input id="upfile_btn2" class="upfile_btn2" type="submit" name="update" value="本人確認書類を提出する">
+                                    </div>
+                                    <p>ご提出いただいた個人情報は、プライバシーポリシーに定めるとおり、ご提出いただいた個人情報の滅失、 棄損、漏洩及び不正利用等を防止し、その安全管理を行うために必要な措置を講じ、個人情報を安全に管理します。</p>
+                                    <div class="space"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+
+        </div>
+    </div>
+</div>

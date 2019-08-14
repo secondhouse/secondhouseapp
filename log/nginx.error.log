@@ -1,0 +1,12 @@
+2019/07/22 15:04:09 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 15:04:09 [alert] 1039#0: *82831 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET / HTTP/1.0", upstream: "http://133.130.127.205:80/", host: "133.130.127.205"
+2019/07/22 15:04:26 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 15:04:26 [alert] 1039#0: *103085 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET / HTTP/1.0", upstream: "http://133.130.127.205:80/", host: "133.130.127.205"
+2019/07/22 15:04:27 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 15:04:27 [alert] 1039#0: *104098 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET /favicon.ico HTTP/1.0", upstream: "http://133.130.127.205:80/favicon.ico", host: "133.130.127.205", referrer: "http://133.130.127.205/"
+2019/07/22 15:54:51 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 15:54:51 [alert] 1039#0: *123853 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET /secondhouse HTTP/1.0", upstream: "http://133.130.127.205:80/secondhouse", host: "133.130.127.205"
+2019/07/22 15:54:52 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 15:54:52 [alert] 1039#0: *124866 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET /favicon.ico HTTP/1.0", upstream: "http://133.130.127.205:80/favicon.ico", host: "133.130.127.205", referrer: "http://133.130.127.205/secondhouse"
+2019/07/22 16:31:15 [crit] 1039#0: accept4() failed (24: Too many open files)
+2019/07/22 16:31:15 [alert] 1039#0: *152316 socket() failed (24: Too many open files) while connecting to upstream, client: 133.130.127.205, server: 133.130.127.205, request: "GET /favicon.ico HTTP/1.0", upstream: "http://133.130.127.205:80/favicon.ico", host: "133.130.127.205", referrer: "http://133.130.127.205/secondhouse"

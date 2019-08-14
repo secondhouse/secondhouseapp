@@ -1,0 +1,435 @@
+<div class="space"></div>
+<div class="cc_notice_wrapp"></div>
+<div class="cc_notice">
+        <p>誠に申し訳ございません、ご登録頂いたカードではお手続きを進めることができません。 他の決済方法が選択可能であれば変更の上、再度お手続きをお願いいたします。</p>
+        <p id="not_con">We are very sorry that we are unable to accept your credit card, but please re-try your payment procedure by using another payment method.</p>
+        <div class="cc_notice_btn" id="cc_notice_btn">
+            <p>閉じる</p>
+        </div>
+</div>
+
+<div id="cc_ss">
+    <div class="evaluation_wrapp" id="evaluation_wrapp">
+        <div class="profile" id="profile">
+<!------------------アイコンの有無---------------------->
+            <% if @user.image_name %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+<!------------------ここまでアイコンの有無---------------------->
+<!------------------左側メニュー------------------------------->
+            <div class="evaluation_name">
+                <%= @user.name %>
+            </div>
+            <div class="evaluation_edit">
+                <%= link_to("/users/edit/#{@user.id}") do %>
+                    <div class="evaluation_button">
+                        <p>基本情報を編集する</p>
+                    </div>
+                <% end %>
+                <%= link_to("/users/seen/#{@user.id}") do %>
+                    <div class="evaluation_button1">
+                        <p>自分のページを見る</p>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="evaluation_info">
+                <h4>実績</h4>
+                <div class="evaluation_containar move_m">
+                    <p>利用回数</p>
+                    <p class="elacement"><%= @num %></p>
+                </div>
+                <div class="evaluation_containar">
+                    <p>評価</p>
+                    <div class="">
+                        <% if @user_evaluation.nan? %>
+                            <p><i class="fas fa-star move_star"></i>ー</p>
+                        <% else %>
+                            <i class="fas fa-star move_star"></i>
+                            <%= @user_evaluation %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="evaluation_containar">
+                    <p>フォロワー</p>
+                    <p><%= @num_follow %></p>
+                </div>
+            </div>
+
+            <div class="detaile_pro">
+
+                <h4 class="">認証状況</h4>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">本人確認</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.approval == 1 %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-user-circle human  no_pa no_ma"></i>
+                            <p class="">ー</p>
+                        <% end %>
+                        <% else %>
+                            <i class="fas fa-user-circle human no_pa no_ma"></i>
+                            <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">受け取り口座</p>
+                    <% if @bank %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                    <% else %>
+                        <i class="far fa-credit-card move_card no_pa no_ma2 ma" id="bank_fin"></i>
+                        <p class="">ー</p>
+                    <% end %>
+                </div>
+                <div class="detaile_pro_move">
+                    <p class="id_detail">お支払い方法</p>
+                    <% if @user_detail %>
+                        <% if @user_detail.pay == 1 %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p class="check_fin"><i class="fas fa-check-square no_pa no_ma2 ma"></i></p>
+                        <% else %>
+                            <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                            <p>ー</p>
+                        <% end %>
+                    <% else %>
+                        <i class="fas fa-money-check-alt no_pa no_ma2 ma" id="id_card"></i>
+                        <p>ー</p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="email_content_wrapp">
+            <div class="evaluation_head" id="evaluation_head_cc">
+                <h1>クレジットカード変更</h1>
+            </div>
+            <div class="email_content_wrapp">
+                <div class="head_back" id="head_back">
+                    <h1 id="head_pc_cc">クレジットカード変更</h1>
+                    <%= link_to("/support/configuration/#{@user.id}") do %>
+                        <p id="back_pc"><i class="fas fa-chevron-left no_pa"></i>設定に戻る</p>
+                    <% end %>
+                </div>
+                <form method="POST" action="/support/payment_cc" id="charge-form" onsubmit="return pre()">
+                    <span class="charge-errors"></span>
+                    <div class="cc_content" id="cc_content">
+                        <div class="pc_back" id="pc_back">
+                            <h3>新しいカード情報</h3>
+                            <div class="">
+                                <%= link_to("/support/configuration/#{@user.id}") do %>
+                                    <p id="back_pc22"><i class="fas fa-chevron-left no_pa"></i>設定に戻る</p>
+                                <% end %>
+                            </div>
+                        </div>
+
+                        <div class="cord_item_wrap" id="cord_item_wrap">
+
+                            <div class="cord_item item_cc1" id="item_cc1_ss">
+                                <div class="cord_item_left" id="cord_item_left">
+                                    <p>カード番号</p>
+                                </div>
+                                <div class="cord_item_right" id="cord_item_right">
+                                    <input type="text" class="number" name="number" maxlength="16" placeholder="" required>
+                                    <div class="payment-errors"></div>
+                                    <p id="error_message_ccNum"> 正しいカード番号を入力してください</p>
+                                    <p id="card_notice">例）1234567890123456</p>
+                                </div>
+                            </div>
+                            <div class="cord_item item_cc1" id="item_cc1_ss">
+                                <div class="cord_item_left" id="cord_item_left">
+                                    <p>有効期限</p>
+                                </div>
+                                <div class="cord_item_right" id="cord_item_right">
+                                    <div class="cord_selec" id="cord_selec">
+                                        <input type="text" class="exp_month" name="exp_month" maxlength="2" placeholder="月" required>
+                                        <input type="text" class="exp_year" name="exp_year" maxlength="4" placeholder="年" required>
+                                    </div>
+                                    <p class="error_message_ccDeadline" id="error_message_ccDeadline">クレジットカードの使用期限が過ぎています</p>
+                                    <p class="card_notice" id="card_notice">※カードに刻印されている表記のとおりにご選択ください。</p>
+                                </div>
+                            </div>
+                            <div class="cord_item item_cc1" id="item_cc1_ss">
+                                <div class="cord_item_left" id="cord_item_left">
+                                    <p>カード名義人</p>
+                                </div>
+                                <div class="cord_item_right" id="cord_item_right">
+                                    <input type="text" name="name" value="" required>
+                                    <p class="error_message_ccName"> 入力してください</p>
+                                    <p class="card_no" id="card_notice">※カードに刻印されている表記のとおりにご選択ください。</p>
+                                </div>
+                            </div>
+                            <div class="cord_item item_cc1" id="item_cc1_ss">
+                                <div class="cord_item_left" id="cord_item_left">
+                                    <p>セキュリティコード</p>
+                                </div>
+                                <div class="cord_item_right" id="cord_item_right">
+                                    <div class="cord_item_right_con" id="cord_item_right_con">
+                                        <input type="text" class="cvc" name="cvc" maxlength="3" placeholder="" required>
+                                        <div class="sec_card">
+                                            <p id="sec_open"><i class="fas fa-caret-right no_pa no_ma"></i>セキュリティーカードとは</p>
+                                            <div id="sec_card_modal" class="sec_card_modal">
+                                                <p>セキュリティコードの場所</p>
+                                                <img src="/assets/cc_guide.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="error_message_ccSecu" id="error_message_ccSecu"> 3文字以上入力してください</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!----
+                            <p id="error_card_ss">カード情報に誤りがあります</p>
+                        ----->
+
+                        <div class="input_edit_containar cc_inp" id="cc_inp_ss">
+                            <button type="submit">送信する</button>
+                        </div>
+                    </div>
+                </form>
+                <!---モーダル----->
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://js.pay.jp/"></script>
+<script type="text/javascript">Payjp.setPublicKey('pk_test_9f3ee756f1fab0b96417de01');</script>
+<script type="text/javascript">
+    $('#sec_open').hover(function(){
+        $('#sec_card_modal').css('display', 'block');
+    },function(){
+        $('#sec_card_modal').css('display', 'none');
+    });
+
+    var form = $('#charge-form'),
+        number = form.find('input[name="number"]'),
+        cvc = form.find('input[name="cvc"]'),
+        exp_month = form.find('input[name="exp_month"]'),
+        exp_year = form.find('input[name="exp_year"]');
+
+        //テスト　カード番号
+        var visa = "^4[0-9]{12}(?:[0-9]{3})?$",
+            master = "5[1-5][0-9]{14}",
+            american = "^3[47][0-9]{13}$",
+            diners = "^3(?:0[0-5]|[68][0-9])[0-9]{11}$",
+            discover = "^6(?:011|5[0-9]{2})[0-9]{12}$",
+            jcb = "^(?:2131|1800|35\d{3})\d{11}$";
+
+        number.on('input', function(){
+          if($(this).val().match(visa|master|american|diners|discover|jcb)){
+              $('#error_message_ccNum').css('display', 'none');
+              //$('#error_card_ss').css('display', 'none');
+              $('.item_cc1').css('height', '80px');
+              $('#item_cc1').css('line-height', '80px');
+          }else{
+
+          }
+        });
+
+        var count = cvc.val().length,
+            month = $('input[name="exp_month"]').val(),
+            year = $('input[name="exp_year"]').val(),
+            now = new Date(),
+            y = now.getFullYear(),
+            m = now.getMonth() + 1;
+
+
+        cvc.on('input',function() {
+            count = cvc.val().length;
+            if (cvc < 3){
+
+            }else{
+                $('.error_message_ccSecu').css('display', 'none');
+                //$('.error_message_ccSecu_ss').css('display', 'none');
+                $('.item_cc3').css('height', '80px');
+                $('#item_3').css('line-height', '80px');
+            };
+        });
+
+        exp_month.on('input',function() {
+            month = $('input[name="exp_month"]').val();
+            year = $('input[name="exp_year"]').val();
+            if (month < 3 || year < 2019){
+
+            }else{
+                $('.error_message_ccDeadline').css('display', 'none');
+                //$('.error_message_ccDeadline_ss').css('display', 'none');
+                $('.item_cc2,#exp_wrapp').css('height', '80px');
+                $('#item_cc4').css('line-height', '80px');
+            };
+        });
+
+        exp_year.on('input',function() {
+            month = $('input[name="exp_month"]').val();
+            year = $('input[name="exp_year"]').val();
+            if (month < 3 || year < 2019){
+
+            }else{
+                $('.error_message_ccDeadline').css('display', 'none');
+                //$('.error_message_ccDeadline_ss').css('display', 'none');
+                $('.item_cc2,#exp_wrapp').css('height', '80px');
+                $('#item_cc4').css('line-height', '80px');
+            };
+        });
+
+
+        function pre() {
+            var numJath = $('input[name="number"]').val().match(visa|master|american|diners|discover|jcb);
+            if (count < 3 || ((year == y && month <= m) || year < y) || numJath == null) {
+                if(count < 3 && ((year == y && month <= m) || year < y) && numJath == null){
+                    $('.error_message_ccSecu').css('display', 'block');
+                    //$('.error_message_ccSecu_ss').css('display', 'block');
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    //$('.error_message_ccDeadline_ss').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#error_message_ccNum').css('display', 'block');
+                    //$('#error_message_ccNum_ss').css('display', 'block');
+                    $('.item_cc1').css('height', '129px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('#item_cc4').css('line-height', '108px');
+                    $('#item_3').css('line-height', '93px');
+                    $('.item_cc3').css('height', '93px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(count < 3 && ((year == y && month <= m) || year < y) && numJath == null){
+                    $('.error_message_ccSecu').css('display', 'block');
+                    //$('.error_message_ccSecu_ss').css('display', 'block');
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    //$('.error_message_ccDeadline_ss').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#error_message_ccNum').css('display', 'block');
+                    //$('#error_message_ccNum_ss').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('#item_cc4').css('line-height', '108px');
+                    $('#item_3').css('line-height', '93px');
+                    $('.item_cc3').css('height', '93px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(count < 3 && numJath == null){
+                    $('.error_message_ccSecu').css('display', 'block');
+                    //$('.error_message_ccSecu_ss').css('display', 'block');
+                    $('.item_cc3').css('height', '93px');
+                    $('#item_3').css('line-height', '93px');
+                    $('#error_message_ccNum').css('display', 'block');
+                    //$('#error_message_ccNum_ss').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(count < 3 && ((year == y && month <= m) || year < y)){
+                    $('.error_message_ccSecu').css('display', 'block');
+                    //$('.error_message_ccSecu_ss').css('display', 'block');
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    //$('.error_message_ccDeadline_ss').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#item_cc4').css('line-height', '108px');
+                    $('#item_3').css('line-height', '93px');
+                    $('.item_cc3').css('height', '93px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(numJath == null && ((year == y && month <= m) || year < y)){
+                    $('#error_message_ccNum').css('display', 'block');
+                    //$('#error_message_ccNum_ss').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    //$('.error_message_ccDeadline_ss').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#item_cc4').css('line-height', '108px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(count < 3){
+                    $('.error_message_ccSecu').css('display', 'block');
+                    //$('.error_message_ccSecu_ss').css('display', 'block');
+                    $('.item_cc3').css('height', '93px');
+                    $('#item_3').css('line-height', '93px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if(numJath == null){
+                    $('#error_message_ccNum').css('display', 'block');
+                    //$('#error_message_ccNum_ss').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+                else if((year == y && month <= m) || year < y) {
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    //$('.error_message_ccDeadline_ss').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#item_cc4').css('line-height', '108px');
+                    $('#error_card_ss').css('display', 'block');
+                    return false;
+                }
+            }else {
+                form.find('input[type=submit]').prop('disabled', true);
+
+                var card = {
+                    number: number.val(),
+                    cvc: cvc.val(),
+                    exp_month: exp_month.val(),
+                    exp_year: exp_year.val()
+                };
+                Payjp.createToken(card, function(s, response) {
+                  if (response.error) {
+                    //form.find('.payment-errors').text(response.error.message);
+                    form.find('input[type=submit]').prop('disabled', false);
+                    $('.cc_notice_wrapp').delay(300).fadeIn();
+                    $('.cc_notice').delay(500).slideDown();
+
+                  }
+                  else {
+                    $(".number").removeAttr("name");
+                    $(".cvc").removeAttr("name");
+                    $(".exp_month").removeAttr("name");
+                    $(".exp_year").removeAttr("name");
+
+                    var token = response.id;
+
+                    form.append($('<input type="hidden" name="payjpToken" >').val(token));
+                    form.get(0).submit();
+                  }
+                });
+            return false;
+            }
+        };
+
+    $(document).on('click',   function(e) {
+        if (!$(e.target).closest('.cc_notice').length) {
+            $('.cc_notice_wrapp,.cc_notice').hide();
+        }
+    });
+    $('#cc_notice_btn').on('click', function(){
+        $('.cc_notice_wrapp,.cc_notice').hide();
+    });
+
+</script>

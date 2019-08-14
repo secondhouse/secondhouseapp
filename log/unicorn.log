@@ -1,0 +1,95 @@
+I, [2019-07-22T10:15:53.146679 #621]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-22T10:15:54.855935 #621]  INFO -- : listening on addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-22T10:15:54.861443 #621]  INFO -- : master process ready
+I, [2019-07-22T10:15:54.866433 #625]  INFO -- : worker=0 ready
+I, [2019-07-22T10:15:54.870429 #627]  INFO -- : worker=1 ready
+I, [2019-07-22T10:15:55.193740 #658]  INFO -- : executing ["/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn", "-c", "/var/www/secondhouse/current/config/unicorn/production.rb", "-E", "deployment", "-D", {8=>#<Kgio::UNIXServer:/var/www/secondhouse/current/tmp/sockets/.unicorn.sock>}] (in /var/www/secondhouse/releases/20190722011536)
+I, [2019-07-22T10:15:55.193902 #658]  INFO -- : forked child re-executing...
+I, [2019-07-22T10:15:55.436377 #658]  INFO -- : inherited addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-22T10:15:55.436618 #658]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722011536/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-22T10:15:57.082384 #658]  INFO -- : master process ready
+I, [2019-07-22T10:15:57.084264 #665]  INFO -- : worker=1 ready
+I, [2019-07-22T10:15:57.086074 #663]  INFO -- : worker=0 ready
+I, [2019-07-22T10:15:57.386925 #621]  INFO -- : reaped #<Process::Status: pid 625 exit 0> worker=0
+I, [2019-07-22T10:15:57.387056 #621]  INFO -- : reaped #<Process::Status: pid 627 exit 0> worker=1
+I, [2019-07-22T10:15:57.387098 #621]  INFO -- : master complete
+I, [2019-07-22T15:53:51.850202 #16958]  INFO -- : executing ["/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn", "-c", "/var/www/secondhouse/current/config/unicorn/production.rb", "-E", "deployment", "-D", {8=>#<Kgio::UNIXServer:fd 8>}] (in /var/www/secondhouse/releases/20190722065333)
+I, [2019-07-22T15:53:51.853445 #16958]  INFO -- : forked child re-executing...
+I, [2019-07-22T15:53:52.121236 #16958]  INFO -- : inherited addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-22T15:53:52.121525 #16958]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722065333/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722065333/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722065333/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-22T15:53:53.854762 #16958]  INFO -- : master process ready
+I, [2019-07-22T15:53:53.857991 #16965]  INFO -- : worker=1 ready
+I, [2019-07-22T15:53:53.859997 #16963]  INFO -- : worker=0 ready
+I, [2019-07-22T15:53:54.985444 #658]  INFO -- : reaped #<Process::Status: pid 663 exit 0> worker=0
+I, [2019-07-22T15:53:54.991286 #658]  INFO -- : reaped #<Process::Status: pid 665 exit 0> worker=1
+I, [2019-07-22T15:53:54.991386 #658]  INFO -- : master complete
+I, [2019-07-23T08:06:58.322510 #16958]  INFO -- : reaped #<Process::Status: pid 16963 exit 0> worker=0
+I, [2019-07-23T08:06:58.322983 #16958]  INFO -- : reaped #<Process::Status: pid 16965 exit 0> worker=1
+I, [2019-07-23T08:06:58.323424 #16958]  INFO -- : master complete
+I, [2019-07-23T08:12:54.493519 #30078]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-23T08:12:56.172194 #30078]  INFO -- : unlinking existing socket=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock
+I, [2019-07-23T08:12:56.172657 #30078]  INFO -- : listening on addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-23T08:12:56.178095 #30078]  INFO -- : master process ready
+I, [2019-07-23T08:12:56.183404 #30082]  INFO -- : worker=0 ready
+I, [2019-07-23T08:12:56.187623 #30084]  INFO -- : worker=1 ready
+I, [2019-07-23T08:12:56.476380 #30114]  INFO -- : executing ["/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn", "-c", "/var/www/secondhouse/current/config/unicorn/production.rb", "-E", "deployment", "-D", {8=>#<Kgio::UNIXServer:/var/www/secondhouse/current/tmp/sockets/.unicorn.sock>}] (in /var/www/secondhouse/releases/20190722231237)
+I, [2019-07-23T08:12:56.476549 #30114]  INFO -- : forked child re-executing...
+I, [2019-07-23T08:12:56.716230 #30114]  INFO -- : inherited addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-23T08:12:56.716484 #30114]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722231237/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-23T08:12:58.340098 #30114]  INFO -- : master process ready
+I, [2019-07-23T08:12:58.343151 #30121]  INFO -- : worker=1 ready
+I, [2019-07-23T08:12:58.344896 #30119]  INFO -- : worker=0 ready
+I, [2019-07-23T08:12:58.546275 #30078]  INFO -- : reaped #<Process::Status: pid 30082 exit 0> worker=0
+I, [2019-07-23T08:12:58.546464 #30078]  INFO -- : reaped #<Process::Status: pid 30084 exit 0> worker=1
+I, [2019-07-23T08:12:58.546506 #30078]  INFO -- : master complete
+I, [2019-07-23T08:30:33.356699 #31142]  INFO -- : executing ["/var/www/secondhouse/shared/bundle/ruby/2.5.0/bin/unicorn", "-c", "/var/www/secondhouse/current/config/unicorn/production.rb", "-E", "deployment", "-D", {8=>#<Kgio::UNIXServer:fd 8>}] (in /var/www/secondhouse/releases/20190722233009)
+I, [2019-07-23T08:30:33.357164 #31142]  INFO -- : forked child re-executing...
+I, [2019-07-23T08:30:33.622730 #31142]  INFO -- : inherited addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-23T08:30:33.622963 #31142]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-23T08:30:35.241935 #31142]  INFO -- : master process ready
+I, [2019-07-23T08:30:35.243744 #31149]  INFO -- : worker=1 ready
+I, [2019-07-23T08:30:35.245529 #31147]  INFO -- : worker=0 ready
+I, [2019-07-23T08:30:35.452579 #30114]  INFO -- : reaped #<Process::Status: pid 30119 exit 0> worker=0
+I, [2019-07-23T08:30:35.452745 #30114]  INFO -- : reaped #<Process::Status: pid 30121 exit 0> worker=1
+I, [2019-07-23T08:30:35.452784 #30114]  INFO -- : master complete
+I, [2019-07-23T08:38:31.159903 #31142]  INFO -- : reaped #<Process::Status: pid 31147 exit 0> worker=0
+I, [2019-07-23T08:38:31.160069 #31142]  INFO -- : reaped #<Process::Status: pid 31149 exit 0> worker=1
+I, [2019-07-23T08:38:31.160142 #31142]  INFO -- : master complete
+I, [2019-07-23T13:30:54.797705 #1244]  INFO -- : Refreshing Gem list
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+/var/www/secondhouse/releases/20190722233009/app/controllers/support_controller.rb:200: warning: key :item is duplicated and overwritten on line 200
+I, [2019-07-23T13:30:57.061547 #1244]  INFO -- : unlinking existing socket=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock
+I, [2019-07-23T13:30:57.061706 #1244]  INFO -- : listening on addr=/var/www/secondhouse/current/tmp/sockets/.unicorn.sock fd=8
+I, [2019-07-23T13:30:57.069061 #1244]  INFO -- : master process ready
+I, [2019-07-23T13:30:57.074250 #1248]  INFO -- : worker=0 ready
+I, [2019-07-23T13:30:57.078148 #1250]  INFO -- : worker=1 ready
+I, [2019-07-23T13:38:20.084998 #1244]  INFO -- : reaped #<Process::Status: pid 1250 exit 0> worker=1
+I, [2019-07-23T13:38:20.088468 #1334]  INFO -- : worker=1 ready
+E, [2019-07-23T13:39:00.974813 #1244] ERROR -- : reaped #<Process::Status: pid 1334 SIGKILL (signal 9)> worker=1
+I, [2019-07-23T13:39:00.977620 #1340]  INFO -- : worker=1 ready
+E, [2019-07-23T13:40:07.644620 #1244] ERROR -- : reaped #<Process::Status: pid 1248 SIGKILL (signal 9)> worker=0
+I, [2019-07-23T13:40:07.647368 #1351]  INFO -- : worker=0 ready
+E, [2019-07-23T13:42:20.934528 #1244] ERROR -- : reaped #<Process::Status: pid 1351 SIGKILL (signal 9)> worker=0
+I, [2019-07-23T13:42:20.937237 #1360]  INFO -- : worker=0 ready
+I, [2019-07-23T13:45:27.193635 #1244]  INFO -- : reaped #<Process::Status: pid 1340 exit 0> worker=1
+I, [2019-07-23T13:45:27.193756 #1244]  INFO -- : reaped #<Process::Status: pid 1360 exit 0> worker=0
+I, [2019-07-23T13:45:27.193822 #1244]  INFO -- : master complete

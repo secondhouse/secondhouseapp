@@ -1,0 +1,284 @@
+<div class="space">
+
+</div>
+
+<div class="users_header">
+    <div class="users_header1">
+        <ul>
+            <%= link_to("ホーム","/users/#{@user.id}") %>
+            <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
+            <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
+            <%= link_to("評価","/users/evaluation/#{@user.id}") %>
+            <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+        </ul>
+    </div>
+</div>
+
+
+
+<section class="work-section" id="work">
+    <div class="section-header clearfix">
+        <div class="inner" id="inner">
+            <ul class="tabs-nav" id="tab">
+                <li><a href="#work01">預かり依頼</a></li>
+                <li><a href="#work02">エントリー</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section-body">
+        <section class="tabs-panel" id="work01"><!------預かり依頼タブ------->
+            <% if @requests.present? %>
+                <% @requests.each do |request| %> <!-----------預かり依頼繰り返し--------->
+                    <% if request.status < 4 || request.status_partner < 4 %>
+                        <div class="rely_containar" id="rely_containar">
+                            <div class="">
+                                <h1>預かり依頼中</h1>
+                            </div>
+
+                            <div class="rely_item" id="rely_item">
+                                <div class="point" id="point">
+                                    <p>待ち合わせ時間</p>
+                                    <% @day = request.waiting
+                                       if @day.min == 0
+                                         @min = "00"
+                                       else
+                                       end
+                                    %>
+
+                                    <% if @min %>
+                                        <p>
+                                            <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @min + "分" %>
+                                        </p>
+                                    <% else %>
+                                        <p>
+                                            <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @day.min.to_s + "分" %>
+                                        </p>
+                                    <% end %>
+                                </div>
+                                <div class="point" id="point">
+                                    <p>お迎え時間</p>
+                                    <% @day = request.end
+                                       if @day.min == 0
+                                         @min = "00"
+                                       else
+                                       end
+                                    %>
+
+                                    <% if @min %>
+                                        <p>
+                                            <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @min + "分" %>
+                                        </p>
+                                    <% else %>
+                                        <p>
+                                            <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @day.min.to_s + "分" %>
+                                        </p>
+                                    <% end %>
+                                </div>
+                                <% @entrys = Entry.where(request_id: request.id) %>
+                                <% @choice = User.find_by(id: request.choice) %>
+                                <% if request.status == 0 %>
+                                    <div class="point" id="point">
+                                        <p>エントリー</p>
+                                        <% if @entrys.present? %>
+                                            <p><%= @entrys.length %>人がエントリー中</p>
+                                        <%else%>
+                                            <p>まだエントリーがありません</p>
+                                        <%end%>
+                                    </div>
+                                    <div class="point" id="point">
+                                        <p>ステータス</p>
+                                        <p>依頼中</p>
+                                    </div>
+                                <% elsif request.status == 1 || request.status_partner == 1 %>
+                                    <div class="point" id="point">
+                                        <p>依頼者</p>
+                                        <p><%= @choice.name %></p>
+                                    </div>
+                                    <div class="point" id="point">
+                                        <p>ステータス</p>
+                                        <p>完了待ち</p>
+                                    </div>
+                                <% elsif request.status == 2 || request.status_partner == 2 %>
+                                <div class="point" id="point">
+                                    <p>依頼者</p>
+                                    <p><%= @choice.name %></p>
+                                </div>
+                                <div class="point" id="point">
+                                    <p>ステータス</p>
+                                    <p>評価入力待ち</p>
+                                </div>
+                                <% end %>
+                            </div>
+
+
+                            <% if @entrys.present? %>
+                                <%= link_to("/dog/management/#{request.id}") do %>
+                                    <div class="entry_cheak">
+                                        <div class="edit_button55 id="entry_cheak">
+                                            <p>内容確認する</p>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% else %>
+                                <div class="bottom" id="bottom">
+                                    <%= link_to("/users/update_re/#{request.id}") do %>
+                                        <div class="edit_button55" id="edit_button55">
+                                            <p>編集する</p>
+                                        </div>
+                                    <% end %>
+                                    <%= link_to("/users/destroy_re/#{request.id}") do %>
+                                        <div class="edit_button66" id="edit_button66">
+                                            <p>削除する</p>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <div class="no_request" id="no_request">
+                    <p>現在依頼中の預かり依頼はありません</p>
+                </div>
+            <% end %>
+        </section>
+        <section class="tabs-panel" id="work02"><!-------エントリータブ---->
+            <% @count = 0 %>
+                <% if @entries.present? %>
+                    <% @entries.each do | entry |
+                        @request = Request.find_by(id: entry.request_id)
+                        @owner = User.find_by(id: entry.user_id) %>
+                        <% if @request.status < 3 || @request.status_partner < 3 %>
+                        <div class="rely_containar" id="rely_containar">
+                            <div class="">
+                                <h1>エントリー中</h1>
+                            </div>
+                            <div class="rely_containar00" id="rely_containar00">
+                                <div class="rely_item" id="rely_item">
+                                    <div class="point" id="point">
+                                        <p>待ち合わせ時間</p>
+                                        <% @day = @request.waiting
+                                           if @day.min == 0
+                                             @min = "00"
+                                           else
+                                           end
+                                        %>
+
+                                        <% if @min %>
+                                            <p>
+                                                <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @min + "分" %>
+                                            </p>
+                                        <% else %>
+                                            <p>
+                                                <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @day.min.to_s + "分" %>
+                                            </p>
+                                        <% end %>
+                                    </div>
+                                    <div class="point" id="point">
+                                        <p>お迎え時間</p>
+                                        <% @day = @request.end
+                                           if @day.min == 0
+                                             @min = "00"
+                                           else
+                                           end
+                                        %>
+
+                                        <% if @min %>
+                                            <p>
+                                                <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @min + "分" %>
+                                            </p>
+                                        <% else %>
+                                            <p>
+                                                <%= @day.year.to_s + "年" + @day.month.to_s + "月" + @day.day.to_s + "日" + @day.hour.to_s + "時" + @day.min.to_s + "分" %>
+                                            </p>
+                                        <% end %>
+                                    </div>
+
+                                    <% if @request.status == 0 %>
+                                        <% @entries = Entry.where(request_id: @request.id) %>
+                                         <div class="point" id="point">
+                                             <p>エントリー</p>
+                                             <% if @entries.present? %>
+                                                <p><%= @entries.length %>人がエントリーしています</p>
+                                             <% else %>
+                                                <p>まだエントリーがありません</p>
+                                             <% end %>
+                                         </div>
+                                         <div class="point" id="point">
+                                             <p>ステータス</p>
+                                             <p>エントリー中</p>
+                                         </div>
+                                         <div class="bottom mark_btn" id="bottom">
+                                             <%= link_to("/dog/entrusted/#{@request.id}") do %>
+                                                 <div class="edit_button55" id="edit_button55">
+                                                     <p>確認する</p>
+                                                 </div>
+                                             <% end %>
+                                             <%= link_to("/users/seen/direct_message/#{entry.user_id}") do %>
+                                                 <div class="edit_button66" id="edit_button66">
+                                                     <p>連絡を取る</p>
+                                                 </div>
+                                             <% end %>
+                                         </div>
+                                     <% elsif @request.status == 1 || @request.status_partner == 1 %>
+                                        <%  @choiced = User.find_by(id: @request.choice) %>
+                                         <div class="point" id="point">
+                                             <p id="user_pc">飼い主さんが選んだユーザー</p>
+                                             <p id="user_s">選ばれたユーザー</p>
+                                             <p><%= @choiced.name %></p>
+                                         </div>
+                                         <div class="point" id="point">
+                                             <p>ステータス</p>
+                                             <p>完了待ち</p>
+                                         </div>
+                                         <div class="bottom mark_btn" id="bottom">
+                                             <%= link_to("/dog/entrusted/#{@request.id}") do %>
+                                                 <div class="edit_button55" id="edit_button55">
+                                                     <p>確認する</p>
+                                                 </div>
+                                             <% end %>
+                                             <%= link_to("/users/seen/direct_message/#{entry.user_id}") do %>
+                                                 <div class="edit_button66" id="edit_button66">
+                                                     <p>連絡を取る</p>
+                                                 </div>
+                                             <% end %>
+                                         </div>
+                                    <% elsif @request.status == 2 || @request.status_partner == 2 %>
+                                        <%  @choiced = User.find_by(id: @request.choice) %>
+                                         <div class="point" id="point">
+                                             <p id="user_pc">飼い主さんが選んだユーザー</p>
+                                             <p id="user_s">選ばれたユーザー</p>
+                                             <p><%= @choiced.name  %></p>
+                                         </div>
+                                         <div class="point" id="point">
+                                             <p>ステータス</p>
+                                             <p>評価入力待ち</p>
+                                         </div>
+                                         <div class="bottom mark_btn" id="bottom">
+                                             <%= link_to("/users/impression/#{@request.id}") do %>
+                                                 <div class="edit_button55" id="edit_button55">
+                                                     <p>評価をする</p>
+                                                 </div>
+                                             <% end %>
+                                             <%= link_to("/users/seen/direct_message/#{entry.user_id}") do %>
+                                                 <div class="edit_button66" id="edit_button66">
+                                                     <p>連絡を取る</p>
+                                                 </div>
+                                             <% end %>
+                                         </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <% @count += 1 %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <% if @count == 0 %>
+                    <div class="no_request" id="no_request">
+                        <p">現在エントリー中の預かり依頼はありません</p>
+                    </div>
+                <% end %>
+            </div>
+        </section>
+    </div>
+</section>

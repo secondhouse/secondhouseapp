@@ -1,0 +1,71 @@
+<div class="space"></div>
+<div class="menu_smart">
+    <h1>マイページ</h1>
+    <div class="menu_icon_wra">
+        <div class="menu_icon">
+            <% if @current_user.image_name %>
+                <%= link_to("/users/menu") do %>
+                    <div class="post_image00" id="chage chage2">
+                        <img class="icon_size" id="icon_size11" src="<%= "/user_images/#{@current_user.image_name}" %>" alt="">
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="icon_wrapp" id="icon_wrapp">
+                    <div class="users_icon" id="users_icon2">
+                        <%= link_to("/users/edit/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-4x icon_color" id="user_s_icon"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2" id="icon_camera2_s"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="menu_icon_name">
+            <%= @current_user.name %>
+        </div>
+
+        <div class="menu_icon_edit">
+            <%= link_to("プロフィール編集", "/users/edit/#{@user.id}") %>
+        </div>
+
+    </div>
+    <div class="user_menu">
+        <h2>メニュー</h2>
+        <nav>
+            <ul>
+                <%= link_to("/users/#{@current_user.id}") do %>
+                    <li><p>ホーム</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/mydog/#{@current_user.id}") do %>
+                    <li><p>ワンちゃんプロフィール</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/rely/#{@current_user.id}") do %>
+                    <li><p>預かり依頼/エントリー</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/evaluation/#{@current_user.id}") do %>
+                    <li><p>評価</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/history/#{@current_user.id}") do %>
+                    <li><p>利用履歴</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/talk/#{@current_user.id}") do %>
+                    <li><p>トークルーム</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/support/revenue") do %>
+                    <li><p>報酬管理・振込申請</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/users/show_follow/#{@current_user.id}") do %>
+                    <li><p>フォロー/フォロワー</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/support/configuration/#{@current_user.id}") do %>
+                    <li><p>設定</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+                <%= link_to("/logout", {method: :post}) do %>
+                    <li><p>ログアウト</p><i class="fas fa-chevron-right"></i></li>
+                <% end %>
+            </ul>
+        </nav>
+    </div>
+</div>

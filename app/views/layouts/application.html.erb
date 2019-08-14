@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TweetApp</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script src="../../assets/javascripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="style.css?version=1">
+        <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        遅かったやつ
+
+
+        <script src="../../assets/javascripts/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="text/javascript" src="js/cropper.min.js" charset="UTF-8"></script>
+        <link rel="stylesheet" href="css/cropper.css">
+        <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+        <script src="js/ajaxzip3.js" charset="UTF-8"></script>
+        -->
+
+
+    </head>
+
+    <body onload="cropStart();">
+        <header>
+            <div class="header-logo">
+                <% if @current_user %>
+                    <%= link_to("Second House", "/") %>
+                <% else %>
+                    <%= link_to("Second House", "/") %>
+                <% end %>
+            </div>
+            <ul class="header-menus">
+                <% if @current_user %>
+                    <li>
+                        <% if @current_user.image_name %>
+                            <%= link_to("/users/#{@current_user.id}") do %>
+                                <div class="post_image00" id="chage">
+                                    <img class="icon_size" src="<%= "/user_images/#{@current_user.image_name}" %>" alt="">
+                                </div>
+                            <% end %>
+                        <% else %>
+                            <%= link_to("/users/#{@current_user.id}") do %>
+                                <div class="post_icon22" id="chage00">
+                                    <i class="fas fa-user-circle fa-2x icon_color33"  %></i>
+                                    <i class="fas fa-camera fa-0.5x icon_camera222" id="post_camera222"></i>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li id="bell_btn"><!-----------お知らせボタン-------------->
+                        <% if @noread_bells.present? %>
+                            <div class="new_icon">
+                                <div class="new_messe"></div>
+                                <i class="far fa-bell"></i>
+                            </div>
+                        <% else %>
+                            <i class="far fa-bell"></i>
+                        <% end %>
+                    </li>
+                    <li id="messeage_btn"><!-----メッセージ------->
+                        <% if @no_reads.present? %>
+                            <div class="new_icon">
+                                <div class="new_messe"></div>
+                                <i class="far fa-comment-alt fa-1.5x"></i>
+                            </div>
+                        <% else %>
+                            <i class="far fa-comment-alt fa-1.5x"></i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to("預かり依頼作成", "/users/writing") %>
+                    </li>
+                    <li>
+                        <%= link_to("ログアウト", "/logout", {method: :post}) %>
+                    </li>
+                <% else %>
+                    <li class="res1">
+                        <%= link_to("SecondHouseってなに？", "/beginner's_guide") %>
+                    </li>
+                    <li class="res1">
+                        <%= link_to("よくある質問", "/support/index") %>
+                    </li>
+                    <li class="res_show_search">
+                        <%= link_to("/support/index") do %>
+                            <i class="fas fa-search no_ma no_pa"></i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to("新規登録", "/users/index") %>
+                    </li>
+                    <li>
+                        <%= link_to("ログイン", "/users/login") %>
+                    </li>
+                <% end %>
+            </ul>
+            <!---スマホ用--->
+            <ul id="header-menus_s">
+
+                <% if @current_user %>
+                    <% if @current_user.image_name.blank? %>
+                        <li class="mv_li"></li>
+                    <% end %>
+                    <%= link_to("/users/news/#{@current_user.id}") do %>
+                        <li id="bell_btn"><!-----------お知らせボタン-------------->
+                            <% if @noread_bells.present? %>
+                                <div class="new_icon">
+                                    <div class="new_messe"></div>
+                                    <i class="far fa-bell"></i>
+                                </div>
+                            <% else %>
+                                <i class="far fa-bell"></i>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <%= link_to("/users/talk/#{@current_user.id}") do %>
+                        <li id="messeage_btn"><!-----メッセージ------->
+                            <% if @no_reads.present? %>
+                                <div class="new_icon">
+                                    <div class="new_messe"></div>
+                                    <i class="far fa-comment-alt fa-1.5x"></i>
+                                </div>
+                            <% else %>
+                                <i class="far fa-comment-alt fa-1.5x"></i>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <li>
+                        <%= link_to("/users/writing") do %>
+                            <i class="far fa-edit"></i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <% if @current_user.image_name %>
+                            <%= link_to("/users/menu") do %>
+                                <div class="post_image00" id="chage chage2">
+                                    <img class="icon_size" src="<%= "/user_images/#{@current_user.image_name}" %>" alt="">
+                                </div>
+                            <% end %>
+                        <% else %>
+                            <%= link_to("/users/menu") do %>
+                            <div class="icon_mv">
+                                <div class="post_icon22" id="chage00 chage2">
+                                    <i class="fas fa-user-circle fa-2x icon_color33" id="icon_s"></i>
+                                    <i class="fas fa-camera fa-0.5x icon_camera222" id="post_camera222"></i>
+                                </div>
+                            </div>
+                            <% end %>
+                        <% end %>
+                    </li>
+
+                <% else %>
+                    <li class="res1">
+                        <%= link_to("SecondHouseってなに？", "/beginner's_guide") %>
+                    </li>
+                    <li class="res1">
+                        <%= link_to("よくある質問", "/support/index") %>
+                    </li>
+                    <li class="res_show_search">
+                        <%= link_to("/support/index") do %>
+                            <i class="fas fa-search no_ma no_pa"></i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to("新規登録", "/users/index") %>
+                    </li>
+                    <li>
+                        <%= link_to("ログイン", "/users/login") %>
+                    </li>
+                <% end %>
+            </ul>
+        </header>
+
+        <% if @current_user %>
+            <div class="bell"><!------お知らせのモーダル------->
+                <div class="bell_line">
+                    <div class="talk_line2">
+                        <p>お知らせ</p>
+                    </div>
+                    <% if @noread_bells.present? %><!-------未読お知らせの有無-------->
+                        <div class="new_box">
+                            <% @count = 0 %>
+                            <% @noread_bells.each do | noread_bell | %>
+                                <%
+                                    @time = noread_bell.created_at
+                                    @progress = (@time - @now) * -1
+                                %>
+                                <%= link_to("/users/news/#{@current_user.id}") do %>
+                                    <div class="messe_item">
+                                        <div class="post_image" id="chage">
+                                            <img class="icon_size" src="<%= "/assets/pomeranian.jpg" %>" alt="">
+                                        </div>
+                                        <div class="">
+                                            <p class="bell_content"><%= noread_bell.content %></p>
+                                            <p class="time_send">
+                                    <%=
+                                        if @progress < 3600
+                                            @progress /= 3600.0
+                                            @progress *= 60
+                                            "#{@progress.floor}分前"
+                                        elsif @progress < 86401
+                                            @progress /= 3600.0
+                                            "#{@progress.floor}時間前"
+                                        elsif 86401 < @progress
+                                            @progress = 1
+                                            "#{@progress}日前"
+                                        elsif 172801 < @progress
+                                            @progress = 2
+                                            "#{@progress}日前"
+                                        elsif 259201 < @progress
+                                            @progress = 3
+                                            "#{@progress}日前"
+                                        elsif 345600 < @progress
+                                            @progress = 4
+                                            "#{@progress}日前"
+                                        elsif 432000 < @progress
+                                            @progress = 5
+                                            "#{@progress}日前"
+                                        elsif 518400 < @progress
+                                            @progress = 6
+                                            "#{@progress}日前"
+                                        elsif 604800 < @progress
+                                            @progress = 1
+                                            "#{@progress}週間前"
+                                        elsif 1209600 < @progress
+                                            @progress = 2
+                                            "#{@progress.day}"
+                                        else
+                                        end
+                                    %>
+                                    </p>
+                                </div>
+                            </div>
+                        <% end %>
+                        <% @count += 1 %>
+                        <% if @count == 3 %>
+                            <% break %>
+                        <% end %>
+                    <% end %>
+                </div>
+
+
+
+                <% else %>
+                    <div class="messeage00">
+                        <p class="no_messse"><i class="fas fa-info-circle"></i>現在、新着のお知らせはありません。</p>
+                    </div>
+                <% end %>
+
+
+            <div class="search_me">
+                <%= link_to("すべてを見る", "/users/news/#{@current_user.id}") %>
+            </div>
+        </div>
+    </div><!------ここまでお知らせのモーダル------->
+        <div class="talk"><!------トークルームのモーダル------->
+            <div class="talk_line">
+                <div class="talk_line2">
+                    <p>トークルーム</p>
+                </div>
+                <% if @no_reads.present? %><!-------未読メッセージの有無-------->
+                    <div class="new_box">
+                        <% @count = 0 %>
+                        <% @no_reads.each do | no_read | %>
+                            <%
+                                @time = no_read.created_at
+                                @progress = (@time - @now) * -1
+                                @sender = User.find_by(id: no_read.send_id)
+                            %>
+                            <%= link_to("/users/seen/direct_message//#{@sender.id}") do %>
+                                <div class="messe_item">
+                                    <div class="">
+                                        <% if @sender.image_name %>
+                                            <div class="post_image" id="chage">
+                                                <img class="icon_size" src="<%= "/user_images/#{@sender.image_name}" %>" alt="">
+                                            </div>
+                                        <% else %>
+                                            <div class="post_icon2" id="chage">
+                                                <i class="fas fa-user-circle fa-2x icon_color00"  %></i>
+                                                <i class="fas fa-camera fa-0.5x icon_camera222" id="post_camera022"></i>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                    <div class="">
+                                        <p><%= @sender.name %>からダイレクトメッセージが届きました。</p>
+                                        <p><%= no_read.messe.truncate(20) %></p>
+                                        <p class="time_send">
+                                        <%=
+                                            if @progress < 3600
+                                                @progress /= 3600.0
+                                                @progress *= 60
+                                                "#{@progress.floor}分前"
+                                            elsif @progress < 86401
+                                                @progress /= 3600.0
+                                                "#{@progress.floor}時間前"
+                                            elsif 86401 < @progress
+                                                @progress = 1
+                                                "#{@progress}日前"
+                                            elsif 172801 < @progress
+                                                @progress = 2
+                                                "#{@progress}日前"
+                                            elsif 259201 < @progress
+                                                @progress = 3
+                                                "#{@progress}日前"
+                                            elsif 345600 < @progress
+                                                @progress = 4
+                                                "#{@progress}日前"
+                                            elsif 432000 < @progress
+                                                @progress = 5
+                                                "#{@progress}日前"
+                                            elsif 518400 < @progress
+                                                @progress = 6
+                                                "#{@progress}日前"
+                                            elsif 604800 < @progress
+                                                @progress = 1
+                                                "#{@progress}週間前"
+                                            elsif 1209600 < @progress
+                                                @progress = 2
+                                                "#{@progress}週間以上"
+                                            else
+                                            end
+                                        %>
+                                        </p>
+                                    </div>
+                                </div>
+                            <% end %>
+                            <% @count += 1 %>
+                            <% if @count == 3 %>
+                                <% break %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <% else %>
+                        <div class="messeage00">
+                            <p class="no_messse"><i class="fas fa-info-circle"></i>現在、新着メッセージはありません。</p>
+                        </div>
+                    <% end %>
+                    <div class="search_me">
+                        <%= link_to("すべてを見る", "/users/talk/#{@current_user.id}") %>
+                    </div>
+                </div>
+            </div><!------ここまでトークルームのモーダル------->
+        <% else %>
+
+        <% end %>
+
+
+        <% if flash[:notice] %>
+            <div class="flash">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+
+        <%= yield %>
+        <div class="space_ss"></div>
+        <footer>
+            <div class="container_footer">
+<!----------1列目---------------->
+                <nav class="footer_list">
+                    <p>サポート</p>
+                    <ul>
+                        <li><a href="/beginner's_guide">初めての方へ</a></li>
+                        <li><a href="/support/index">よくある質問</a></li>
+                        <li><a href="/notation/safe">安心への取り組み</a></li>
+                        <li><a href="/notation/terms">利用規約</a></li>
+                        <li><a href="/notation/member_store">加盟店規約</a></li>
+                        <li><a href="/notation/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/notation/commerce">特定商取引法に基づく表記</a></li>
+                        <li><a href="/notation/settlement">資金決済法に基づく表記</a></li>
+                    </ul>
+                </nav>
+
+<!----------2列目---------------->
+
+                <nav class="footer_list">
+                    <p>ご利用ガイド</p>
+                    <ul>
+                        <li><%= link_to("ワンちゃんを預けたい", "/support/entrusted_dog") %></li>
+                        <li><%= link_to("ワンちゃんを預りたい", "/support/deposit_dog") %></li>
+                        <li><%= link_to("預ける/預かる流れ", "/support/flow") %></li>
+                        <li><%= link_to("ルールとマナー", "/support/rule") %></li>
+                        <li><%= link_to("評価について", "/support/about_evaluation") %></li>
+                        <li><%= link_to("本人確認", "/support/user_identification.html") %></li>
+                        <li><%= link_to("お支払い方法・手数料", "/notation/guide_payment") %></li>
+                    </ul>
+                </nav>
+
+<!----------3列目---------------->
+
+                <nav class="footer_list">
+                    <p>Second Houseをもっと知る</p>
+                    <ul>
+                        <li><a href="/beginner's_guide">Second Houseとは</a></li>
+                        <li><a href="https://twitter.com/SecondHouse4">Twitter</a></li>
+                        <div class="company">
+                            <p>運営会社</p>
+                        </div>
+                        <li><%= link_to("会社概要", "/support/company_profile") %></li>
+                        <li><%= link_to("採用情報", "/support/recruitment") %></li>
+                    </ul>
+                </nav>
+                <div class="footer_form_news">
+                    <div class="footer_form_cover">
+                        <p>カスタマーサポート</p>
+                        <%= link_to("/support/inquiry")do %>
+                            <div class="footer_form">
+                                <p>問い合わせ</p>
+                            </div>
+                        <% end %>
+                    </div>
+
+
+                    <div class="news_footer">
+                        <p>ニュース</p>
+                        <div class="news_item">
+                            <p>2019.7.16</p>
+                            <p>PC版SecoundHouseリリース</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---スマホ用---->
+            <div class="container_footer_s">
+<!----------1列目---------------->
+                <p>サポート</p>
+                <nav class="footer_list_s">
+                    <ul class="layout_foot">
+                        <li><a href="/beginner's_guide">初めての方へ</a></li>
+                        <li><a href="/support/index">よくある質問</a></li>
+                        <li><a href="/notation/safe">安心への取り組み</a></li>
+                    </ul>
+                    <ul class="layout_foot">
+                        <li><a href="/notation/terms">利用規約</a></li>
+                        <li><a href="/notation/member_store">加盟店規約</a></li>
+                    </ul>
+                    <ul class="layout_foot">
+                        <li><a href="/notation/privacy">プライバシーポリシー</a></li>
+                        <li><a href="/notation/commerce">特定商取引法に基づく表記</a></li>
+                    </ul>
+                    <ul class="layout_foot">
+                        <li><a href="/notation/settlement">資金決済法に基づく表記</a></li>
+                    </ul>
+
+                </nav>
+                <p class="footer_s">ご利用ガイド</p>
+                <nav class="footer_list_s">
+                    <ul class="layout_foot">
+                        <li><%= link_to("ワンちゃんを預けたい", "/support/entrusted_dog") %></li>
+                        <li><%= link_to("ワンちゃんを預りたい", "/support/deposit_dog") %></li>
+                    </ul>
+                    <ul class="layout_foot">
+                        <li><%= link_to("預ける/預かる流れ", "/support/flow") %></li>
+                        <li><%= link_to("ルールとマナー", "/support/rule") %></li>
+                    </ul>
+                    <ul class="layout_foot">
+                        <li><%= link_to("評価について", "/support/about_evaluation") %></li>
+                        <li><%= link_to("本人確認", "/support/user_identification.html") %></li>
+                        <li><%= link_to("お支払い方法・手数料", "/notation/guide_payment") %></li>
+                    </ul>
+                </nav>
+                <p class="footer_s">Second Houseをもっと知る</p>
+                <nav class="footer_list_s">
+                    <ul class="layout_foot">
+                        <li><a href="/beginner's_guide">Second Houseとは</a></li>
+                        <li><a href="https://twitter.com/SecondHouse4">Twitter</a></li>
+                    </ul>
+                </nav>
+                <p class="footer_s">運営会社</p>
+                <nav class="footer_list_s">
+                    <ul class="layout_foot">
+                        <li><%= link_to("会社概要", "/support/company_profile") %></li>
+                        <li><%= link_to("採用情報", "/support/recruitment") %></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div>
+                        <p class="footer_s">カスタマーサポート</p>
+                        <%= link_to("/support/inquiry")do %>
+                            <div class="footer_form">
+                                <p>問い合わせ</p>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+            <p class="copy_right">© 2019 Second House Inc.</p>
+        </footer>
+
+        <script type="text/javascript" src="search.js"></script>
+        <script type="text/javascript" src="cover.js"></script>
+        <script type="text/javascript" src="check_user.js.erb"></script>
+    </body>
+</html>

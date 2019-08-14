@@ -1,0 +1,63 @@
+<div class="space">
+</div>
+
+<div class="login">
+    <h2>ログイン</h2>
+
+    <div class="login_form">
+        <div class="form-error">
+            <% if @error_message %>
+                <%= @error_message %>
+            <% end %>
+        </div>
+
+        <%= form_tag("/users/authentication") do %>
+            <div class="login_email">
+                <p>メールアドレス</p>
+                <input class="example1 exam" name="email" type="email" value="<%= @email %>">
+            </div>
+            <div class="login_email">
+                <p>パスワード</p>
+                <input class="example1 exam" name="password" type="password" value="<%= @password %>">
+            </div>
+            <div class="submit">
+                <input type="submit" value="ログイン" id="login_submit">
+            </div>
+        <% end %>
+        <div class="unlogin">
+            <p><a href="/support/re_password">パスワードを忘れた方はこちら</a></p>
+            <p><a href="/users/index">新規登録する方はこちら</a></p>
+        </div>
+    </div>
+</div>
+<!---スマホ-->
+<div class="login" id="login">
+    <div class="evaluation_head">
+        <h1>ログイン</h1>
+    </div>
+    <div class="login_form" id="login_form">
+        <div class="form-error" id="form-error">
+            <% if @error_message %>
+                <%= @error_message %>
+            <% end %>
+        </div>
+
+        <%= form_tag("/users/authentication") do %>
+            <div class="login_email" id="login_email">
+                <p>メールアドレス</p>
+                <input id="login_inp" class="example1 exam" name="email" type="email" value="<%= @email %>">
+            </div>
+            <div class="login_email" id="login_email">
+                <p>パスワード</p>
+                <input id="login_inp" class="example1 exam" name="password" type="password" value="<%= @password %>">
+            </div>
+            <div class="submit" id="submit_login">
+                <input type="submit" value="ログイン" id="login_submit">
+            </div>
+        <% end %>
+        <div class="unlogin" id="unlogin">
+            <p><a href="/support/re_password">パスワードを忘れた方はこちら</a></p>
+            <p><a href="/users/index">新規登録する方はこちら</a></p>
+        </div>
+    </div>
+</div>

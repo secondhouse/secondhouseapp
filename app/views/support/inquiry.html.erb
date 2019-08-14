@@ -1,0 +1,179 @@
+<div class="space">
+</div>
+<div class="inquiry">
+    <div class="title">
+      <h1>お問い合わせ</h1>
+    </div>
+    <div class="background_safe66">
+        <div class="text_safe66">
+            <div class="inquiry_note">
+                <p>速やかな問題解決のため「ご利用ガイド」および「よくある質問」をぜひご覧ください。</p><br>
+                <p>それでも問題が解決しない場合は以下のフォームよりお問い合わせください。年中無休で、お問い合わせから3日以内に対応サポートをいたします。</p>
+            </div>
+              <%= form_tag("/support/question") do %>
+                <div class="inquiry_wrapp">
+                    <div class="inquiry_kind">
+                        <p>お問い合わせ種類<span>*</span></p>
+                        <select class="kind_first" name="kind" required>
+                            <option value="">選択してください</option>
+                            <option value="ユーザー間トラブル">ユーザー間トラブル</option>
+                            <option value="評価コメントに関して">評価コメントに関して</option>
+                            <option value="預かり依頼に関して">預かり依頼に関して</option>
+                            <option value="決済に関して">決済に関して</option>
+                            <option value="トークルームに関して">トークルームに関して</option>
+                            <option value="意見要望">意見要望</option>
+                            <option value="退会">退会</option>
+                            <option value="各種登録・再発行・ログイン">各種登録・再発行・ログイン</option>
+                            <option value="各種設定方法">各種設定方法</option>
+                            <option value="違反報告">違反報告</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    <div class="inquiry_kind">
+                        <p>お名前<span>*</span></p>
+                        <% if @user %>
+                            <p class="kind_item"><%= @user.name %></p>
+                        <% else %>
+                            <p  class="kind_item">ゲストさん</p>
+                        <% end %>
+                    </div>
+                    <div class="inquiry_kind">
+                        <p>メールアドレス<span>*</span></p>
+                        <% if @user %>
+                            <p class="kind_item"><%= @user.email %></p>
+                        <% else %>
+                            <p id="cont_size" class="kind_item">不明。ログインしてからお問い合わせいただくか、本文に必ず記載してください（ない場合は返信できかねます）</p>
+                        <% end %>
+                    </div>
+                    <div class="inquiry_kind">
+                        <p>お問い合わせ内容<span>*</span></p>
+                        <textarea class="kind_item" maxlength="2000" name="kind_item" rows="30" cols="200" maxlength="2000" required></textarea>
+                    </div>
+                </div>
+                <div class="messe_note_wrap">
+
+
+                    <div class="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item">
+                            <p>SecondHouseへログインされていない場合は、必ずSecondHouseへご登録いただいているメールアドレスを入力し、お問い合わせください。</p>
+                            <p>ご登録いただいていないメールアドレスからのお問い合わせの場合、セキュリティ上の観点により、詳細の回答や対応を行えないことがあります。</p>
+                            <p>メールアドレスの確認・変更はアカウント設定で行うことができます。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note">
+
+                        <p>・</p>
+                        <div class="messe_note_item">
+                            <p>当社からのメールが届かない場合、ご利用のメールサービスの［迷惑メールフォルダ］をご確認ください。</p>
+                            <p>ドメイン指定をされている方については「 @mail 」「 @」を受信できるようご設定をお願いします。</p>
+                            <p>その他よくある原因については、こちらをご参照ください。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item">
+                            <p>お問い合わせ内容により、当社で回答を行えないと判断する場合や、当社のプライバシーポリシーに定める業務委託先などをご案内する場合があります。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item">
+                            <p>当社から回答するEメールは、お問い合わせをいただいたユーザー様へお送りするものです。当社の許可なくそのEメールの一部または全部の転載、二次利用することはご遠慮ください。</p>
+                        </div>
+                    </div>
+                    <div class="submit" id="question_sub">
+                      <input type="submit" value="送信" id="login_submit">
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<!---スマホ--->
+<div class="inquiry" id="inquiry">
+    <div class="evaluation_head">
+        <h1>お問い合わせ</h1>
+    </div>
+        <div class="text_safe66" id="text_safe66">
+            <div class="inquiry_note" id="inquiry_note">
+                <p>速やかな問題解決のため「ご利用ガイド」および「よくある質問」をぜひご覧ください。</p><br>
+                <p>それでも問題が解決しない場合は以下のフォームよりお問い合わせください。年中無休で、お問い合わせから3日以内に対応サポートをいたします。</p>
+            </div>
+              <%= form_tag("/support/question") do %>
+                <div class="inquiry_wrapp">
+                    <div class="inquiry_kind" id="inquiry_kind">
+                        <p><span>*</span>お問い合わせ種類</p>
+                        <select id="kind_first" class="kind_first" name="kind" required>
+                            <option value="">選択してください</option>
+                            <option value="ユーザー間トラブル">ユーザー間トラブル</option>
+                            <option value="評価コメントに関して">評価コメントに関して</option>
+                            <option value="預かり依頼に関して">預かり依頼に関して</option>
+                            <option value="決済に関して">決済に関して</option>
+                            <option value="トークルームに関して">トークルームに関して</option>
+                            <option value="意見要望">意見要望</option>
+                            <option value="退会">退会</option>
+                            <option value="各種登録・再発行・ログイン">各種登録・再発行・ログイン</option>
+                            <option value="各種設定方法">各種設定方法</option>
+                            <option value="違反報告">違反報告</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    <div class="inquiry_kind" id="inquiry_kind">
+                        <p><span>*</span>お名前</p>
+                        <% if @user %>
+                            <p class="kind_item"><%= @user.name %></p>
+                        <% else %>
+                            <p  class="kind_item">ゲストさん</p>
+                        <% end %>
+                    </div>
+                    <div class="inquiry_kind" id="inquiry_kind">
+                        <p><span>*</span>メールアドレス</p>
+                        <% if @user %>
+                            <p class="kind_item"><%= @user.email %></p>
+                        <% else %>
+                            <p id="cont_size" class="kind_item">不明。ログインしてからお問い合わせいただくか、本文に必ず記載してください（ない場合は返信できかねます）</p>
+                        <% end %>
+                    </div>
+                    <div class="inquiry_kind" id="inquiry_kind2">
+                        <p><span>*</span>お問い合わせ内容</p>
+                        <textarea id="kind_item" class="kind_item" maxlength="2000" name="kind_item" rows="30" cols="200" maxlength="2000" required></textarea>
+                    </div>
+                </div>
+                <div class="messe_note_wrap" id="messe_note_wrap">
+                    <div class="messe_note" id="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item" id="messe_note_item">
+                            <p>SecondHouseへログインされていない場合は、必ずSecondHouseへご登録いただいているメールアドレスを入力し、お問い合わせください。</p>
+                            <p>ご登録いただいていないメールアドレスからのお問い合わせの場合、セキュリティ上の観点により、詳細の回答や対応を行えないことがあります。</p>
+                            <p>メールアドレスの確認・変更はアカウント設定で行うことができます。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note" id="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item" id="messe_note_item">
+                            <p>当社からのメールが届かない場合、ご利用のメールサービスの［迷惑メールフォルダ］をご確認ください。</p>
+                            <p>ドメイン指定をされている方については「 @mail 」「 @」を受信できるようご設定をお願いします。</p>
+                            <p>その他よくある原因については、こちらをご参照ください。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note" id="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item" id="messe_note_item">
+                            <p>お問い合わせ内容により、当社で回答を行えないと判断する場合や、当社のプライバシーポリシーに定める業務委託先などをご案内する場合があります。</p>
+                        </div>
+                    </div>
+                    <div class="messe_note" id="messe_note">
+                        <p>・</p>
+                        <div class="messe_note_item" id="messe_note_item">
+                            <p>当社から回答するEメールは、お問い合わせをいただいたユーザー様へお送りするものです。当社の許可なくそのEメールの一部または全部の転載、二次利用することはご遠慮ください。</p>
+                        </div>
+                    </div>
+                    <div id="submit222" class="submit" id="question_sub">
+                      <input type="submit" value="送信" id="login_submit">
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
