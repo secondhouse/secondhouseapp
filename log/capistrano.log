@@ -340,3 +340,677 @@ checked your server/Gemfile.lock into version control before deploying.
  DEBUG [4d02c1cd] Command: cd /var/www/secondhouse/releases/20190814065041 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet )
  DEBUG [4d02c1cd] 	The --deployment flag requires a server/Gemfile.lock. Please make sure you have
 checked your server/Gemfile.lock into version control before deploying.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-14 16:29:00 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [b023c064] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as localadm@133.130.127.205
+ DEBUG [b023c064] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [b023c064] Finished in 0.576 seconds with exit status 0 (successful).
+  INFO [4c3f4e6f] Running /usr/bin/env mkdir -p /tmp as localadm@133.130.127.205
+ DEBUG [4c3f4e6f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [4c3f4e6f] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 0.0%
+  INFO Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 100.0%
+  INFO [978a9c72] Running /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh as localadm@133.130.127.205
+ DEBUG [978a9c72] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh )
+  INFO [978a9c72] Finished in 0.141 seconds with exit status 0 (successful).
+  INFO [52a6a0d1] Running /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD as localadm@133.130.127.205
+ DEBUG [52a6a0d1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD )
+ DEBUG [52a6a0d1] 	de4f93a49b60ed68efd129521b3810d15d7862a7	HEAD
+  INFO [52a6a0d1] Finished in 7.554 seconds with exit status 0 (successful).
+  INFO [61c5535a] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases as localadm@133.130.127.205
+ DEBUG [61c5535a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases )
+  INFO [61c5535a] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [12e6f0ca] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets as localadm@133.130.127.205
+ DEBUG [12e6f0ca] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets )
+  INFO [12e6f0ca] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO [b68462c9] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/config as localadm@133.130.127.205
+ DEBUG [b68462c9] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/config )
+  INFO [b68462c9] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [fb0fdc5c] Running [ -f /var/www/secondhouse/shared/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [fb0fdc5c] Command: [ -f /var/www/secondhouse/shared/config/settings.yml ]
+ DEBUG [fb0fdc5c] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [f558e45f] Running [ -f /var/www/secondhouse/current/REVISION ] as localadm@133.130.127.205
+ DEBUG [f558e45f] Command: [ -f /var/www/secondhouse/current/REVISION ]
+ DEBUG [f558e45f] Finished in 0.148 seconds with exit status 0 (successful).
+ DEBUG [5b8a649d] Running /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null as localadm@133.130.127.205
+ DEBUG [5b8a649d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null )
+ DEBUG [5b8a649d] 	079569ea7f06e373fa12b6330a4f5ba4e8575edc
+ DEBUG [5b8a649d] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [d97a00fb] Running [ -f /var/www/secondhouse/repo/HEAD ] as localadm@133.130.127.205
+ DEBUG [d97a00fb] Command: [ -f /var/www/secondhouse/repo/HEAD ]
+ DEBUG [d97a00fb] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/secondhouse/repo
+ DEBUG [93df0306] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [93df0306] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [93df0306] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [11e60500] Running /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git as localadm@133.130.127.205
+ DEBUG [11e60500] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git )
+  INFO [11e60500] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO [06e4a926] Running /usr/bin/env git remote update --prune as localadm@133.130.127.205
+ DEBUG [06e4a926] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [06e4a926] 	Fetching origin
+  INFO [06e4a926] Finished in 2.481 seconds with exit status 0 (successful).
+ DEBUG [fc50a2c3] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [fc50a2c3] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [fc50a2c3] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [e6158309] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910 as localadm@133.130.127.205
+ DEBUG [e6158309] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910 )
+  INFO [e6158309] Finished in 0.157 seconds with exit status 0 (successful).
+  INFO [26f081eb] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814072910 as localadm@133.130.127.205
+ DEBUG [26f081eb] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814072910 )
+  INFO [26f081eb] Finished in 2.283 seconds with exit status 0 (successful).
+ DEBUG [869a7ef0] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [869a7ef0] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [869a7ef0] Finished in 0.212 seconds with exit status 0 (successful).
+ DEBUG [d05e5310] Running /usr/bin/env git rev-list --max-count=1 master as localadm@133.130.127.205
+ DEBUG [d05e5310] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [d05e5310] 	de4f93a49b60ed68efd129521b3810d15d7862a7
+ DEBUG [d05e5310] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [a2400355] Running if test ! -d /var/www/secondhouse/releases/20190814072910; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814072910'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [a2400355] Command: if test ! -d /var/www/secondhouse/releases/20190814072910; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814072910'" 1>&2; false; fi
+ DEBUG [a2400355] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [fabb90ea] Running /usr/bin/env echo "de4f93a49b60ed68efd129521b3810d15d7862a7" > REVISION as localadm@133.130.127.205
+ DEBUG [fabb90ea] Command: cd /var/www/secondhouse/releases/20190814072910 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env echo "de4f93a49b60ed68efd129521b3810d15d7862a7" > REVISION )
+  INFO [fabb90ea] Finished in 0.144 seconds with exit status 0 (successful).
+  INFO [bb231148] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910/config as localadm@133.130.127.205
+ DEBUG [bb231148] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910/config )
+  INFO [bb231148] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [93be06ec] Running [ -L /var/www/secondhouse/releases/20190814072910/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [93be06ec] Command: [ -L /var/www/secondhouse/releases/20190814072910/config/settings.yml ]
+ DEBUG [93be06ec] Finished in 0.134 seconds with exit status 1 (failed).
+ DEBUG [84d345ab] Running [ -f /var/www/secondhouse/releases/20190814072910/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [84d345ab] Command: [ -f /var/www/secondhouse/releases/20190814072910/config/settings.yml ]
+ DEBUG [84d345ab] Finished in 0.135 seconds with exit status 1 (failed).
+  INFO [726ae68b] Running /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814072910/config/settings.yml as localadm@133.130.127.205
+ DEBUG [726ae68b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814072910/config/settings.yml )
+  INFO [726ae68b] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [f67705a5] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910 /var/www/secondhouse/releases/20190814072910/tmp /var/www/secondhouse/releases/20190814072910/vendor /var/www/secondhouse/releases/20190814072910/public as localadm@133.130.127.205
+ DEBUG [f67705a5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814072910 /var/www/secondhouse/releases/20190814072910/tmp /var/www/secondhouse/releases/20190814072910/vendor /var/www/secondhouse/releases/20190814072910/public )
+  INFO [f67705a5] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [66ab7e9d] Running [ -L /var/www/secondhouse/releases/20190814072910/log ] as localadm@133.130.127.205
+ DEBUG [66ab7e9d] Command: [ -L /var/www/secondhouse/releases/20190814072910/log ]
+ DEBUG [66ab7e9d] Finished in 0.132 seconds with exit status 1 (failed).
+ DEBUG [d5e60d6b] Running [ -d /var/www/secondhouse/releases/20190814072910/log ] as localadm@133.130.127.205
+ DEBUG [d5e60d6b] Command: [ -d /var/www/secondhouse/releases/20190814072910/log ]
+ DEBUG [d5e60d6b] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [100e5e98] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814072910/log as localadm@133.130.127.205
+ DEBUG [100e5e98] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814072910/log )
+  INFO [100e5e98] Finished in 0.141 seconds with exit status 0 (successful).
+  INFO [03292b8d] Running /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814072910/log as localadm@133.130.127.205
+ DEBUG [03292b8d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814072910/log )
+  INFO [03292b8d] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [c08b992a] Running [ -L /var/www/secondhouse/releases/20190814072910/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [c08b992a] Command: [ -L /var/www/secondhouse/releases/20190814072910/tmp/pids ]
+ DEBUG [c08b992a] Finished in 0.130 seconds with exit status 1 (failed).
+ DEBUG [9f5ded85] Running [ -d /var/www/secondhouse/releases/20190814072910/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [9f5ded85] Command: [ -d /var/www/secondhouse/releases/20190814072910/tmp/pids ]
+ DEBUG [9f5ded85] Finished in 0.134 seconds with exit status 1 (failed).
+  INFO [1b44b06a] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814072910/tmp/pids as localadm@133.130.127.205
+ DEBUG [1b44b06a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814072910/tmp/pids )
+  INFO [1b44b06a] Finished in 0.136 seconds with exit status 0 (successful).
+ DEBUG [c15ac96d] Running [ -L /var/www/secondhouse/releases/20190814072910/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [c15ac96d] Command: [ -L /var/www/secondhouse/releases/20190814072910/tmp/cache ]
+ DEBUG [c15ac96d] Finished in 0.138 seconds with exit status 1 (failed).
+ DEBUG [14e48e31] Running [ -d /var/www/secondhouse/releases/20190814072910/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [14e48e31] Command: [ -d /var/www/secondhouse/releases/20190814072910/tmp/cache ]
+ DEBUG [14e48e31] Finished in 0.140 seconds with exit status 1 (failed).
+  INFO [9d602ff0] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814072910/tmp/cache as localadm@133.130.127.205
+ DEBUG [9d602ff0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814072910/tmp/cache )
+  INFO [9d602ff0] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [b9aa03d2] Running [ -L /var/www/secondhouse/releases/20190814072910/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [b9aa03d2] Command: [ -L /var/www/secondhouse/releases/20190814072910/tmp/sockets ]
+ DEBUG [b9aa03d2] Finished in 0.146 seconds with exit status 1 (failed).
+ DEBUG [fd15a102] Running [ -d /var/www/secondhouse/releases/20190814072910/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [fd15a102] Command: [ -d /var/www/secondhouse/releases/20190814072910/tmp/sockets ]
+ DEBUG [fd15a102] Finished in 0.145 seconds with exit status 1 (failed).
+  INFO [c7183a80] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814072910/tmp/sockets as localadm@133.130.127.205
+ DEBUG [c7183a80] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814072910/tmp/sockets )
+  INFO [c7183a80] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [2be6b5ef] Running [ -L /var/www/secondhouse/releases/20190814072910/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [2be6b5ef] Command: [ -L /var/www/secondhouse/releases/20190814072910/vendor/bundle ]
+ DEBUG [2be6b5ef] Finished in 0.133 seconds with exit status 1 (failed).
+ DEBUG [8069d4dd] Running [ -d /var/www/secondhouse/releases/20190814072910/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [8069d4dd] Command: [ -d /var/www/secondhouse/releases/20190814072910/vendor/bundle ]
+ DEBUG [8069d4dd] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [e05f673b] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814072910/vendor/bundle as localadm@133.130.127.205
+ DEBUG [e05f673b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814072910/vendor/bundle )
+  INFO [e05f673b] Finished in 0.279 seconds with exit status 0 (successful).
+  INFO [97edab4f] Running /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814072910/vendor/bundle as localadm@133.130.127.205
+ DEBUG [97edab4f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814072910/vendor/bundle )
+  INFO [97edab4f] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [2b31d43b] Running [ -L /var/www/secondhouse/releases/20190814072910/public/system ] as localadm@133.130.127.205
+ DEBUG [2b31d43b] Command: [ -L /var/www/secondhouse/releases/20190814072910/public/system ]
+ DEBUG [2b31d43b] Finished in 0.143 seconds with exit status 1 (failed).
+ DEBUG [dcc20080] Running [ -d /var/www/secondhouse/releases/20190814072910/public/system ] as localadm@133.130.127.205
+ DEBUG [dcc20080] Command: [ -d /var/www/secondhouse/releases/20190814072910/public/system ]
+ DEBUG [dcc20080] Finished in 0.134 seconds with exit status 1 (failed).
+  INFO [59b9ee0f] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814072910/public/system as localadm@133.130.127.205
+ DEBUG [59b9ee0f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814072910/public/system )
+  INFO [59b9ee0f] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [8cfd59f0] Running [ -L /var/www/secondhouse/releases/20190814072910/public/assets ] as localadm@133.130.127.205
+ DEBUG [8cfd59f0] Command: [ -L /var/www/secondhouse/releases/20190814072910/public/assets ]
+ DEBUG [8cfd59f0] Finished in 0.138 seconds with exit status 1 (failed).
+ DEBUG [922e5c45] Running [ -d /var/www/secondhouse/releases/20190814072910/public/assets ] as localadm@133.130.127.205
+ DEBUG [922e5c45] Command: [ -d /var/www/secondhouse/releases/20190814072910/public/assets ]
+ DEBUG [922e5c45] Finished in 0.148 seconds with exit status 1 (failed).
+  INFO [48c25a3f] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814072910/public/assets as localadm@133.130.127.205
+ DEBUG [48c25a3f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814072910/public/assets )
+  INFO [48c25a3f] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [7a5cd53d] Running if test ! -d /var/www/secondhouse/releases/20190814072910; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814072910'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [7a5cd53d] Command: if test ! -d /var/www/secondhouse/releases/20190814072910; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814072910'" 1>&2; false; fi
+ DEBUG [7a5cd53d] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [7c8422dd] Running $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle as localadm@133.130.127.205
+ DEBUG [7c8422dd] Command: cd /var/www/secondhouse/releases/20190814072910 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle )
+ DEBUG [7c8422dd] 	/var/www/secondhouse/releases/20190814072910/server/Gemfile not found
+ DEBUG [7c8422dd] Finished in 0.552 seconds with exit status 10 (failed).
+  INFO [49849345] Running $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet as localadm@133.130.127.205
+ DEBUG [49849345] Command: cd /var/www/secondhouse/releases/20190814072910 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet )
+ DEBUG [49849345] 	The --deployment flag requires a server/Gemfile.lock. Please make sure you have
+checked your server/Gemfile.lock into version control before deploying.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-14 18:07:46 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [39af4f9a] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as localadm@133.130.127.205
+ DEBUG [39af4f9a] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [39af4f9a] Finished in 0.566 seconds with exit status 0 (successful).
+  INFO [90db83ac] Running /usr/bin/env mkdir -p /tmp as localadm@133.130.127.205
+ DEBUG [90db83ac] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [90db83ac] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 0.0%
+  INFO Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 100.0%
+  INFO [ad90f34a] Running /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh as localadm@133.130.127.205
+ DEBUG [ad90f34a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh )
+  INFO [ad90f34a] Finished in 0.127 seconds with exit status 0 (successful).
+  INFO [7dc0527f] Running /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD as localadm@133.130.127.205
+ DEBUG [7dc0527f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD )
+ DEBUG [7dc0527f] 	de4f93a49b60ed68efd129521b3810d15d7862a7	HEAD
+  INFO [7dc0527f] Finished in 2.451 seconds with exit status 0 (successful).
+  INFO [4a7ae43f] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases as localadm@133.130.127.205
+ DEBUG [4a7ae43f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases )
+  INFO [4a7ae43f] Finished in 0.091 seconds with exit status 0 (successful).
+  INFO [f9f9ebe0] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets as localadm@133.130.127.205
+ DEBUG [f9f9ebe0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets )
+  INFO [f9f9ebe0] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [b62dedd5] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/config as localadm@133.130.127.205
+ DEBUG [b62dedd5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/config )
+  INFO [b62dedd5] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [60d5f152] Running [ -f /var/www/secondhouse/shared/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [60d5f152] Command: [ -f /var/www/secondhouse/shared/config/settings.yml ]
+ DEBUG [60d5f152] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [cfb42516] Running [ -f /var/www/secondhouse/current/REVISION ] as localadm@133.130.127.205
+ DEBUG [cfb42516] Command: [ -f /var/www/secondhouse/current/REVISION ]
+ DEBUG [cfb42516] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [4ec34572] Running /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null as localadm@133.130.127.205
+ DEBUG [4ec34572] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null )
+ DEBUG [4ec34572] 	079569ea7f06e373fa12b6330a4f5ba4e8575edc
+ DEBUG [4ec34572] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG [459eff93] Running [ -f /var/www/secondhouse/repo/HEAD ] as localadm@133.130.127.205
+ DEBUG [459eff93] Command: [ -f /var/www/secondhouse/repo/HEAD ]
+ DEBUG [459eff93] Finished in 0.135 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/secondhouse/repo
+ DEBUG [c0ba3558] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [c0ba3558] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [c0ba3558] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [276f7cec] Running /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git as localadm@133.130.127.205
+ DEBUG [276f7cec] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git )
+  INFO [276f7cec] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [8c547f68] Running /usr/bin/env git remote update --prune as localadm@133.130.127.205
+ DEBUG [8c547f68] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [8c547f68] 	Fetching origin
+  INFO [8c547f68] Finished in 2.349 seconds with exit status 0 (successful).
+ DEBUG [71280229] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [71280229] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [71280229] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [c5b990b3] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750 as localadm@133.130.127.205
+ DEBUG [c5b990b3] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750 )
+  INFO [c5b990b3] Finished in 0.137 seconds with exit status 0 (successful).
+  INFO [92a34f14] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814090750 as localadm@133.130.127.205
+ DEBUG [92a34f14] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814090750 )
+  INFO [92a34f14] Finished in 1.706 seconds with exit status 0 (successful).
+ DEBUG [9d195796] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [9d195796] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [9d195796] Finished in 0.219 seconds with exit status 0 (successful).
+ DEBUG [788eef4e] Running /usr/bin/env git rev-list --max-count=1 master as localadm@133.130.127.205
+ DEBUG [788eef4e] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [788eef4e] 	de4f93a49b60ed68efd129521b3810d15d7862a7
+ DEBUG [788eef4e] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [13b737dc] Running if test ! -d /var/www/secondhouse/releases/20190814090750; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814090750'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [13b737dc] Command: if test ! -d /var/www/secondhouse/releases/20190814090750; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814090750'" 1>&2; false; fi
+ DEBUG [13b737dc] Finished in 0.124 seconds with exit status 0 (successful).
+  INFO [8ed8d303] Running /usr/bin/env echo "de4f93a49b60ed68efd129521b3810d15d7862a7" > REVISION as localadm@133.130.127.205
+ DEBUG [8ed8d303] Command: cd /var/www/secondhouse/releases/20190814090750 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env echo "de4f93a49b60ed68efd129521b3810d15d7862a7" > REVISION )
+  INFO [8ed8d303] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [ab6310d8] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750/config as localadm@133.130.127.205
+ DEBUG [ab6310d8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750/config )
+  INFO [ab6310d8] Finished in 0.196 seconds with exit status 0 (successful).
+ DEBUG [6d58a0e7] Running [ -L /var/www/secondhouse/releases/20190814090750/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [6d58a0e7] Command: [ -L /var/www/secondhouse/releases/20190814090750/config/settings.yml ]
+ DEBUG [6d58a0e7] Finished in 0.129 seconds with exit status 1 (failed).
+ DEBUG [ea819089] Running [ -f /var/www/secondhouse/releases/20190814090750/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [ea819089] Command: [ -f /var/www/secondhouse/releases/20190814090750/config/settings.yml ]
+ DEBUG [ea819089] Finished in 0.130 seconds with exit status 1 (failed).
+  INFO [88e32c60] Running /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814090750/config/settings.yml as localadm@133.130.127.205
+ DEBUG [88e32c60] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814090750/config/settings.yml )
+  INFO [88e32c60] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [f66f7c7b] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750 /var/www/secondhouse/releases/20190814090750/tmp /var/www/secondhouse/releases/20190814090750/vendor /var/www/secondhouse/releases/20190814090750/public as localadm@133.130.127.205
+ DEBUG [f66f7c7b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814090750 /var/www/secondhouse/releases/20190814090750/tmp /var/www/secondhouse/releases/20190814090750/vendor /var/www/secondhouse/releases/20190814090750/public )
+  INFO [f66f7c7b] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [f16844b8] Running [ -L /var/www/secondhouse/releases/20190814090750/log ] as localadm@133.130.127.205
+ DEBUG [f16844b8] Command: [ -L /var/www/secondhouse/releases/20190814090750/log ]
+ DEBUG [f16844b8] Finished in 0.139 seconds with exit status 1 (failed).
+ DEBUG [ff8e77e5] Running [ -d /var/www/secondhouse/releases/20190814090750/log ] as localadm@133.130.127.205
+ DEBUG [ff8e77e5] Command: [ -d /var/www/secondhouse/releases/20190814090750/log ]
+ DEBUG [ff8e77e5] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [8263c253] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814090750/log as localadm@133.130.127.205
+ DEBUG [8263c253] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814090750/log )
+  INFO [8263c253] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [82858a6a] Running /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814090750/log as localadm@133.130.127.205
+ DEBUG [82858a6a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814090750/log )
+  INFO [82858a6a] Finished in 0.140 seconds with exit status 0 (successful).
+ DEBUG [91ec425b] Running [ -L /var/www/secondhouse/releases/20190814090750/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [91ec425b] Command: [ -L /var/www/secondhouse/releases/20190814090750/tmp/pids ]
+ DEBUG [91ec425b] Finished in 0.128 seconds with exit status 1 (failed).
+ DEBUG [fcf1136c] Running [ -d /var/www/secondhouse/releases/20190814090750/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [fcf1136c] Command: [ -d /var/www/secondhouse/releases/20190814090750/tmp/pids ]
+ DEBUG [fcf1136c] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [eff822c8] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814090750/tmp/pids as localadm@133.130.127.205
+ DEBUG [eff822c8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814090750/tmp/pids )
+  INFO [eff822c8] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [a3e41613] Running [ -L /var/www/secondhouse/releases/20190814090750/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [a3e41613] Command: [ -L /var/www/secondhouse/releases/20190814090750/tmp/cache ]
+ DEBUG [a3e41613] Finished in 0.124 seconds with exit status 1 (failed).
+ DEBUG [3e6c9c74] Running [ -d /var/www/secondhouse/releases/20190814090750/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [3e6c9c74] Command: [ -d /var/www/secondhouse/releases/20190814090750/tmp/cache ]
+ DEBUG [3e6c9c74] Finished in 0.139 seconds with exit status 1 (failed).
+  INFO [83411329] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814090750/tmp/cache as localadm@133.130.127.205
+ DEBUG [83411329] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814090750/tmp/cache )
+  INFO [83411329] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [4362421c] Running [ -L /var/www/secondhouse/releases/20190814090750/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [4362421c] Command: [ -L /var/www/secondhouse/releases/20190814090750/tmp/sockets ]
+ DEBUG [4362421c] Finished in 0.133 seconds with exit status 1 (failed).
+ DEBUG [bd3922d4] Running [ -d /var/www/secondhouse/releases/20190814090750/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [bd3922d4] Command: [ -d /var/www/secondhouse/releases/20190814090750/tmp/sockets ]
+ DEBUG [bd3922d4] Finished in 0.144 seconds with exit status 1 (failed).
+  INFO [049adf90] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814090750/tmp/sockets as localadm@133.130.127.205
+ DEBUG [049adf90] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814090750/tmp/sockets )
+  INFO [049adf90] Finished in 0.137 seconds with exit status 0 (successful).
+ DEBUG [4b717dd6] Running [ -L /var/www/secondhouse/releases/20190814090750/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [4b717dd6] Command: [ -L /var/www/secondhouse/releases/20190814090750/vendor/bundle ]
+ DEBUG [4b717dd6] Finished in 0.121 seconds with exit status 1 (failed).
+ DEBUG [1a128416] Running [ -d /var/www/secondhouse/releases/20190814090750/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [1a128416] Command: [ -d /var/www/secondhouse/releases/20190814090750/vendor/bundle ]
+ DEBUG [1a128416] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [d139fb44] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814090750/vendor/bundle as localadm@133.130.127.205
+ DEBUG [d139fb44] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814090750/vendor/bundle )
+  INFO [d139fb44] Finished in 0.278 seconds with exit status 0 (successful).
+  INFO [d3158043] Running /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814090750/vendor/bundle as localadm@133.130.127.205
+ DEBUG [d3158043] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814090750/vendor/bundle )
+  INFO [d3158043] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [1521444e] Running [ -L /var/www/secondhouse/releases/20190814090750/public/system ] as localadm@133.130.127.205
+ DEBUG [1521444e] Command: [ -L /var/www/secondhouse/releases/20190814090750/public/system ]
+ DEBUG [1521444e] Finished in 0.147 seconds with exit status 1 (failed).
+ DEBUG [c5c8fe13] Running [ -d /var/www/secondhouse/releases/20190814090750/public/system ] as localadm@133.130.127.205
+ DEBUG [c5c8fe13] Command: [ -d /var/www/secondhouse/releases/20190814090750/public/system ]
+ DEBUG [c5c8fe13] Finished in 0.130 seconds with exit status 1 (failed).
+  INFO [1f189871] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814090750/public/system as localadm@133.130.127.205
+ DEBUG [1f189871] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814090750/public/system )
+  INFO [1f189871] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [b1331362] Running [ -L /var/www/secondhouse/releases/20190814090750/public/assets ] as localadm@133.130.127.205
+ DEBUG [b1331362] Command: [ -L /var/www/secondhouse/releases/20190814090750/public/assets ]
+ DEBUG [b1331362] Finished in 0.160 seconds with exit status 1 (failed).
+ DEBUG [c05532c9] Running [ -d /var/www/secondhouse/releases/20190814090750/public/assets ] as localadm@133.130.127.205
+ DEBUG [c05532c9] Command: [ -d /var/www/secondhouse/releases/20190814090750/public/assets ]
+ DEBUG [c05532c9] Finished in 0.123 seconds with exit status 1 (failed).
+  INFO [e5fbef93] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814090750/public/assets as localadm@133.130.127.205
+ DEBUG [e5fbef93] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814090750/public/assets )
+  INFO [e5fbef93] Finished in 0.151 seconds with exit status 0 (successful).
+ DEBUG [af9aba4e] Running if test ! -d /var/www/secondhouse/releases/20190814090750; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814090750'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [af9aba4e] Command: if test ! -d /var/www/secondhouse/releases/20190814090750; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814090750'" 1>&2; false; fi
+ DEBUG [af9aba4e] Finished in 0.137 seconds with exit status 0 (successful).
+ DEBUG [92a07571] Running $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle as localadm@133.130.127.205
+ DEBUG [92a07571] Command: cd /var/www/secondhouse/releases/20190814090750 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle )
+ DEBUG [92a07571] 	/var/www/secondhouse/releases/20190814090750/server/Gemfile not found
+ DEBUG [92a07571] Finished in 0.566 seconds with exit status 10 (failed).
+  INFO [058072cb] Running $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet as localadm@133.130.127.205
+ DEBUG [058072cb] Command: cd /var/www/secondhouse/releases/20190814090750 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet )
+ DEBUG [058072cb] 	The --deployment flag requires a server/Gemfile.lock. Please make sure you have
+checked your server/Gemfile.lock into version control before deploying.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-14 18:14:45 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [bca095d7] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as localadm@133.130.127.205
+ DEBUG [bca095d7] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [bca095d7] Finished in 0.517 seconds with exit status 0 (successful).
+  INFO [840e9de7] Running /usr/bin/env mkdir -p /tmp as localadm@133.130.127.205
+ DEBUG [840e9de7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [840e9de7] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 0.0%
+  INFO Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 100.0%
+  INFO [2e06708a] Running /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh as localadm@133.130.127.205
+ DEBUG [2e06708a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh )
+  INFO [2e06708a] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO [7ae2d7a8] Running /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD as localadm@133.130.127.205
+ DEBUG [7ae2d7a8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD )
+ DEBUG [7ae2d7a8] 	9a5a0d0c20a5bf00e548d60e31a6c6c42968555b	HEAD
+  INFO [7ae2d7a8] Finished in 2.353 seconds with exit status 0 (successful).
+  INFO [a306422e] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases as localadm@133.130.127.205
+ DEBUG [a306422e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases )
+  INFO [a306422e] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [3d27b0d4] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets as localadm@133.130.127.205
+ DEBUG [3d27b0d4] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets )
+  INFO [3d27b0d4] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [ae4170d8] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/config as localadm@133.130.127.205
+ DEBUG [ae4170d8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/config )
+  INFO [ae4170d8] Finished in 0.144 seconds with exit status 0 (successful).
+ DEBUG [c5f82a56] Running [ -f /var/www/secondhouse/shared/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [c5f82a56] Command: [ -f /var/www/secondhouse/shared/config/settings.yml ]
+ DEBUG [c5f82a56] Finished in 0.144 seconds with exit status 0 (successful).
+ DEBUG [529fcc95] Running [ -f /var/www/secondhouse/current/REVISION ] as localadm@133.130.127.205
+ DEBUG [529fcc95] Command: [ -f /var/www/secondhouse/current/REVISION ]
+ DEBUG [529fcc95] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [155e4c9f] Running /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null as localadm@133.130.127.205
+ DEBUG [155e4c9f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null )
+ DEBUG [155e4c9f] 	079569ea7f06e373fa12b6330a4f5ba4e8575edc
+ DEBUG [155e4c9f] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [f9cfaa89] Running [ -f /var/www/secondhouse/repo/HEAD ] as localadm@133.130.127.205
+ DEBUG [f9cfaa89] Command: [ -f /var/www/secondhouse/repo/HEAD ]
+ DEBUG [f9cfaa89] Finished in 0.144 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/secondhouse/repo
+ DEBUG [f53d88cd] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [f53d88cd] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [f53d88cd] Finished in 0.131 seconds with exit status 0 (successful).
+  INFO [aa714719] Running /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git as localadm@133.130.127.205
+ DEBUG [aa714719] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git )
+  INFO [aa714719] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO [39a7eeaf] Running /usr/bin/env git remote update --prune as localadm@133.130.127.205
+ DEBUG [39a7eeaf] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [39a7eeaf] 	Fetching origin
+ DEBUG [39a7eeaf] 	From github.com:secondhouse/secondhouseapp
+   de4f93a..9a5a0d0  master     -> master
+  INFO [39a7eeaf] Finished in 2.764 seconds with exit status 0 (successful).
+ DEBUG [b1cb6d17] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [b1cb6d17] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [b1cb6d17] Finished in 0.100 seconds with exit status 0 (successful).
+  INFO [07aa97f0] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449 as localadm@133.130.127.205
+ DEBUG [07aa97f0] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449 )
+  INFO [07aa97f0] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [26896079] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814091449 as localadm@133.130.127.205
+ DEBUG [26896079] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814091449 )
+  INFO [26896079] Finished in 1.592 seconds with exit status 0 (successful).
+ DEBUG [75cfc36c] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [75cfc36c] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [75cfc36c] Finished in 0.214 seconds with exit status 0 (successful).
+ DEBUG [bdad0cb2] Running /usr/bin/env git rev-list --max-count=1 master as localadm@133.130.127.205
+ DEBUG [bdad0cb2] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [bdad0cb2] 	9a5a0d0c20a5bf00e548d60e31a6c6c42968555b
+ DEBUG [bdad0cb2] Finished in 0.201 seconds with exit status 0 (successful).
+ DEBUG [33813221] Running if test ! -d /var/www/secondhouse/releases/20190814091449; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814091449'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [33813221] Command: if test ! -d /var/www/secondhouse/releases/20190814091449; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814091449'" 1>&2; false; fi
+ DEBUG [33813221] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO [5bf8ec56] Running /usr/bin/env echo "9a5a0d0c20a5bf00e548d60e31a6c6c42968555b" > REVISION as localadm@133.130.127.205
+ DEBUG [5bf8ec56] Command: cd /var/www/secondhouse/releases/20190814091449 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env echo "9a5a0d0c20a5bf00e548d60e31a6c6c42968555b" > REVISION )
+  INFO [5bf8ec56] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [1ece4def] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449/config as localadm@133.130.127.205
+ DEBUG [1ece4def] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449/config )
+  INFO [1ece4def] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [e0c49204] Running [ -L /var/www/secondhouse/releases/20190814091449/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [e0c49204] Command: [ -L /var/www/secondhouse/releases/20190814091449/config/settings.yml ]
+ DEBUG [e0c49204] Finished in 0.139 seconds with exit status 1 (failed).
+ DEBUG [a6c4223a] Running [ -f /var/www/secondhouse/releases/20190814091449/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [a6c4223a] Command: [ -f /var/www/secondhouse/releases/20190814091449/config/settings.yml ]
+ DEBUG [a6c4223a] Finished in 0.148 seconds with exit status 1 (failed).
+  INFO [bc53ca38] Running /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814091449/config/settings.yml as localadm@133.130.127.205
+ DEBUG [bc53ca38] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814091449/config/settings.yml )
+  INFO [bc53ca38] Finished in 0.149 seconds with exit status 0 (successful).
+  INFO [68a605e5] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449 /var/www/secondhouse/releases/20190814091449/tmp /var/www/secondhouse/releases/20190814091449/vendor /var/www/secondhouse/releases/20190814091449/public as localadm@133.130.127.205
+ DEBUG [68a605e5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814091449 /var/www/secondhouse/releases/20190814091449/tmp /var/www/secondhouse/releases/20190814091449/vendor /var/www/secondhouse/releases/20190814091449/public )
+  INFO [68a605e5] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [1be66e3b] Running [ -L /var/www/secondhouse/releases/20190814091449/log ] as localadm@133.130.127.205
+ DEBUG [1be66e3b] Command: [ -L /var/www/secondhouse/releases/20190814091449/log ]
+ DEBUG [1be66e3b] Finished in 0.139 seconds with exit status 1 (failed).
+ DEBUG [5e3558d1] Running [ -d /var/www/secondhouse/releases/20190814091449/log ] as localadm@133.130.127.205
+ DEBUG [5e3558d1] Command: [ -d /var/www/secondhouse/releases/20190814091449/log ]
+ DEBUG [5e3558d1] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [5d074122] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814091449/log as localadm@133.130.127.205
+ DEBUG [5d074122] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814091449/log )
+  INFO [5d074122] Finished in 0.137 seconds with exit status 0 (successful).
+  INFO [07887d1f] Running /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814091449/log as localadm@133.130.127.205
+ DEBUG [07887d1f] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814091449/log )
+  INFO [07887d1f] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [570883fd] Running [ -L /var/www/secondhouse/releases/20190814091449/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [570883fd] Command: [ -L /var/www/secondhouse/releases/20190814091449/tmp/pids ]
+ DEBUG [570883fd] Finished in 0.135 seconds with exit status 1 (failed).
+ DEBUG [224f20c9] Running [ -d /var/www/secondhouse/releases/20190814091449/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [224f20c9] Command: [ -d /var/www/secondhouse/releases/20190814091449/tmp/pids ]
+ DEBUG [224f20c9] Finished in 0.143 seconds with exit status 1 (failed).
+  INFO [0eb377b1] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814091449/tmp/pids as localadm@133.130.127.205
+ DEBUG [0eb377b1] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814091449/tmp/pids )
+  INFO [0eb377b1] Finished in 0.141 seconds with exit status 0 (successful).
+ DEBUG [fdd9ce86] Running [ -L /var/www/secondhouse/releases/20190814091449/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [fdd9ce86] Command: [ -L /var/www/secondhouse/releases/20190814091449/tmp/cache ]
+ DEBUG [fdd9ce86] Finished in 0.167 seconds with exit status 1 (failed).
+ DEBUG [9f3180e2] Running [ -d /var/www/secondhouse/releases/20190814091449/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [9f3180e2] Command: [ -d /var/www/secondhouse/releases/20190814091449/tmp/cache ]
+ DEBUG [9f3180e2] Finished in 0.125 seconds with exit status 1 (failed).
+  INFO [483b2a02] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814091449/tmp/cache as localadm@133.130.127.205
+ DEBUG [483b2a02] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814091449/tmp/cache )
+  INFO [483b2a02] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [c27470ec] Running [ -L /var/www/secondhouse/releases/20190814091449/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [c27470ec] Command: [ -L /var/www/secondhouse/releases/20190814091449/tmp/sockets ]
+ DEBUG [c27470ec] Finished in 0.155 seconds with exit status 1 (failed).
+ DEBUG [e1a1d3db] Running [ -d /var/www/secondhouse/releases/20190814091449/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [e1a1d3db] Command: [ -d /var/www/secondhouse/releases/20190814091449/tmp/sockets ]
+ DEBUG [e1a1d3db] Finished in 0.127 seconds with exit status 1 (failed).
+  INFO [cba3e3d7] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814091449/tmp/sockets as localadm@133.130.127.205
+ DEBUG [cba3e3d7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814091449/tmp/sockets )
+  INFO [cba3e3d7] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [aff6f69c] Running [ -L /var/www/secondhouse/releases/20190814091449/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [aff6f69c] Command: [ -L /var/www/secondhouse/releases/20190814091449/vendor/bundle ]
+ DEBUG [aff6f69c] Finished in 0.134 seconds with exit status 1 (failed).
+ DEBUG [9864a92a] Running [ -d /var/www/secondhouse/releases/20190814091449/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [9864a92a] Command: [ -d /var/www/secondhouse/releases/20190814091449/vendor/bundle ]
+ DEBUG [9864a92a] Finished in 0.138 seconds with exit status 0 (successful).
+  INFO [631ef43d] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814091449/vendor/bundle as localadm@133.130.127.205
+ DEBUG [631ef43d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814091449/vendor/bundle )
+  INFO [631ef43d] Finished in 0.251 seconds with exit status 0 (successful).
+  INFO [3180c4f0] Running /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814091449/vendor/bundle as localadm@133.130.127.205
+ DEBUG [3180c4f0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814091449/vendor/bundle )
+  INFO [3180c4f0] Finished in 0.162 seconds with exit status 0 (successful).
+ DEBUG [a3bc892b] Running [ -L /var/www/secondhouse/releases/20190814091449/public/system ] as localadm@133.130.127.205
+ DEBUG [a3bc892b] Command: [ -L /var/www/secondhouse/releases/20190814091449/public/system ]
+ DEBUG [a3bc892b] Finished in 0.132 seconds with exit status 1 (failed).
+ DEBUG [42388fdc] Running [ -d /var/www/secondhouse/releases/20190814091449/public/system ] as localadm@133.130.127.205
+ DEBUG [42388fdc] Command: [ -d /var/www/secondhouse/releases/20190814091449/public/system ]
+ DEBUG [42388fdc] Finished in 0.136 seconds with exit status 1 (failed).
+  INFO [b75e0eb6] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814091449/public/system as localadm@133.130.127.205
+ DEBUG [b75e0eb6] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814091449/public/system )
+  INFO [b75e0eb6] Finished in 0.127 seconds with exit status 0 (successful).
+ DEBUG [6da0fd02] Running [ -L /var/www/secondhouse/releases/20190814091449/public/assets ] as localadm@133.130.127.205
+ DEBUG [6da0fd02] Command: [ -L /var/www/secondhouse/releases/20190814091449/public/assets ]
+ DEBUG [6da0fd02] Finished in 0.137 seconds with exit status 1 (failed).
+ DEBUG [8c378af0] Running [ -d /var/www/secondhouse/releases/20190814091449/public/assets ] as localadm@133.130.127.205
+ DEBUG [8c378af0] Command: [ -d /var/www/secondhouse/releases/20190814091449/public/assets ]
+ DEBUG [8c378af0] Finished in 0.129 seconds with exit status 1 (failed).
+  INFO [cbc7dc1b] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814091449/public/assets as localadm@133.130.127.205
+ DEBUG [cbc7dc1b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814091449/public/assets )
+  INFO [cbc7dc1b] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [aac8d649] Running if test ! -d /var/www/secondhouse/releases/20190814091449; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814091449'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [aac8d649] Command: if test ! -d /var/www/secondhouse/releases/20190814091449; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814091449'" 1>&2; false; fi
+ DEBUG [aac8d649] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [cda305ad] Running $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle as localadm@133.130.127.205
+ DEBUG [cda305ad] Command: cd /var/www/secondhouse/releases/20190814091449 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle )
+ DEBUG [cda305ad] 	/var/www/secondhouse/releases/20190814091449/server/Gemfile not found
+ DEBUG [cda305ad] Finished in 0.606 seconds with exit status 10 (failed).
+  INFO [264ca0fe] Running $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet as localadm@133.130.127.205
+ DEBUG [264ca0fe] Command: cd /var/www/secondhouse/releases/20190814091449 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet )
+ DEBUG [264ca0fe] 	The --deployment flag requires a server/Gemfile.lock. Please make sure you have
+checked your server/Gemfile.lock into version control before deploying.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-08-14 18:31:25 +0900 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [0411e8d2] Running [ -d $HOME/.rbenv/versions/2.5.0 ] as localadm@133.130.127.205
+ DEBUG [0411e8d2] Command: [ -d $HOME/.rbenv/versions/2.5.0 ]
+ DEBUG [0411e8d2] Finished in 0.538 seconds with exit status 0 (successful).
+  INFO [c2f80522] Running /usr/bin/env mkdir -p /tmp as localadm@133.130.127.205
+ DEBUG [c2f80522] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [c2f80522] Finished in 0.142 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 0.0%
+  INFO Uploading /tmp/git-ssh-secondhose-production-shinkaihideto.sh 100.0%
+  INFO [80fd4ac8] Running /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh as localadm@133.130.127.205
+ DEBUG [80fd4ac8] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-secondhose-production-shinkaihideto.sh )
+  INFO [80fd4ac8] Finished in 0.148 seconds with exit status 0 (successful).
+  INFO [a036ca2c] Running /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD as localadm@133.130.127.205
+ DEBUG [a036ca2c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git ls-remote git@github.com:secondhouse/secondhouseapp.git HEAD )
+ DEBUG [a036ca2c] 	9a5a0d0c20a5bf00e548d60e31a6c6c42968555b	HEAD
+  INFO [a036ca2c] Finished in 2.559 seconds with exit status 0 (successful).
+  INFO [2e44c4e0] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases as localadm@133.130.127.205
+ DEBUG [2e44c4e0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared /var/www/secondhouse/releases )
+  INFO [2e44c4e0] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [ee16a699] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets as localadm@133.130.127.205
+ DEBUG [ee16a699] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/log /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/shared/public/system /var/www/secondhouse/shared/public/assets )
+  INFO [ee16a699] Finished in 0.162 seconds with exit status 0 (successful).
+  INFO [766fc127] Running /usr/bin/env mkdir -p /var/www/secondhouse/shared/config as localadm@133.130.127.205
+ DEBUG [766fc127] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/shared/config )
+  INFO [766fc127] Finished in 0.144 seconds with exit status 0 (successful).
+ DEBUG [8fb378ca] Running [ -f /var/www/secondhouse/shared/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [8fb378ca] Command: [ -f /var/www/secondhouse/shared/config/settings.yml ]
+ DEBUG [8fb378ca] Finished in 0.143 seconds with exit status 0 (successful).
+ DEBUG [fbf2c94f] Running [ -f /var/www/secondhouse/current/REVISION ] as localadm@133.130.127.205
+ DEBUG [fbf2c94f] Command: [ -f /var/www/secondhouse/current/REVISION ]
+ DEBUG [fbf2c94f] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [1898a344] Running /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null as localadm@133.130.127.205
+ DEBUG [1898a344] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env cat /var/www/secondhouse/current/REVISION 2>/dev/null )
+ DEBUG [1898a344] 	079569ea7f06e373fa12b6330a4f5ba4e8575edc
+ DEBUG [1898a344] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [26a7db1f] Running [ -f /var/www/secondhouse/repo/HEAD ] as localadm@133.130.127.205
+ DEBUG [26a7db1f] Command: [ -f /var/www/secondhouse/repo/HEAD ]
+ DEBUG [26a7db1f] Finished in 0.165 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/secondhouse/repo
+ DEBUG [b78296c9] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [b78296c9] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [b78296c9] Finished in 0.135 seconds with exit status 0 (successful).
+  INFO [2d8820b7] Running /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git as localadm@133.130.127.205
+ DEBUG [2d8820b7] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote set-url origin git@github.com:secondhouse/secondhouseapp.git )
+  INFO [2d8820b7] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [65e31739] Running /usr/bin/env git remote update --prune as localadm@133.130.127.205
+ DEBUG [65e31739] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [65e31739] 	Fetching origin
+  INFO [65e31739] Finished in 2.599 seconds with exit status 0 (successful).
+ DEBUG [27a582fa] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [27a582fa] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [27a582fa] Finished in 0.103 seconds with exit status 0 (successful).
+  INFO [dd0bfe24] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130 as localadm@133.130.127.205
+ DEBUG [dd0bfe24] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130 )
+  INFO [dd0bfe24] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [f399a8d6] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814093130 as localadm@133.130.127.205
+ DEBUG [f399a8d6] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/secondhouse/releases/20190814093130 )
+  INFO [f399a8d6] Finished in 1.764 seconds with exit status 0 (successful).
+ DEBUG [2cb0ddae] Running if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [2cb0ddae] Command: if test ! -d /var/www/secondhouse/repo; then echo "Directory does not exist '/var/www/secondhouse/repo'" 1>&2; false; fi
+ DEBUG [2cb0ddae] Finished in 0.214 seconds with exit status 0 (successful).
+ DEBUG [393a63e6] Running /usr/bin/env git rev-list --max-count=1 master as localadm@133.130.127.205
+ DEBUG [393a63e6] Command: cd /var/www/secondhouse/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-secondhose-production-shinkaihideto.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [393a63e6] 	9a5a0d0c20a5bf00e548d60e31a6c6c42968555b
+ DEBUG [393a63e6] Finished in 0.144 seconds with exit status 0 (successful).
+ DEBUG [53ec4720] Running if test ! -d /var/www/secondhouse/releases/20190814093130; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814093130'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [53ec4720] Command: if test ! -d /var/www/secondhouse/releases/20190814093130; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814093130'" 1>&2; false; fi
+ DEBUG [53ec4720] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [03e52ad2] Running /usr/bin/env echo "9a5a0d0c20a5bf00e548d60e31a6c6c42968555b" > REVISION as localadm@133.130.127.205
+ DEBUG [03e52ad2] Command: cd /var/www/secondhouse/releases/20190814093130 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env echo "9a5a0d0c20a5bf00e548d60e31a6c6c42968555b" > REVISION )
+  INFO [03e52ad2] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [6b03d49a] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130/config as localadm@133.130.127.205
+ DEBUG [6b03d49a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130/config )
+  INFO [6b03d49a] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [6922c4ac] Running [ -L /var/www/secondhouse/releases/20190814093130/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [6922c4ac] Command: [ -L /var/www/secondhouse/releases/20190814093130/config/settings.yml ]
+ DEBUG [6922c4ac] Finished in 0.143 seconds with exit status 1 (failed).
+ DEBUG [a681d05f] Running [ -f /var/www/secondhouse/releases/20190814093130/config/settings.yml ] as localadm@133.130.127.205
+ DEBUG [a681d05f] Command: [ -f /var/www/secondhouse/releases/20190814093130/config/settings.yml ]
+ DEBUG [a681d05f] Finished in 0.144 seconds with exit status 1 (failed).
+  INFO [fd7614cc] Running /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814093130/config/settings.yml as localadm@133.130.127.205
+ DEBUG [fd7614cc] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/config/settings.yml /var/www/secondhouse/releases/20190814093130/config/settings.yml )
+  INFO [fd7614cc] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [ad5ae29c] Running /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130 /var/www/secondhouse/releases/20190814093130/tmp /var/www/secondhouse/releases/20190814093130/vendor /var/www/secondhouse/releases/20190814093130/public as localadm@133.130.127.205
+ DEBUG [ad5ae29c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env mkdir -p /var/www/secondhouse/releases/20190814093130 /var/www/secondhouse/releases/20190814093130/tmp /var/www/secondhouse/releases/20190814093130/vendor /var/www/secondhouse/releases/20190814093130/public )
+  INFO [ad5ae29c] Finished in 0.150 seconds with exit status 0 (successful).
+ DEBUG [48859a82] Running [ -L /var/www/secondhouse/releases/20190814093130/log ] as localadm@133.130.127.205
+ DEBUG [48859a82] Command: [ -L /var/www/secondhouse/releases/20190814093130/log ]
+ DEBUG [48859a82] Finished in 0.145 seconds with exit status 1 (failed).
+ DEBUG [fd69a080] Running [ -d /var/www/secondhouse/releases/20190814093130/log ] as localadm@133.130.127.205
+ DEBUG [fd69a080] Command: [ -d /var/www/secondhouse/releases/20190814093130/log ]
+ DEBUG [fd69a080] Finished in 0.131 seconds with exit status 0 (successful).
+  INFO [2f98eed3] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814093130/log as localadm@133.130.127.205
+ DEBUG [2f98eed3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814093130/log )
+  INFO [2f98eed3] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [2f736bc3] Running /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814093130/log as localadm@133.130.127.205
+ DEBUG [2f736bc3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/log /var/www/secondhouse/releases/20190814093130/log )
+  INFO [2f736bc3] Finished in 0.157 seconds with exit status 0 (successful).
+ DEBUG [c2172928] Running [ -L /var/www/secondhouse/releases/20190814093130/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [c2172928] Command: [ -L /var/www/secondhouse/releases/20190814093130/tmp/pids ]
+ DEBUG [c2172928] Finished in 0.132 seconds with exit status 1 (failed).
+ DEBUG [1da5e95e] Running [ -d /var/www/secondhouse/releases/20190814093130/tmp/pids ] as localadm@133.130.127.205
+ DEBUG [1da5e95e] Command: [ -d /var/www/secondhouse/releases/20190814093130/tmp/pids ]
+ DEBUG [1da5e95e] Finished in 0.128 seconds with exit status 1 (failed).
+  INFO [2e712b2c] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814093130/tmp/pids as localadm@133.130.127.205
+ DEBUG [2e712b2c] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/pids /var/www/secondhouse/releases/20190814093130/tmp/pids )
+  INFO [2e712b2c] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [c19f8cee] Running [ -L /var/www/secondhouse/releases/20190814093130/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [c19f8cee] Command: [ -L /var/www/secondhouse/releases/20190814093130/tmp/cache ]
+ DEBUG [c19f8cee] Finished in 0.129 seconds with exit status 1 (failed).
+ DEBUG [3a7a2508] Running [ -d /var/www/secondhouse/releases/20190814093130/tmp/cache ] as localadm@133.130.127.205
+ DEBUG [3a7a2508] Command: [ -d /var/www/secondhouse/releases/20190814093130/tmp/cache ]
+ DEBUG [3a7a2508] Finished in 0.144 seconds with exit status 1 (failed).
+  INFO [7ac928fe] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814093130/tmp/cache as localadm@133.130.127.205
+ DEBUG [7ac928fe] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/cache /var/www/secondhouse/releases/20190814093130/tmp/cache )
+  INFO [7ac928fe] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [e75d189a] Running [ -L /var/www/secondhouse/releases/20190814093130/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [e75d189a] Command: [ -L /var/www/secondhouse/releases/20190814093130/tmp/sockets ]
+ DEBUG [e75d189a] Finished in 0.133 seconds with exit status 1 (failed).
+ DEBUG [cde0b0f7] Running [ -d /var/www/secondhouse/releases/20190814093130/tmp/sockets ] as localadm@133.130.127.205
+ DEBUG [cde0b0f7] Command: [ -d /var/www/secondhouse/releases/20190814093130/tmp/sockets ]
+ DEBUG [cde0b0f7] Finished in 0.137 seconds with exit status 1 (failed).
+  INFO [5ca68fc3] Running /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814093130/tmp/sockets as localadm@133.130.127.205
+ DEBUG [5ca68fc3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/tmp/sockets /var/www/secondhouse/releases/20190814093130/tmp/sockets )
+  INFO [5ca68fc3] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [24e3a9db] Running [ -L /var/www/secondhouse/releases/20190814093130/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [24e3a9db] Command: [ -L /var/www/secondhouse/releases/20190814093130/vendor/bundle ]
+ DEBUG [24e3a9db] Finished in 0.136 seconds with exit status 1 (failed).
+ DEBUG [63ed6396] Running [ -d /var/www/secondhouse/releases/20190814093130/vendor/bundle ] as localadm@133.130.127.205
+ DEBUG [63ed6396] Command: [ -d /var/www/secondhouse/releases/20190814093130/vendor/bundle ]
+ DEBUG [63ed6396] Finished in 0.153 seconds with exit status 0 (successful).
+  INFO [fb6c1eda] Running /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814093130/vendor/bundle as localadm@133.130.127.205
+ DEBUG [fb6c1eda] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env rm -rf /var/www/secondhouse/releases/20190814093130/vendor/bundle )
+  INFO [fb6c1eda] Finished in 0.451 seconds with exit status 0 (successful).
+  INFO [77cd8cf2] Running /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814093130/vendor/bundle as localadm@133.130.127.205
+ DEBUG [77cd8cf2] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/vendor/bundle /var/www/secondhouse/releases/20190814093130/vendor/bundle )
+  INFO [77cd8cf2] Finished in 0.150 seconds with exit status 0 (successful).
+ DEBUG [94955263] Running [ -L /var/www/secondhouse/releases/20190814093130/public/system ] as localadm@133.130.127.205
+ DEBUG [94955263] Command: [ -L /var/www/secondhouse/releases/20190814093130/public/system ]
+ DEBUG [94955263] Finished in 0.132 seconds with exit status 1 (failed).
+ DEBUG [4cdea4fa] Running [ -d /var/www/secondhouse/releases/20190814093130/public/system ] as localadm@133.130.127.205
+ DEBUG [4cdea4fa] Command: [ -d /var/www/secondhouse/releases/20190814093130/public/system ]
+ DEBUG [4cdea4fa] Finished in 0.145 seconds with exit status 1 (failed).
+  INFO [4cb54367] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814093130/public/system as localadm@133.130.127.205
+ DEBUG [4cb54367] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/system /var/www/secondhouse/releases/20190814093130/public/system )
+  INFO [4cb54367] Finished in 0.137 seconds with exit status 0 (successful).
+ DEBUG [75690493] Running [ -L /var/www/secondhouse/releases/20190814093130/public/assets ] as localadm@133.130.127.205
+ DEBUG [75690493] Command: [ -L /var/www/secondhouse/releases/20190814093130/public/assets ]
+ DEBUG [75690493] Finished in 0.135 seconds with exit status 1 (failed).
+ DEBUG [1b92b4b0] Running [ -d /var/www/secondhouse/releases/20190814093130/public/assets ] as localadm@133.130.127.205
+ DEBUG [1b92b4b0] Command: [ -d /var/www/secondhouse/releases/20190814093130/public/assets ]
+ DEBUG [1b92b4b0] Finished in 0.134 seconds with exit status 1 (failed).
+  INFO [687623c3] Running /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814093130/public/assets as localadm@133.130.127.205
+ DEBUG [687623c3] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; /usr/bin/env ln -s /var/www/secondhouse/shared/public/assets /var/www/secondhouse/releases/20190814093130/public/assets )
+  INFO [687623c3] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [dea8cc29] Running if test ! -d /var/www/secondhouse/releases/20190814093130; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814093130'" 1>&2; false; fi as localadm@133.130.127.205
+ DEBUG [dea8cc29] Command: if test ! -d /var/www/secondhouse/releases/20190814093130; then echo "Directory does not exist '/var/www/secondhouse/releases/20190814093130'" 1>&2; false; fi
+ DEBUG [dea8cc29] Finished in 0.146 seconds with exit status 0 (successful).
+ DEBUG [1ad9d8d4] Running $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle as localadm@133.130.127.205
+ DEBUG [1ad9d8d4] Command: cd /var/www/secondhouse/releases/20190814093130 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle check --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle )
+ DEBUG [1ad9d8d4] 	/var/www/secondhouse/releases/20190814093130/server/Gemfile not found
+ DEBUG [1ad9d8d4] Finished in 0.521 seconds with exit status 10 (failed).
+  INFO [8f861769] Running $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet as localadm@133.130.127.205
+ DEBUG [8f861769] Command: cd /var/www/secondhouse/releases/20190814093130 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.5.0" ; $HOME/.rbenv/bin/rbenv exec bundle install --gemfile server/Gemfile --path /var/www/secondhouse/shared/bundle --jobs 4 --without development test --deployment --quiet )
+ DEBUG [8f861769] 	The --deployment flag requires a server/Gemfile.lock. Please make sure you have
+checked your server/Gemfile.lock into version control before deploying.
