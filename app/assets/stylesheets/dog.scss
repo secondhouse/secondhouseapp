@@ -236,6 +236,10 @@
   display: flex;
  flex-wrap: wrap;
  align-items: baseline;
+<<<<<<< HEAD
+=======
+ border: dotted 0.5px gray;
+>>>>>>> refs/remotes/origin/master
 }
 
 
@@ -850,6 +854,7 @@ box-shadow: 1px 0 5px 1px #999;
 }
 
 .management_containar{
+<<<<<<< HEAD
     margin: 40px auto 0;
     height: auto;
 }
@@ -858,6 +863,13 @@ box-shadow: 1px 0 5px 1px #999;
 }
 #owner_com{
     border: solid 2px;
+=======
+    width: 1000px;
+    margin: 40px auto 0;
+    display: flex;
+   flex-wrap: wrap;
+   align-items: baseline;
+>>>>>>> refs/remotes/origin/master
 }
 
 .management_containar h1{
@@ -1077,6 +1089,7 @@ box-shadow: 1px 0 5px 1px #999;
     justify-content:left;
 }
 #icon_choi{
+<<<<<<< HEAD
     width: 119px;
     height: 119px;
     margin: 13px auto 0;
@@ -1087,6 +1100,12 @@ box-shadow: 1px 0 5px 1px #999;
 #choiced_user1_pc{
     margin-top: 20px;
 }
+=======
+    width: 118px;
+    height: 118px;
+    margin: 13px auto 0;
+}
+>>>>>>> refs/remotes/origin/master
 .choiced_user1{
     text-align: center;
 }
@@ -1179,7 +1198,11 @@ box-shadow: 1px 0 5px 1px #999;
     position: fixed;
 }
 .change_hei{
+<<<<<<< HEAD
     height: 260px;
+=======
+    height: 200px;
+>>>>>>> refs/remotes/origin/master
 }
 .pay_modal_wrapp{
     display: none;
@@ -1273,9 +1296,12 @@ box-shadow: 1px 0 5px 1px #999;
     margin: 20px auto 0;
     padding-top: 10px;
 }
+<<<<<<< HEAD
 #footer_btn00{
     margin: 10px auto 0;
 }
+=======
+>>>>>>> refs/remotes/origin/master
 .messeage_choice{
     position: fixed;
     top:150;

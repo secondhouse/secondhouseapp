@@ -5,6 +5,7 @@
     <div class="evaluation_wrapp">
         <div class="profile00">
 <!---------アイコンの有無---------------->
+<<<<<<< HEAD
             <div class="icon_wrapp_evaluation">
                 <div class="users_icon">
                     <% if @user.image_name %>
@@ -12,6 +13,11 @@
                             <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
                         <% end %>
                     <% else %>
+=======
+            <% if @user.image_name == "" %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+>>>>>>> refs/remotes/origin/master
                         <%= link_to("/users/edit/#{@user.id}") do %>
                             <i class="fas fa-user-circle fa-8x icon_color"></i>
                             <div class="icon_add">
@@ -19,9 +25,27 @@
                                 <i class="fas fa-plus icon_plus2"></i>
                             </div>
                         <% end %>
+<<<<<<< HEAD
                     <% end %>
                 </div>
             </div>
+=======
+                    </div>
+                </div>
+            <% else %>
+                <div class="icon_wrapp_evaluation">
+                    <div class="users_icon">
+                        <%= link_to("/users/seen/#{@user.id}") do %>
+                            <i class="fas fa-user-circle fa-8x icon_color"></i>
+                            <div class="icon_add">
+                                <i class="fas fa-camera fa-2x icon_camera2"></i>
+                                <i class="fas fa-plus icon_plus2"></i>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+>>>>>>> refs/remotes/origin/master
             <div class="evaluation_name">
                 <%= @user.name %>
             </div>
@@ -151,6 +175,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <!-----スマホ------->
 
 <div id="seen_eva_ss">
@@ -285,3 +310,5 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> refs/remotes/origin/master

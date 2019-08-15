@@ -76,6 +76,7 @@
                         <%= link_to("預かり依頼作成", "/users/writing") %>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <%= link_to("ログアウト", "/logout", {method: :post}) %>
                     </li>
                 <% else %>
@@ -153,6 +154,13 @@
                         <% end %>
                     </li>
 
+=======
+                        <%= link_to("ワンちゃん検索", "") %>
+                    </li>
+                    <li>
+                        <%= link_to("ログアウト", "/logout", {method: :post}) %>
+                    </li>
+>>>>>>> refs/remotes/origin/master
                 <% else %>
                     <li class="res1">
                         <%= link_to("SecondHouseってなに？", "/beginner's_guide") %>
@@ -187,12 +195,20 @@
                             <% @noread_bells.each do | noread_bell | %>
                                 <%
                                     @time = noread_bell.created_at
+<<<<<<< HEAD
                                     @progress = (@time - @now) * -1
+=======
+                                    @progress = (@now - @time)
+>>>>>>> refs/remotes/origin/master
                                 %>
                                 <%= link_to("/users/news/#{@current_user.id}") do %>
                                     <div class="messe_item">
                                         <div class="post_image" id="chage">
+<<<<<<< HEAD
                                             <img class="icon_size" src="<%= "/assets/pomeranian.jpg" %>" alt="">
+=======
+                                            <img class="icon_size" src="<%= "/pomeranian.jpg" %>" alt="">
+>>>>>>> refs/remotes/origin/master
                                         </div>
                                         <div class="">
                                             <p class="bell_content"><%= noread_bell.content %></p>
@@ -287,7 +303,11 @@
                                     </div>
                                     <div class="">
                                         <p><%= @sender.name %>からダイレクトメッセージが届きました。</p>
+<<<<<<< HEAD
                                         <p><%= no_read.messe.truncate(20) %></p>
+=======
+                                        <p><%= no_read.messe.truncate(27) %></p>
+>>>>>>> refs/remotes/origin/master
                                         <p class="time_send">
                                         <%=
                                             if @progress < 3600
@@ -348,7 +368,10 @@
 
         <% end %>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
         <% if flash[:notice] %>
             <div class="flash">
                 <%= flash[:notice] %>
@@ -356,7 +379,12 @@
         <% end %>
 
         <%= yield %>
+<<<<<<< HEAD
         <div class="space_ss"></div>
+=======
+        <div class="space">
+        </div>
+>>>>>>> refs/remotes/origin/master
         <footer>
             <div class="container_footer">
 <!----------1列目---------------->
@@ -422,6 +450,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
             <!---スマホ用---->
             <div class="container_footer_s">
@@ -488,6 +517,11 @@
                 </div>
 
             </div>
+=======
+
+            </div>
+
+>>>>>>> refs/remotes/origin/master
             <p class="copy_right">© 2019 Second House Inc.</p>
         </footer>
 

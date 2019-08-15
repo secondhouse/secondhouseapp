@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 --with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include
+=======
+--with-ldflags=-L/usr/local/opt/openssl/lib
+>>>>>>> refs/remotes/origin/master

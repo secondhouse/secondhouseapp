@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     post 'users/check_user'
     #root 'users#check_test'
     resources :users, only: [:check_user]
+<<<<<<< HEAD
     get  'users/eva_detail/:id' => "users#eva_detail"
     get  'users/menu' => "users#menu"
+=======
+
+>>>>>>> refs/remotes/origin/master
   post 'support/payment_cc' => "support#payment_cc"
   get 'support/pay_test' => "support#pay_test"
 

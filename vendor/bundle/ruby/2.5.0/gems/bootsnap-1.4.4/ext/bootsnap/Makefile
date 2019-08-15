@@ -31,8 +31,13 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
+<<<<<<< HEAD
 sitearchdir = $(DESTDIR)./.gem.20190814-89855-1b5287e
 sitelibdir = $(DESTDIR)./.gem.20190814-89855-1b5287e
+=======
+sitearchdir = $(DESTDIR)./.gem.20190719-43148-1l5z3d6
+sitelibdir = $(DESTDIR)./.gem.20190719-43148-1l5z3d6
+>>>>>>> refs/remotes/origin/master
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)

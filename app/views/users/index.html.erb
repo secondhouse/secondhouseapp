@@ -1,4 +1,5 @@
 <div class="registration">
+<<<<<<< HEAD
     <div class="container">
         <div class="container1">
             <h3>新規登録</h3>
@@ -47,4 +48,32 @@
             <a href="../users/login"><p>既にSecond Houseに登録している方はこちら</p></a>
         </div>
     </div>
+=======
+  <div class="container">
+    <div class="container1">
+      <h3>新規登録</h3>
+      <p>
+      Second Houseに会員登録いただくと、ワンちゃんを預けたり、預かったりすることができます。登録にはたったの3ステップ、1分もかかりません。</p>
+    </div>
+
+    <div class="form">
+       <%= form_tag("/users/new") do %>
+        <p>メールアドレス</p>
+        <div class="form_email">
+          <input name="email" type="email" value="" placeholder="info@second_house.jp" required>
+        </div>
+
+        <div class="form_email1">
+          <input type="submit" value="登録する">
+        </div>
+      <% end %>
+    </div>
+
+    <div class="font">
+      <a href="../users/login"><p>既にSecond Houseに登録している方はこちら</p></a>
+    </div>
+
+  </div>
+
+>>>>>>> refs/remotes/origin/master
 </div>

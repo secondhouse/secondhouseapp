@@ -3,17 +3,27 @@ class UsersController < ApplicationController
  before_action :login_user,{only: [:new, :login]}
  before_action :detail_user,{only: [:news, :talk, :show, :evaluation, :history, :direct_message]}
  before_action :flow_count,{only: [:news, :talk, :show, :evaluation, :history, :direct_message]}
+<<<<<<< HEAD
  before_action :history_count,{only: [:talk, :news, :direct_message, :evaluation, :history, :show, :seen_evaluation, :seen, :show_follow]}
  before_action :evaluations_calculation,{only: [:news, :direct_message, :talk, :evaluation, :history, :show]}
  before_action :post_user,{only: [:direct_message, :message_create, :talk]}
+=======
+ before_action :history_count,{only: [:talk, :news, :direct_message, :evaluation, :history, :show]}
+ before_action :evaluations_calculation,{only: [:news, :direct_message, :talk, :evaluation, :history, :show]}
+ before_action :post_user,{only: [:direct_message, :message_create, :talk]}
+ before_action :history_count_partner,{only: [:seen_evaluation, :seen, :show_follow]}
+>>>>>>> refs/remotes/origin/master
  before_action :flow_count_pra,{only: [:seen_evaluation, :seen, :show_follow]}
  before_action :detail_user_pra,{only: [:seen_evaluation, :seen, :show_follow]}
  before_action :evaluations_calculation_para,{only: [:seen_evaluation, :seen, :show_follow]}
 
+<<<<<<< HEAD
  def eva_detail
 
  end
 
+=======
+>>>>>>> refs/remotes/origin/master
  def dog_edit
    @dog = Dog.find_by(id: params[:id])
    @user = User.find_by(id: @current_user.id)
@@ -25,11 +35,19 @@ class UsersController < ApplicationController
 
      if params[:image].nil?
      else
+<<<<<<< HEAD
        @dog.image_name = "#{@dog.id}.jpg"
        image = params[:image]
        @dog.save
 
        File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/dog_images/#{@dog.image_name}", image.read)
+=======
+       @dog.image_name = "#{@dog.id}1.jpg"
+       image = params[:image]
+       @dog.save
+
+       File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/dog_images/#{@dog.image_name}", image.read)
+>>>>>>> refs/remotes/origin/master
        flash[:notice] = "プロフィールを更新しました"
      end
 
@@ -98,6 +116,7 @@ class UsersController < ApplicationController
        flash[:notice] = "プロフィールを更新しました"
      end
 
+<<<<<<< HEAD
     params[:character].each do | di1,di2 |
         if di2 == "1"
             @dog.character = nil
@@ -115,6 +134,22 @@ class UsersController < ApplicationController
         end
     end
     @dog.save
+=======
+
+
+   params[:character].each do | di1,di2 |
+       if di2 == "1"
+           @dog.character = nil
+           if @dog.character == nil
+               @dog.character = "#{di1}"
+           else
+               @dog.character = "#{@dog.character}" + "," + "#{di1}"
+           end
+       flash[:notice] = "プロフィールを更新しました"
+       end
+   end
+   @dog.save
+>>>>>>> refs/remotes/origin/master
 
 
    redirect_to("/users/dog_edit/#{@dog.id}")
@@ -156,7 +191,11 @@ end
       @bells = @bells.order("created_at DESC")
       @now = Time.new
    #お知らせの未読解除
+<<<<<<< HEAD
       @noread_bells = Bell.where(user_id: session[:user_id], read: 0)
+=======
+      @noread_bells = Bell.where('user_id = ? and read = ?', session[:user_id],0)
+>>>>>>> refs/remotes/origin/master
       @noread_bells.each do | noread_bell |
           noread_bell.read = 1
           noread_bell.save
@@ -176,12 +215,15 @@ end
       @messeages = Messeage.where("post_id = ? and send_id = ?", @user.id , @post.id)
       @messeages += Messeage.where("post_id = ? and send_id = ?",  @post.id , @user.id)
       @messeages = @messeages.sort
+<<<<<<< HEAD
 
       @no_reads = Messeage.where(post_id: @user.id, read: 0)
       @no_reads.each do | no_read |
           no_read.read = 1
           no_read.save
       end
+=======
+>>>>>>> refs/remotes/origin/master
   end
 
   #メッセージ送信後の処理-----------------------------
@@ -199,7 +241,11 @@ end
       @now = Time.new
 
       #既読にする--------------
+<<<<<<< HEAD
       @no_reads = Messeage.where(post_id: @user.id, read: 0)
+=======
+      @no_reads = Messeage.where("post_id = ? and read = ?",  @user.id, 0)
+>>>>>>> refs/remotes/origin/master
       @no_reads.each do | no_read |
           no_read.read = 1
           no_read.save
@@ -885,7 +931,11 @@ end
             image = params[:image]
             @user.save
 
+<<<<<<< HEAD
             File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/user_images/#{@user.image_name}", image.read)
+=======
+            File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/user_images/#{@user.image_name}", image.read)
+>>>>>>> refs/remotes/origin/master
         end
     #----------保存できたらメール----------------
         if @user.save && @user.name.present?
@@ -920,7 +970,10 @@ end
         render("users/new")
     end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
   end
   def token
       # 有効期限の確認
@@ -1008,8 +1061,11 @@ end
   end
 
   def evaluation
+<<<<<<< HEAD
       @evaluation_s = @evaluations
       @evaluation_s += @storages
+=======
+>>>>>>> refs/remotes/origin/master
 
 #評価の件数---------------------------------------------------
     @dog_evaluations = DogEvaluation.where(user_id: session[:user_id])
@@ -1093,22 +1149,38 @@ end
     @user = User.find_by(id: params[:id])
 
       if params[:image].present?
+<<<<<<< HEAD
         @image_name = @user.id + 100
         @user.image_name = "#{@image_name}.jpg"
         image = params[:image]
         @user.save
 
         File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/user_images/#{@user.image_name}", image.read)
+=======
+        @user.image_name = "#{@user.id}.jpg"
+        image = params[:image]
+        @user.save
+
+        File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/user_images/#{@user.image_name}", image.read)
+>>>>>>> refs/remotes/origin/master
         flash[:notice] = "プロフィールを更新しました"
       end
 
       if params[:image_header].present?
+<<<<<<< HEAD
         @image_name_cover = @user.id + 100
         @user.image_header = "#{@image_name_cover}.jpg"
         image2 = params[:image_header]
         @user.save
 
         File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/images_header/#{@user.image_header}", image2.read)
+=======
+        @user.image_header = "#{@user.id}.jpg"
+        image2 = params[:image_header]
+        @user.save
+
+        File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/images_header/#{@user.image_header}", image2.read)
+>>>>>>> refs/remotes/origin/master
         flash[:notice] = "プロフィールを更新しました"
 
       end
@@ -1152,7 +1224,11 @@ end
 
 #評価の追加------------------------------------------------------
   def judge
+<<<<<<< HEAD
       @request = Request.find_by(id: params[:id])
+=======
+      @request = Request.find_by(user_id: params[:id])
+>>>>>>> refs/remotes/origin/master
       @request.status_partner = 3
       if @request.status == 3
           @request.status_partner = 4
@@ -1182,7 +1258,14 @@ end
     @dog_evaluation.save
     @private.save
 
+<<<<<<< HEAD
 
+=======
+    @history = History.new(user_id: session[:user_id],
+                           partner: @user.id,
+                           request: 1,)
+    @history.save
+>>>>>>> refs/remotes/origin/master
 
 
 

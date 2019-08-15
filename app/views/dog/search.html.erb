@@ -89,10 +89,17 @@
             if @request.status < 1
                 if @num == 0
         %>
+<<<<<<< HEAD
                     <div class="num0" id="num0">
                 <% end  %>
                 <% if @num == 4 %>
                     <div class="num0" id="num0">
+=======
+                    <div class="num0">
+                <% end  %>
+                <% if @num == 4 %>
+                    <div class="num0">
+>>>>>>> refs/remotes/origin/master
                     <% @num = 0 %>
                 <% end %>
 
@@ -439,6 +446,7 @@
             <% @breeds.each do | breed | %><!--②-->
                 <% @request = Request.find_by(id: breed.request_id) %>
                 <% if @request.status < 1 %>
+<<<<<<< HEAD
                     <% if @num == 0 && @count == 0 %>
                         <div class="num0">
                     <% end %>
@@ -474,6 +482,43 @@
 
 
                     <div class="search_icon" id="search_dog_icon">
+=======
+                <% if @num == 0 && @count == 0 %>
+                    <div class="num0">
+                <% end %>
+                <% if @num == 4 %>
+                    <div class="num0">
+                    <% @num = 0 %>
+                <% end %>
+
+                <%
+                    if @request.dog_id.present?
+                        @dog_icon_if = Dog.find_by(id: @request.dog_id)
+                         if @dog_icon_if.dog_breed == @breed
+                            @dog_icon =  @dog_icon_if.image_name
+                        end
+                    end
+
+                     if @request.dog_id2.present?
+                         @dog_icon_if2 = Dog.find_by(id: @request.dog_id2)
+                         if @dog_icon_if2.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if2.image_name
+                         end
+                     end
+
+                     if @request.dog_id3.present?
+                         @dog_icon_if3 = Dog.find_by(id: @request.dog_id3)
+                         if @dog_icon_if3.dog_breed == @breed
+                              @dog_icon =  @dog_icon_if3.image_name
+                         end
+                     end
+
+                     @dog = Dog.find_by(image_name: @dog_icon)
+                %>
+
+
+                <div class="search_icon" id="search_dog_icon">
+>>>>>>> refs/remotes/origin/master
                         <% if @dog_icon %>
           <!------------アイコンあり------------------>
                             <div class="icon_wrapp00" id="change_ic">
@@ -570,12 +615,17 @@
         </div>
     </div>
     <% end %>
+<<<<<<< HEAD
     <% if @breed_adress_days.blank? &&  @adress_days.blank? && @breed_days.blank? && @adress_breeds.blank? && @days.blank? && @adresses.blank? && @breeds.blank?  ||  @num == 0 %>
+=======
+    <% if @breed_adress_days.blank? &&  @adress_days.blank? && @breed_days.blank? && @adress_breeds.blank? && @days.blank? && @adresses.blank? && @breeds.blank?  ||  @num == 0 %>   
+>>>>>>> refs/remotes/origin/master
         <div class="no_search">
             <p class="no_search_head">申し訳ありません。現在該当する依頼はありません。</p>
         </div>
     <% end %>
 </div>
+<<<<<<< HEAD
 <!-------スマホ------->
 
 <div class="search_cover" id="search_cover"><!--全体のdiv-->
@@ -1102,3 +1152,5 @@
         </div>
     <% end %>
 </div>
+=======
+>>>>>>> refs/remotes/origin/master

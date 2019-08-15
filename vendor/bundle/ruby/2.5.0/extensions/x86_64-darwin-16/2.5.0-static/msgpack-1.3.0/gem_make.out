@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-1rrg7w.rb extconf.rb
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-1twcyd1.rb extconf.rb
+>>>>>>> refs/remotes/origin/master
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -11,10 +16,17 @@ checking for rb_hash_dup() in ruby.h... yes
 checking for rb_hash_clear() in ruby.h... yes
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling buffer.c
 compiling buffer_class.c
@@ -34,6 +46,12 @@ static VALUE Unpacker_peek_next_type(VALUE self)
 compiling unpacker_ext_registry.c
 linking shared-object msgpack/msgpack.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20190814-89855-p93as/msgpack
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/msgpack-1.3.0/ext/msgpack
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20190719-43148-1uu7cq0/msgpack
+>>>>>>> refs/remotes/origin/master

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+// 7/4 14時コピー
+
+<div class="space"></div>
+>>>>>>> refs/remotes/origin/master
 <div class="space"></div>
 <div class="cc_notice_wrapp"></div>
 <div class="cc_notice">
@@ -8,9 +14,15 @@
         </div>
 </div>
 
+<<<<<<< HEAD
 <div id="cc_ss">
     <div class="evaluation_wrapp" id="evaluation_wrapp">
         <div class="profile" id="profile">
+=======
+<div class="evaluation_show">
+    <div class="evaluation_wrapp">
+        <div class="profile">
+>>>>>>> refs/remotes/origin/master
 <!------------------アイコンの有無---------------------->
             <% if @user.image_name %>
                 <div class="icon_wrapp_evaluation">
@@ -117,6 +129,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="email_content_wrapp">
             <div class="evaluation_head" id="evaluation_head_cc">
                 <h1>クレジットカード変更</h1>
@@ -205,6 +218,83 @@
                     </div>
                 </form>
                 <!---モーダル----->
+=======
+<!------------------ここまで左側メニュー------------------------>
+<!-----利用履歴-------------------------------------->
+        <div class="email_content_wrapp">
+            <div class="head_back">
+                <h1>クレジットカード変更</h1>
+                <%= link_to("/support/configuration/#{@user.id}") do %>
+                    <p><i class="fas fa-chevron-left no_pa"></i>設定に戻る</p>
+                <% end %>
+            </div>
+            <form method="POST" action="/support/payment_cc" id="charge-form" onsubmit="return pre()">
+                <span class="charge-errors"></span>
+                <div class="cc_content">
+                    <h3>新しいカード情報</h3>
+                    <div class="cord_item_wrap">
+                        <div class="cord_item item_cc1">
+                            <div class="cord_item_left item_cc1" id="item_cc1">
+                                <p>カード番号</p>
+                            </div>
+                            <div class="cord_item_right item_cc1">
+                                <input type="text" class="number" name="number" maxlength="16" placeholder="" required>
+                                <div class="payment-errors"></div>
+                                <p id="error_message_ccNum"> 正しいカード番号を入力してください</p>
+                                <p>例）1234567890123456</p>
+                            </div>
+                        </div>
+                        <div class="cord_item" id="exp_wrapp">
+                            <div class="cord_item_left item_cc2" id="item_cc4">
+                                <p>有効期限</p>
+                            </div>
+                            <div class="cord_item_right item_cc2">
+                                <div class="cord_selec">
+                                    <input type="text" class="exp_month" name="exp_month" maxlength="2" placeholder="月" required>
+                                    <input type="text" class="exp_year" name="exp_year" maxlength="4" placeholder="年" required>
+                                </div>
+                                <p class="error_message_ccDeadline">クレジットカードの使用期限が過ぎています</p>
+                                <p class="card_notice">※カードに刻印されている表記のとおりにご選択ください。</p>
+                            </div>
+                        </div>
+                        <div class="cord_item">
+                            <div class="cord_item_left">
+                                <p>カード名義人</p>
+                            </div>
+                            <div class="cord_item_right">
+                                <input type="text" name="name" value="" required>
+                                <p class="error_message_ccName"> 入力してください</p>
+                                <p class="card_no">※カードに刻印されている表記のとおりにご選択ください。</p>
+                            </div>
+                        </div>
+                        <div class="cord_item item_cc3">
+                            <div class="cord_item_left item_cc3" id="item_3">
+                                <p>セキュリティコード</p>
+                            </div>
+                            <div class="cord_item_right item_cc3">
+                                <div class="cord_item_right_con">
+                                    <input type="text" class="cvc" name="cvc" maxlength="3" placeholder="" required>
+                                    <div class="sec_card">
+                                        <p id="sec_open"><i class="fas fa-caret-right no_pa no_ma"></i>セキュリティーカードとは</p>
+                                        <div id="sec_card_modal" class="sec_card_modal">
+                                            <p>セキュリティコードの場所</p>
+                                            <img src="/cc_guide.png" alt="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="error_message_ccSecu"> 3文字以上入力してください</p>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="input_edit_containar" id="cc_inp">
+                    <button type="submit">送信する</button>
+                </div>
+                </div>
+            </form>
+            <!---モーダル----->
+>>>>>>> refs/remotes/origin/master
             </div>
         </div>
     </div>
@@ -235,13 +325,20 @@
         number.on('input', function(){
           if($(this).val().match(visa|master|american|diners|discover|jcb)){
               $('#error_message_ccNum').css('display', 'none');
+<<<<<<< HEAD
               //$('#error_card_ss').css('display', 'none');
+=======
+>>>>>>> refs/remotes/origin/master
               $('.item_cc1').css('height', '80px');
               $('#item_cc1').css('line-height', '80px');
           }else{
 
           }
         });
+<<<<<<< HEAD
+=======
+        //テスト　カード番号
+>>>>>>> refs/remotes/origin/master
 
         var count = cvc.val().length,
             month = $('input[name="exp_month"]').val(),
@@ -257,7 +354,10 @@
 
             }else{
                 $('.error_message_ccSecu').css('display', 'none');
+<<<<<<< HEAD
                 //$('.error_message_ccSecu_ss').css('display', 'none');
+=======
+>>>>>>> refs/remotes/origin/master
                 $('.item_cc3').css('height', '80px');
                 $('#item_3').css('line-height', '80px');
             };
@@ -270,7 +370,10 @@
 
             }else{
                 $('.error_message_ccDeadline').css('display', 'none');
+<<<<<<< HEAD
                 //$('.error_message_ccDeadline_ss').css('display', 'none');
+=======
+>>>>>>> refs/remotes/origin/master
                 $('.item_cc2,#exp_wrapp').css('height', '80px');
                 $('#item_cc4').css('line-height', '80px');
             };
@@ -283,18 +386,26 @@
 
             }else{
                 $('.error_message_ccDeadline').css('display', 'none');
+<<<<<<< HEAD
                 //$('.error_message_ccDeadline_ss').css('display', 'none');
+=======
+>>>>>>> refs/remotes/origin/master
                 $('.item_cc2,#exp_wrapp').css('height', '80px');
                 $('#item_cc4').css('line-height', '80px');
             };
         });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
         function pre() {
             var numJath = $('input[name="number"]').val().match(visa|master|american|diners|discover|jcb);
             if (count < 3 || ((year == y && month <= m) || year < y) || numJath == null) {
                 if(count < 3 && ((year == y && month <= m) || year < y) && numJath == null){
                     $('.error_message_ccSecu').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccSecu_ss').css('display', 'block');
                     $('.error_message_ccDeadline').css('display', 'block');
                     //$('.error_message_ccDeadline_ss').css('display', 'block');
@@ -303,15 +414,27 @@
                     $('#error_message_ccNum').css('display', 'block');
                     //$('#error_message_ccNum_ss').css('display', 'block');
                     $('.item_cc1').css('height', '129px');
+=======
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#error_message_ccNum').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+>>>>>>> refs/remotes/origin/master
                     $('#item_cc1').css('line-height', '108px');
                     $('#item_cc4').css('line-height', '108px');
                     $('#item_3').css('line-height', '93px');
                     $('.item_cc3').css('height', '93px');
+<<<<<<< HEAD
                     $('#error_card_ss').css('display', 'block');
+=======
+
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(count < 3 && ((year == y && month <= m) || year < y) && numJath == null){
                     $('.error_message_ccSecu').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccSecu_ss').css('display', 'block');
                     $('.error_message_ccDeadline').css('display', 'block');
                     //$('.error_message_ccDeadline_ss').css('display', 'block');
@@ -319,16 +442,26 @@
                     $('#item_cc4').css('height', '112px');
                     $('#error_message_ccNum').css('display', 'block');
                     //$('#error_message_ccNum_ss').css('display', 'block');
+=======
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#error_message_ccNum').css('display', 'block');
+>>>>>>> refs/remotes/origin/master
                     $('.item_cc1').css('height', '112px');
                     $('#item_cc1').css('line-height', '108px');
                     $('#item_cc4').css('line-height', '108px');
                     $('#item_3').css('line-height', '93px');
                     $('.item_cc3').css('height', '93px');
+<<<<<<< HEAD
                     $('#error_card_ss').css('display', 'block');
+=======
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(count < 3 && numJath == null){
                     $('.error_message_ccSecu').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccSecu_ss').css('display', 'block');
                     $('.item_cc3').css('height', '93px');
                     $('#item_3').css('line-height', '93px');
@@ -337,23 +470,38 @@
                     $('.item_cc1').css('height', '112px');
                     $('#item_cc1').css('line-height', '108px');
                     $('#error_card_ss').css('display', 'block');
+=======
+                    $('.item_cc3').css('height', '93px');
+                    $('#item_3').css('line-height', '93px');
+                    $('#error_message_ccNum').css('display', 'block');
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(count < 3 && ((year == y && month <= m) || year < y)){
                     $('.error_message_ccSecu').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccSecu_ss').css('display', 'block');
                     $('.error_message_ccDeadline').css('display', 'block');
                     //$('.error_message_ccDeadline_ss').css('display', 'block');
+=======
+                    $('.error_message_ccDeadline').css('display', 'block');
+>>>>>>> refs/remotes/origin/master
                     $('#exp_wrapp,.item_cc2').css('height', '112px');
                     $('#item_cc4').css('height', '112px');
                     $('#item_cc4').css('line-height', '108px');
                     $('#item_3').css('line-height', '93px');
                     $('.item_cc3').css('height', '93px');
+<<<<<<< HEAD
                     $('#error_card_ss').css('display', 'block');
+=======
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(numJath == null && ((year == y && month <= m) || year < y)){
                     $('#error_message_ccNum').css('display', 'block');
+<<<<<<< HEAD
                     //$('#error_message_ccNum_ss').css('display', 'block');
                     $('.item_cc1').css('height', '112px');
                     $('#item_cc1').css('line-height', '108px');
@@ -363,31 +511,55 @@
                     $('#item_cc4').css('height', '112px');
                     $('#item_cc4').css('line-height', '108px');
                     $('#error_card_ss').css('display', 'block');
+=======
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+                    $('.error_message_ccDeadline').css('display', 'block');
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#item_cc4').css('line-height', '108px');
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(count < 3){
                     $('.error_message_ccSecu').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccSecu_ss').css('display', 'block');
                     $('.item_cc3').css('height', '93px');
                     $('#item_3').css('line-height', '93px');
                     $('#error_card_ss').css('display', 'block');
+=======
+                    $('.item_cc3').css('height', '93px');
+                    $('#item_3').css('line-height', '93px');
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if(numJath == null){
                     $('#error_message_ccNum').css('display', 'block');
+<<<<<<< HEAD
                     //$('#error_message_ccNum_ss').css('display', 'block');
                     $('.item_cc1').css('height', '112px');
                     $('#item_cc1').css('line-height', '108px');
                     $('#error_card_ss').css('display', 'block');
+=======
+                    $('.item_cc1').css('height', '112px');
+                    $('#item_cc1').css('line-height', '108px');
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
                 else if((year == y && month <= m) || year < y) {
                     $('.error_message_ccDeadline').css('display', 'block');
+<<<<<<< HEAD
                     //$('.error_message_ccDeadline_ss').css('display', 'block');
                     $('#exp_wrapp,.item_cc2').css('height', '112px');
                     $('#item_cc4').css('height', '112px');
                     $('#item_cc4').css('line-height', '108px');
                     $('#error_card_ss').css('display', 'block');
+=======
+                    $('#exp_wrapp,.item_cc2').css('height', '112px');
+                    $('#item_cc4').css('height', '112px');
+                    $('#item_cc4').css('line-height', '108px');
+>>>>>>> refs/remotes/origin/master
                     return false;
                 }
             }else {
@@ -423,6 +595,13 @@
             }
         };
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> refs/remotes/origin/master
     $(document).on('click',   function(e) {
         if (!$(e.target).closest('.cc_notice').length) {
             $('.cc_notice_wrapp,.cc_notice').hide();

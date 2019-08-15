@@ -327,7 +327,11 @@ checked program was:
 "clang -o conftest -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0/x86_64-darwin16 -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0/ruby/backward -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0 -I. -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L  -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/shinkaihideto/.rbenv/versions/2.5.0/lib -L. -L/Users/shinkaihideto/.rbenv/versions/2.5.0/lib  -fstack-protector -L/usr/local/lib     -lruby.2.5.0-static -framework Foundation  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_accept4", referenced from:
+<<<<<<< HEAD
       _t in conftest-ecf1ab.o
+=======
+      _t in conftest-8f11d7.o
+>>>>>>> refs/remotes/origin/master
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -778,7 +782,11 @@ checked program was:
 "clang -o conftest -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0/x86_64-darwin16 -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0/ruby/backward -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include/ruby-2.5.0 -I. -I/Users/shinkaihideto/.rbenv/versions/2.5.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L  -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/shinkaihideto/.rbenv/versions/2.5.0/lib -L. -L/Users/shinkaihideto/.rbenv/versions/2.5.0/lib  -fstack-protector -L/usr/local/lib     -lruby.2.5.0-static -framework Foundation  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_rb_thread_blocking_region", referenced from:
+<<<<<<< HEAD
       _t in conftest-1e491b.o
+=======
+      _t in conftest-df2733.o
+>>>>>>> refs/remotes/origin/master
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:

@@ -87,7 +87,11 @@ class SupportController < ApplicationController
         api_key = 'sk_test_52112ae44d12e9e7b86c9873'
         Payjp.api_key = api_key
         @token = params['payjpToken']
+<<<<<<< HEAD
         @id = @user.id + 100000
+=======
+        @id = @user.id + 10000
+>>>>>>> refs/remotes/origin/master
 
         if @token.present?
             Payjp::Customer.create(card: @token, email: "#{@current_user.email}", id: @id)
@@ -156,10 +160,17 @@ class SupportController < ApplicationController
         image1 = params[:file1]
         image2 = params[:file2]
 
+<<<<<<< HEAD
         File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/id_image/#{@user_detail.id_image1}", image1.read)
 
         if image2.present?
         File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/id_image/#{@user_detail.id_image2}", image2.read)
+=======
+        File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/id_image/#{@user_detail.id_image1}", image1.read)
+
+        if image2.present?
+        File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/id_image/#{@user_detail.id_image2}", image2.read)
+>>>>>>> refs/remotes/origin/master
         end
 
         flash[:notice] = "添付書類をアップロードしました"

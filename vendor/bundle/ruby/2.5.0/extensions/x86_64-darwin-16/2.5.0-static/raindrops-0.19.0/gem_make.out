@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-lbsn1t.rb extconf.rb
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-2dgvv4.rb extconf.rb
+>>>>>>> refs/remotes/origin/master
 checking for mmap() in sys/mman.h... yes
 checking for munmap() in sys/mman.h... yes
 checking for mremap() in sys/mman.h... no
@@ -15,16 +20,29 @@ checking for GCC 4+ atomic builtins... yes
 creating extconf.h
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling linux_inet_diag.c
 compiling raindrops.c
 compiling tcp_info.c
 linking shared-object raindrops_ext.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 raindrops_ext.bundle ./.gem.20190814-89855-vvozdy
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/raindrops-0.19.0/ext/raindrops
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 raindrops_ext.bundle ./.gem.20190719-43148-1vry97z
+>>>>>>> refs/remotes/origin/master

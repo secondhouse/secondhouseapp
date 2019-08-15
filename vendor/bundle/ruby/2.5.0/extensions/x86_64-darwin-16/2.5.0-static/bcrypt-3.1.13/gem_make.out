@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-1qiix0p.rb extconf.rb
 creating Makefile
@@ -6,6 +7,16 @@ current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/rub
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-1i7poqy.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling bcrypt_ext.c
 compiling crypt_blowfish.c
@@ -14,6 +25,12 @@ compiling crypt_gensalt.c
 compiling wrapper.c
 linking shared-object bcrypt_ext.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20190814-89855-1kyfbia
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20190719-43148-1hdhrn3
+>>>>>>> refs/remotes/origin/master

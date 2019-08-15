@@ -1,19 +1,30 @@
 <div class="space">
 </div>
+<<<<<<< HEAD
 <div class="users_show" id="users_show_s">
     <div class="users_header" id="users_header">
         <div class="users_header1" id="users_header1">
+=======
+<div class="users_show">
+    <div class="users_header">
+        <div class="users_header1">
+>>>>>>> refs/remotes/origin/master
             <ul>
                 <%= link_to("ホーム","/users/#{@user.id}") %>
                 <%= link_to("ワンちゃんプロフィール","/users/mydog/#{@user.id}") %>
                 <%= link_to("預かり依頼/エントリー","/users/rely/#{@user.id}") %>
                 <%= link_to("評価","/users/evaluation/#{@user.id}") %>
                 <%= link_to("利用履歴","/users/history/#{@user.id}") %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
             </ul>
         </div>
     </div>
 <!------------カバー画像------------------->
     <% if @user.image_header %>
+<<<<<<< HEAD
         <div class="show_wrapp_cover" id="show_wrapp_cover_s">
             <img class="image_header" id="image_header_s" src="<%= "/images_header/#{@user.image_header}" %>" alt="">
         </div>
@@ -28,6 +39,22 @@
                                 <i class="fas fa-plus icon_plus00" id="icon_plus00"></i>
                             </div>
                             <div class="cover_content" id="cover_content">
+=======
+        <div class="show_wrapp_cover">
+            <img class="image_header" src="<%= "/images_header/#{@user.image_header}" %>" alt="">
+        </div>
+    <% else %>
+        <div class="show_wrapp_cover2">
+            <div class="users_cover">
+                <div class="cover_add">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <div class="cover_add1">
+                            <div class="cover_add2">
+                                <i class="fas fa-camera fa-2x icon_camera00"></i>
+                                <i class="fas fa-plus icon_plus00"></i>
+                            </div>
+                            <div class="cover_content">
+>>>>>>> refs/remotes/origin/master
                                 <p>カバー画像を変更</p>
                             </div>
                         </div>
@@ -38,6 +65,7 @@
     <% end %>
 <!------------ここまでカバー画像------------------->
 <!------------アイコン画像------------------->
+<<<<<<< HEAD
 <div class="show_item" id="show_item_s">
     <div class="info_wrapp_show">
         <% if @user.image_name %>
@@ -45,11 +73,24 @@
                 <div class="users_icon" id="users_icon">
                     <%= link_to("/users/edit/#{@user.id}") do %>
                         <img class="icon_img" id="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+=======
+<div class="show_item">
+    <div class="info_wrapp_show">
+        <% if @user.image_name %>
+            <div class="icon_wrapp">
+                <div class="users_icon">
+                    <%= link_to("/users/edit/#{@user.id}") do %>
+                        <img class="icon_img" src="<%= "/user_images/#{@user.image_name}" %>" alt="">
+>>>>>>> refs/remotes/origin/master
                     <% end %>
                 </div>
             </div>
         <% else %>
+<<<<<<< HEAD
             <div class="icon_wrapp" id="icon_wrapp">
+=======
+            <div class="icon_wrapp">
+>>>>>>> refs/remotes/origin/master
                 <div class="users_icon">
                     <%= link_to("/users/edit/#{@user.id}") do %>
                         <i class="fas fa-user-circle fa-8x icon_color"></i>
@@ -89,7 +130,11 @@
                 <div class="show_user_details">
                     <p class="detail_performance">実績</p>
                     <p class="detail_move1">評価</p>
+<<<<<<< HEAD
                     <% if @user_evaluation.nan? %>
+=======
+                    <% if @user_evaluation.nan? %>            
+>>>>>>> refs/remotes/origin/master
                         <i class="fas fa-star"></i>
                         <p class="detail_move">0</p>
                     <% else %>
@@ -145,7 +190,11 @@
 <!------------ここまでユーザー情報------------------->
         <div class="add_intro">
             <% if @status %>
+<<<<<<< HEAD
                 <div class="introduction1_wrap" id="introduction1_wrap_s">
+=======
+                <div class="introduction1_wrap">
+>>>>>>> refs/remotes/origin/master
                     <div id="introduction10">
                         <div class="box">
                             <p><%= @status.introduction %></p>
@@ -164,6 +213,7 @@
             <% end %>
         </div>
     </div>
+<<<<<<< HEAD
     <!---スマホ用-->
     <div class="show_item" id="show_item_s2">
         <div class="info_wrapp_show_s">
@@ -280,4 +330,6 @@
                 <% end %>
             </div>
         </div>
+=======
+>>>>>>> refs/remotes/origin/master
 </div>

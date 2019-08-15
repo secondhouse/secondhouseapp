@@ -18,7 +18,10 @@ class DogController < ApplicationController
         @num = 0
         @count = 0
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
         if @request.dog_id
             @dog1 = Dog.find_by(id: @request.dog_id)
         end
@@ -85,7 +88,11 @@ class DogController < ApplicationController
         #支払い処理
         @price = params[:price]
         if @price.present?
+<<<<<<< HEAD
             @id = (@current_user.id + 100000).to_s
+=======
+            @id = (@current_user.id + 1000).to_s
+>>>>>>> refs/remotes/origin/master
             require 'payjp'
             Payjp.api_key = 'sk_test_52112ae44d12e9e7b86c9873'
             charge = Payjp::Charge.create(
@@ -119,8 +126,11 @@ class DogController < ApplicationController
         @num = 0
         @count = 0
         @dog_num = 0
+<<<<<<< HEAD
         @numss = 0
         @countss = 0
+=======
+>>>>>>> refs/remotes/origin/master
 
         if @request.dog_id
             @dog1 = Dog.find_by(id: @request.dog_id)
@@ -135,12 +145,21 @@ class DogController < ApplicationController
             @dog_num += 1
         end
         #料金計算
+<<<<<<< HEAD
         @witing = @request.waiting
         @end = @request.end
         @use_hour = @end - @witing
         @use_hour = (@use_hour / 3600).to_i
 
         @price = 216 * @use_hour * @dog_num
+=======
+        @witing = @request.waiting.to_date
+        @end = @request.end.to_date
+        @use_day = @end - @witing
+        @use_day = @use_day.to_i
+
+        @price = 2138 * @use_day * @dog_num
+>>>>>>> refs/remotes/origin/master
 
 
         if !@choiced_user.nil?
@@ -384,7 +403,11 @@ def create
       image = params[:image_name]
       @dog.save
 
+<<<<<<< HEAD
       File.binwrite("/Users/shinkaihideto/Desktop/remote/current/public/dog_images/#{@dog.image_name}", image.read)
+=======
+      File.binwrite("/Users/shinkaihideto/desktop/secondhouse_test0703/public/dog_images/#{@dog.image_name}", image.read)
+>>>>>>> refs/remotes/origin/master
     end
 
     params[:character].each do | di1,di2 |

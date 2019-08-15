@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-1ttozwn.rb extconf.rb
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-1rkj592.rb extconf.rb
+>>>>>>> refs/remotes/origin/master
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... no
 checking for shlwapi.h... no
@@ -9,22 +14,35 @@ checking for ruby_thread_has_gvl_p()... yes
 creating extconf.h
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 Configuring libffi
 clang: error: unsupported option '-print-multi-os-directory'
 clang: error: no input files
+<<<<<<< HEAD
 cd "/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16" && /Applications/Xcode.app/Contents/Developer/usr/bin/make
 /Applications/Xcode.app/Contents/Developer/usr/bin/make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/local/bin/ginstall -c' 'INSTALL_DATA=/usr/local/bin/ginstall -c -m 644' 'INSTALL_PROGRAM=/usr/local/bin/ginstall -c' 'INSTALL_SCRIPT=/usr/local/bin/ginstall -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=/Applications/Xcode.app/Contents/Developer/usr/bin/make' 'MAKEINFO=/bin/sh /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/sh' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=clang' 'CXX=g++' 'LD=ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
+=======
+cd "/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16" && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+/Applications/Xcode.app/Contents/Developer/usr/bin/make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/bin/install -c' 'INSTALL_DATA=/usr/bin/install -c -m 644' 'INSTALL_PROGRAM=/usr/bin/install -c' 'INSTALL_SCRIPT=/usr/bin/install -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=/Applications/Xcode.app/Contents/Developer/usr/bin/make' 'MAKEINFO=/bin/sh /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/sh' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=clang' 'CXX=g++' 'LD=ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
+>>>>>>> refs/remotes/origin/master
 Making all in include
 make[3]: Nothing to be done for `all'.
 Making all in testsuite
 make[3]: Nothing to be done for `all'.
 Making all in man
 make[3]: Nothing to be done for `all'.
+<<<<<<< HEAD
 /bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/prep_cif.lo /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/prep_cif.c
 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/prep_cif.c  -fno-common -DPIC -o src/.libs/prep_cif.o
 /bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/types.lo /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/types.c
@@ -43,11 +61,35 @@ libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remo
 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/ffiw64.c  -fno-common -DPIC -o src/x86/.libs/ffiw64.o
 /bin/sh ./libtool    --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -c -o src/x86/win64.lo /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/win64.S
 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -I. -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -c /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/win64.S  -fno-common -DPIC -o src/x86/.libs/win64.o
+=======
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/prep_cif.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/prep_cif.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/prep_cif.c  -fno-common -DPIC -o src/.libs/prep_cif.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/types.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/types.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/types.c  -fno-common -DPIC -o src/.libs/types.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/raw_api.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/raw_api.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/raw_api.c  -fno-common -DPIC -o src/.libs/raw_api.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/java_raw_api.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/java_raw_api.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/java_raw_api.c  -fno-common -DPIC -o src/.libs/java_raw_api.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/closures.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/closures.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/closures.c  -fno-common -DPIC -o src/.libs/closures.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/x86/ffi64.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/ffi64.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/ffi64.c  -fno-common -DPIC -o src/x86/.libs/ffi64.o
+/bin/sh ./libtool    --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -c -o src/x86/unix64.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/unix64.S
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/unix64.S  -fno-common -DPIC -o src/x86/.libs/unix64.o
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src   -Wall -fexceptions -c -o src/x86/ffiw64.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/ffiw64.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -Wall -fexceptions -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/ffiw64.c  -fno-common -DPIC -o src/x86/.libs/ffiw64.o
+/bin/sh ./libtool    --mode=compile clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src  -c -o src/x86/win64.lo /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/win64.S
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -I. -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/include -Iinclude -I/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src -c /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/src/x86/win64.S  -fno-common -DPIC -o src/x86/.libs/win64.o
+>>>>>>> refs/remotes/origin/master
 /bin/sh ./libtool  --tag=CC   --mode=link clang  -Wall -fexceptions   -o libffi_convenience.la  src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo   src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffiw64.lo src/x86/win64.lo 
 libtool: link: ar cru .libs/libffi_convenience.a src/.libs/prep_cif.o src/.libs/types.o src/.libs/raw_api.o src/.libs/java_raw_api.o src/.libs/closures.o src/x86/.libs/ffi64.o src/x86/.libs/unix64.o src/x86/.libs/ffiw64.o src/x86/.libs/win64.o 
 libtool: link: ranlib .libs/libffi_convenience.a
 libtool: link: ( cd ".libs" && rm -f "libffi_convenience.la" && ln -s "../libffi_convenience.la" "libffi_convenience.la" )
+<<<<<<< HEAD
 /bin/sh ./libtool  --tag=CC   --mode=link clang  -Wall -fexceptions -no-undefined -version-info `grep -v '^#' /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/libtool-version`     -o libffi.la -rpath /usr/local/lib src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo  src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffiw64.lo src/x86/win64.lo 
+=======
+/bin/sh ./libtool  --tag=CC   --mode=link clang  -Wall -fexceptions -no-undefined -version-info `grep -v '^#' /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/libtool-version`     -o libffi.la -rpath /usr/local/lib src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo  src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffiw64.lo src/x86/win64.lo 
+>>>>>>> refs/remotes/origin/master
 libtool: link: clang -dynamiclib  -o .libs/libffi.7.dylib  src/.libs/prep_cif.o src/.libs/types.o src/.libs/raw_api.o src/.libs/java_raw_api.o src/.libs/closures.o src/x86/.libs/ffi64.o src/x86/.libs/unix64.o src/x86/.libs/ffiw64.o src/x86/.libs/win64.o      -install_name  /usr/local/lib/libffi.7.dylib -compatibility_version 9 -current_version 9.0 -Wl,-single_module
 libtool: link: (cd ".libs" && rm -f "libffi.dylib" && ln -s "libffi.7.dylib" "libffi.dylib")
 libtool: link: ( cd ".libs" && rm -f "libffi.la" && ln -s "../libffi.la" "libffi.la" )
@@ -61,7 +103,11 @@ compiling Function.c
 Function.c:867:17: warning: 'ffi_prep_closure' is deprecated [-Wdeprecated-declarations]
     ffiStatus = ffi_prep_closure(code, &fnInfo->ffi_cif, callback_invoke, closure);
                 ^
+<<<<<<< HEAD
 /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16/include/ffi.h:339:18: note: 'ffi_prep_closure' has been explicitly marked deprecated here
+=======
+/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16/include/ffi.h:339:18: note: 'ffi_prep_closure' has been explicitly marked deprecated here
+>>>>>>> refs/remotes/origin/master
   __attribute__((deprecated))
                  ^
 1 warning generated.
@@ -83,10 +129,17 @@ compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
 make "DESTDIR=" install
 cd "/Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16" && /Applications/Xcode.app/Contents/Developer/usr/bin/make
 /Applications/Xcode.app/Contents/Developer/usr/bin/make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/local/bin/ginstall -c' 'INSTALL_DATA=/usr/local/bin/ginstall -c -m 644' 'INSTALL_PROGRAM=/usr/local/bin/ginstall -c' 'INSTALL_SCRIPT=/usr/local/bin/ginstall -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=/Applications/Xcode.app/Contents/Developer/usr/bin/make' 'MAKEINFO=/bin/sh /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/sh' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=clang' 'CXX=g++' 'LD=ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c
+make "DESTDIR=" install
+cd "/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16" && /Applications/Xcode.app/Contents/Developer/usr/bin/make
+/Applications/Xcode.app/Contents/Developer/usr/bin/make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-Wall -fexceptions' 'CXXFLAGS=-g -O2' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/bin/install -c' 'INSTALL_DATA=/usr/bin/install -c -m 644' 'INSTALL_PROGRAM=/usr/bin/install -c' 'INSTALL_SCRIPT=/usr/bin/install -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=/Applications/Xcode.app/Contents/Developer/usr/bin/make' 'MAKEINFO=/bin/sh /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/sh' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=clang' 'CXX=g++' 'LD=ld' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
+>>>>>>> refs/remotes/origin/master
 Making all in include
 make[3]: Nothing to be done for `all'.
 Making all in testsuite
@@ -104,7 +157,11 @@ compiling Function.c
 Function.c:867:17: warning: 'ffi_prep_closure' is deprecated [-Wdeprecated-declarations]
     ffiStatus = ffi_prep_closure(code, &fnInfo->ffi_cif, callback_invoke, closure);
                 ^
+<<<<<<< HEAD
 /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16/include/ffi.h:339:18: note: 'ffi_prep_closure' has been explicitly marked deprecated here
+=======
+/Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16/include/ffi.h:339:18: note: 'ffi_prep_closure' has been explicitly marked deprecated here
+>>>>>>> refs/remotes/origin/master
   __attribute__((deprecated))
                  ^
 1 warning generated.
@@ -125,4 +182,8 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.bundle
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20190814-89855-1jykxrh
+=======
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20190719-43148-1y6lec4
+>>>>>>> refs/remotes/origin/master

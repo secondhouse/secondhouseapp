@@ -1,6 +1,7 @@
 
 <div class="space">
 </div>
+<<<<<<< HEAD
 <div class="update_re">
 
     <div class="post_container">
@@ -460,4 +461,263 @@
                 <input id="dog_submit" type="submit" value="預かり依頼編集">
             </div>
         <% end %>
+=======
+
+<div class="post_container">
+      <h2>ワンちゃんを預ける</h2>
+</div>
+
+  <div class="background_post">
+    <div class="space">
+    </div>
+      <%= form_tag("/users/edit_re/#{@request.id}") do %>
+      <div class="post_item_time">
+        <div class="item_head">
+          <i class="far fa-calendar-alt calendar"></i>
+          <h3>預ける日程</h3>
+        </div>
+<!---------------待ち合わせ時間------------------------------>
+        <div class="ok_item_containar">
+          <div class="ok_item">
+            <p class="ok_name">待ち合わせ時間</p>
+            <div class="ok_move">
+                 <%= select :year, :choice, [[@day.year, @day.year],["2019", "2019"],["2020", "2020"]] %>年
+
+                 <%= select :month, :month, [[@day.month, @day.month], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]] %> 月
+
+                 <%= select :day, :day, [[@day.day, @day.day], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"], ["17", "17"], ["18", "18"], ["19", "19"], ["20", "20"], ["21", "21"], ["22", "22"], ["23", "23"], ["24", "24"], ["25", "25"], ["26", "26"], ["27", "27"], ["28", "28"], ["29", "29"], ["30", "30"], ["31", "31"]] %> 日
+
+                 <%= select :hour, :hour, [[@day.hour, @day.hour], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"], ["17", "17"], ["18", "18"], ["19", "19"], ["20", "20"], ["21", "21"], ["22", "22"], ["23", "23"], ["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"]] %> 時
+
+                 <%= select :min, :min, [[@day.min, @day.min], ["0", "00"], ["15", "15"], ["30", "30"], ["45", "45"]] %> 分
+
+            </div>
+          </div>
+<!---------------お迎え時間------------------------------>
+          <div class="ok_item">
+            <p class="ok_name">お迎え時間</p>
+            <div class="ok_move">
+                 <%= select :year, :choice, [[@day11.year, @day11.year],["2019", "2019"],["2020", "2020"]] %>年
+
+                 <%= select :month11, :month11, [[@day11.month, @day11.month], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]] %> 月
+
+                 <%= select :day12, :day12, [[@day11.day, @day11.day], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"], ["17", "17"], ["18", "18"], ["19", "19"], ["20", "20"], ["21", "21"], ["22", "22"], ["23", "23"], ["24", "24"], ["25", "25"], ["26", "26"], ["27", "27"], ["28", "28"], ["29", "29"], ["30", "30"], ["31", "31"]] %> 日
+
+                 <%= select :hour11, :hour11, [[@day11.hour, @day11.hour], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"], ["13", "13"], ["14", "14"], ["15", "15"], ["16", "16"], ["17", "17"], ["18", "18"], ["19", "19"], ["20", "20"], ["21", "21"], ["22", "22"], ["23", "23"], ["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"]] %> 時
+
+                 <%= select :min11, :min11, [[@day11.min, @day11.min], ["0", "00"], ["15", "15"], ["30", "30"], ["45", "45"]] %> 分
+            </div>
+          </div>
+        </div>
+      </div>
+<!---------------預ける犬選択------------------------------>
+      <div class="post_item">
+        <div class="item_head">
+          <i class="fas fa-dog dog"></i>
+          <h3>預けるワンちゃん</h3>
+        </div>
+        <div class="dog_choice">
+          <% @dogs.each do | dog | %>
+            <% if dog.image_name %>
+<!----------------アイコン有り------------------>
+              <div class="dog_pro">
+                <div class="users_icon11 dog_img">
+                  <img class="icon_img" src="<%= "/dog_images/#{dog.image_name}" %>" alt="">
+                </div>
+                <p><%= dog.name %></p>
+                <%= check_box "dog_choice", "#{dog.id}", {:checked => "checked"} %>
+              </div>
+<!----------------アイコン無し------------------>
+            <% else %>
+                <div class="dog_pro">
+                    <div class="users_icon11 dog_img">
+                      <i class="fas fa-user-circle fa-7x icon_color"></i>
+                      <div class="icon_add11">
+                        <i class="fas fa-camera fa-2x icon_camera2"></i>
+                        <i class="fas fa-plus icon_plus2"></i>
+                      </div>
+                    </div>
+                    <p><%= dog.name %></p>
+                    <%= check_box "dog_choice", "#{dog.id}", {:checked => "checked"} %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+<!---------------待ち合わせ場所------------------------------>
+      <div class="post_item move_item">
+        <div class="adoress">
+          <div class="item_head">
+            <i class="fas fa-map-marker-alt dog"></i>
+            <h3>待ち合わせ場所</h3>
+          </div>
+            <!-- ▼郵便番号入力フィールド(7桁) -->
+          <div class="add_input">
+              <p>郵便番号（7桁）</p>
+              <input class="postal_code" type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+
+              <!-- ▼住所入力フィールド(都道府県+以降の住所) -->
+              <div class="add_move">
+                <p>都道府県+以降の住所</p>
+                <input class="postal_adress" type="text" name="addr11" size="60" required>
+              </div>
+          </div>
+        </div>
+      </div>
+
+<!---------------預かってもらう方にして欲しいこと---------------------->
+      <div class="post_item1 move_item1">
+        <div class="adoress1">
+          <div class="item_head">
+            <i class="fas fa-check-square dog"></i>
+            <h3>預かってもらう方にして欲しいこと</h3>
+          </div>
+          <div class="ok_item_containar">
+<!---------------散歩----------------------->
+            <div class="ok_item">
+              <p class="ok_name">散歩/1日</p>
+              <div class="ok_move00">
+                  <%= radio_button 'walk', 'fruit', 'なし', {:checked => @hoge1} %><label for="walk_fruit_なし">なし</label>
+                  <%= radio_button 'walk', 'fruit', '1回', {:checked => @hoge2} %><label for="walk_fruit_1回">1回</label>
+                  <%= radio_button 'walk', 'fruit', '2回', {:checked => @hoge3} %><label for="walk_fruit_2回">2回</label>
+                  <%= radio_button 'walk', 'fruit', '3回', {:checked => @hoge4} %><label for="walk_fruit_3回">3回</label>
+                  <!-----
+                  <input type="radio" name="walk" value="なし">なし
+                  <input type="radio" name="walk" value="1回" class="choice1">1回
+                  <input type="radio" name="walk" value="2回" class="choice1">2回
+                  <input type="radio" name="walk" value="3回" class="choice1">3回
+                  ------>
+              </div>
+            </div>
+<!---------------散歩時間/1回あたり----------->
+            <div class="ok_item">
+              <p class="ok_name">散歩時間/1回あたり</p>
+              <div class="ok_move">
+                <%= radio_button 'walk_time', 'fruit', '15分程', {:checked => @hoge11} %><label for="walk_time_fruit_15分程">15分程</label>
+                <%= radio_button 'walk_time', 'fruit', '30分程', {:checked => @hoge12} %><label for="walk_time_fruit_30分程">30分程</label>
+                <%= radio_button 'walk_time', 'fruit', '1時間程', {:checked => @hoge13} %><label for="walk_time_fruit_1時間程">1時間程</label>
+                <%= radio_button 'walk_time', 'fruit', '1時間以上', {:checked => @hoge14} %><label for="walk_time_fruit_1時間以上">1時間以上</label>
+            </div>
+          </div>
+<!---------------エサ/1日あたり-------------->
+          <div class="ok_item">
+            <p class="ok_name">エサ/1日あたり</p>
+            <div class="ok_move">
+              <%= radio_button 'bait', 'fruit', '2回', {:checked => @hoge21} %><label for="bait_fruit_2回">2回</label>
+              <%= radio_button 'bait', 'fruit', '3回', {:checked => @hoge22} %><label for="bait_fruit_3回">3回</label>
+
+              <!-----
+              <input type="radio" name="bait" value="2回">2回
+              <input type="radio" name="bait" value="3回" class="ch_item">3回
+              -------->
+            </div>
+          </div>
+<!---------------おやつ--------------------->
+          <div class="ok_item">
+            <p class="ok_name">おやつ</p>
+            <div class="ok_move00">
+              <%= radio_button 'snack', 'fruit', 'あり', {:checked => @hoge31} %><label for="snack_fruit_あり">あり</label>
+              <%= radio_button 'snack', 'fruit', 'なし', {:checked => @hoge32} %><label for="snack_fruit_なし">なし</label>
+              <!--
+              <input type="radio" name="snack" value="あり">あり
+              <input type="radio" name="snack" value="なし" class="choice1">なし
+              -->
+            </div>
+          </div>
+<!---------------トイレシートの交換/1日------>
+          <div class="ok_item">
+            <p class="ok_name">トイレシートの交換/1日</p>
+            <div class="ok_move">
+              <%= radio_button 'toilet', 'fruit', '1回', {:checked => @hoge41} %><label for="toilet_fruit_1回">1回</label>
+              <%= radio_button 'toilet', 'fruit', '2回', {:checked => @hoge42} %><label for="toilet_fruit_2回">2回</label>
+              <%= radio_button 'toilet', 'fruit', '3回', {:checked => @hoge43} %><label for="toilet_fruit_3回">3回</label>
+            </div>
+          </div>
+<!---------------OKコメント----------------->
+          <div class="ok_item">
+            <div class="remarks">
+              <p class="ok_remarks">備考</p>
+            </div>
+            <div class="ok_move1">
+              <%= text_area 'comment_ok', 'fruit', :size=>"80x15", :value => @request.comment_ok, :maxlength => "200" %>
+              <!---
+              <textarea class="introduction_text" maxlength="200" name="comment_ok" rows="8" cols="80" placeholder="その他のお願いしたいことがあればこちらにどうぞ！"></textarea>
+              ---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-----------ここまで預かってもらう方にして欲しいこと----------------->
+
+
+<!-----------預かってもらう方にして欲しくないこと--------------------->
+      <div class="post_item2 move_item1">
+        <div class="adoress1">
+          <div class="item_head">
+            <i class="fas fa-exclamation-triangle dog"></i>
+            <h3>預かってもらう方にして欲しくないこと</h3>
+          </div>
+          <div class="ng_item_containar">
+<!---------------ワンちゃんの留守番時間----------------->
+            <div class="ok_item">
+              <p class="ok_name">ワンちゃんの留守番時間</p>
+              <div class="ok_move">
+                <%= radio_button 'caretaker', 'fruit', '2時間以上', {:checked => @hoge51} %><label for="caretaker_fruit_2時間以上">2時間以上</label>
+                <%= radio_button 'caretaker', 'fruit', '3時間以上', {:checked => @hoge52} %><label for="caretaker_fruit_3時間以上">3時間以上</label>
+                <%= radio_button 'caretaker', 'fruit', '4時間以上', {:checked => @hoge53} %><label for="caretaker_fruit_4時間以上">4時間以上</label>
+                <%= radio_button 'caretaker', 'fruit', '5時間以上', {:checked => @hoge54} %><label for="caretaker_fruit_5時間以上">5時間以上</label>
+              </div>
+            </div>
+<!---------------小さいお子さんがいる家庭----------------->
+            <div class="ok_item">
+              <p class="ok_name">小さいお子さんがいる家庭</p>
+              <div class="ok_move">
+                <%= radio_button 'child', 'fruit', '大丈夫', {:checked => @hoge61} %><label for="child_fruit_大丈夫">大丈夫</label>
+                <%= radio_button 'child', 'fruit', 'ダメ', {:checked => @hoge62} %><label for="child_fruit_ダメ">ダメ</label>
+               </div>
+          </div>
+<!---------------先住犬がいる方-------------------------->
+          <div class="ok_item">
+            <p class="ok_name">先住犬がいる方</p>
+            <div class="ok_move">
+              <%= radio_button 'native', 'fruit', '大丈夫', {:checked => @hoge71} %><label for="native_fruit_大丈夫">大丈夫</label>
+              <%= radio_button 'native', 'fruit', 'ダメ', {:checked => @hoge72} %><label for="native_fruit_ダメ">ダメ</label>
+              <%= radio_button 'native', 'fruit', '性別・犬種次第で大丈夫', {:checked => @hoge73} %><label for="native_fruit_性別・犬種次第で大丈夫">性別・犬種次第で大丈夫</label>
+            </div>
+          </div>
+<!---------------他の動物を飼っている方------------------->
+          <div class="ok_item">
+            <p class="ok_name">他の動物を飼っている方</p>
+            <div class="ok_move001">
+              <%= radio_button 'animal', 'fruit', '大丈夫', {:checked => @hoge81} %><label for="animal_fruit_大丈夫">大丈夫</label>
+              <%= radio_button 'animal', 'fruit', 'ダメ', {:checked => @hoge82} %><label for="animal_fruit_ダメ">ダメ</label>
+              <%= radio_button 'animal', 'fruit', 'トークルームで確認希望', {:checked => @hoge83} %><label for="animal_fruit_トークルームで確認希望">トークルームで確認希望</label>
+            </div>
+          </div>
+<!---------------NGコメント------------------------------->
+          <div class="ok_item">
+            <div class="remarks">
+              <p class="ok_remarks">備考</p>
+            </div>
+            <div class="ok_move1">
+              <%= text_area 'comment_ng', 'fruit', :size=>"80x15", :value => @request.comment_ng, :maxlength => "200" %>
+              <!---
+              <textarea class="introduction_text" maxlength="200" name="comment_ng" rows="8" cols="80" placeholder="その他のお願いしたいことがあればこちらにどうぞ！"></textarea>
+              -->
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+<!-----------預かってもらう方にして欲しくないこと------------------------>
+      <div class="space1">
+      </div>
+      <div class="submit">
+        <input id="dog_submit" type="submit" value="預かり依頼編集">
+      </div>
+  <% end %>
+
+
+>>>>>>> refs/remotes/origin/master
 </div>

@@ -1,14 +1,26 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-1m1bhgn.rb extconf.rb
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-4w9r6y.rb extconf.rb
+>>>>>>> refs/remotes/origin/master
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling http11_parser.c
 compiling io_buffer.c
@@ -16,6 +28,12 @@ compiling mini_ssl.c
 compiling puma_http11.c
 linking shared-object puma/puma_http11.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20190814-89855-119uewe/puma
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.bundle ./.gem.20190719-43148-qs98m1/puma
+>>>>>>> refs/remotes/origin/master

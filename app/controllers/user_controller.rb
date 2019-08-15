@@ -1,9 +1,13 @@
 class UserController < ApplicationController
+<<<<<<< HEAD
 
     def menu
 
     end
 
+=======
+  
+>>>>>>> refs/remotes/origin/master
 
   def new
     @user = User.new(name:nil ,email:params[:email])

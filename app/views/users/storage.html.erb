@@ -1,6 +1,7 @@
 <div class="space">
 
 </div>
+<<<<<<< HEAD
 <div class="storage" id="storage">
     <div class="title">
       <h1>評価・感想を入力しましょう</h1>
@@ -102,6 +103,103 @@
               </div>
             <% end %>
         </div>
+=======
+
+<div class="title">
+  <h1>評価・感想を入力しましょう</h1>
+</div>
+
+<div class="background_safe2">
+    <div class="text_impression3">
+        <%= form_tag("/users/judge_storage/#{@request.id}", :id => 'subCheck') do %>
+            <div class="content_impression">
+                <div class="notice_owner">
+                    <p>入力した評価を読み返し、慎重かつ丁寧に入力されているか確認してください</p>
+                    <p>不快な言葉遣いなどは利用制限や退会処分になることがあります。</p>
+                </div>
+                <div class="owner">
+                    <h4>預かってくれた方の評価</h4>
+                </div>
+                <div class="owner_content">
+                    <p>ここで書いた感想・評価はユーザーページに公開されます。</p>
+                    <h4>ワンちゃんを預かってくれた方への感想や体験談を書きましょう※必須</h4>
+                    <p>預かってもらった感謝の気持ちと感想を伝えてください。</p>
+                    <p>あなたの言葉で書かれた感想は他のユーザーの参考になります。</p>
+                    <p>ぜひ記入をよろしくお願いします</p>
+                </div>
+
+
+
+                <div class="owner_impression">
+                    <textarea id="owner_com" class="introduction_text" maxlength="250" name="comment" rows="8" cols="80" placeholder="預かってくれた方の感想、体験談を書きましょう（250文字以内）"></textarea>
+                </div>
+                <div id="check_text" class="check_eva"></div>
+
+                <div class="owner_content">
+                    <h4>総合評価</h4>
+                    <p>預かってくれた方の総合評価をお願いします。</p>
+                </div>
+
+                <div class="evaluation" id="eva_owner">
+                    <input class="eva_owner" id="star1" type="radio" name="overall" value="5" />
+                    <label for="star1">★</label>
+                    <input class="eva_owner" id="star2" type="radio" name="overall" value="4" />
+                    <label for="star2">★</label>
+                    <input class="eva_owner" id="star3" type="radio" name="overall" value="3" />
+                    <label for="star3">★</label>
+                    <input class="eva_owner" id="star4" type="radio" name="overall" value="2" />
+                    <label for="star4">★</label>
+                    <input class="eva_owner" id="star5" type="radio" name="overall" value="1" />
+                    <label for="star5">★</label>
+                </div>
+                <div id="check" class="check_eva"></div>
+            </div>
+
+            <div class="private">
+                <div class="owner_content">
+                    <h4>非公開の評価</h4>
+                </div>
+                <div class="owner_content">
+                    <h4>コミュニケーション</h4>
+                </div>
+                <div class="evaluation">
+                    <input class="com" id="communication1" type="radio" name="communication" value="5" />
+                    <label for="communication1">★</label>
+                    <input class="com" id="communication2" type="radio" name="communication" value="4" />
+                    <label for="communication2">★</label>
+                    <input class="com" id="communication3" type="radio" name="communication" value="3" />
+                    <label for="communication3">★</label>
+                    <input class="com" id="communication4" type="radio" name="communication" value="2" />
+                    <label for="communication4">★</label>
+                    <input class="com" id="communication5" type="radio" name="communication" value="1" />
+                    <label for="communication5">★</label>
+                </div>
+                <div id="check_com" class="check_eva"></div>
+
+                <div class="owner_content">
+                    <h4>サービスの感想</h4>
+                </div>
+                <div class="evaluation">
+                    <input class="ser" id="service1" type="radio" name="service" value="5" />
+                    <label for="service1">★</label>
+                    <input class="ser" id="service2" type="radio" name="service" value="4" />
+                    <label for="service2">★</label>
+                    <input class="ser" id="service3" type="radio" name="service" value="3" />
+                    <label for="service3">★</label>
+                    <input class="ser" id="service4" type="radio" name="service" value="2" />
+                    <label for="service4">★</label>
+                    <input class="ser" id="service5" type="radio" name="service" value="1" />
+                    <label for="service5">★</label>
+                </div>
+                <div id="check_ser" class="check_eva"></div>
+            </div>
+            <div class="owner_judg3">
+                <div id="owner_judg4">
+                    <input id="input_judge" type="submit" name="judge" value="送信する">
+                </div>
+           </div>
+        <% end %>
+>>>>>>> refs/remotes/origin/master
     </div>
 </div>
 

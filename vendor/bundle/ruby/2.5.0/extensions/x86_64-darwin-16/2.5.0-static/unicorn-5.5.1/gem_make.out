@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-i1atx7.rb extconf.rb
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-1njoua5.rb extconf.rb
+>>>>>>> refs/remotes/origin/master
 checking for SIZEOF_OFF_T in ruby.h... yes
 checking for SIZEOF_SIZE_T in ruby.h... yes
 checking for SIZEOF_LONG in ruby.h... yes
@@ -10,15 +15,28 @@ checking if String#-@ (str_uminus) dedupes... yes
 checking if Hash#[]= (rb_hash_aset) dedupes... no, needs Ruby 2.6+
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling httpdate.c
 compiling unicorn_http.c
 linking shared-object unicorn_http.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 unicorn_http.bundle ./.gem.20190814-89855-1ntv2vz
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unicorn-5.5.1/ext/unicorn_http
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unicorn_http.bundle ./.gem.20190719-43148-zvskcn
+>>>>>>> refs/remotes/origin/master

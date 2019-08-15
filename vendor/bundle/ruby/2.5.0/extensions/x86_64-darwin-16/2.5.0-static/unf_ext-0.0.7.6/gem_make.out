@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
 /Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190814-89855-1h0x06u.rb extconf.rb
 checking for -lstdc++... yes
@@ -7,6 +8,17 @@ current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/rub
 make "DESTDIR=" clean
 
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+/Users/shinkaihideto/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190719-43148-1suxc3j.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+make "DESTDIR=" clean
+
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+>>>>>>> refs/remotes/origin/master
 make "DESTDIR="
 compiling unf.cc
 In file included from unf.cc:1:
@@ -33,6 +45,12 @@ In file included from unf.cc:1:
 5 warnings generated.
 linking shared-object unf_ext.bundle
 
+<<<<<<< HEAD
 current directory: /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
 make "DESTDIR=" install
 /usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20190814-89855-ut57ss
+=======
+current directory: /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20190719-43148-13fvb9x
+>>>>>>> refs/remotes/origin/master

@@ -129,6 +129,7 @@
                 <% if @num == 0 %>
                 <% else %>
                     <% @histories.each do | history | %>
+<<<<<<< HEAD
                         <%
                            @request = Request.find_by(id: history.request)
                             if @request.user_id == history.user_id && history.user_id == @user.id
@@ -146,12 +147,45 @@
                         <div class="user_containar000">
                             <div class="icon_wrapp000">
                                 <% if @partner.image_name %>
+=======
+  <!-----アイコン画像有無-------------------------------------->
+                        <div class="user_containar000">
+
+                            <% @partner = User.find_by(id: history.user_id)
+                               @request = Request.find_by(id: history.request)
+
+                               if @request.user_id == history.partner
+                                    @servise = "ワンちゃんを預かってもらった"
+                                    @evaluation = Evaluation.find_by(request_id: @request.id)
+                                    @overall = @evaluation.overall
+                                else
+                                    @servise = "ワンちゃんを預かった"
+                                    @storage = Storage.find_by(request_id: @request.id)
+                                    @overall = @storage.overall
+                                end
+                            %>
+
+
+                            <% if @partner.image_name %>
+  <!-----アイコン画像有-------------------------------------->
+
+  <!-----user_containar要素1-------------------------------------->
+                                <div class="icon_wrapp000">
+>>>>>>> refs/remotes/origin/master
                                     <%= link_to("/users/seen/#{@partner.id}") do %>
                                         <div class="users_icon">
                                             <img class="icon_img" src="<%= "/user_images/#{@partner.image_name}" %>" alt="">
                                         </div>
                                     <% end %>
+<<<<<<< HEAD
                                 <% else %>
+=======
+                                    <p><%= @partner.name %></p>
+                                </div>
+                            <% else %>
+
+                                <div class="icon_wrapp000">
+>>>>>>> refs/remotes/origin/master
                                     <div class="users_icon000">
                                         <%= link_to("/users/seen/#{@partner.id}") do %>
                                             <i class="fas fa-user-circle fa-8x icon_color" id="history"></i>
@@ -161,10 +195,17 @@
                                             </div>
                                         <% end %>
                                     </div>
+<<<<<<< HEAD
                                 <% end %>
                                 <p class="no_icon"><%= @partner.name %></p>
                             </div>
 
+=======
+                                    <p class="no_icon"><%= @partner.name %></p>
+                                </div>
+
+                            <% end %>
+>>>>>>> refs/remotes/origin/master
 
   <!-----user_containar要素2-------------------------------------->
                             <%= link_to("/dog/details/#{@request.id}") do %>
@@ -191,6 +232,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <!--スマホ-->
 <div class="history_s">
     <div class="evaluation_head">
@@ -252,3 +294,5 @@
         <% end %>
     <% end %>
 </div>
+=======
+>>>>>>> refs/remotes/origin/master

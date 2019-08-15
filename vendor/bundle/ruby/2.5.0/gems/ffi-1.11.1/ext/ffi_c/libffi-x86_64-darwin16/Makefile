@@ -16,7 +16,11 @@
 
 
 
+<<<<<<< HEAD
 VPATH = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+=======
+VPATH = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+>>>>>>> refs/remotes/origin/master
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -318,16 +322,26 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
+<<<<<<< HEAD
 ACLOCAL = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing aclocal-1.15
+=======
+ACLOCAL = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing aclocal-1.15
+>>>>>>> refs/remotes/origin/master
 ALLOCA = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AM_LTLDFLAGS = 
 AM_RUNTESTFLAGS = 
 AR = ar
+<<<<<<< HEAD
 AUTOCONF = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing autoconf
 AUTOHEADER = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing autoheader
 AUTOMAKE = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing automake-1.15
+=======
+AUTOCONF = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing autoconf
+AUTOHEADER = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing autoheader
+AUTOMAKE = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing automake-1.15
+>>>>>>> refs/remotes/origin/master
 AWK = awk
 CC = clang
 CCAS = clang
@@ -357,7 +371,11 @@ FGREP = /usr/bin/grep -F
 GREP = /usr/bin/grep
 HAVE_LONG_DOUBLE = 1
 HAVE_LONG_DOUBLE_VARIANT = 0
+<<<<<<< HEAD
 INSTALL = /usr/local/bin/ginstall -c
+=======
+INSTALL = /usr/bin/install -c
+>>>>>>> refs/remotes/origin/master
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -372,9 +390,15 @@ LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = #
+<<<<<<< HEAD
 MAKEINFO = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/local/bin/gmkdir -p
+=======
+MAKEINFO = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/missing makeinfo
+MANIFEST_TOOL = :
+MKDIR_P = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/install-sh -c -d
+>>>>>>> refs/remotes/origin/master
 NM = /usr/bin/nm -B
 NMEDIT = nmedit
 OBJDUMP = objdump
@@ -401,10 +425,17 @@ TARGET = X86_64
 TARGETDIR = x86
 TARGET_OBJ =  src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffiw64.lo src/x86/win64.lo
 VERSION = 3.99999
+<<<<<<< HEAD
 abs_builddir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16
 abs_srcdir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
 abs_top_builddir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16
 abs_top_srcdir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+=======
+abs_builddir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16
+abs_srcdir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+abs_top_builddir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi-x86_64-darwin16
+abs_top_srcdir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+>>>>>>> refs/remotes/origin/master
 ac_ct_AR = ar
 ac_ct_CC = clang
 ac_ct_CXX = g++
@@ -435,7 +466,11 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
+<<<<<<< HEAD
 install_sh = ${SHELL} /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/install-sh
+=======
+install_sh = ${SHELL} /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi/install-sh
+>>>>>>> refs/remotes/origin/master
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -450,7 +485,11 @@ psdir = ${docdir}
 runstatedir = ${localstatedir}/run
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
+<<<<<<< HEAD
 srcdir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+=======
+srcdir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+>>>>>>> refs/remotes/origin/master
 sys_symbol_underscore = yes
 sysconfdir = ${prefix}/etc
 target = x86_64-apple-darwin18.5.0
@@ -462,7 +501,11 @@ toolexecdir = ${exec_prefix}/lib/gcc-lib/$(target_alias)
 toolexeclibdir = ${exec_prefix}/lib
 top_build_prefix = 
 top_builddir = .
+<<<<<<< HEAD
 top_srcdir = /Users/shinkaihideto/Desktop/remote/current/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+=======
+top_srcdir = /Users/shinkaihideto/Desktop/secondhouse_test0703/vendor/bundle/ruby/2.5.0/gems/ffi-1.11.1/ext/ffi_c/libffi
+>>>>>>> refs/remotes/origin/master
 AUTOMAKE_OPTIONS = foreign subdir-objects
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = include testsuite man $(am__append_1)
