@@ -38,11 +38,11 @@ namespace :unicorn do
 
   def unicorn_pid
     begin
-<<<<<<< HEAD
+
       File.read("/home/localadm/tmp/pids/unicorn.pid").to_i
-=======
+
       File.read("/Users/shinkaihideto/Desktop/secondhouse_test0719:2/tmp/unicorn.pid").to_i
->>>>>>> refs/remotes/origin/master
+
     rescue Errno::ENOENT
       raise "Unicorn does not seem to be running"
     end
