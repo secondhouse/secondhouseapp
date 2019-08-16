@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2019_07_15_113948) do
 
-<<<<<<< HEAD
+
   create_table "banks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "banks", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.string "bank_name"
     t.string "branch"
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "sender_id"
   end
 
-<<<<<<< HEAD
+
   create_table "breeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "breeds", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "request_id"
     t.string "breed1"
     t.string "breed2"
@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.string "address"
   end
 
-<<<<<<< HEAD
+
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "cards", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "number"
     t.integer "year"
     t.integer "mouth"
@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "user_id"
   end
 
-<<<<<<< HEAD
+
   create_table "dog_evaluations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "dog_evaluations", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "rater_id"
     t.integer "overall"
@@ -87,11 +87,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "dog_id"
   end
 
-<<<<<<< HEAD
+
   create_table "dogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "dogs", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.string "name"
     t.string "image_name"
     t.string "sex"
@@ -106,11 +106,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.string "user_id"
   end
 
-<<<<<<< HEAD
+
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "entries", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "request_id"
     t.integer "user_id"
     t.integer "entry_id"
@@ -118,11 +118,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "evaluations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "evaluations", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "rater_id"
     t.integer "overall"
@@ -133,11 +133,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "request_id"
   end
 
-<<<<<<< HEAD
+
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "follows", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "receive"
     t.integer "valule"
@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "histories", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "partner"
     t.integer "request"
@@ -157,11 +157,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "information", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.string "user_id"
     t.string "dog_id"
     t.string "introduction"
@@ -169,22 +169,22 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "inquiries", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.string "name"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "messeages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "messeages", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "send_id"
     t.integer "post_id"
     t.text "messe"
@@ -194,11 +194,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "privates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "privates", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "rater_id"
     t.integer "communication"
@@ -208,11 +208,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "questions", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.text "content"
     t.string "kind"
@@ -221,11 +221,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "request_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "request_details", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "request_id"
     t.integer "amount"
     t.datetime "created_at", null: false
@@ -236,11 +236,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "status"
   end
 
-<<<<<<< HEAD
+
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "requests", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.datetime "waiting"
     t.datetime "end"
     t.string "adress"
@@ -266,11 +266,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "status_partner"
   end
 
-<<<<<<< HEAD
+
   create_table "status_dogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "status_dogs", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.string "user_id"
     t.string "dog_id"
     t.string "introduction"
@@ -278,11 +278,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "statuses", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.string "introduction"
     t.string "string"
     t.datetime "created_at", null: false
@@ -290,11 +290,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "user_id"
   end
 
-<<<<<<< HEAD
+
   create_table "storages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "storages", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "rater_id"
     t.string "comment"
@@ -307,11 +307,11 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "request_id"
   end
 
-<<<<<<< HEAD
+
   create_table "token2s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "token2s", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.string "uuid"
     t.datetime "expired_at"
@@ -319,16 +319,16 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+
   create_table "transfers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-=======
+
   create_table "tokens", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transfers", force: :cascade do |t|
->>>>>>> refs/remotes/origin/master
+
     t.integer "user_id"
     t.integer "total"
     t.integer "bank_id"
@@ -337,15 +337,15 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "status"
   end
 
-<<<<<<< HEAD
+
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "phone"
-=======
+
   create_table "user_details", force: :cascade do |t|
     t.integer "user_id"
     t.string "phone"
->>>>>>> refs/remotes/origin/master
+
     t.string "name_last"
     t.string "name_first"
     t.string "name_last_reading"
@@ -360,7 +360,7 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.integer "pay"
   end
 
-<<<<<<< HEAD
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -375,9 +375,9 @@ ActiveRecord::Schema.define(version: 2019_07_15_113948) do
     t.string "password_digest"
     t.string "image_name"
   end
-=======
+
 # Could not dump table "users" because of following StandardError
 #   Unknown type '' for column 'password_digest'
->>>>>>> refs/remotes/origin/master
+
 
 end
