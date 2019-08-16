@@ -3,31 +3,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
-<<<<<<< HEAD
 #gem 'sqlite3'
 gem 'mysql2'
-=======
-
->>>>>>> refs/remotes/origin/master
 
 #7/18追記
 #gem 'mysql2'
 
-<<<<<<< HEAD
 gem 'unicorn'
-=======
-
->>>>>>> refs/remotes/origin/master
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -62,11 +50,7 @@ gem 'actionpack-page_caching'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-<<<<<<< HEAD
 
-=======
-gem 'therubyracer',  platforms: :ruby
->>>>>>> refs/remotes/origin/master
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,20 +58,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-<<<<<<< HEAD
   # 追加
   #gem 'sqlite3'
-=======
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano3-unicorn'
-  gem 'sqlite3'
-  #7/19
-   #gem "growl", group: :darwin
-  # 追加
->>>>>>> refs/remotes/origin/master
 end
 
 group :development do
@@ -98,7 +70,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # 以下追記
-<<<<<<< HEAD
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -110,15 +81,6 @@ group :production, :staging do
  # 以下追記
 # gem 'unicorn'
  gem 'listen', '>= 3.0.5', '< 3.2'
-=======
-
-end
-
-group :production, :staging do
- gem 'mysql2'
- # 以下追記
- gem 'unicorn'
->>>>>>> refs/remotes/origin/master
 end
 
 
