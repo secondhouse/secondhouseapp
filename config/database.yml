@@ -10,7 +10,7 @@ default: &default
   timeout: 5000
 
 development:
-<<<<<<< HEAD
+
  adapter: mysql2
  encoding: utf8
  database: secondhouse
@@ -22,10 +22,10 @@ development:
 
 # <<: *default
  # database: db/development.sqlite3
-=======
+
   <<: *default
   database: db/development.sqlite3
->>>>>>> refs/remotes/origin/master
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
